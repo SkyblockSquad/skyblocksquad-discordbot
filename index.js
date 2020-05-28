@@ -28,6 +28,8 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("BOT COMMAND HELP")
             .setDescription("Coming soon!")
+
+            return message.channel.send(botEmbed);
     }
 
 });
