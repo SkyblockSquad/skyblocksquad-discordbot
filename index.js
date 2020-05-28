@@ -34,3 +34,19 @@ client.on("message", async message => {
     }
 
 });
+
+client.on("message", async message => {
+
+    if(message.author.bot) return;
+
+    if(message.channel.type == "dm") {
+        
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle("OOPS...")
+            .setDescription("For a list of commands, say ',help' in a server channel.")
+            .setColor("#32c5e3");
+
+        return message.channel.send();
+    }
+
+});
