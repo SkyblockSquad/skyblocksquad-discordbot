@@ -26,12 +26,28 @@ client.on("message", async message => {
     if(command === `${prefix}help`) {
 
         var botEmbed = new discord.MessageEmbed()
-            .setTitle("BOT COMMAND HELP")
+            .setTitle("COMMAND HELP")
             .setDescription("Still work in progress...")
             .setColor("#32c5e3")
             .setFooter("Bot made by UltraDeveloper");
 
             return message.channel.send(botEmbed);
+    }
+
+    if(command === `${prefix}info`) {
+
+        var owner = new discord.Message(message.guild.owner + message.guild.ownerID);
+        return message.channel(owner)
+
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle("SERVER INFO")
+            .setColor("#32c5e3")
+            .setFooter("Bot made by UltraDeveloper")
+            .addFields(
+                {name: "Server Name", value:message.guild.name},
+                {name: "Server Owner", value:message.guild.owner, messag}
+            );
+
     }
 
 });
