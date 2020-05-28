@@ -28,8 +28,8 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("BOT COMMAND HELP")
             .setDescription("Still work in progress...")
-            .setColor("#32c5e3");
-            .setFooter("Bot made by UltraDeveloper")
+            .setColor("#32c5e3")
+            .setFooter("Bot made by UltraDeveloper");
 
             return message.channel.send(botEmbed);
     }
