@@ -1,0 +1,23 @@
+{
+  "name": "skyblocksquad-bot",
+  "version": "1.0.0",
+  "description": "A bot made for the SkyblockSquad discord server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "skyblocksquad"
+  ],
+  "author": "UltraDeveloper",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
