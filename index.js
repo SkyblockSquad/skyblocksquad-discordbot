@@ -27,7 +27,8 @@ client.on("message", async message => {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("BOT COMMAND HELP")
-            .setDescription("Coming soon!")
+            .setDescription("Still work in progress...")
+            .setColor("#32c5e3");
 
             return message.channel.send(botEmbed);
     }
