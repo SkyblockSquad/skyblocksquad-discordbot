@@ -36,16 +36,12 @@ client.on("message", async message => {
 
     if(command === `${prefix}info`) {
 
-        var owner = new discord.Message(message.guild.owner + message.guild.ownerID);
-        return message.channel(owner)
-
         var botEmbed = new discord.MessageEmbed()
             .setTitle("SERVER INFO")
             .setColor("#32c5e3")
             .setFooter("Bot made by UltraDeveloper")
             .addFields(
-                {name: "Server Name", value:message.guild.name},
-                {name: "Server Owner", value:message.guild.owner, messag}
+                {name: "Server Name", value:message.guild.name}
             );
 
     }
