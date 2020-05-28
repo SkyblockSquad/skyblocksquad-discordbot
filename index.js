@@ -46,7 +46,7 @@ client.on("message", async message => {
             .setDescription("For a list of commands, say ',help' in a server channel.")
             .setColor("#32c5e3");
 
-        return message.channel.send();
+        return message.channel.send(botEmbed);
     }
 
 });
