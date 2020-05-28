@@ -29,6 +29,7 @@ client.on("message", async message => {
             .setTitle("BOT COMMAND HELP")
             .setDescription("Still work in progress...")
             .setColor("#32c5e3");
+            .setFooter("Bot made by UltraDeveloper")
 
             return message.channel.send(botEmbed);
     }
@@ -43,8 +44,9 @@ client.on("message", async message => {
         
         var botEmbed = new discord.MessageEmbed()
             .setTitle("OOPS...")
-            .setDescription("For a list of commands, say ',help' in a server channel.")
-            .setColor("#32c5e3");
+            .setDescription("For a list of commands type \",help\" in a server channel for a list of commands!")
+            .setColor("#32c5e3")
+            .setFooter("Bot made by UltraDeveloper");
 
         return message.channel.send(botEmbed);
     }
