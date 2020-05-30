@@ -47,7 +47,8 @@ client.on("message", async message => {
                 {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
                 {name: "Server Member Count", value:message.guild.memberCount},
                 {name: "Bot Prefix", value:prefix},
-                {name: "Bot Embed Color", value:embedColor}
+                {name: "Bot Embed Color", value:embedColor},
+                {name: "Bot Uptime", value:client.uptime}
             );
 
             return message.channel.send(botEmbed);
