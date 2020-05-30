@@ -37,7 +37,7 @@ client.on("message", async message => {
             .addFields(
                 {name: `${prefix}help`, value: "Display this list!"},
                 {name: `${prefix}info`, value: "Display bot and server info!"},
-                {ame: `${prefix}me`, value: "Display info about yourself!"},
+                {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"}
             )
 
@@ -57,7 +57,8 @@ client.on("message", async message => {
             botEmbed.addFields(
                 {name: "Server Name", value:message.guild.name},
                 {name: "Server Member Count", value:message.guild.memberCount},
-                {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`}
+                {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
+                {name: "Server Channel", value: message.channel.name}
             );            
 
         }
