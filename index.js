@@ -4,6 +4,7 @@ const botConfig = require("./botconfig.json");
 
 // Variables
 var prefix = botConfig.prefix;
+var embedColor = "#ed2121";
 
 // Login bot
 const client = new discord.Client();
@@ -31,7 +32,7 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("COMMAND HELP")
             .setDescription("Still work in progress...")
-            .setColor("#ed2121")
+            .setColor(embedColor)
 
             return message.channel.send(botEmbed);
     }
@@ -40,11 +41,13 @@ client.on("message", async message => {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("SERVER INFO")
-            .setColor("#ed2121")
+            .setColor(embedColor)
             .addFields(
                 {name: "Server Name", value:message.guild.name},
                 {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
-                {name: "Server Member Count", value:message.guild.memberCount}
+                {name: "Server Member Count", value:message.guild.memberCount},
+                {name: "Bot Prefix", value:prefix},
+                {name: "Bot Embed Color", value:embedColor}
             );
 
             return message.channel.send(botEmbed);
@@ -61,7 +64,7 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("OOPS...")
             .setDescription("For a list of commands type \",help\" in a server channel for a list of commands!")
-            .setColor("#ed2121")
+            .setColor(embedColor)
 
         return message.channel.send(botEmbed);
     }
