@@ -22,7 +22,6 @@ client.on("ready", async () => {
 client.on("message", async message => {
     
     if(message.author.bot) return;
-    if(message.channel.type == "dm") return;
 
     var messageArray = message.content.split(" ");
     var command = messageArray[0]
@@ -61,22 +60,6 @@ client.on("message", async message => {
         );
 
             return message.channel.send(botEmbed);
-    }
-
-});
-
-// DM messages
-client.on("message", async message => {
-
-    if(message.author.bot) return;
-    if(message.channel.type == "dm") {
-        
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("OOPS...")
-            .setDescription(`For a list of commands type \"${prefix}help\" in a server channel for a list of commands!`)
-            .setColor(embedColor)
-
-        return message.channel.send(botEmbed);
     }
 
 });
