@@ -29,16 +29,19 @@ client.on("message", async message => {
     if(command === `${prefix}help`) {
 
         var botEmbed = new discord.MessageEmbed()
-            .setTitle("COMMAND HELP")
-            .setDescription("Still work in progress...")
+            .setTitle("HELP")
             .setColor(embedColor)
+            .addFields(
+                {name: `${prefix}help`, value: "Display this list"},
+                {name: `${prefix}info`, value: "Display bot and server info"}
+            )
 
             return message.channel.send(botEmbed);
     }
 
     if(command === `${prefix}info`) {
 
-        var embedTitle = "SERVER INFO";
+        var embedTitle = "INFO";
 
         if(!(message.channel.type == "dm")) {
 
@@ -61,7 +64,8 @@ client.on("message", async message => {
         botEmbed.addFields(
             {name: "Bot Prefix", value:prefix},
             {name: "Bot Embed Color", value:embedColor},
-            {name: "Bot Uptime", value:client.uptime}
+            {name: "Bot Uptime", value:client.uptime},
+            {name: "Test", value:client.user}
         );
 
             return message.channel.send(botEmbed);
