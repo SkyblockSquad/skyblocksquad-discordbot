@@ -73,7 +73,7 @@ client.on("message", async message => {
 
     if(command === `${prefix}hello`) {
 
-        return message.channel.send(`Hello there, ${message.user}`);
+        return message.channel.send(`Hello there, ${message.user.username}`);
 
     }
  
