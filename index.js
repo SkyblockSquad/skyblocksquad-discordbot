@@ -51,7 +51,12 @@ client.on("message", async message => {
                 {name: "Server Member Count", value:message.guild.memberCount},
             );            
 
-        } 
+        } else {
+
+            var botEmbed = new discord.MessageEmbed()
+                .setTitle(embedTitle)
+                .setColor(embedColor)
+        }
 
         botEmbed.addFields(
             {name: "Bot Prefix", value:prefix},
