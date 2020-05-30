@@ -1,9 +1,12 @@
+// Setup
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
+// Login bot
 const client = new discord.Client();
 client.login(process.env.token);
 
+// Console log & set activity
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
@@ -11,16 +14,14 @@ client.on("ready", async () => {
 
 });
 
+// Bot commands
 client.on("message", async message => {
-
+    
     if(message.author.bot) return;
-
     if(message.channel.type == "dm") return;
 
     var prefix = botConfig.prefix;
-
     var messageArray = message.content.split(" ");
-
     var command = messageArray[0]
 
     if(command === `${prefix}help`) {
@@ -42,6 +43,7 @@ client.on("message", async message => {
                 {name: "Server Name", value:message.guild.name}
             );
 
+            return message.channel.send(botEmbed);
     }
 
 });
