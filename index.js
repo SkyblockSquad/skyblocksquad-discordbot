@@ -39,18 +39,26 @@ client.on("message", async message => {
 
     if(command === `${prefix}info`) {
 
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("SERVER INFO")
+        var embedTitle = "SERVER INFO";
+
+        if(!(message.channel.type == "dm")) {
+
+            var botEmbed = new discord.MessageEmbed()
+            .setTitle(embedTitle)
             .setColor(embedColor)
             .addFields(
                 {name: "Server Name", value:message.guild.name},
                 {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
                 {name: "Server Member Count", value:message.guild.memberCount},
-                {name: "Server Members", value:message.guild.members},
-                {name: "Bot Prefix", value:prefix},
-                {name: "Bot Embed Color", value:embedColor},
-                {name: "Bot Uptime", value:client.uptime}
-            );
+            );            
+
+        } 
+
+        botEmbed.addFields(
+            {name: "Bot Prefix", value:prefix},
+            {name: "Bot Embed Color", value:embedColor},
+            {name: "Bot Uptime", value:client.uptime}
+        );
 
             return message.channel.send(botEmbed);
     }
@@ -65,7 +73,7 @@ client.on("message", async message => {
         
         var botEmbed = new discord.MessageEmbed()
             .setTitle("OOPS...")
-            .setDescription("For a list of commands type \",help\" in a server channel for a list of commands!")
+            .setDescription(`For a list of commands type \"${prefix}help\" in a server channel for a list of commands!`)
             .setColor(embedColor)
 
         return message.channel.send(botEmbed);
