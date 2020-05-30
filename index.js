@@ -14,7 +14,7 @@ client.login(process.env.token);
 // Console log + set activity
 client.on("ready", async () => {
 
-    console.log(`${client.user.username} is online.`);
+    console.log(`${client.user.username} is ready.`);
     client.user.setActivity(",help", {type: "PLAYING"});
 
 });
@@ -31,6 +31,7 @@ client.on("message", async message => {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("HELP")
+            .setDescription("See a list of bot commands below!")
             .setColor(embedColor)
             .setFooter(embedFooter)
             .setTimestamp()
@@ -48,6 +49,7 @@ client.on("message", async message => {
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle("INFO")
+        .setDescription("See info about the bot and the server below!")
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
@@ -58,7 +60,8 @@ client.on("message", async message => {
                 {name: "Server Name", value:message.guild.name},
                 {name: "Server Member Count", value:message.guild.memberCount},
                 {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
-                {name: "Server Channel", value: message.channel.name}
+                {name: "Server Icon", value:message.guild.icon},
+                {name: "Server Channel", value:message.channel.name}
             );            
 
         }
@@ -77,13 +80,13 @@ client.on("message", async message => {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("ME")
+            .setDescription("See info about you below!")
             .setColor(embedColor)
             .setFooter(embedFooter)
             .setTimestamp()
             .addFields(
                 {name: "Your Username", value: `${message.author.username} (${message.author.username.length} characters)`},
-                {name: "Your Tag", value:message.author.tag},
-                {name: "Your Last Message", value: `${message.author.lastMessage} (${message.author.lastMessageID})`}
+                {name: "Your Tag", value:message.author.tag}
             );
 
             return message.channel.send(botEmbed);
