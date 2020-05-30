@@ -60,7 +60,6 @@ client.on("message", async message => {
                 {name: "Server Name", value:message.guild.name},
                 {name: "Server Member Count", value:message.guild.memberCount},
                 {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
-                {name: "Server Icon", value:message.guild.icon},
                 {name: "Server Channel", value:message.channel.name}
             );            
 
