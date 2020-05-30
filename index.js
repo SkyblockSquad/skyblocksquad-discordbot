@@ -2,6 +2,9 @@
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
+// Variables
+var prefix = botConfig.prefix;
+
 // Login bot
 const client = new discord.Client();
 client.login(process.env.token);
@@ -20,7 +23,6 @@ client.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type == "dm") return;
 
-    var prefix = botConfig.prefix;
     var messageArray = message.content.split(" ");
     var command = messageArray[0]
 
@@ -29,7 +31,7 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("COMMAND HELP")
             .setDescription("Still work in progress...")
-            .setColor("#32c5e3")
+            .setColor("#ed2121")
 
             return message.channel.send(botEmbed);
     }
@@ -38,9 +40,11 @@ client.on("message", async message => {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle("SERVER INFO")
-            .setColor("#32c5e3")
+            .setColor("#ed2121")
             .addFields(
-                {name: "Server Name", value:message.guild.name}
+                {name: "Server Name", value:message.guild.name},
+                {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
+                {name: "Server Member Count", value:message.guild.memberCount}
             );
 
             return message.channel.send(botEmbed);
@@ -48,16 +52,16 @@ client.on("message", async message => {
 
 });
 
+// DM messages
 client.on("message", async message => {
 
     if(message.author.bot) return;
-
     if(message.channel.type == "dm") {
         
         var botEmbed = new discord.MessageEmbed()
             .setTitle("OOPS...")
             .setDescription("For a list of commands type \",help\" in a server channel for a list of commands!")
-            .setColor("#32c5e3")
+            .setColor("#ed2121")
 
         return message.channel.send(botEmbed);
     }
