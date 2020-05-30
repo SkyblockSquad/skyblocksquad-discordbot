@@ -32,9 +32,12 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("HELP")
             .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
             .addFields(
                 {name: `${prefix}help`, value: "Display this list!"},
                 {name: `${prefix}info`, value: "Display bot and server info!"},
+                {ame: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"}
             )
 
@@ -46,6 +49,8 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
         .setTitle("INFO")
         .setColor(embedColor)
+        .setFooter(embedFooter)
+        .setTimestamp()
 
         if(!(message.channel.type == "dm")) {
 
@@ -72,11 +77,15 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("ME")
             .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
             .addFields(
-                {name: "Your Username", value:message.author.username},
+                {name: "Your Username", value: `${message.author.username} (${message.author.username.length} characters)`},
                 {name: "Your Tag", value:message.author.tag},
                 {name: "Your Last Message", value: `${message.author.lastMessage} (${message.author.lastMessageID})`}
             );
+
+            return message.channel.send(botEmbed);
 
     }
 
