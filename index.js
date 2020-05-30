@@ -65,10 +65,16 @@ client.on("message", async message => {
             {name: "Bot Prefix", value:prefix},
             {name: "Bot Embed Color", value:embedColor},
             {name: "Bot Uptime", value:client.uptime},
-            {name: "Test", value:client.user}
+            {name: "Bot Name", value:client.user}
         );
 
             return message.channel.send(botEmbed);
     }
 
+    if(command === `${prefix}hello`) {
+
+        return message.channel.send(`Hello there, ${message.user}`);
+
+    }
+ 
 });
