@@ -67,7 +67,6 @@ client.on("message", async message => {
 
         botEmbed.addFields(
             {name: "Bot Name", value:client.user},
-            {name: "Bot Prefix", value:prefix},
             {name: "Bot Embed Color", value:embedColor},
             {name: "Bot Uptime", value:client.uptime}
         );
