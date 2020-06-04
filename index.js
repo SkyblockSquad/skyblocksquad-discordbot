@@ -49,7 +49,7 @@ client.on("message", async message => {
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle("INFO")
-        .setDescription("See info about the bot and the server below!")
+        .setDescription("See info about the bot below!")
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
@@ -94,6 +94,25 @@ client.on("message", async message => {
     if(command === `${prefix}hello`) {
 
         return message.channel.send(`Hello there, ${message.author.username}!`);
+
+    }
+
+    if(command === `${prefix}stafflist`) {
+
+        var botEmbed = new discord.MessageEmbed()
+            .setTitle("STAFF LIST")
+            .setDescription("See a staff list below!")
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
+            .addFields(
+                {name: "Owner", value: "@UltraDucky741#8953"},
+                {name: "Admins", value: "@Dextube#4784, @IanThePro_TW#8502, @KingRabbit08#9960, @Wikihow007#0257"},
+                {name: "Moderators", value: ""},
+                {name: "Helpers", value: ""}
+            );
+
+            return message.channel.send(botEmbed);
 
     }
  
