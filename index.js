@@ -39,6 +39,7 @@ client.on("message", async message => {
                 {name: `${prefix}help`, value: "Display this list!"},
                 {name: `${prefix}info`, value: "Display bot and server info!"},
                 {name: `${prefix}me`, value: "Display info about yourself!"},
+                {name: `${prefix}stafflist`, value: "Displlay a list of staff!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"}
             )
 
@@ -99,6 +100,12 @@ client.on("message", async message => {
 
     if(command === `${prefix}stafflist`) {
 
+        let membersWithRole = message.guild.members.filter(member => { 
+            return member.roles.find("name", "Owner");
+        }).map(member => {
+            return member.user.username;
+        })
+
         var botEmbed = new discord.MessageEmbed()
             .setTitle("STAFF LIST")
             .setDescription("See a staff list below!")
@@ -106,10 +113,7 @@ client.on("message", async message => {
             .setFooter(embedFooter)
             .setTimestamp()
             .addFields(
-                {name: "Owner", value: "@UltraDucky741#8953"},
-                {name: "Admins", value: "@Dextube#4784, @IanThePro_TW#8502, @KingRabbit08#9960, @Wikihow007#0257"},
-                {name: "Moderators", value: "N/A"},
-                {name: "Helpers", value: "N/A"}
+                {name: "Owner", value: membersWithRole.join("\n")}
             );
 
             return message.channel.send(botEmbed);
