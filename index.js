@@ -100,12 +100,6 @@ client.on("message", async message => {
 
     if(command === `${prefix}stafflist`) {
 
-        let membersWithRole = message.guild.members.filter(member => { 
-            return member.roles.find("name", "Owner");
-        }).map(member => {
-            return member.user.username;
-        })
-
         var botEmbed = new discord.MessageEmbed()
             .setTitle("STAFF LIST")
             .setDescription("See a staff list below!")
@@ -113,7 +107,7 @@ client.on("message", async message => {
             .setFooter(embedFooter)
             .setTimestamp()
             .addFields(
-                {name: "Owner", value: membersWithRole.join("\n")}
+                {name: "Owner", value: "N/A"}
             );
 
             return message.channel.send(botEmbed);
