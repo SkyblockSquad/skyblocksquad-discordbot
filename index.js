@@ -108,8 +108,8 @@ client.on("message", async message => {
             .addFields(
                 {name: "Owner", value: "@UltraDucky741#8953"},
                 {name: "Admins", value: "@Dextube#4784, @IanThePro_TW#8502, @KingRabbit08#9960, @Wikihow007#0257"},
-                {name: "Moderators", value: ""},
-                {name: "Helpers", value: ""}
+                {name: "Moderators", value: "N/A"},
+                {name: "Helpers", value: "N/A"}
             );
 
             return message.channel.send(botEmbed);
