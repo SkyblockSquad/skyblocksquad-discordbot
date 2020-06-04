@@ -94,7 +94,7 @@ client.on("message", async message => {
 
     if(command === `${prefix}hello`) {
 
-        return message.channel.send(`Hello there, ${message.author.username}!`);
+        return message.channel.send(`Hello there, ${message.author.tag}`);
 
     }
 
