@@ -107,7 +107,7 @@ client.on("message", async message => {
             .setFooter(embedFooter)
             .setTimestamp()
             .addFields(
-                {name: "Owner", value: "N/A"}
+                {name: "Owner", value: `<@${message.guild.ownerID}>`}
             );
 
             return message.channel.send(botEmbed);
