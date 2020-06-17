@@ -39,7 +39,6 @@ client.on("message", async message => {
                 {name: `${prefix}help`, value: "Display this list!"},
                 {name: `${prefix}info`, value: "Display bot and server info!"},
                 {name: `${prefix}me`, value: "Display info about yourself!"},
-                {name: `${prefix}stafflist`, value: "Displlay a list of staff!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"}
             )
 
@@ -84,8 +83,9 @@ client.on("message", async message => {
             .setFooter(embedFooter)
             .setTimestamp()
             .addFields(
-                {name: "Your Username", value: `${message.author.username} (${message.author.username.length} characters)`},
-                {name: "Your Tag", value:message.author.tag}
+                {name: `${message.author.username}'s Name`, value:message.author.user},
+                {name: `${message.author.username}' Joined Discord At`, value:message.author.createdAt},
+                {name: `${message.author.username}'s User ID `, value:message.author.id}
             );
 
             return message.channel.send(botEmbed);
@@ -94,23 +94,7 @@ client.on("message", async message => {
 
     if(command === `${prefix}hello`) {
 
-        return message.channel.send(`Hello there, ${message.author.tag}`);
-
-    }
-
-    if(command === `${prefix}stafflist`) {
-
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("STAFF LIST")
-            .setDescription("See a staff list below!")
-            .setColor(embedColor)
-            .setFooter(embedFooter)
-            .setTimestamp()
-            .addFields(
-                {name: "Owner", value: `<@${message.guild.ownerID}>`}
-            );
-
-            return message.channel.send(botEmbed);
+        return message.channel.send(`Hello there, ${message.author.user}`);
 
     }
  
