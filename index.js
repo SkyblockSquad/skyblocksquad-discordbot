@@ -27,6 +27,10 @@ client.on("message", async message => {
     var messageArray = message.content.split(" ");
     var command = messageArray[0]
 
+    if(command.startsWith === `${prefix}`) {
+        console.log(`${message.author.username} used: "${command}" in channel type ${message.channel.type.toUpperCase}!`)
+    }
+
     if(command === `${prefix}help`) {
 
         var botEmbed = new discord.MessageEmbed()
@@ -83,9 +87,9 @@ client.on("message", async message => {
             .setFooter(embedFooter)
             .setTimestamp()
             .addFields(
-                {name: `${message.author.username}'s Name`, value:message.author.user},
-                {name: `${message.author.username}' Joined Discord At`, value:message.author.createdAt},
-                {name: `${message.author.username}'s User ID `, value:message.author.id}
+                {name: `${message.author.username}'s Name`, value: `<@${message.author.id}>`},
+                {name: `${message.author.username}'s User ID `, value:message.author.id},
+                {name: `${message.author.username} Joined Discord At`, value:message.author.createdAt}
             );
 
             return message.channel.send(botEmbed);
