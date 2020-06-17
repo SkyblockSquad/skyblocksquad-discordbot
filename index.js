@@ -27,7 +27,7 @@ client.on("message", async message => {
     var messageArray = message.content.split(" ");
     var command = messageArray[0]
 
-    console.log(`${message.author.username} used: "${command}" in channel type ${message.channel.type.toUpperCase}!`)
+    console.log(`${message.author.username} used: "${messageArray}" in channel type ${message.channel.type.toString}!`)
 
     if(command === `${prefix}help`) {
 
