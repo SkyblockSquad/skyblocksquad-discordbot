@@ -27,9 +27,7 @@ client.on("message", async message => {
     var messageArray = message.content.split(" ");
     var command = messageArray[0]
 
-    if(command.startsWith === `${prefix}`) {
-        console.log(`${message.author.username} used: "${command}" in channel type ${message.channel.type.toUpperCase}!`)
-    }
+    console.log(`${message.author.username} used: "${command}" in channel type ${message.channel.type.toUpperCase}!`)
 
     if(command === `${prefix}help`) {
 
@@ -98,7 +96,7 @@ client.on("message", async message => {
 
     if(command === `${prefix}hello`) {
 
-        return message.channel.send(`Hello there, ${message.author.user}`);
+        return message.channel.send(`Hello there, <@${message.author.id}>`);
 
     }
  
