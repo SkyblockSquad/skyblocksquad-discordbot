@@ -110,7 +110,7 @@ client.on("message", async message => {
     if(command === `${prefix}hack`) {
 
         if(message.channel.type == "dm") {
-            message.reply('This command has to be used in a server channel!');
+            message.channel.send('This command has to be used in a server channel!');
             return;
         }
 
@@ -125,16 +125,16 @@ client.on("message", async message => {
 		    const reaction = collected.first();
 
 		    if (reaction.emoji.name === '👍') {
-                message.reply('You wish.');
+                message.channel.send('You wish.');
                 message.reactions.removeAll();
 		    } else {
-                message.reply('You are a good boy!');
+                message.channel.send('You are a good boy!');
                 message.reactions.removeAll();
 		    }
 	    })
 	    .catch(collected => {
-            message.reply('Command has been cancelled.');
-            message.reply('Reason: No reaction within 30 seconds');
+            message.channel.send('Command has been cancelled.');
+            message.channel.send('Reason: No reaction within 30 seconds');
             message.reactions.removeAll();
 	    });
 
