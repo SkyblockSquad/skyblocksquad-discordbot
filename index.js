@@ -40,7 +40,6 @@ client.on("message", async message => {
                 {name: `${prefix}info`, value: "Display bot and server info!"},
                 {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
-                {name: `${prefix}fruits`, value: "See a list of delicious fruits!"},
                 {name: `${prefix}hack`, value: "Hack the server!"}
             )
 
@@ -98,13 +97,6 @@ client.on("message", async message => {
 
         return message.channel.send(`Hello there, <@${message.author.id}>!`);
 
-    }
-
-    if(command === `${prefix}fruits`) {
-
-        message.react('🍎');
-        message.react('🍊');
-        message.react('🍇');
     }
 
     if(command === `${prefix}hack`) {
