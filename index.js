@@ -101,7 +101,9 @@ client.on("message", async message => {
 
     if(command === `${prefix}fruits`) {
 
-        message.react(':apple:');
+        message.react('🍎');
+        message.react('🍊');
+        message.react('🍇');
     }
  
 });
