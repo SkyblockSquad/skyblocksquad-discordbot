@@ -5,7 +5,7 @@ const botConfig = require("./botconfig.json");
 // Setup variables
 var prefix = botConfig.prefix;
 var embedColor = "#ed2121";
-var embedFooter = "SkyblockSquad Bot";
+var embedFooter = "SkyblockSquad Bot, Made for the SkyblockSquad Discord Server";
 
 // Login the bot
 const client = new discord.Client();
@@ -27,8 +27,6 @@ client.on("message", async message => {
     var messageArray = message.content.split(" ");
     var command = messageArray[0]
 
-    console.log(`${message.author.username} used: "${messageArray}" in channel type ${message.channel.type}!`)
-
     if(command === `${prefix}help`) {
 
         var botEmbed = new discord.MessageEmbed()
@@ -41,7 +39,8 @@ client.on("message", async message => {
                 {name: `${prefix}help`, value: "Display this list!"},
                 {name: `${prefix}info`, value: "Display bot and server info!"},
                 {name: `${prefix}me`, value: "Display info about yourself!"},
-                {name: `${prefix}hello`, value: "Say hello to the bot!"}
+                {name: `${prefix}hello`, value: "Say hello to the bot!"},
+                {name: `${prefix}fruits`, value: "See a list of delicious fruits!!"}
             )
 
             return message.channel.send(botEmbed);
@@ -98,6 +97,11 @@ client.on("message", async message => {
 
         return message.channel.send(`Hello there, <@${message.author.id}>!`);
 
+    }
+
+    if(command === `${prefix}fruits`) {
+
+        message.react(':apple:');
     }
  
 });
