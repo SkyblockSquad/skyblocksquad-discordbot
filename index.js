@@ -111,6 +111,7 @@ client.on("message", async message => {
 
         if(message.channel.type == "dm") {
             message.reply('This command has to be used in a server channel!');
+            return;
         }
 
         message.react('👍').then(() => message.react('👎'));
