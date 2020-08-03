@@ -120,15 +120,18 @@ client.on("message", async message => {
 		    const reaction = collected.first();
 
 		    if (reaction.emoji.name === '👍') {
-			    message.reply('Lol no');
+			    message.reply('You wish.');
 		    } else {
-			    message.reply('You are a good boy ☺');
+			    message.reply('You are a good boy!');
 		    }
 	    })
 	    .catch(collected => {
-		    message.reply('Your command has been cancelled. Reason: You did not react within 30 seconds.');
+            message.reply('Command has been cancelled.');
+            message.reply('Reason: No reaction within 30 seconds');
 	    });
 
     }
+
+    message.reactions.removeAll();
  
 });
