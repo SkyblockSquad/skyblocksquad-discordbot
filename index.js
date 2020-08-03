@@ -40,7 +40,8 @@ client.on("message", async message => {
                 {name: `${prefix}info`, value: "Display bot and server info!"},
                 {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
-                {name: `${prefix}fruits`, value: "See a list of delicious fruits!!"}
+                {name: `${prefix}fruits`, value: "See a list of delicious fruits!"},
+                {name: `${prefix}hack`, value: "Hack the server! OwO"}
             )
 
             return message.channel.send(botEmbed);
@@ -104,6 +105,30 @@ client.on("message", async message => {
         message.react('🍎');
         message.react('🍊');
         message.react('🍇');
+    }
+
+    if(command === `${prefix}hack`) {
+
+        message.react('👍').then(() => message.react('👎'));
+
+    const filter = (reaction, user) => {
+	    return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+    };
+
+    message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] })
+	    .then(collected => {
+		    const reaction = collected.first();
+
+		    if (reaction.emoji.name === '👍') {
+			    message.reply('Lol no');
+		    } else {
+			    message.reply('You are a good boy ☺');
+		    }
+	    })
+	    .catch(collected => {
+		    message.reply('Your command has been cancelled. Reason: You did not react within 30 seconds.');
+	    });
+
     }
  
 });
