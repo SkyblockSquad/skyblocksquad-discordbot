@@ -41,7 +41,7 @@ client.on("message", async message => {
                 {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
                 {name: `${prefix}fruits`, value: "See a list of delicious fruits!"},
-                {name: `${prefix}hack`, value: "Hack the server! OwO"}
+                {name: `${prefix}hack`, value: "Hack the server!"}
             )
 
             return message.channel.send(botEmbed);
@@ -108,6 +108,10 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}hack`) {
+
+        if(message.channel.type == "dm") {
+            message.reply('This command has to be used in a server channel!');
+        }
 
         message.react('👍').then(() => message.react('👎'));
 
