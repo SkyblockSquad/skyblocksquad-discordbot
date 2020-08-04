@@ -135,27 +135,27 @@ client.on("message", async message => {
 
         message.react('👍').then(() => message.react('👎'));
 
-    const filter = (reaction, user) => {
-	    return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
-    };
+        const filter = (reaction, user) => {
+	        return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+        };
 
-    message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] })
-	    .then(collected => {
-		    const reaction = collected.first();
+        message.awaitReactions(filter, { max: 1, time: 30000, errors: ['time'] })
+	        .then(collected => {
+		        const reaction = collected.first();
 
-		    if (reaction.emoji.name === '👍') {
-                message.channel.send('You wish.');
+		        if (reaction.emoji.name === '👍') {
+                    message.channel.send('You wish.');
+                    message.reactions.removeAll();
+		        } else {
+                    message.channel.send('Nice! You are actually not a hacker!');
+                    message.reactions.removeAll();
+		        }
+	        })
+	        .catch(collected => {
+                message.channel.send('Command has been cancelled.');
+                message.channel.send('Reason: No reaction within 30 seconds');
                 message.reactions.removeAll();
-		    } else {
-                message.channel.send('Nice! You are actually not a hacker!');
-                message.reactions.removeAll();
-		    }
-	    })
-	    .catch(collected => {
-            message.channel.send('Command has been cancelled.');
-            message.channel.send('Reason: No reaction within 30 seconds');
-            message.reactions.removeAll();
-	    });
+	        });
 
     }
  
