@@ -120,7 +120,7 @@ client.on("message", async message => {
                 message.channel.send('You wish.');
                 message.reactions.removeAll();
 		    } else {
-                message.channel.send('You are a good boy!');
+                message.channel.send('Nice! You are actually not a hacker!');
                 message.reactions.removeAll();
 		    }
 	    })
