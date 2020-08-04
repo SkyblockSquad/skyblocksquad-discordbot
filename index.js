@@ -102,7 +102,7 @@ client.on("message", async message => {
     if(command === `${prefix}hack`) {
 
         if(message.channel.type == "dm") {
-            message.channel.send('This command has to be used in a server channel!');
+            message.channel.send('Error: This command can only be used in a server channel!');
             return;
         }
 
@@ -124,6 +124,13 @@ client.on("message", async message => {
             message.channel.send(botEmbed)
 
             return;
+        }
+
+        if(!(args.length === 1)) {
+           
+            message.channel.send("Error: You don't need to provide arguments!")
+            return;
+            
         }
 
         message.react('👍').then(() => message.react('👎'));
