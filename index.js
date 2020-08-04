@@ -106,7 +106,9 @@ client.on("message", async message => {
             return;
         }
 
-        if(args[1] === "hypixel") {
+        if(args[1].toLowerCase() === "hypixel") {
+
+            message.channel.send("Hacking Hypixel... Please wait...")
             
             var botEmbed = new discord.MessageEmbed()
                 .setTitle("HACKING HYPIXEL...")
