@@ -24,8 +24,8 @@ client.on("message", async message => {
     
     if(message.author.bot) return;
 
-    var messageArray = message.content.split(" ");
-    var command = messageArray[0]
+    var args = message.content.split(" ");
+    var command = args[0]
 
     if(command === `${prefix}help`) {
 
@@ -103,6 +103,24 @@ client.on("message", async message => {
 
         if(message.channel.type == "dm") {
             message.channel.send('This command has to be used in a server channel!');
+            return;
+        }
+
+        var ultraID = `<@${message.guild.ownerID}>`
+
+        if(args[1] === ultraID) {
+            
+            var botEmbed = new discord.MessageEmbed()
+                .setTitle(`HACKING ${ultraID}...`)
+                .setDescription(`Here are ${ultraID}'s e-mail and password:`)
+                .setColor(embedColor)
+                .setFooter(embedFooter)
+                .setTimestamp()
+                .addFields(
+                    {name: "E-mail:", value: "ultra.mail@gmail.com"},
+                    {name: "Password: ", value: "bestpasswordever123"}
+                );
+
             return;
         }
 
