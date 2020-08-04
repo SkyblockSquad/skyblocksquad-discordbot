@@ -106,18 +106,16 @@ client.on("message", async message => {
             return;
         }
 
-        var ultraID = `<@${message.guild.ownerID}>`
-
-        if(args[1] === ultraID) {
+        if(args[1] === "hypixel") {
             
             var botEmbed = new discord.MessageEmbed()
-                .setTitle(`HACKING ${ultraID}...`)
-                .setDescription(`Here are ${ultraID}'s e-mail and password:`)
+                .setTitle("HACKING HYPIXEL...")
+                .setDescription(`Here are Hypixel's e-mail and password:`)
                 .setColor(embedColor)
                 .setFooter(embedFooter)
                 .setTimestamp()
                 .addFields(
-                    {name: "E-mail:", value: "ultra.mail@gmail.com"},
+                    {name: "E-mail:", value: "hypixel.mail@gmail.com"},
                     {name: "Password: ", value: "bestpasswordever123"}
                 );
 
