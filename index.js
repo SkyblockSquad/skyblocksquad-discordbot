@@ -106,7 +106,7 @@ client.on("message", async message => {
             return;
         }
 
-        if(args[1].toLowerCase() === "hypixel") {
+        if(args.length == 2 && args[1].toLowerCase() === "hypixel") {
 
             message.channel.send("Hacking Hypixel... Please wait...")
             
