@@ -119,6 +119,8 @@ client.on("message", async message => {
                     {name: "Password: ", value: "bestpasswordever123"}
                 );
 
+            message.channel.send(botEmbed)
+
             return;
         }
 
