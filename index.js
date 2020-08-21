@@ -40,7 +40,8 @@ client.on("message", async message => {
                 {name: `${prefix}info`, value: "Display bot and server info!"},
                 {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
-                {name: `${prefix}hack`, value: "Hack the server!"}
+                {name: `${prefix}hack*`, value: "Hack the server!"},
+                {name: "Note", value: "Commands marked with '*' are only available in server channels."}
             )
 
             return message.channel.send(botEmbed);
