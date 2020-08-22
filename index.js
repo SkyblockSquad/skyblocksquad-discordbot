@@ -41,6 +41,7 @@ client.on("message", async message => {
                 {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
                 {name: `${prefix}hack*`, value: "Hack the server!"},
+                {name: `${prefix}is*`, value: "Ask some questions to the bot!"},
                 {name: "Note", value: "Commands marked with '*' are only available in server channels."}
             )
 
@@ -167,7 +168,14 @@ client.on("message", async message => {
             return;
         }
 
-        if(args.length == 3 && args[2].toLowerCase() === "cool") {
+        if(args.length < 3) {
+
+            message.channel.send('Error: This command needs atleast 3 arguments!');
+            return;
+
+        }
+
+        if(args.length == 3 && args[2].toLowerCase() === "cool?") {
 
             message.channel.send("no.");
 
