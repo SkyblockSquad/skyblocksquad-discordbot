@@ -159,5 +159,21 @@ client.on("message", async message => {
 	        });
 
     }
+
+    if(command === `${prefix}is`) {
+
+        if(message.channel.type == "dm") {
+            message.channel.send('Error: This command can only be used in a server channel!');
+            return;
+        }
+
+        if(args.length == 3 && args[2].toLowerCase() === "cool") {
+
+            message.channel.send("no.");
+
+            return;
+        }
+
+    }
  
 });
