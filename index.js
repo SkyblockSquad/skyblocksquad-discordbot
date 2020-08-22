@@ -182,6 +182,20 @@ client.on("message", async message => {
             return;
         }
 
+        if(args.length == 3 && args[2].toLowerCase() === "dumb?") {
+
+            message.channel.send("I don't think so...");
+
+            return;
+
+        }
+
+        if(args.length == 3 && args[2].toLowerCase() === "smart?") {
+
+            message.channel.send("Yes, they are.")
+
+        }
+
     }
  
 });
