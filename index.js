@@ -41,7 +41,8 @@ client.on("message", async message => {
                 {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
                 {name: `${prefix}hack*`, value: "Hack the server!"},
-                {name: `${prefix}is*`, value: "Ask some questions to the bot!"},
+                {name: `${prefix}is <player> <what>*`, value: "Ask some questions to the bot!"},
+                {name: `${prefix}owo <text>`, value: "OwO-ifies a text!"},
                 {name: "Note", value: "Commands marked with '*' are only available in server channels."}
             )
 
@@ -123,9 +124,10 @@ client.on("message", async message => {
                     {name: "Password: ", value: "bestpasswordever123"}
                 );
 
-            message.channel.send(botEmbed)
-
-            return;
+            var HackMessage = message.channel.send(botEmbed);
+            
+            HackMessage.react('👍');
+    
         }
 
         if(!(args.length === 1)) {
@@ -192,9 +194,39 @@ client.on("message", async message => {
 
         if(args.length == 3 && args[2].toLowerCase() === "smart?") {
 
-            message.channel.send("Yes, they are.")
+            message.channel.send("Yes, they are.");
+
+            return;
 
         }
+
+        if(args.length == 3 && args[2].toLowerCase() === "awesome?") {
+
+            message.channel.send("no.");
+
+            return;
+
+        }
+
+    }
+
+    if(command === `${prefix}owo`) {
+
+        if(args.length < 2) {
+
+            message.channel.send('Error: This command needs atleast 2 arguments!');
+            return;
+
+        }
+
+        var owo_args = args;
+        var owo_args_string = owo_args.join(" ");
+        owo_args_string.replace(command, "");
+        owo_args_string.replace("o", "OwO");
+        owo_args_string.replace("O", "OwO");
+
+        message.channel.send(owo_args_string);
+        return;
 
     }
  
