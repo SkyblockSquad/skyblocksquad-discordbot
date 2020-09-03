@@ -15,7 +15,7 @@ client.login(process.env.token);
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
-    client.user.setActivity(",help", {type: "PLAYING"});
+    client.user.setActivity(",help | SkyblockSquad Bot", {type: "PLAYING"});
 
 });
 
@@ -41,8 +41,7 @@ client.on("message", async message => {
                 {name: `${prefix}me`, value: "Display info about yourself!"},
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
                 {name: `${prefix}hack*`, value: "Hack the server!"},
-                {name: `${prefix}is <player> <what>*`, value: "Ask some questions to the bot!"},
-                {name: `${prefix}owo <text>`, value: "OwO-ifies a text!"},
+                {name: `${prefix}is <player> <something>?*`, value: "Ask some questions to the bot!"},
                 {name: "Note", value: "Commands marked with '*' are only available in server channels."}
             )
 
@@ -207,26 +206,6 @@ client.on("message", async message => {
             return;
 
         }
-
-    }
-
-    if(command === `${prefix}owo`) {
-
-        if(args.length < 2) {
-
-            message.channel.send('Error: This command needs atleast 2 arguments!');
-            return;
-
-        }
-
-        var owo_args = args;
-        var owo_args_string = owo_args.join(" ");
-        owo_args_string.replace(command, "");
-        owo_args_string.replace("o", "OwO");
-        owo_args_string.replace("O", "OwO");
-
-        message.channel.send(owo_args_string);
-        return;
 
     }
  
