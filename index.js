@@ -119,8 +119,8 @@ client.on("message", async message => {
                 .setFooter(embedFooter)
                 .setTimestamp()
                 .addFields(
-                    {name: "E-mail:", value: "hypixel.mail@gmail.com"},
-                    {name: "Password: ", value: "bestpasswordever123"}
+                    {name: "E-mail:", value: "creators@hypixel.net"},
+                    {name: "Password: ", value: "hypixel_skyblock_is_cool"}
                 );
 
             var HackMessage = message.channel.send(botEmbed);
@@ -202,6 +202,30 @@ client.on("message", async message => {
         if(args.length == 3 && args[2].toLowerCase() === "awesome?") {
 
             message.channel.send("no.");
+
+            return;
+
+        }
+
+        if(args.length == 3 && args[2].toLowerCase() === "wise?") {
+
+            message.channel.send("Error: An error has occurred while trying to perform this action");
+
+            return;
+
+        }
+
+        if(args.length == 4 && args[2].toLowerCase() === "big" && args[3].toLowerCase === "brain?") {
+
+            message.channel.send("Big brain, stonks");
+
+            return;
+
+        }
+
+        if(args.length == 4 && args[2].toLowerCase() === "small" && args[3].toLowerCase === "brain?") {
+
+            message.channel.send("Small brain, stonks");
 
             return;
 
