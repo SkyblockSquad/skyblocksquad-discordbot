@@ -223,6 +223,30 @@ client.on("message", async message => {
 
         }
 
+        if(args.length == 3 && args[2].toLowerCase() === "owo?") {
+
+            message.channel.send("OwOwO");
+
+            return;
+
+        }
+
+        if(args.length == 3 && args[2].toLowerCase() === "big?") {
+
+            message.channel.send("Pretty pretty big poggers");
+
+            return;
+
+        }
+
+        if(args.length == 3 && args[2].toLowerCase === "pog?") {
+
+            message.channel.send("Poggers, am I right chat");
+
+            return;
+
+        }
+
         message.channel.send("I think yes, but I'm not completely sure.");
 
         return;
