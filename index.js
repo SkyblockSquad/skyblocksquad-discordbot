@@ -215,21 +215,17 @@ client.on("message", async message => {
 
         }
 
-        if(args.length == 4 && args[2].toLowerCase() === "big" && args[3].toLowerCase === "brain?") {
+        if(args.length == 3 && args[2].toLowerCase() === "stonks?") {
 
-            message.channel.send("Big brain, stonks");
-
-            return;
-
-        }
-
-        if(args.length == 4 && args[2].toLowerCase() === "small" && args[3].toLowerCase === "brain?") {
-
-            message.channel.send("Small brain, stonks");
+            message.channel.send("Yes, stonks");
 
             return;
 
         }
+
+        message.channel.send("I think yes, but I'm not completely sure.");
+
+        return;
 
     }
  
