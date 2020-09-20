@@ -239,7 +239,7 @@ client.on("message", async message => {
 
         }
 
-        if(args.length == 3 && args[2].toLowerCase === "pog?") {
+        if(args.length == 3 && args[2].toLowerCase() === "pog?") {
 
             message.channel.send("Poggers, am I right chat");
 
