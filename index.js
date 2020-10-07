@@ -21,6 +21,17 @@ client.on("ready", async () => {
 
 // Bot commands
 client.on("message", async message => {
+
+    if(message.channel.type == "text") {
+
+        if(!(message.channel.guild.id == "683205054681055233")) {
+
+            message.channel.send("Hey! This is not the SkyblockSquad Discord server! All functions have been disabled.");
+            console.log(`The bot has been detected on an unknown server. Guild name: ${message.guild.name} | Guild owner: ${message.guild.owner}`);
+
+        }
+
+    }
     
     if(message.author.bot) return;
 
@@ -42,7 +53,7 @@ client.on("message", async message => {
                 {name: `${prefix}hello`, value: "Say hello to the bot!"},
                 {name: `${prefix}hack*`, value: "Hack the server!"},
                 {name: `${prefix}is <player> <something>?*`, value: "Ask some questions to the bot!"},
-                {name: "Note", value: "Commands marked with '*' are only available in server channels."}
+                {name: "**INFORMATION**", value: "Commands marked with a * are only available in the SkyblockSquad Discord!"}
             )
 
             return message.channel.send(botEmbed);
@@ -111,6 +122,10 @@ client.on("message", async message => {
         if(args.length == 2 && args[1].toLowerCase() === "hypixel") {
 
             message.channel.send("Hacking Hypixel... Please wait...")
+
+            var PasswordOptions = ["hypixel_skyblock_is_cool", "mineplex_smells", "SuperSecretPassword123", "hypickle", "technoblade_potatoboy"]
+            var PasswordInteger = Math.floor(Math.random() * PasswordOptions.length);
+            var PasswordOption = PasswordOptions[PasswordInteger];
             
             var botEmbed = new discord.MessageEmbed()
                 .setTitle("HACKING HYPIXEL...")
@@ -120,7 +135,7 @@ client.on("message", async message => {
                 .setTimestamp()
                 .addFields(
                     {name: "E-mail:", value: "creators@hypixel.net"},
-                    {name: "Password: ", value: "hypixel_skyblock_is_cool"}
+                    {name: "Password: ", value: `${PasswordOption}`}
                 );
 
             var HackMessage = message.channel.send(botEmbed);
