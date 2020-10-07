@@ -247,7 +247,19 @@ client.on("message", async message => {
 
         }
 
-        message.channel.send("I think yes, but I'm not completely sure.");
+        if(args.length == 3 && args[2].toLowerCase() === "weird?") {
+
+            message.channel.send("Weirdo");
+
+            return;
+            
+        }
+
+        var randomOptions = ["I think yes, but I'm not completely sure.", "no", "Nobody knows!", "Sorry, I'm too lazy too answer.", "*akward silence*", "*visible confusion*", "*insert joke here*", "Oops! My brain exploded while thinking about your question!"]
+        var randomInteger = Math.floor(Math.random() * randomOptions.length);
+        var randomOption = randomOptions[randomInteger]
+
+        message.channel.send(randomOption);
 
         return;
 
