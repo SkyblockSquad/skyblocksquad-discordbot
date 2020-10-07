@@ -26,8 +26,12 @@ client.on("message", async message => {
 
         if(!(message.channel.guild.id == "683205054681055233")) {
 
+            if(message.author.bot) return;
+
             message.channel.send("Hey! This is not the SkyblockSquad Discord server! All functions have been disabled.");
             console.log(`The bot has been detected on an unknown server. Guild name: ${message.guild.name} | Guild owner: ${message.guild.owner}`);
+
+            return;
 
         }
 
