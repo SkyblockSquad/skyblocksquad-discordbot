@@ -343,8 +343,10 @@ client.on("message", async message => {
             message.channel.send("**PING ALERT!**");
             
             setTimeout(function(){
-                message.channel("Lol it's fake")
+                message.channel.send("Lol it's fake")
             }, 2000);
+
+            return;
 
         }
  
