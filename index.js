@@ -298,7 +298,7 @@ client.on("message", async message => {
 
             setTimeout(function(){ 
                 message.channel.send("My internet doesn't work so I can't acces google, sorry!")
-             }, 5000);
+             }, 2000);
 
              return;
 
@@ -309,8 +309,10 @@ client.on("message", async message => {
             message.channel.send("**PING ALERT!!!**");
 
             setTimeout(function(){
-                message.channel.send(`<@${message.author.id}`)
-            }, 7500);
+                message.channel.send(`<@${message.author.id}>`)
+            }, 2000);
+
+            return;
 
         }
 
@@ -320,7 +322,9 @@ client.on("message", async message => {
 
             setTimeout(function(){
                 message.channel.send("oops, wrong chat");
-            }, 3000);
+            }, 1000);
+
+            return;
 
         }
  
