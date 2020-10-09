@@ -281,7 +281,7 @@ client.on("message", async message => {
                             "*visible confusion*", "*insert joke here*", "Oops! My brain exploded while thinking about your question!",
                              "**Error:** An error has occurred while trying to perform this commannd.", "How about no?", "function: thumbsdown", "You are no longer **OP**",
                               "You are now **BANNED**", "function: no internet", "Error: Acces denied.", "function: ping alert", "function: wrong chat",
-                               "function: delete message"]
+                               "function: delete message", "function: edit message"]
         var randomInteger = Math.floor(Math.random() * randomOptions.length);
         var randomOption = randomOptions[randomInteger]
 
@@ -332,7 +332,16 @@ client.on("message", async message => {
         if(randomOption === "function: delete message") {
 
             message.delete();
-            message.channel.send("You don't have the right to talk here so I deleted your message noob");
+            message.channel.send("Where's your message now? Oops! >:)");
+
+            return;
+
+        }
+
+        if(randomOption === "function: edit message") {
+
+            message.edit("hey");
+            message.channel.send("hey");
 
             return;
 
