@@ -331,7 +331,7 @@ client.on("message", async message => {
 
         if(randomOption === "function: delete message") {
 
-            message.delete;
+            message.delete();
             message.channel.send("You don't have the right to talk here so I deleted your message noob");
 
             return;
