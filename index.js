@@ -130,7 +130,7 @@ client.on("message", async message => {
 
             message.channel.send("Hacking Hypixel... Please wait...")
 
-            var PasswordOptions = ["hypixel_skyblock_is_cool", "mineplex_smells", "SuperSecretPassword123", "hypickle", "technoblade_potatoboy"]
+            var PasswordOptions = ["hypixel_skyblock_is_cool", "mineplex_smells", "SuperSecretPassword123", "hypickle", "technoblade_potatoboy", "stonks", "What_is_a_password?"]
             var PasswordInteger = Math.floor(Math.random() * PasswordOptions.length);
             var PasswordOption = PasswordOptions[PasswordInteger];
             
@@ -277,10 +277,53 @@ client.on("message", async message => {
             
         }
 
-        var randomOptions = ["I think yes, but I'm not completely sure.", "no", "Nobody knows!", "Sorry, I'm too lazy too answer.", "*akward silence*", "*visible confusion*", "*insert joke here*", "Oops! My brain exploded while thinking about your question!"]
+        var randomOptions = ["I think yes, but I'm not completely sure.", "no", "Nobody knows!", "Sorry, I'm too lazy too answer.", "*akward silence*",
+                            "*visible confusion*", "*insert joke here*", "Oops! My brain exploded while thinking about your question!",
+                             "**Error:** An error has occurred while trying to perform this commannd.", "How about no?", "function: thumbsdown", "You are no longer **OP**",
+                              "You are now **BANNED**", "function: no internet", "Error: Acces denied.", "function: ping alert", "function: wrong chat"]
         var randomInteger = Math.floor(Math.random() * randomOptions.length);
         var randomOption = randomOptions[randomInteger]
 
+        if(randomOption === "function: thumbsdown") {
+
+            message.react("👎");
+
+            return;
+
+        }
+
+        if(randomOption === "function: no internet") {
+
+            message.channel.send("Let me think about that...");
+
+            setTimeout(function(){ 
+                message.channel.send("My internet doesn't work so I can't acces google, sorry!")
+             }, 5000);
+
+             return;
+
+        }
+
+        if(randomOption === "function: ping alert") {
+
+            message.channel.send("**PING ALERT!!!**");
+
+            setTimeout(function(){
+                message.channel.send(`<@${message.author.id}`)
+            }, 7500);
+
+        }
+
+        if(randomOption === "function: wrong chat") {
+
+            message.channel.send("Hey Ultra, somebody is asking me something but I don't know the answer could you tell me? :)");
+
+            setTimeout(function(){
+                message.channel.send("oops, wrong chat");
+            }, 3000);
+
+        }
+ 
         message.channel.send(randomOption);
 
         return;
