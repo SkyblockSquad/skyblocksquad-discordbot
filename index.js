@@ -281,7 +281,7 @@ client.on("message", async message => {
                             "*visible confusion*", "*insert joke here*", "Oops! My brain exploded while thinking about your question!",
                              "**Error:** An error has occurred while trying to perform this commannd.", "How about no?", "function: thumbsdown", "You are no longer **OP**",
                               "You are now **BANNED**", "function: no internet", "Error: Acces denied.", "function: ping alert", "function: wrong chat",
-                               "function: delete message", "function: edit message"]
+                               "function: delete message", "(._.)", ".", "function: fake ping"]
         var randomInteger = Math.floor(Math.random() * randomOptions.length);
         var randomOption = randomOptions[randomInteger]
 
@@ -337,13 +337,14 @@ client.on("message", async message => {
             return;
 
         }
+        
+        if(randomOption === "function: fake ping") {
 
-        if(randomOption === "function: edit message") {
-
-            message.edit("hey");
-            message.channel.send("hey");
-
-            return;
+            message.channel.send("**PING ALERT!**");
+            
+            setTimeout(function(){
+                message.channel("Lol it's fake")
+            }, 2000);
 
         }
  
