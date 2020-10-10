@@ -11,11 +11,11 @@ module.exports = {
         .setTimestamp()
         .addFields(
             {name: `${prefix}help`, value: "Display this list!"},
-            {name: `${prefix}info#`, value: "Display bot and server info!"},
-            {name: `${prefix}me`, value: "Display info about yourself!"},
+            {name: `${prefix}info#`, value: "Display some usefull information!!"},
+            {name: `${prefix}me`, value: "Display some usefull information about you!"},
             {name: `${prefix}hello`, value: "Say hello to the bot!"},
             {name: `${prefix}hack#`, value: "Hack the server!"},
-            {name: `${prefix}is [player] [something]?#`, value: "Ask some questions to the bot!"}
+            {name: `${prefix}is [player] [argument 1] [argment 2]...?#\n\nMinimum 2 arguments - No maximum arguments`, value: "Ask whatever to the bot!"}
         );
 
         message.channel.send(botEmbed);
