@@ -63,27 +63,19 @@ client.on("message", async message => {
     var command = args[0]
 
     if(command === `${prefix}help`) {
-
         client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter);
-
     }
 
     if(command === `${prefix}info`) {
-
-        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client);
-
+        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client);           
     }
 
     if(command === `${prefix}me`) {
-
         client.commands.get("me").execute(discord, message, embedColor, embedFooter);
-
     }
 
     if(command === `${prefix}hack`) {
-
        client.commands.get("hack").execute(discord, message, embedColor, embedFooter)
-
     }
 
     if(command === `${prefix}is`) {
