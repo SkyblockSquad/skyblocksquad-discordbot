@@ -57,10 +57,6 @@ client.on("message", async message => {
     var args = message.content.split(" ");
     var command = args[0]
 
-    var commands = bot.commands.get(command.slice(prefix.length));
-
-    if(commands) commands.run(client, message, args);
-
     if(command === `${prefix}info`) {
 
         var botEmbed = new discord.MessageEmbed()
