@@ -1,7 +1,7 @@
 module.exports = {
     name: 'help',
     description: 'help',
-    execute(message, discord, prefix, embedColor, embedFooter) {
+    execute(discord, message, prefix, embedColor, embedFooter) {
         
         var botEmbed = new discord.MessageEmbed()
         .setTitle("HELP")
