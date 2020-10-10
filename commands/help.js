@@ -4,6 +4,11 @@ module.exports = {
     execute(message, args) {
 
         const discord = require("discord.js");
+
+        // Setup variables
+        var prefix = botConfig.prefix;
+        var embedColor = "#ed2121";
+        var embedFooter = "SkyblockSquad Bot | Made for SkyblockSquad Discord";
         
         var botEmbed = new discord.MessageEmbed()
         .setTitle("HELP")
