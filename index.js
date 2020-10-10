@@ -67,7 +67,7 @@ client.on("message", async message => {
 
     if(command === `${prefix}info`) {
 
-        client.commands.get("info").execute(discord, message, embedColor, embedFooter);
+        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client);
 
     }
 

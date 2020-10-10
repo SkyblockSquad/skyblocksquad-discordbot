@@ -1,11 +1,11 @@
 module.exports = {
     name: 'help',
     description: 'help',
-    execute(discord, message, prefix, embedColor, embedFooter) {
+    execute(discord, message, prefix, embedColor, embedFooter, client) {
         
         var botEmbed = new discord.MessageEmbed()
         .setTitle("HELP")
-        .setDescription("See a list of bot commands below!\n[] means required » {} means optional")
+        .setDescription("See a list of bot commands below!\n[] means required » {} means optional\nCommands marked with a # are only available in DM!")
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
@@ -15,9 +15,7 @@ module.exports = {
             {name: `${prefix}me`, value: "Display info about yourself!"},
             {name: `${prefix}hello`, value: "Say hello to the bot!"},
             {name: `${prefix}hack#`, value: "Hack the server!"},
-            {name: `${prefix}is [player] [something]?#`, value: "Ask some questions to the bot!"},
-            {name: "**INFORMATION**", value: "Commands with a # are not available in DM!"},
-
+            {name: `${prefix}is [player] [something]?#`, value: "Ask some questions to the bot!"}
         );
 
         message.channel.send(botEmbed);
