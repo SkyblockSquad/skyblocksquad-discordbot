@@ -67,31 +67,8 @@ client.on("message", async message => {
 
     if(command === `${prefix}info`) {
 
-        var botEmbed = new discord.MessageEmbed()
-        .setTitle("INFO")
-        .setDescription("See info about the bot below!")
-        .setColor(embedColor)
-        .setFooter(embedFooter)
-        .setTimestamp()
+        client.commands.get("info").execute(discord, message, embedColor, embedFooter);
 
-        if(!(message.channel.type == "dm")) {
-
-            botEmbed.addFields(
-                {name: "Server Name", value:message.guild.name},
-                {name: "Server Member Count", value:message.guild.memberCount},
-                {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
-                {name: "Server Channel", value:message.channel.name}
-            );            
-
-        }
-
-        botEmbed.addFields(
-            {name: "Bot Name", value:client.user},
-            {name: "Bot Embed Color", value:embedColor},
-            {name: "Bot Uptime", value:client.uptime}
-        );
-
-            return message.channel.send(botEmbed);
     }
 
     if(command === `${prefix}me`) {
