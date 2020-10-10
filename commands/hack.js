@@ -1,7 +1,7 @@
 module.exports = {
     name: 'hack',
     description: 'hack',
-    execute(discord, message, embedColor, embedFooter) {
+    execute(discord, message, embedColor, embedFooter, args) {
 
         if(message.channel.type == "dm") {
             message.channel.send('**Error:** This command can not be used in DM!');

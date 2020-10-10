@@ -75,7 +75,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}hack`) {
-       client.commands.get("hack").execute(discord, message, embedColor, embedFooter)
+       client.commands.get("hack").execute(discord, message, embedColor, embedFooter, args)
     }
 
     if(command === `${prefix}is`) {
