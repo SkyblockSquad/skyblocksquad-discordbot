@@ -15,7 +15,7 @@ module.exports = {
             {name: `${prefix}me`, value: "Display some usefull information about you!"},
             {name: `${prefix}hello`, value: "Say hello to the bot!"},
             {name: `${prefix}hack#`, value: "Hack the server!"},
-            {name: `${prefix}is [player] [argument 1] [argment 2]...?#\n\nMinimum 2 arguments - No maximum arguments\n`, value: "Ask whatever to the bot!"}
+            {name: `${prefix}is [player] [argument 1] [argment 2]...?#\n\nMinimum 2 arguments - No maximum arguments\n\n`, value: "Ask whatever to the bot!"}
         );
 
         message.channel.send(botEmbed);
