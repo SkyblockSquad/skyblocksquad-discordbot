@@ -2,14 +2,43 @@
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
+// Register fs
+const fs = require("fs");
+
 // Setup variables
 var prefix = botConfig.prefix;
 var embedColor = "#ed2121";
-var embedFooter = "SkyblockSquad Bot, Made for the SkyblockSquad Discord Server";
+var embedFooter = "SkyblockSquad Bot | Made for SkyblockSquad Discord";
 
 // Login the bot
 const client = new discord.Client();
 client.login(process.env.token);
+client.commands = new discord.Collection();
+
+// Get command files
+fs.readdir("./commands/", (err, files) => {
+
+    if(err) console.log(err);
+
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+
+    if(jsFiles.length <= 0) {
+
+        console.log("Could not find any files in the folder 'commands'!"); 
+        return;
+
+    }
+
+    jsFiles.forEach((f,i) => {
+
+        var getFile = require(`./commands/${f}`);
+        console.log(`The file ${f} has been loaded.`);
+
+        bot.commands.set(getFile.help.name, getFile);
+
+    });
+
+});
 
 // Console log + set activity
 client.on("ready", async () => {
@@ -45,26 +74,9 @@ client.on("message", async message => {
     var args = message.content.split(" ");
     var command = args[0]
 
-    if(command === `${prefix}help`) {
+    var commands = bot.commands.get(command.slice(prefix.length));
 
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("HELP")
-            .setDescription("See a list of bot commands below!")
-            .setColor(embedColor)
-            .setFooter(embedFooter)
-            .setTimestamp()
-            .addFields(
-                {name: `${prefix}help`, value: "Display this list!"},
-                {name: `${prefix}info`, value: "Display bot and server info!"},
-                {name: `${prefix}me`, value: "Display info about yourself!"},
-                {name: `${prefix}hello`, value: "Say hello to the bot!"},
-                {name: `${prefix}hack*`, value: "Hack the server!"},
-                {name: `${prefix}is <player> <something>?*`, value: "Ask some questions to the bot!"},
-                {name: "**INFORMATION**", value: "Commands marked with a * are only available in the SkyblockSquad Discord!"}
-            )
-
-            return message.channel.send(botEmbed);
-    }
+    if(commands) commands.run(client, message, args);
 
     if(command === `${prefix}info`) {
 
@@ -281,7 +293,7 @@ client.on("message", async message => {
                             "*visible confusion*", "*insert joke here*", "Oops! My brain exploded while thinking about your question!",
                              "**Error:** An error has occurred while trying to perform this commannd.", "How about no?", "function: thumbsdown", "You are no longer **OP**",
                               "You are now **BANNED**", "function: no internet", "Error: Acces denied.", "function: ping alert", "function: wrong chat",
-                               "function: delete message", "(._.)", ".", "function: fake ping"]
+                               "function: delete message", "(._.)", ".", "function: fake ping", "yes", "1 + 1 = 3", "OwO"]
         var randomInteger = Math.floor(Math.random() * randomOptions.length);
         var randomOption = randomOptions[randomInteger]
 
@@ -349,7 +361,7 @@ client.on("message", async message => {
             return;
 
         }
- 
+  
         message.channel.send(randomOption);
 
         return;
