@@ -1,7 +1,7 @@
 module.exports = {
     name: 'info',
     description: 'info',
-    execute(discord, message, embedColor, embedFooter) {
+    execute(discord, message, embedColor, embedFooter, client) {
 
         if(message.channel.type == "dm") {
 
