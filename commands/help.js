@@ -21,5 +21,8 @@ module.exports = {
         );
 
         message.channel.send(botEmbed);
+        console.log("The command ',help' has been executed!");
+
+        return;
     },
 };
