@@ -22,8 +22,11 @@ for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
     
-    console.log(`Command file "${command.name}.js" has been loaded.`)
+    console.log(`Command file "${command.name}.js" has been loaded.`);
+
 }
+
+console.log(`${commandFiles.length} command files have been loaded.`)
 
 // Console log + set activity
 client.on("ready", async () => {
