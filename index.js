@@ -34,7 +34,7 @@ fs.readdir("./commands/", (err, files) => {
         var getFile = require(`./commands/${f}`);
         console.log(`The file ${f} has been loaded.`);
 
-        bot.commands.set(getFile.help.name, getFile);
+        client.commands.set(getFile.help.name, getFile);
 
     });
 
