@@ -1,6 +1,7 @@
 // Setup discord.js and botconfig.json
 const discord = require("discord.js");
 const botConfig = require("./botconfig.json");
+const fetch = require("node-fetch");
 
 // Register fs
 const fs = require("fs");
@@ -80,6 +81,10 @@ client.on("message", async message => {
 
     if(command === `${prefix}is`) {
         client.commands.get("is").execute(message, args);
+    }
+
+    if(command === `${prefix}covid`) {
+        client.commands.get("covid").execute(discord, message, embedColor, embedFooter, args, fetch);
     }
  
 });
