@@ -1,14 +1,9 @@
 module.exports = {
     name: 'help',
     description: 'help',
-    execute(message, args) {
+    execute(message, discord, prefix, embedColor, embedFooter) {
 
         const discord = require("discord.js");
-
-        // Setup variables
-        var prefix = botConfig.prefix;
-        var embedColor = "#ed2121";
-        var embedFooter = "SkyblockSquad Bot | Made for SkyblockSquad Discord";
         
         var botEmbed = new discord.MessageEmbed()
         .setTitle("HELP")

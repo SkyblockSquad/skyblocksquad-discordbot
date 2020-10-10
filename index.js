@@ -61,7 +61,7 @@ client.on("message", async message => {
 
     if(command === `${prefix}help`) {
 
-        client.commands.get("help").execute(message, args);
+        client.commands.get("help").execute(message, args, prefix, embedColor, embedFooter);
 
     }
 
