@@ -15,30 +15,13 @@ const client = new discord.Client();
 client.login(process.env.token);
 client.commands = new discord.Collection();
 
-// Get command files
-fs.readdir("./commands/", (err, files) => {
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-    if(err) console.log(err);
+for (const file of commandFiles) {
 
-    var jsFiles = files.filter(f => f.split(".").pop() === "js");
-
-    if(jsFiles.length <= 0) {
-
-        console.log("Could not find any files in the folder 'commands'!"); 
-        return;
-
-    }
-
-    jsFiles.forEach((f,i) => {
-
-        var getFile = require(`./commands/${f}`);
-        console.log(`The file ${f} has been loaded.`);
-
-        client.commands.set(getFile.help.name, getFile);
-
-    });
-
-});
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
 
 // Console log + set activity
 client.on("ready", async () => {
