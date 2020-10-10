@@ -73,19 +73,7 @@ client.on("message", async message => {
 
     if(command === `${prefix}me`) {
 
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("ME")
-            .setDescription("See info about you below!")
-            .setColor(embedColor)
-            .setFooter(embedFooter)
-            .setTimestamp()
-            .addFields(
-                {name: `${message.author.username}'s Name`, value: `<@${message.author.id}>`},
-                {name: `${message.author.username}'s User ID `, value:message.author.id},
-                {name: `${message.author.username} Joined Discord At`, value:message.author.createdAt}
-            );
-
-            return message.channel.send(botEmbed);
+        client.commands.get("me").execute(discord, message, embedColor, embedFooter);
 
     }
 

@@ -5,7 +5,7 @@ module.exports = {
         
         var botEmbed = new discord.MessageEmbed()
         .setTitle("HELP")
-        .setDescription("See a list of bot commands below!\n[] means required » {} means optional\nCommands marked with a # are only available in DM!")
+        .setDescription("See a list of bot commands below!\n\n[] means required » {} means optional\nCommands marked with a # are only available in DM!")
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
@@ -19,7 +19,6 @@ module.exports = {
         );
 
         message.channel.send(botEmbed);
-
         return;
     },
 };
