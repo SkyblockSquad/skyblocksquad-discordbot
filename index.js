@@ -59,6 +59,12 @@ client.on("message", async message => {
     var args = message.content.split(" ");
     var command = args[0]
 
+    if(command === `${prefix}help`) {
+
+        client.commands.get("help").execute(message, args);
+
+    }
+
     if(command === `${prefix}info`) {
 
         var botEmbed = new discord.MessageEmbed()
