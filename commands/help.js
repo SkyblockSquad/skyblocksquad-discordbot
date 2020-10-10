@@ -13,7 +13,6 @@ module.exports = {
             {name: `${prefix}help`, value: "Display this list!"},
             {name: `${prefix}info#`, value: "Display some usefull information!!"},
             {name: `${prefix}me`, value: "Display some usefull information about you!"},
-            {name: `${prefix}hello`, value: "Say hello to the bot!"},
             {name: `${prefix}hack#`, value: "Hack the server!"},
             {name: `${prefix}is [player] [argument 1] [argment 2]...?#`, value: "Ask anything you want to the bot!\n\n**Minimum 2 arguments - No maximum arguments**"}
         );
