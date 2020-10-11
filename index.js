@@ -40,7 +40,7 @@ client.on("ready", async () => {
 
 });
 
-// Bot commands
+// Server detection
 client.on("message", async message => {
 
     if(message.channel.type == "text") {
@@ -55,6 +55,17 @@ client.on("message", async message => {
     }
 
     if(message.author.bot) return;
+
+    // Check channel
+    if(!(message.channel.id == "703168301634945097")) {
+        if(!(message.channel.id == "703185069354778725")) {
+            var msg = "**Error:** Please use the <#703168301634945097> channel for bot commands!";
+            message.channel.send(`**Error:** Please use the <#703168301634945097> channel for bot commands!`).then(msg => msg.delete({timeout: 10000}));
+            message.delete();
+            
+            return;
+        }
+    }
 
     // Anti-swear system
     var msg = message.content.toLowerCase();
