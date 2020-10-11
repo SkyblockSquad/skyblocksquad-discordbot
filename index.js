@@ -59,6 +59,8 @@ client.on("message", async message => {
     // Check channel
     if(!(message.channel.id == "703168301634945097")) {
         if(!(message.channel.id == "703185069354778725")) {
+
+            if(!(message.content.startsWith(`${prefix}`))) return;
             var msg = "**Error:** Please use the <#703168301634945097> channel for bot commands!";
             message.channel.send(`**Error:** Please use the <#703168301634945097> channel for bot commands!`).then(msg => msg.delete({timeout: 10000}));
             message.delete();
