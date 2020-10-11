@@ -8,9 +8,9 @@ module.exports = {
         var options = ["rock", "paper", "scissors"];
         var result = options[Math.floor(Math.random() * options.length)];
 
-        if(!args[1].toUpperCase() == "ROCK" && !args[1].toUpperCase() == "PAPER" && !args[1].toUpperCase() == "SCISSORS"]) {
+        if(!args[1].toUpperCase() == "ROCK" && !args[1].toUpperCase() == "PAPER" && !args[1].toUpperCase() == "SCISSORS") {
             
-            message.channel.send("**Error:** Invalid sybtax! Please use: **,rps (rock|paper|scissors)**");
+            message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");
             return;
         }
 
