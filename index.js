@@ -37,6 +37,8 @@ client.on("ready", async () => {
 
 });
 
+var swearWords = ["fuck", "shit", "niger"];
+
 // Bot commands
 client.on("message", async message => {
 
@@ -59,6 +61,22 @@ client.on("message", async message => {
     }
 
     if(message.author.bot) return;
+
+    // Anti-swear system
+    var msg = message.content.toLowerCase();
+
+    for(let i = 0; index < swearWords.length; i++) {
+
+        if(msg.includes(swearWords[i])) {
+
+            message.delete();
+            message.channel.send(`<@${message.author.id}>: **Please don't use swearwords!**`).then(msg => msg.delete({timeout: 10000}));
+            
+            return;
+
+        }
+
+    }
 
     var args = message.content.split(" ");
     var command = args[0]
