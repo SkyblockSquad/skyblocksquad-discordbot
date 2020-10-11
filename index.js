@@ -97,5 +97,9 @@ client.on("message", async message => {
     if(command === `${prefix}covid`) {
         client.commands.get("covid").execute(discord, message, embedColor, embedFooter, args, fetch);
     }
+
+    if(command === `${prefix}rps`) {
+        client.commands.get("rps").execute(message, args);
+    }
  
 });
