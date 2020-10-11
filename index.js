@@ -57,8 +57,15 @@ client.on("message", async message => {
         }
 
     }
-    
+
     if(message.author.bot) return;
+
+    if(message.indexOf("fuck") !== -1 || message.indexOf("shit") !== -1) {
+        
+        message.delete();
+        message.channel.send(`<@${message.author.id}>: Please don't swear!`);
+        return;
+    }
 
     var args = message.content.split(" ");
     var command = args[0]
