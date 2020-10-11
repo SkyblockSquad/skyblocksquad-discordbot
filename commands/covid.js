@@ -3,7 +3,7 @@ module.exports = {
     description: 'covid',
     execute(discord, message, embedColor, embedFooter, args, fetch) {
 
-        var args = args.shift();
+        args.shift();
         let countries = args.join(" ");
 
         if(args.length <= 1) {
