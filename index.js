@@ -61,7 +61,7 @@ client.on("message", async message => {
     if(message.author.bot) return;
 
     // Anti-swear system
-    var swearWords = JSON.parse(fs.readFile("./data/swearWords.json"));
+    var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
     var msg = message.content.toLowerCase();
 
     for(let i = 0; i < swearWords["swearWords"].length; i++) {
