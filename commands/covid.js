@@ -42,7 +42,7 @@ module.exports = {
                 let recovered = data.recovered.value.toLocaleString()
                 let deaths = data.deaths.value.toLocaleString()
 
-                var countriesU = countries.uppercase();
+                var countriesU = countries.toUpperCase();
 
                 var botEmbed = new discord.MessageEmbed()
                 .setTitle(`COVID (${countriesU})`)
