@@ -6,12 +6,12 @@ module.exports = {
         args.shift();
         let countries = args.join(" ");
 
-        if(args.length <= 1) {
+        if(args.length <= 0) {
             message.channel.send("**Error:** Invalid syntax! Please use **,covid all** OR **,covid [country]**");
             return;
         }
         
-        if(args[1] === "all") {
+        if(args[0] === "all") {
             fetch("https://covid19.mathdro.id/api")
             .then(response => response.json())
             .then(data => {
