@@ -56,6 +56,21 @@ client.on("message", async message => {
 
     if(message.author.bot) return;
 
+    // Anti-swear system
+    var msg = message.content.toLowerCase();
+
+    for (let i = 0; i < swearWords["swearWords"].length; i++) {
+        if(msg.includes(swearWords["swearWords"][i])) {
+    
+            if(message.channel.type === "dm") return;
+    
+            message.delete();
+            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
+            return;
+    
+        }
+    }
+
     // Check channel
     if(!(message.channel.id == "703168301634945097")) {
         if(!(message.channel.id == "703185069354778725")) {
@@ -66,21 +81,6 @@ client.on("message", async message => {
             message.delete();
             
             return;
-        }
-    }
-
-    // Anti-swear system
-    var msg = message.content.toLowerCase();
-
-    for (let i = 0; i < swearWords["swearWords"].length; i++) {
-        if(msg.includes(swearWords["swearWords"][i])) {
-
-            if(message.channel.type === "dm") return;
-
-            message.delete();
-            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
-            return;
-
         }
     }
 
