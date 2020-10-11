@@ -54,17 +54,18 @@ client.on("message", async message => {
     if(message.author.bot) return;
 
     // Anti-swear system
-    if(!message.channel.type == "dm") {
 
-        var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
-        var msg = message.content.toLowerCase();
+    var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
+    var msg = message.content.toLowerCase();
 
-        for (let i = 0; i < swearWords["swearWords"].length; i++) {
-            if(msg.includes(swearWords["swearWords"][i])) {
-                message.delete();
-                message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => message.delete({timeout: 10000}));
-                return;
-            }
+    for (let i = 0; i < swearWords["swearWords"].length; i++) {
+        if(msg.includes(swearWords["swearWords"][i])) {
+
+            if(message.channel.type === "dm") return;
+            
+            message.delete();
+            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => message.delete({timeout: 10000}));
+            return;
         }
     }
 
