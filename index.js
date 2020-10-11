@@ -66,6 +66,7 @@ client.on("message", async message => {
             message.delete();
             message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
             return;
+            
         }
     }
 
