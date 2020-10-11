@@ -37,7 +37,7 @@ client.on("ready", async () => {
 
 });
 
-var swearWords = ["fuck", "shit", "niger"];
+var swearWords = ["fuck", "shit", "niger", "sh|t"];
 
 // Bot commands
 client.on("message", async message => {
