@@ -29,6 +29,9 @@ for (const file of commandFiles) {
 
 console.log(`${commandFiles.length} command files have been loaded.`)
 
+var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
+console.log("Succesfully loaded the file \"swearWords.json\"!")
+
 // Console log + set activity
 client.on("ready", async () => {
 
@@ -54,8 +57,6 @@ client.on("message", async message => {
     if(message.author.bot) return;
 
     // Anti-swear system
-
-    var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
     var msg = message.content.toLowerCase();
 
     for (let i = 0; i < swearWords["swearWords"].length; i++) {
@@ -66,7 +67,7 @@ client.on("message", async message => {
             message.delete();
             message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
             return;
-            
+
         }
     }
 
