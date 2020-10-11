@@ -15,7 +15,8 @@ module.exports = {
             {name: `${prefix}me`, value: "Display some usefull information about you!"},
             {name: `${prefix}hack#`, value: "Hack the server!"},
             {name: `${prefix}is [player] [argument 1] [argment 2]...?#`, value: "Ask anything you want to the bot!\n\n**Minimum 2 arguments - No maximum arguments**"},
-            {name: `${prefix}covid (all|[country])`, value: "Get information about the covid-19 virus!\n\n**Minimum 1 argument - Maximum 1 argument**"}
+            {name: `${prefix}covid (all|[country])`, value: "Get information about the covid-19 virus!\n\n**Minimum 1 argument - Maximum 1 argument**"},
+            {name: `${prefix}rps (rock|paper|scissors)`, value: "Play rock, paper, scissors with the bot!\n\n**Minimum 1 argument - Maximum 1 argument**"}
         );
 
         message.channel.send(botEmbed);
