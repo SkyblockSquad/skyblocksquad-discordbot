@@ -65,7 +65,7 @@ client.on("message", async message => {
     // Anti-swear system
     var msg = message.content.toLowerCase();
 
-    for(let i = 0; index < swearWords.length; i++) {
+    for(let i = 0; i < swearWords.length; i++) {
 
         if(msg.includes(swearWords[i])) {
 
