@@ -62,9 +62,9 @@ client.on("message", async message => {
         if(msg.includes(swearWords["swearWords"][i])) {
 
             if(message.channel.type === "dm") return;
-            
+
             message.delete();
-            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => message.delete({timeout: 10000}));
+            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
             return;
         }
     }
