@@ -43,7 +43,7 @@ module.exports = {
                 let deaths = data.deaths.value.toLocaleString()
 
                 var botEmbed = new discord.MessageEmbed()
-                .setTitle(`COVID (${countries})`)
+                .setTitle(`COVID (${countries.uppercase()})`)
                 .setDescription("See stats about the covid-19 virus!")
                 .setColor(embedColor)
                 .setFooter(embedFooter)
