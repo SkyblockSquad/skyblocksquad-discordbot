@@ -3,7 +3,8 @@ module.exports = {
     description: 'covid',
     execute(discord, message, embedColor, embedFooter, args, fetch) {
 
-        let countries = args.join(" ");
+        var argsWithoutCommand = args.shift();
+        let countries = argsWithoutCommand.join(" ");
 
         if(args.length <= 1) {
             message.channel.send("**Error:** Invalid syntax! Please use **,covid all** OR **,covid [country]**");
