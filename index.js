@@ -114,5 +114,9 @@ client.on("message", async message => {
     if(command === `${prefix}rps`) {
         client.commands.get("rps").execute(message, args);
     }
+
+    if(command === `${prefix}say`) {
+        client.commands.get("say").execute(message, args);
+    }
  
 });
