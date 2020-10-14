@@ -37,7 +37,7 @@ console.log("Succesfully loaded the file \"swearWords.json\"!")
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
-    client.user.setActivity(",help | SkyblockSquad Bot", {type: "PLAYING"});
+    client.user.setActivity("Watching some memes", {type: "CUSTOM_STATUS"});
 
 });
 
