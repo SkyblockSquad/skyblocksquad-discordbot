@@ -70,7 +70,7 @@ module.exports = {
             if(result == "paper") {
 
                 message.channel.send(`I choose: **Paper** :notepad_spiral:`);
-                message.channel.send("**I win!** *you noob*");
+                message.channel.send("**You win...** *I'm sure you cheated*");
                 return;
 
             } else if(result == "scissors") {
