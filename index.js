@@ -1,6 +1,7 @@
 // Setup discord.js and botconfig.json
 const discord = require("discord.js");
 const botConfig = require("./data/botconfig.json");
+console.log("Succesfully loaded the file \"botconfig.json\"!")
 const fetch = require("node-fetch");
 
 // Register fs
