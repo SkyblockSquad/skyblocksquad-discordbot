@@ -37,7 +37,7 @@ console.log("Succesfully loaded the file \"swearWords.json\"!")
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
-    client.user.setActivity("The guild master coding me", {type: "WATCHING"});
+    client.user.setActivity(",help | If you need help!", {type: "PLAYING"});
 
 });
 
