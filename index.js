@@ -37,7 +37,7 @@ console.log("Succesfully loaded the file \"swearWords.json\"!")
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
-    client.user.setActivity("Watching some memes", {type: "CUSTOM_STATUS"});
+    client.user.setActivity("The guild master coding me", {type: "WATCHING"});
 
 });
 
