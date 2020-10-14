@@ -1,6 +1,6 @@
 // Setup discord.js and botconfig.json
 const discord = require("discord.js");
-const botConfig = require("./botconfig.json");
+const botConfig = require("./data/botconfig.json");
 const fetch = require("node-fetch");
 
 // Register fs
@@ -23,17 +23,11 @@ for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 
-    if(!(`${command.name}` === "template")) {
-        
-        console.log(`Command file "${command.name}.js" has been loaded.`);
-    
-    }
+    console.log(`Command file "${command.name}.js" has been loaded.`);
 
 }
 
-var commandFilesAmount = commandFiles.length() - 1;
-
-console.log(`${commandFilesAmount} command files have been loaded.`);
+console.log(`${commandFiles.length} command files have been loaded.`);
 
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 console.log("Succesfully loaded the file \"swearWords.json\"!")
