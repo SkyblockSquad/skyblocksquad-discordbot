@@ -9,8 +9,8 @@ const fs = require("fs");
 
 // Setup variables
 var prefix = botConfig.prefix;
-var embedColor = "#ed2121";
-var embedFooter = "SkyblockSquad Bot | Made for SkyblockSquad Discord";
+var embedColor = botConfig.embedColor;
+var embedFooter = botConfig.embedFooter;
 
 // Login the bot
 const client = new discord.Client();

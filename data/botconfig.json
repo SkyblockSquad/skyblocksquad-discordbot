@@ -1,3 +1,5 @@
 {
-    "prefix":","
+    "prefix":",",
+    "embedColor":"#ed2121",
+    "embedFooter":"SkyblockSquad Bot | Made for SkyblockSquad Discord"
 }
