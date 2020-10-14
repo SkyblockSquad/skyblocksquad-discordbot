@@ -118,5 +118,5 @@ client.on("message", async message => {
     if(command === `${prefix}say`) {
         client.commands.get("say").execute(message, args);
     }
- 
+
 });

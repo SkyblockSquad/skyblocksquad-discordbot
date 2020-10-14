@@ -7,7 +7,7 @@ module.exports = {
             return;
         }
 
-        if(!(message.member.roles.find(r => r.name === "Guild Master"))) {
+        if(!(message.member.hasPermission("ADMINISTRATOR"))) {
             return;
         }
 
