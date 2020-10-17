@@ -14,7 +14,7 @@ module.exports = {
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
-        .setThumbnail(message.author.user.displayAvatarURL({size: 4096}))
+        .setThumbnail(message.author.displayAvatarURL({size: 4096}))
         .addFields(
             {name: "User Name", value:message.author.name},
             {name: "User ID", value:message.author.id},
