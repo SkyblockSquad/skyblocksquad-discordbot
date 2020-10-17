@@ -57,24 +57,6 @@ client.on("message", async message => {
 
     if(message.author.bot) return;
 
-    // Update roles
-    var roles = message.member.roles.resolveID;
-    var step = 1;
-    
-    for (let i = 0; i < roles.length; i++) {
-
-        if(roles[i] == "766937189967462420") {
-            step++;
-        } else if(roles[i] == "766974045437689867") {
-            step++;
-        }
-
-    }
-
-    if(step >= 3) {
-        message.member.roles.remove("766974045437689867");
-    }
-
     // Anti-swear system
     var msg = message.content.toLowerCase();
 
