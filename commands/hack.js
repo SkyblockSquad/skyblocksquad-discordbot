@@ -12,7 +12,8 @@ module.exports = {
 
             message.channel.send("I'm currently hacking HypixeL... Please wait...")
 
-            var PasswordOptions = ["hypixel_skyblock_is_cool", "mineplex_smells", "SuperSecretPassword123", "hypickle", "technoblade_potatoboy", "stonks", "What_is_a_password?"]
+            var PasswordOptions = ["hypixel_skyblock_is_cool", "mineplex_smells", "SuperSecretPassword123", "hypickle", "technoblade_potatoboy", "stonks", "What_is_a_password?", "kronks",
+                                  "choncks", "stonks", "honks"]
             var PasswordInteger = Math.floor(Math.random() * PasswordOptions.length);
             var PasswordOption = PasswordOptions[PasswordInteger];
             
