@@ -16,7 +16,7 @@ module.exports = {
         .setTimestamp()
         .setThumbnail(message.author.displayAvatarURL({size: 4096}))
         .addFields(
-            {name: "User Name", value:message.author.name},
+            {name: "User Name", value:message.member.name},
             {name: "User ID", value:message.author.id},
             {name: "User Account Created", value: `${moment(message.author.createdAt).format("LL")}`},
             {name: "User Status", value:status},
