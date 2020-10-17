@@ -14,13 +14,14 @@ module.exports = {
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
-        .setThumbnail(member.user.displayAvatarURL({size: 4096}))
+        .setThumbnail(message.author.user.displayAvatarURL({size: 4096}))
         .addFields(
             {name: "User Name", value:message.author.name},
             {name: "User ID", value:message.author.id},
-            {name: "User Joined Discord At", value:message.author.createdAt},
+            {name: "User Account Created", value: `${moment(message.author.user.createdAt).format("LL")}`},
             {name: "User Status", value:status},
-            {name: "User NickName", value:nickname}
+            {name: "User NickName", value:nickname},
+            {name: "User Game", value: `${message.author.presence.activities[0] ? message.author.presence.activities[0].name : "None"}`},
         );
 
         message.channel.send(botEmbed);

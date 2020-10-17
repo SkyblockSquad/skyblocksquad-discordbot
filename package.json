@@ -12,7 +12,7 @@
     "discord",
     "skyblocksquad"
   ],
-  "author": "UltraDeveloper",
+  "author": "Guild Master",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.2.0"
