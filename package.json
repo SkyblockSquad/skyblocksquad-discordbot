@@ -15,7 +15,8 @@
   "author": "Guild Master",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
