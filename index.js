@@ -3,6 +3,7 @@ const discord = require("discord.js");
 const botConfig = require("./data/botconfig.json");
 console.log("Succesfully loaded the file \"botconfig.json\"!")
 const fetch = require("node-fetch");
+const moment = require("moment");
 
 // Register fs
 const fs = require("fs");
@@ -102,7 +103,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}me`) {
-        client.commands.get("me").execute(discord, message, embedColor, embedFooter);
+        client.commands.get("me").execute(discord, message, embedColor, embedFooter, moment);
     }
 
     if(command === `${prefix}hack`) {
