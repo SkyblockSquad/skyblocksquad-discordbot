@@ -18,7 +18,7 @@ module.exports = {
         .addFields(
             {name: "User Name", value:message.author.name},
             {name: "User ID", value:message.author.id},
-            {name: "User Account Created", value: `${moment(message.author.user.createdAt).format("LL")}`},
+            {name: "User Account Created", value: `${moment(message.author.createdAt).format("LL")}`},
             {name: "User Status", value:status},
             {name: "User NickName", value:nickname},
             {name: "User Game", value: `${message.author.presence.activities[0] ? message.author.presence.activities[0].name : "None"}`},
