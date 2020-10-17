@@ -4,11 +4,11 @@ const botConfig = require("./data/botconfig.json");
 console.log("Succesfully loaded the file \"botconfig.json\"!")
 const fetch = require("node-fetch");
 
-var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
-console.log("Succesfully loaded the file \"swearWords.json\"!")
-
 // Register fs
 const fs = require("fs");
+
+var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
+console.log("Succesfully loaded the file \"swearWords.json\"!")
 
 // Setup variables
 var prefix = botConfig.prefix;
