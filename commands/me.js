@@ -5,7 +5,7 @@ module.exports = {
 
         var status = message.author.presence.status;
 
-        var nickname = message.author.nickname;
+        var nickname = message.member.nickname;
         if(nickname == null || undefined) nickname = "None";
 
         var botEmbed = new discord.MessageEmbed()
