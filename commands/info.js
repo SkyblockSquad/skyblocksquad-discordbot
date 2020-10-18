@@ -1,12 +1,9 @@
 module.exports = {
     name: 'info',
     description: 'info',
-    execute(discord, message, embedColor, embedFooter, client) {
+    execute(discord, message, embedColor, embedFooter, client, args) {
 
-        if(message.channel.type == "dm") {
-            message.channel.send("**Error:** This command can not be used in DM!")
-            return;
-        }
+        if(args.length >= 2) return message.channel.send("**Error:** No arguments need to be provided!");
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle("INFO")
@@ -19,13 +16,12 @@ module.exports = {
             {name: "Server Name", value:message.guild.name},
             {name: "Server Member Count", value:message.guild.memberCount},
             {name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})`},
-            {name: "Server Created At", value:message.guild.createdAt},
+            {name: "Server Created At", value: `${moment(message.guild.createdAt).format("LL")}`},
             {name: "Bot Embed Color", value:embedColor},
             {name: "Bot Uptime", value:client.uptime}
         );            
 
-        message.channel.send(botEmbed);
-        return;
+        return message.channel.send(botEmbed);
 
     },
 };

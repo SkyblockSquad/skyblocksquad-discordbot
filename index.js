@@ -73,6 +73,8 @@ client.on("message", async message => {
         }
     }
 
+    if(message.channel.type === "dm") return;
+
     // Check channel
     if(!(message.channel.id == "703168301634945097")) {
         if(!(message.channel.id == "703185069354778725")) {
@@ -99,7 +101,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}info`) {
-        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client);         
+        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client, args);         
     }
 
     if(command === `${prefix}me`) {

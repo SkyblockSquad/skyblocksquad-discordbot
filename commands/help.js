@@ -3,7 +3,7 @@ module.exports = {
     description: 'help',
     execute(discord, message, prefix, embedColor, embedFooter, args) {
 
-        var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments\nCommands marked with a # are not available in DM!";
+        var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
 
         var command = args.join(" ");
         var argsText = command.slice(6);
