@@ -2,7 +2,7 @@
 const discord = require("discord.js");
 
 const botConfig = require("./data/botconfig.json");
-console.log("Succesfully loaded the file \"botconfig.json\"!")
+console.log("Data file \"botconfig.json\" has been loaded!")
 
 const fetch = require("node-fetch");
 const moment = require("moment");
