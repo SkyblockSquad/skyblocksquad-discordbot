@@ -1,15 +1,15 @@
 // discord.js, botConfig, node-fetch, moment, fs
 const discord = require("discord.js");
 
-const botConfig = require("./data/botconfig.json");
-console.log("Data file \"botconfig.json\" has been loaded!")
+// const botConfig = require("./data/botconfig.json");
+// console.log("Data file \"botconfig.json\" has been loaded!")
 
 const fetch = require("node-fetch");
 const moment = require("moment");
 const fs = require("fs");
 
-var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
-console.log("Succesfully loaded the file \"swearWords.json\"!")
+// var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
+// console.log("Succesfully loaded the file \"swearWords.json\"!")
 
 // Setup variables
 var prefix = botConfig.prefix;
@@ -19,9 +19,21 @@ var embedFooter = botConfig.embedFooter;
 // Login the bot
 const client = new discord.Client();
 client.login(process.env.token);
-client.commands = new discord.Collection();
 
+client.commands = new discord.Collection();
+client.data = new discord.Collection();
+
+const dataFiles = fs.readdirSync('./data').filter(file => file.endsWith('.json'));
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of dataFiles) {
+
+    const data = require(`./data/${file}`);
+    client.data.set(data.name, data);
+
+    console.log(`Data file "${data.name}.json" has been loaded.`)
+
+}
 
 for (const file of commandFiles) {
 
@@ -95,7 +107,7 @@ client.on("message", async message => {
     var command = args[0]
 
     if(command === `${prefix}help`) {
-        client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args, command);
+        client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args);
     }
 
     if(command === `${prefix}info`) {

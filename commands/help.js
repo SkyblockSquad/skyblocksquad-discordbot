@@ -2,10 +2,11 @@ module.exports = {
     name: 'help',
     description: 'See a list of all bot commands!',
     category: 'Information',
-    execute(discord, message, prefix, embedColor, embedFooter, args, command) {
+    execute(discord, message, prefix, embedColor, embedFooter, args) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments\nCommands marked with a # are not available in DM!";
 
+        var command = args.join(" ");
         var argsText = command.slice(7);
         console.log(`DEBUG: ${argsText}`);
 
