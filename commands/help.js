@@ -13,7 +13,8 @@ module.exports = {
         .addFields(
             {name: "\u200b", value: "\u200b"},
             {name: `:information_source: __Infomation__`, value: "*Get alot of information!*\n**3 Commands**", inline: true},
-            {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true}
+            {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
+            {name: "\u200b", value: "\u200b"}
         );
 
         message.channel.send(botEmbed);
