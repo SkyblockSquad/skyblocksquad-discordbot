@@ -1,15 +1,15 @@
-// discord.js, botConfig, node-fetch, moment, fs
+// discord.js, botConfig, swearWords, node-fetch, moment, fs
 const discord = require("discord.js");
 
 const botConfig = require("./data/botconfig.json");
-console.log("Data file \"botconfig.json\" has been loaded!")
+console.log("Data file \"botconfig.json\" has been loaded.")
+
+var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
+console.log("Data file \"swearWords.json\" has been loaded.")
 
 const fetch = require("node-fetch");
 const moment = require("moment");
 const fs = require("fs");
-
-var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
-console.log("Succesfully loaded the file \"swearWords.json\"!")
 
 // Login the bot
 const client = new discord.Client();

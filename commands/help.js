@@ -77,7 +77,7 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}covid (all | [country])`},
+                    {name: `${prefix}covid (all | [country])`, value: "*See live covid-19 statistics!*"},
                 );
 
                 return message.channel.send(botEmbed);
