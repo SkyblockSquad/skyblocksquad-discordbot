@@ -41,7 +41,10 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}help {category}`, value: "*See a list of all bot commands\nor see a list of all bot commands from a\nspecific category*"}
+                    {name: `${prefix}help {category}`, value: "*See a list of all bot commands\nor see a list of all bot commands from a\nspecific category*", inline: true},
+                    {name: `${prefix}me`, value: "*See information about yourself!*", inline: true},
+                    {name: "\u200b", value: "\u200b"},
+                    {name: `${prefix}info`, value: "*See information about the server and the bot!*"}
                 );
 
                 return message.channel.send(botEmbed);
@@ -56,7 +59,10 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}hack`, value: "*Hack the server!*"}
+                    {name: `${prefix}hack`, value: "*Hack the server!*", inline: true},
+                    {name: `${prefix}is`, value: "*Ask everything to the bot!*", inline: true},
+                    {name: "\u200b", value: "\u200b"},
+                    {name: `${prefix}rps`, value: "*Play rock, paper, scissors!*"}
                 );
 
                 return message.channel.send(botEmbed);
