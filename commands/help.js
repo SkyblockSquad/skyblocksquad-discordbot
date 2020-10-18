@@ -13,7 +13,7 @@ module.exports = {
 
             var botEmbed = new discord.MessageEmbed()
             .setTitle("HELP")
-            .setDescription(`See a list of bot commands below! ${embedDescription}`)
+            .setDescription(`See a list of bot commands below! ${embedDescription}\n\n**Use ,help [category] to see help about a specific category**`)
             .setColor(embedColor)
             .setFooter(embedFooter)
             .setTimestamp()
