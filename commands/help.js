@@ -44,7 +44,7 @@ module.exports = {
                     {name: `${prefix}me`, value: "*See information about yourself!*", inline: true},
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}info`, value: "*See information about\nthe server and the bot!*", inline: true},
-                    {name: `${prefix}ping`, value: "See latency and API ping!", inline: true}
+                    {name: `${prefix}ping`, value: "*See latency and API ping!*", inline: true}
                 );
 
                 return message.channel.send(botEmbed);
