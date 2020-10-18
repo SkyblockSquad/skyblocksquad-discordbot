@@ -1,7 +1,7 @@
 module.exports = {
     name: 'ping',
     description: 'ping',
-    execute(message, args) {
+    execute(message, args, client) {
     
         if(args.length >= 2) return message.channel.send("**Error:** No arguments need to be provided!");
         

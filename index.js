@@ -127,7 +127,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}ping`) {
-        client.commands.get("ping").execute(message, args);
+        client.commands.get("ping").execute(message, args, client);
     }
 
 });
