@@ -44,7 +44,7 @@ module.exports = {
                     {name: `${prefix}help {category}`, value: "*See a list of all bot commands\nor see a list of all bot\n commands from aspecific category*", inline: true},
                     {name: `${prefix}me`, value: "*See information about yourself!*", inline: true},
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}info`, value: "*See information about the server and the bot!*"}
+                    {name: `${prefix}info`, value: "*See information about\nthe server and the bot!*"}
                 );
 
                 return message.channel.send(botEmbed);
