@@ -2,11 +2,12 @@ module.exports = {
     name: 'help',
     description: 'See a list of all bot commands!',
     category: 'Information',
-    execute(discord, message, prefix, embedColor, embedFooter, args) {
-
-        if(args.length >= 3) return message.channel.send("**Error:** Invalid syntax! Please use **,help {category}**");
+    execute(discord, message, prefix, embedColor, embedFooter, args, command) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments\nCommands marked with a # are not available in DM!";
+
+        var argsText = command.slice(7);
+        console.log(`DEBUG: ${argsText}`);
 
         if(args.length <= 1) {
 
@@ -27,7 +28,7 @@ module.exports = {
             message.channel.send(botEmbed);
             return;
 
-        } else if(args.length == 2) {
+        } else if(args.length >= 2) {
 
             if(args[1].toLowerCase() === "information" || args[1].toLowerCase() === "info") {
                 

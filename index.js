@@ -95,7 +95,7 @@ client.on("message", async message => {
     var command = args[0]
 
     if(command === `${prefix}help`) {
-        client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args);
+        client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args, command);
     }
 
     if(command === `${prefix}info`) {
