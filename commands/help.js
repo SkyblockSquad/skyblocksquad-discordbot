@@ -14,7 +14,8 @@ module.exports = {
             {name: "\u200b", value: "\u200b"},
             {name: `:information_source: __Infomation__`, value: "*Get alot of information!*\n**3 Commands**", inline: true},
             {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
-            {name: "\u200b", value: "\u200b"}
+            {name: "\u200b", value: "\u200b"},
+            {nme: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**"}
         );
 
         message.channel.send(botEmbed);
