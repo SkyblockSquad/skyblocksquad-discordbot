@@ -8,7 +8,7 @@ module.exports = {
 
         var command = args.join(" ");
         var argsText = command.slice(6);
-        console.log(`DEBUG: ${argsText}`);
+        var argsText = argsText.toLowerCase();
 
         if(args.length <= 1) {
 
@@ -31,7 +31,7 @@ module.exports = {
 
         } else if(args.length >= 2) {
 
-            if(args[1].toLowerCase() === "information" || args[1].toLowerCase() === "info") {
+            if(argsText === "information" || argsText === "info") {
                 
                 var botEmbed = new discord.MessageEmbed()
                 .setTitle("HELP (INFORMATION)")
@@ -46,7 +46,7 @@ module.exports = {
 
                 return message.channel.send(botEmbed);
 
-            } else if(args[1].toLowerCase() === "fun & games" || args[1].toLowerCase() === "fun" || args[1].toLowerCase() === "games") {
+            } else if(argsText === "fun & games" || argsText === "fun" || argsText === "games") {
 
                 var botEmbed = new discord.MessageEmbed()
                 .setTitle("HELP (FUN & GAMES)")
