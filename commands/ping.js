@@ -7,9 +7,9 @@ module.exports = {
 
         message.channel.send("Waiting for server...").then(m =>{
 
-            m.edit(`**Latency:** ${Date.now() - message.createdTimestamp}ms\n**API Latency:** ${Math.round(client.ws.ping)}ms`);
+            m.edit(`:ping_pong: **Latency:** ${Date.now() - message.createdTimestamp}ms\n**API Latency:** ${Math.round(client.ws.ping)}ms`);
             return;
-            
+
         });
 
     },
