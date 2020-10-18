@@ -7,7 +7,7 @@ module.exports = {
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments\nCommands marked with a # are not available in DM!";
 
         var command = args.join(" ");
-        var argsText = command.slice(7);
+        var argsText = command.slice(6);
         console.log(`DEBUG: ${argsText}`);
 
         if(args.length <= 1) {
