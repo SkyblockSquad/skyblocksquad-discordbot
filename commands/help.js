@@ -39,12 +39,29 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: "__,help {category}__", value: "*See a list of all bot commands\nor see a list of all bot commands from a\nspecific category*"}
+                    {name: ",help {category}", value: "*See a list of all bot commands\nor see a list of all bot commands from a\nspecific category*"}
+                );
+
+                return message.channel.send(botEmbed);
+
+            } else if(args[1].toLowerCase() === "fun & games" || args[1].toLowerCase() === "fun" || args[1].toLowerCase() === "games") {
+
+                var botEmbed = new discord.MessageEmbed()
+                .setTitle("HELP (FUN & GAMES)")
+                .setDescription(`See a list of fun & games commands below! ${embedDescription}`)
+                .setColor(embedColor)
+                .setFooter(embedFooter)
+                .setTimestamp()
+                .addFields(
+                    {name: "\u200b", value: "\u200b"},
+                    {name: ",hack", value: "*Hack the server!*"}
                 );
 
                 return message.channel.send(botEmbed);
 
             }
+
+            return message.channel.send("**Error:** Invalid category! See a list of categorys using **,help**!");
 
         } 
     
