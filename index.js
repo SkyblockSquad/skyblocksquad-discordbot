@@ -1,11 +1,11 @@
-// Setup discord.js and botconfig.json
+// discord.js, botConfig, node-fetch, moment, fs
 const discord = require("discord.js");
+
 const botConfig = require("./data/botconfig.json");
 console.log("Succesfully loaded the file \"botconfig.json\"!")
+
 const fetch = require("node-fetch");
 const moment = require("moment");
-
-// Register fs
 const fs = require("fs");
 
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
@@ -99,7 +99,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}info`) {
-        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client);           
+        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client);         
     }
 
     if(command === `${prefix}me`) {
