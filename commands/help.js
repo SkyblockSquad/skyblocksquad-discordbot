@@ -11,7 +11,7 @@ module.exports = {
         .setFooter(embedFooter)
         .setTimestamp()
         .addFields(
-            {name: "\u200b", "\u200b"},
+            {name: "\u200b", value: "\u200b"},
             {name: `:information_source: __Infomation__`, value: "*Get alot of information!*\n**3 Commands**", inline: true},
             {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true}
         );
