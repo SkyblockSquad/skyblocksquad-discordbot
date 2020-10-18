@@ -1,7 +1,6 @@
 module.exports = {
     name: 'help',
-    description: 'See a list of all bot commands!',
-    category: 'Information',
+    description: 'help',
     execute(discord, message, prefix, embedColor, embedFooter, args) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments\nCommands marked with a # are not available in DM!";
@@ -20,7 +19,7 @@ module.exports = {
             .setTimestamp()
             .addFields(
                 {name: "\u200b", value: "\u200b"},
-                {name: `:information_source: __Infomation__`, value: "*Get alot of information!*\n**3 Commands**", inline: true},
+                {name: `:information_source: __Infomation__`, value: "*Get alot of information!*\n**4 Commands**", inline: true},
                 {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
                 {name: "\u200b", value: "\u200b"},
                 {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**"}
@@ -44,7 +43,8 @@ module.exports = {
                     {name: `${prefix}help {category}`, value: "*See a list of all bot commands\nor see a list of all bot\n commands from aspecific category*", inline: true},
                     {name: `${prefix}me`, value: "*See information about yourself!*", inline: true},
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}info`, value: "*See information about\nthe server and the bot!*"}
+                    {name: `${prefix}info`, value: "*See information about\nthe server and the bot!*", inline: true},
+                    {name: `${prefix}ping`, value: "See latency and API ping!", inline: true}
                 );
 
                 return message.channel.send(botEmbed);
