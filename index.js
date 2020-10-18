@@ -101,7 +101,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}info`) {
-        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client, args);         
+        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client, args, moment);         
     }
 
     if(command === `${prefix}me`) {

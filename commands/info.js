@@ -1,7 +1,7 @@
 module.exports = {
     name: 'info',
     description: 'info',
-    execute(discord, message, embedColor, embedFooter, client, args) {
+    execute(discord, message, embedColor, embedFooter, client, args, moment) {
 
         if(args.length >= 2) return message.channel.send("**Error:** No arguments need to be provided!");
 
