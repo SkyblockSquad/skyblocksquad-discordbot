@@ -11,15 +11,6 @@ const fs = require("fs");
 // var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 // console.log("Succesfully loaded the file \"swearWords.json\"!")
 
-// Setup variables
-var prefix = botConfig.prefix;
-var embedColor = botConfig.embedColor;
-var embedFooter = botConfig.embedFooter;
-
-// Login the bot
-const client = new discord.Client();
-client.login(process.env.token);
-
 client.commands = new discord.Collection();
 client.data = new discord.Collection();
 
@@ -43,6 +34,17 @@ for (const file of commandFiles) {
     console.log(`Command file "${command.name}.js" has been loaded.`);
 
 }
+
+console.log(`${commandFiles.length} command files have been loaded.`);
+
+// Setup variables
+var prefix = botConfig.prefix;
+var embedColor = botConfig.embedColor;
+var embedFooter = botConfig.embedFooter;
+
+// Login the bot
+const client = new discord.Client();
+client.login(process.env.token);
 
 console.log(`${commandFiles.length} command files have been loaded.`);
 

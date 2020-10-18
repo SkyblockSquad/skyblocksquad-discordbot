@@ -41,7 +41,7 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: ",help {category}", value: "*See a list of all bot commands\nor see a list of all bot commands from a\nspecific category*"}
+                    {name: `${prefix}help {category}", value: "*See a list of all bot commands\nor see a list of all bot commands from a\nspecific category*`}
                 );
 
                 return message.channel.send(botEmbed);
@@ -56,14 +56,14 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: ",hack", value: "*Hack the server!*"}
+                    {name: `${prefix}hack", value: "*Hack the server!*`}
                 );
 
                 return message.channel.send(botEmbed);
 
             }
 
-            return message.channel.send("**Error:** Invalid category! See a list of categorys using **,help**!");
+            return message.channel.send(`**Error:** Invalid category! See a list of categorys using **${prefix}help**!`);
 
         } 
     
