@@ -11,6 +11,10 @@ const fs = require("fs");
 // var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 // console.log("Succesfully loaded the file \"swearWords.json\"!")
 
+// Login the bot
+const client = new discord.Client();
+client.login(process.env.token);
+
 client.commands = new discord.Collection();
 client.data = new discord.Collection();
 
@@ -41,12 +45,6 @@ console.log(`${commandFiles.length} command files have been loaded.`);
 var prefix = botConfig.prefix;
 var embedColor = botConfig.embedColor;
 var embedFooter = botConfig.embedFooter;
-
-// Login the bot
-const client = new discord.Client();
-client.login(process.env.token);
-
-console.log(`${commandFiles.length} command files have been loaded.`);
 
 // Console log + set activity
 client.on("ready", async () => {
