@@ -67,6 +67,21 @@ module.exports = {
 
                 return message.channel.send(botEmbed);
 
+            } else if(argsText === "covid-19" || argsText === "covid" || argsText === "corona") {
+
+                var botEmbed = new discord.MessageEmbed()
+                .setTitle("HELP (COVID-19)")
+                .setDescription(`See a list of covid-19 commands below! ${embedDescription}`)
+                .setColor(embedColor)
+                .setFooter(embedFooter)
+                .setTimestamp()
+                .addFields(
+                    {name: "\u200b", value: "\u200b"},
+                    {name: `${prefix}covid (all | [country])`},
+                );
+
+                return message.channel.send(botEmbed);
+
             }
 
             return message.channel.send(`**Error:** Invalid category! See a list of categorys using **${prefix}help**!`);
