@@ -20,7 +20,7 @@ module.exports = {
                 {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
                 {name: "\u200b", value: "\u200b"},
                 {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**", inline: true},
-                {name: `:video_game: __Skyblock__`, value: "*See Skyblock stats!*\n**1 Command**", inline: true}
+                {name: `:boomerang: __Hypixel__`, value: "*All Hypixel-related commands!*\n**2 Commands**", inline: true}
             );
 
             return message.channel.send(botEmbed);
@@ -79,17 +79,18 @@ module.exports = {
 
                 return message.channel.send(botEmbed);
 
-            } else if(helpMenu === "skyblock" || helpMenu === "sb") {
+            } else if(helpMenu === "hypixel" || helpMenu === "skyblock" || helpMenu === "sb") {
 
                 var botEmbed = new discord.MessageEmbed()
-                .setTitle("HELP (SKYBLOCK)")
-                .setDescription(`See a list of skyblock commands below! ${embedDescription}`)
+                .setTitle("HELP (HYPIXEL)")
+                .setDescription(`See a list of Hypixel commands below! ${embedDescription}`)
                 .setColor(embedColor)
                 .setFooter(embedFooter)
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}profile {username} {profile name}`, value: "*See your Skyblock profile ID!*"}
+                    {name: `${prefix}profile {username} {profile name}`, value: "*See your Skyblock profile ID!*", inline: true},
+                    {name: `${prefix}hypixel {username}`, value: "*See your Hypixel stats!*", inline: true}
                 );
 
                 return message.channel.send(botEmbed);
