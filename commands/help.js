@@ -19,7 +19,8 @@ module.exports = {
                 {name: `:information_source: __Infomation__`, value: "*Get alot of information!*\n**4 Commands**", inline: true},
                 {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
                 {name: "\u200b", value: "\u200b"},
-                {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**"}
+                {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**", inline: true},
+                {name: `:video_game: __Skyblock__`, value: "*See Skyblock stats!*", inline: true}
             );
 
             return message.channel.send(botEmbed);
@@ -74,6 +75,21 @@ module.exports = {
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}covid (all | [country])`, value: "*See live covid-19 statistics!\nConfirmed cases, recovered\npeople and deaths.*"},
+                );
+
+                return message.channel.send(botEmbed);
+
+            } else if(helpMenu === "skyblock" || helpMenu === "sb") {
+
+                var botEmbed = new discord.MessageEmbed()
+                .setTitle("HELP (SKYBLOCK)")
+                .setDescription(`See a list of skyblock commands below! ${embedDescription}`)
+                .setColor(embedColor)
+                .setFooter(embedFooter)
+                .setTimestamp()
+                .addFields(
+                    {name: "\u200b", value: "\u200b"},
+                    {name: `${prefix}profile {username} {profile name}`, value: "*See your Skyblock profile ID!*"}
                 );
 
                 return message.channel.send(botEmbed);
