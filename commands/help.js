@@ -36,7 +36,7 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}help {category}`, value: "*See a list of all bot commands from\na specific category!*", inline: true},
+                    {name: `${prefix}help {category}`, value: "*See a list of all bot commands\n from a specific category!*", inline: true},
                     {name: `${prefix}me`, value: "*See some cool information about yourself!*", inline: true},
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}info`, value: "*See information about\nthe server and the bot!*", inline: true},
