@@ -40,6 +40,7 @@ client.on("ready", async () => {
     console.log(`${client.user.username} is ready.`);
     client.user.setActivity(",help | SkyblockSquad Bot", {type: "PLAYING"});
 
+
 });
 
 // Server detection
