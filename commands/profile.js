@@ -11,6 +11,8 @@ module.exports = {
             const data = await response.json();
             const { id } = data;
 
+            if(id == null | undefined) return message.channel.send("**Error:** Something went wrong! (Unknown username or profile name)");
+
             message.channel.send(`**Profile ID:** __${id}__`);
 
         }
