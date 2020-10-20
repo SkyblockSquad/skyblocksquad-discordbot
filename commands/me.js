@@ -3,8 +3,6 @@ module.exports = {
     description: 'me',
     execute(discord, message, embedColor, embedFooter, moment) {
 
-        var status = message.author.presence.status;
-
         var nickname = message.member.nickname;
         if(nickname == null || undefined) nickname = "None";
 
@@ -19,13 +17,12 @@ module.exports = {
             {name: "User Name", value:message.author.username},
             {name: "User ID", value:message.author.id},
             {name: "User Account Created", value: `${moment(message.author.createdAt).format("LL")}`},
-            {name: "User Status", value:status},
+            {name: "User Status", value:message.author.presence.status},
             {name: "User NickName", value:nickname},
             {name: "User Game", value: `${message.author.presence.activities[0] ? message.author.presence.activities[0].name : "None"}`},
         );
 
-        message.channel.send(botEmbed);
-        return;
+        return message.channel.send(botEmbed);
 
     },
 };

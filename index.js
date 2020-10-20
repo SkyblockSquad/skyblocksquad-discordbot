@@ -1,6 +1,7 @@
-// discord.js, fs, botConfig, swearWords, node-fetch, moment
 const discord = require("discord.js");
 const fs = require("fs");
+const fetch = require("node-fetch");
+const moment = require("moment");
 
 const botConfig = require("./data/botconfig.json");
 console.log("Data file \"botconfig.json\" has been loaded.")
@@ -8,10 +9,6 @@ console.log("Data file \"botconfig.json\" has been loaded.")
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 console.log("Data file \"swearWords.json\" has been loaded.")
 
-const fetch = require("node-fetch");
-const moment = require("moment");
-
-// Login the bot
 const client = new discord.Client();
 client.login(process.env.token);
 
@@ -29,7 +26,6 @@ for (const file of commandFiles) {
 
 console.log(`${commandFiles.length} command files have been loaded.`);
 
-// Setup variables
 var prefix = botConfig.prefix;
 var embedColor = botConfig.embedColor;
 var embedFooter = botConfig.embedFooter;
@@ -40,62 +36,39 @@ client.on("ready", async () => {
     console.log(`${client.user.username} is ready.`);
     client.user.setActivity(",help | SkyblockSquad Bot", {type: "PLAYING"});
 
-
 });
 
 // Server detection
 client.on("message", async message => {
 
-    if(message.channel.type == "text") {
-        if(!(message.channel.guild.id == "683205054681055233") && !(message.channel.guild.id == "698797204701184060")) {
-
-            if(message.author.bot) return;
-            
-            message.channel.send("**Hey! This is not the SkyblockSquad Discord server! All functions have been disabled.**");
-            console.log(`The bot has been detected on an unknown server. Guild name: ${message.guild.name} | Guild owner: ${message.guild.owner}`);
-            return;
-        }
-    }
-
+    if(message.channel.type === "dm") return;
     if(message.author.bot) return;
-
-    // Anti-swear system
-    var msg = message.content.toLowerCase();
+    
+    var check = message.content.toLowerCase();
 
     for (let i = 0; i < swearWords["swearWords"].length; i++) {
-        if(msg.includes(swearWords["swearWords"][i])) {
-    
-            if(message.channel.type === "dm") return;
+        if(check.includes(swearWords["swearWords"][i])) {
     
             message.delete();
-            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
-            return;
-    
+            return message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
+
         }
     }
 
-    if(message.channel.type === "dm") return;
+    if(!(message.member.hasPermission("ADMINISTRATOR"))) {
+        if(!(message.channel.id === "703168301634945097")) {
+            if(message.content.startsWith(`${prefix}`)) {
 
-    // Check channel
-    if(!(message.channel.id == "703168301634945097")) {
-        if(!(message.channel.id == "703185069354778725")) {
-
-            if(!(message.content.startsWith(`${prefix}`))) return;
-            
-            if(!(message.member.hasPermission("ADMINISTRATOR"))) {
-                
-                var msg = "**Error:** Please use the <#703168301634945097> channel for bot commands!";
-                message.channel.send(`**Error:** Please use the <#703168301634945097> channel for bot commands!`).then(msg => msg.delete({timeout: 10000}));
                 message.delete();
-                
-                return;
-            }
+                return message.channel.send(`<@${message.author.id}>: **Please use the <@703168301634945097> channel for bot commands!**`).then(msg => msg.delete({timeout: 10000}));
 
+            }
         }
     }
 
     var args = message.content.split(" ");
     var command = args[0]
+    args.shift();
 
     if(command === `${prefix}help`) {
         client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args);

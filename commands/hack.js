@@ -8,7 +8,7 @@ module.exports = {
             return;
         }
 
-        if(args.length == 2 && args[1].toLowerCase() === "hypixel") {
+        if(args.length == 1 && args[0].toLowerCase() === "hypixel") {
 
             message.channel.send("I'm currently hacking HypixeL... Please wait...")
 

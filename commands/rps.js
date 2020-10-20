@@ -3,16 +3,17 @@ module.exports = {
     description: 'rps',
     execute(message, args) {
 
-        if(!args[1]) return message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");
+        if(!args[0]) return message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");
 
         var options = ["rock", "paper", "scissors"];
         var result = options[Math.floor(Math.random() * options.length)];
 
-        if(!(args[1].toUpperCase() === "ROCK")) {
-            if(!(args[1].toUpperCase() === "PAPER")) {
-                if(!(args[1].toUpperCase() === "SCISSORS")) {
-                    message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");
-                    return;
+        if(!(args[0].toUpperCase() === "ROCK")) {
+            if(!(args[0].toUpperCase() === "PAPER")) {
+                if(!(args[0].toUpperCase() === "SCISSORS")) {
+
+                    return message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");
+
                 }
             }
         }
@@ -28,76 +29,66 @@ module.exports = {
         var tieMessageOptions = ["*I'm sure that next time I'll win*", "*GG*", "*Next time you'll get destroyed*", "*Well, that was a fun game!*", "nice one!"]
         var tieMessage = tieMessageOptions[Math.floor(Math.random() * tieMessageOptions.length)];
 
-        if(args[1].toUpperCase() == "ROCK") {
+        if(args[0].toUpperCase() == "ROCK") {
 
             if(result == "paper") {
 
                 message.channel.send(`I choose: **Paper** :notepad_spiral:`);
-                message.channel.send(`**I win!** ${winMessage}`);
-                return;
+                return message.channel.send(`**I win!** ${winMessage}`);
 
             } else if(result == "scissors") {
 
                 message.channel.send(`I choose: **Scissors** :scissors:`);
-                message.channel.send(`**You win...** ${loseMessage}`);
-                return;
+                return message.channel.send(`**You win...** ${loseMessage}`);
 
             } else if(result == "rock") {
 
                 message.channel.send(`I choose: **Rock** :moyai:`);
-                message.channel.send(`**It's a tie!** ${tieMessage}`);
-                return;
+                return message.channel.send(`**It's a tie!** ${tieMessage}`);
 
             }
 
         }
 
-        else if(args[1].toUpperCase() == "PAPER") {
+        else if(args[0].toUpperCase() == "PAPER") {
 
             if(result == "paper") {
 
                 message.channel.send(`I choose: **Paper** :notepad_spiral:`);
-                message.channel.send(`**It's a tie!** ${tieMessage}`);
-                return;
+                return message.channel.send(`**It's a tie!** ${tieMessage}`);
 
             } else if(result == "scissors") {
 
                 message.channel.send(`I choose: **Scissors** :scissors:`);
-                message.channel.send(`**I win!** ${winMessage}`);
-                return;
+                return message.channel.send(`**I win!** ${winMessage}`);
 
             } else if(result == "rock") {
 
                 message.channel.send(`I choose: **Rock** :moyai:`);
-                message.channel.send(`**You win...** ${loseMessage}`);
-                return;
+                return message.channel.send(`**You win...** ${loseMessage}`);
 
             }
 
         }
 
-        else if(args[1].toUpperCase() == "SCISSORS") {
+        else if(args[0].toUpperCase() == "SCISSORS") {
 
             if(result == "paper") {
 
                 message.channel.send(`I choose: **Paper** :notepad_spiral:`);
-                message.channel.send(`**You win...** ${loseMessage}`);
-                return;
+                return message.channel.send(`**You win...** ${loseMessage}`);
 
             } else if(result == "scissors") {
 
                 message.channel.send(`I choose: **Scissors** :scissors:`);
-                message.channel.send(`**It's a tie!** ${tieMessage}`);
-                return;
+                return message.channel.send(`**It's a tie!** ${tieMessage}`);
 
             } else if(result == "rock") {
 
                 message.channel.send(`I choose: **Rock** :moyai:`);
-                message.channel.send(`**I win!** ${winMessage}`);
-                return;
+                return message.channel.send(`**I win!** ${winMessage}`);
 
             }
-
         }
 
     },

@@ -3,15 +3,12 @@ module.exports = {
     description: 'covid',
     execute(discord, message, embedColor, embedFooter, args, fetch) {
 
-        args.shift();
         let countries = args.join(" ");
 
-        if(args.length <= 0) {
-            message.channel.send("**Error:** Invalid syntax! Please use **,covid all** OR **,covid [country]**");
-            return;
-        }
+        if(args.length >= 2 || !(args[0])) return message.channel.type("**Error:** Invalid syntax! Please use **,covid (all | [country])");
         
         if(args[0] === "all") {
+            
             fetch("https://covid19.mathdro.id/api")
             .then(response => response.json())
             .then(data => {
@@ -31,10 +28,11 @@ module.exports = {
                     {name: "Deaths", value:deaths}
                 );
 
-                message.channel.send(botEmbed);
-                return;
+                return message.channel.send(botEmbed);
+
             })
         } else {
+            
             fetch(`https://covid19.mathdro.id/api/countries/${countries}`)
             .then(response => response.json())
             .then(data => {
@@ -42,10 +40,10 @@ module.exports = {
                 let recovered = data.recovered.value.toLocaleString()
                 let deaths = data.deaths.value.toLocaleString()
 
-                var countriesU = countries.toUpperCase();
+                var countriesUpper = countries.toUpperCase();
 
                 var botEmbed = new discord.MessageEmbed()
-                .setTitle(`COVID (${countriesU})`)
+                .setTitle(`COVID (${countriesUpper})`)
                 .setDescription("See stats about the covid-19 virus!")
                 .setColor(embedColor)
                 .setFooter(embedFooter)
@@ -57,9 +55,9 @@ module.exports = {
                 );
 
                 message.channel.send(botEmbed);
+
             }).catch(e => {
-                message.channel.send("**Error:** Invalid country provided!");
-                return;
+                return message.channel.send("**Error:** Invalid country provided!");
             })
         }
     },

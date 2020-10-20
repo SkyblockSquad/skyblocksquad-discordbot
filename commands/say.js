@@ -3,19 +3,13 @@ module.exports = {
     description: 'say',
     execute(message, args) {
     
-        if(args.length <= 1) {
-            return;
-        }
+        if(!(message.member.hasPermission("ADMINISTRATOR"))) return;
+        if(args.length == 0) return;
 
-        if(!(message.member.hasPermission("ADMINISTRATOR"))) {
-            return;
-        }
-
-        args.shift();
-        var sayMessage = args.join(" ");
+        var say = args.join(" ");
 
         message.delete();
-        message.channel.send(sayMessage);
+        message.channel.send(say);
 
     },
 };

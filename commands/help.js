@@ -4,12 +4,9 @@ module.exports = {
     execute(discord, message, prefix, embedColor, embedFooter, args) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
+        var helpMenu = args.join(" ");
 
-        var command = args.join(" ");
-        var argsText = command.slice(6);
-        var argsText = argsText.toLowerCase();
-
-        if(args.length <= 1) {
+        if(args.length == 0) {
 
             var botEmbed = new discord.MessageEmbed()
             .setTitle("HELP")
@@ -25,12 +22,11 @@ module.exports = {
                 {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**"}
             );
 
-            message.channel.send(botEmbed);
-            return;
+            return message.channel.send(botEmbed);
 
-        } else if(args.length >= 2) {
+        } else if(args.length >= 1) {
 
-            if(argsText === "information" || argsText === "info") {
+            if(helpMenu === "information" || helpMenu === "info") {
                 
                 var botEmbed = new discord.MessageEmbed()
                 .setTitle("HELP (INFORMATION)")
@@ -40,16 +36,16 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}help {category}`, value: "*See a list of all bot commands\nor see a list of all bot\n commands from aspecific category*", inline: true},
-                    {name: `${prefix}me`, value: "*See information about yourself!*", inline: true},
+                    {name: `${prefix}help {category}`, value: "*See a list of all bot commands from\na specific category!*", inline: true},
+                    {name: `${prefix}me`, value: "*See some cool information about yourself!*", inline: true},
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}info`, value: "*See information about\nthe server and the bot!*", inline: true},
-                    {name: `${prefix}ping`, value: "*See latency and API ping!*", inline: true}
+                    {name: `${prefix}ping`, value: "*Get information about\nlatency and API ping!*", inline: true}
                 );
 
                 return message.channel.send(botEmbed);
 
-            } else if(argsText === "fun & games" || argsText === "fun" || argsText === "games") {
+            } else if(helpMenu === "fun & games" || helpMenu === "fun" || helpMenu === "games" || helpMenu === "fun and games") {
 
                 var botEmbed = new discord.MessageEmbed()
                 .setTitle("HELP (FUN & GAMES)")
@@ -60,14 +56,14 @@ module.exports = {
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}hack`, value: "*Hack the server!*", inline: true},
-                    {name: `${prefix}is`, value: "*Ask everything to the bot!*", inline: true},
+                    {name: `${prefix}is`, value: "*Ask some interesting\nquestions to the bot!*", inline: true},
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}rps`, value: "*Play rock, paper, scissors!*"}
+                    {name: `${prefix}rps`, value: "*Duel the bot in a\nrock, paper, scissors game!*"}
                 );
 
                 return message.channel.send(botEmbed);
 
-            } else if(argsText === "covid-19" || argsText === "covid" || argsText === "corona") {
+            } else if(helpMenu === "covid-19" || helpMenu === "covid" || helpMenu === "corona") {
 
                 var botEmbed = new discord.MessageEmbed()
                 .setTitle("HELP (COVID-19)")
@@ -77,14 +73,14 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}covid (all | [country])`, value: "*See live covid-19 statistics!*"},
+                    {name: `${prefix}covid (all | [country])`, value: "*See live covid-19\nstatistics! Confirmed cases, recovered people\nand deaths.*"},
                 );
 
                 return message.channel.send(botEmbed);
 
             }
 
-            return message.channel.send(`**Error:** Invalid category! See a list of categorys using **${prefix}help**!`);
+            return message.channel.send(`**Error:** Invalid category! See a list of valid categorys using **${prefix}help**!`);
 
         } 
     
