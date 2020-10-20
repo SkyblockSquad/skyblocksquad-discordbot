@@ -9,9 +9,7 @@ module.exports = {
 
             const response = await fetch(`https://api.slothpixel.me/api/skyblock/profile/${args[0]}/${args[1]}`);
             const data = await response.json();
-            const { quick_status } = data;
-
-            let id = quick_status.id;
+            const { id } = data;
 
             message.channel.send(`**Profile ID:** __${id}__`);
 
