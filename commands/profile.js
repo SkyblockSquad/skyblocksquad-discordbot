@@ -5,7 +5,7 @@ module.exports = {
     
         if(args.length >= 2 || args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,profile {username}");
 
-        fetch("http://sky.shiiyu.moe/api/v2/profile/${playerName}")
+        fetch(`http://sky.shiiyu.moe/api/v2/profile/${args[0]}`)
         .then(response => response.json())
         .then(data => {
             let cuteName = data.cute_name.value.toLocaleString()
