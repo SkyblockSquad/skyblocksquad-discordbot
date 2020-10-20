@@ -5,14 +5,14 @@ module.exports = {
     
         if(args.length >= 2 || args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,profile {username}");
 
-        fetch(`http://sky.shiiyu.moe/api/v2/profile/${args[0]}`)
-        .then(response => response.json())
-        .then(data => {
-            let cuteName = data.cute_name.value.toLocaleString()
+        const response = await fetch(`https://api.slothpixel.me/api/skyblock/coins/${args[0]}`);
+        const data = await response.json();
+        const { quick_status } = data;
 
-            return message.channel.send(`**Profile name:** ${cuteName}`);
+        let purse = quick_status.purse;
+        let bank = quick_status.bank;
 
-        });
+        message.channel.send(`Purse: ${purse} Bank: ${bank}`);
 
     },
 };
