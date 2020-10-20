@@ -3,7 +3,7 @@ module.exports = {
     description: 'profile',
     execute(message, args, fetch) {
     
-        if(args.length >= 3 || args.length <= 1) return message.channel.send("**Error:** Invalid syntax! Please use **,profile {username} {profile name}");
+        if(args.length >= 3 || args.length <= 1) return message.channel.send("**Error:** Invalid syntax! Please use **,profile {username} {profile name}**");
 
         async function getData() {
 

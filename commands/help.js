@@ -20,7 +20,7 @@ module.exports = {
                 {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
                 {name: "\u200b", value: "\u200b"},
                 {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**", inline: true},
-                {name: `:video_game: __Skyblock__`, value: "*See Skyblock stats!*", inline: true}
+                {name: `:video_game: __Skyblock__`, value: "*See Skyblock stats!*\n**1 Command**", inline: true}
             );
 
             return message.channel.send(botEmbed);
