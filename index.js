@@ -106,4 +106,8 @@ client.on("message", async message => {
         client.commands.get("ping").execute(message, args, client);
     }
 
+    if(command === `${prefix}profile`) {
+        client.commands.get("profile").execute(message, args, fetch);
+    }
+
 });
