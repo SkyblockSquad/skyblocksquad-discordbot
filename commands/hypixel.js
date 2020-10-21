@@ -18,11 +18,6 @@ module.exports = {
 
             if(level == null || undefined) return message.channel.send("**Error:** Something went wrong! (Invalid username)");
 
-            if(rank == null) rank = "Default";
-            if(rank == "VIP_PLUS") rank = "VIP+";
-            if(rank == "MVP_PLUS") rank = "MVP+";
-            if(rank == "MVP_PLUS_PLUS") rank = "MVP++";
-
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()}`)
             .setDescription("See a players Hypixel stats below!")
