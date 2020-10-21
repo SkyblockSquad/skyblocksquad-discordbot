@@ -14,7 +14,6 @@ module.exports = {
             
             const { level } = data;
             const { karma} = data;
-            const { achievement_points } = data;
             const { rank} = data;
 
             if(level == null || undefined) return message.channel.send("**Error:** Something went wrong! (Invalid username)");
@@ -34,8 +33,7 @@ module.exports = {
                 {name: "Level", value: level, inline: true},
                 {name: "Karma", value: karma, inline: true},
                 {name: "\u200b", value: "\u200b"},
-                {name: "Achievement Points", value: achievement_points, inline: true},
-                {name: "Rank", value: rank, inline: true}
+                {name: "Rank", value: rank}
             );
 
             return message.channel.send(botEmbed);
