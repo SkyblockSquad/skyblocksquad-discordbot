@@ -19,7 +19,7 @@ module.exports = {
             if(level == null || undefined) return message.channel.send("**Error:** Something went wrong! (Invalid username)");
 
             var botEmbed = new discord.MessageEmbed()
-            .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()}`)
+            .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
             .setDescription("See a players Hypixel stats below!")
             .setColor(embedColor)
             .setFooter(embedFooter)
