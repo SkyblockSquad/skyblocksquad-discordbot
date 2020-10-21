@@ -110,4 +110,8 @@ client.on("message", async message => {
         client.commands.get("profile").execute(message, args, fetch);
     }
 
+    if(command === `${prefix}hypixel`) {
+        client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter)
+    }
+
 });
