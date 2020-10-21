@@ -17,6 +17,8 @@ module.exports = {
             const { rank} = data;
 
             if(level == null || undefined) return message.channel.send("**Error:** Something went wrong! (Invalid username)");
+            if(karma == null || undefined) return message.channel.send("**Error:** Something went wrnog! (Invalid username)");
+            if(rank == null || undefined) return message.channel.send("**Error:** Something went wrnog! (Invalid username)");
 
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
