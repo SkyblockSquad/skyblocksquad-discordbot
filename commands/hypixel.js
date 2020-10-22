@@ -10,7 +10,7 @@ module.exports = {
             const response = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const data = await response.json();
             
-            const { level } = data.catch(error => {
+            const { level } = data().catch(error => {
                 if(error.code == 50035) {
                     
                     message.channel.send("**Error:** Could not find player!");
@@ -20,6 +20,8 @@ module.exports = {
 
             const { karma} = data;
             const { rank} = data;
+
+            var rankPrefix = "";
 
             if(level == null || undefined) return message.channel.send("**Error:** Something went wrong! (Invalid username)");
             if(karma == null || undefined) return message.channel.send("**Error:** Something went wrnog! (Invalid username)");
