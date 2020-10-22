@@ -12,10 +12,12 @@ module.exports = {
             
             const { level } = data.catch(error => {
                 if(error.code == 50035) {
+                    
                     message.channel.send("**Error:** Could not find player!");
+                    return;
                 }
             });
-            
+
             const { karma} = data;
             const { rank} = data;
 
