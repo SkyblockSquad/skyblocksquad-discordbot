@@ -8,9 +8,11 @@ module.exports = {
         async function getData() {
 
             const response = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
-            const data = await response.json();
-
-            if(data === '{"error":"Player does not exist"}') return message.channel.send("**Error:** Could not find data!");
+            const data = await response.json().catch(error => {
+                if(error.code === 50035) {
+                    return message.channel.send("**Error:** Could not find data!")
+                }
+            });
             
             const { level } = data;
             const { karma} = data;
