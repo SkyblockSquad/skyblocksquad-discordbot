@@ -1,5 +1,3 @@
-const { DiscordAPIError } = require("discord.js");
-
 module.exports = {
     name: 'hypixel',
     description: 'hypixel',
@@ -12,7 +10,12 @@ module.exports = {
             const response = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const data = await response.json();
             
-            const { level } = data;
+            const { level } = data.catch(error => {
+                if(error.code == 50035) {
+                    message.channel.send("**Error:** Could not find player!");
+                }
+            });
+            
             const { karma} = data;
             const { rank} = data;
 
