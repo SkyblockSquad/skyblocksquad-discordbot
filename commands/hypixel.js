@@ -18,10 +18,6 @@ module.exports = {
             const { karma} = data;
             const { rank} = data;
 
-            }
-
-            getData();
-
             if(level == undefined) return message.channel.send("**Error:** Could not find data!");
 
             var botEmbed = new discord.MessageEmbed()
@@ -38,6 +34,10 @@ module.exports = {
             );
 
             return message.channel.send(botEmbed);
+
+            }
+
+            getData();
 
     },
 };
