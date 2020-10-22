@@ -18,6 +18,8 @@ module.exports = {
             const { karma} = data;
             const { rank} = data;
 
+            if(level == undefined) return message.channel.send("**Error:** Could not find data!");
+
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
             .setDescription("See a players Hypixel stats below!")
