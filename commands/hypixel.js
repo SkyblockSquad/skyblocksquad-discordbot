@@ -10,13 +10,17 @@ module.exports = {
             const response = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const data = await response.json().catch(error => {
                 if(error.code === 50035) {
-                    return message.channel.send("**Error:** Could not find data!");
+                    message.channel.send("**Error:** Could not find data!");
                 }
             });
             
             const { level } = data;
             const { karma} = data;
             const { rank} = data;
+
+            }
+
+            getData();
 
             if(level == undefined) return message.channel.send("**Error:** Could not find data!");
 
@@ -34,10 +38,6 @@ module.exports = {
             );
 
             return message.channel.send(botEmbed);
-
-        }
-
-        getData();
 
     },
 };
