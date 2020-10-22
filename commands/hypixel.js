@@ -9,14 +9,12 @@ module.exports = {
 
             const response = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const data = await response.json();
+
+            if(data === '{"error":"Player does not exist"}') return message.channel.send("**Error:** Could not find data!");
             
             const { level } = data;
             const { karma} = data;
             const { rank} = data;
-
-            if(level == null || undefined) return message.channel.send("**Error:** Something went wrong! (Invalid username)");
-            if(karma == null || undefined) return message.channel.send("**Error:** Something went wrnog! (Invalid username)");
-            if(rank == null || undefined) return message.channel.send("**Error:** Something went wrnog! (Invalid username)");
 
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
