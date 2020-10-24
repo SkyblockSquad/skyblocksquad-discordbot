@@ -19,6 +19,8 @@ module.exports = {
             const { achievement_points } = data;
             const { links } = data;
             const { first_login } = data;
+            const { last_login } = data;
+            const { last_logout } = data;
 
             if(level == undefined) return message.channel.send("**Error:** Could not find data!");
 
@@ -37,7 +39,7 @@ module.exports = {
             if(online == true) onlineDisplay = "Yes";
 
             var linkedDiscord = links["DISCORD"];
-            console.log(linkedDiscord);
+            if(linkedDiscord == null) linkedDiscord = "None";
             
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
@@ -51,7 +53,10 @@ module.exports = {
                 {name: "Rank", value: rankDisplay, inline: true},
                 {name: "Online", value: onlineDisplay, inline: true},
                 {name: "Achievement Points", value: achievement_points, inline: true},
-                {name: "First Login", value: `${moment(first_login).format("LL")}`}
+                {name: "Linked Discord Account", value: linkedDiscord, inline: true},
+                {name: "First Login", value: `${moment(first_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true},
+                {name: "Last Login", value: `${moment(last_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true},
+                {name: "Last Logout", value: `${moment(last_logout).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true}
             );
 
             return message.channel.send(botEmbed);
