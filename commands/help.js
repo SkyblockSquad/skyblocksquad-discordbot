@@ -57,7 +57,7 @@ module.exports = {
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}hack`, value: menuData.funAndGames["hack"], inline: true},
-                    {name: `${prefix}is [arg 1] [args 2]...`, value: menuData.funAndGames["is"], inline: true},
+                    {name: `${prefix}is [arg 1] [arg 2]...`, value: menuData.funAndGames["is"], inline: true},
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}rps [(rock | paper | scissors)]`, value: menuData.funAndGames["rps"]}
                 );
