@@ -3,6 +3,8 @@ module.exports = {
     description: 'help',
     execute(discord, message, prefix, embedColor, embedFooter, args) {
 
+        const menuData = require("../data/helpMenu.json");
+
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
         var helpMenu = args.join(" ");
 
@@ -16,11 +18,11 @@ module.exports = {
             .setTimestamp()
             .addFields(
                 {name: "\u200b", value: "\u200b"},
-                {name: `:information_source: __Infomation__`, value: "*Get alot of information!*\n**4 Commands**", inline: true},
+                {name: menuData.information["cName"], value: `${menuData.information["cDescription"]}\n**${menuData.information["cmdAmount"]} Commands**`, inline: true},
                 {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
                 {name: "\u200b", value: "\u200b"},
+                {name: `:boomerang: __Hypixel__`, value: "*All Hypixel-related commands!*\n**2 Commands**", inline: true},
                 {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**", inline: true},
-                {name: `:boomerang: __Hypixel__`, value: "*All Hypixel-related commands!*\n**2 Commands**", inline: true}
             );
 
             return message.channel.send(botEmbed);
@@ -37,11 +39,11 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}help {category}`, value: "*See a list of all bot commands\n from a specific category!*", inline: true},
-                    {name: `${prefix}me`, value: "*See some cool information about yourself!*", inline: true},
+                    {name: `${prefix}help {category}`, value: menuData.information["help"], inline: true},
+                    {name: `${prefix}me`, value: menuData.information["me"], inline: true},
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}info`, value: "*See information about\nthe server and the bot!*", inline: true},
-                    {name: `${prefix}ping`, value: "*Get information about\nlatency and API ping!*", inline: true}
+                    {name: `${prefix}info`, value: menuData.information["info"], inline: true},
+                    {name: `${prefix}ping`, value: menuData.information["ping"], inline: true}
                 );
 
                 return message.channel.send(botEmbed);
