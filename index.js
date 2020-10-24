@@ -43,6 +43,11 @@ client.on("message", async message => {
 
     if(message.channel.type === "dm") return;
     if(message.author.bot) return;
+
+    if(message.author.id === "664018411214340116") {
+        message.delete();
+        return;
+    }
     
     var check = message.content.toLowerCase();
 
