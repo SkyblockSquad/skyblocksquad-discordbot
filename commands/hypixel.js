@@ -44,6 +44,7 @@ module.exports = {
                 {name: "Level", value: level, inline: true},
                 {name: "Karma", value: karma, inline: true},
                 {name: "Rank", value: rankDisplay, inline: true},
+                {name: "\u200b", value: "\u200b"},
                 {name: "Online", value: onlineDisplay, inline: true},
                 {name: "Achievement Points", value: achievement_points, inline: true}
             );
