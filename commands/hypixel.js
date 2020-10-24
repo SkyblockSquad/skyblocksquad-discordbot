@@ -16,6 +16,7 @@ module.exports = {
             const { karma} = data;
             const { rank} = data;
             const { online } = data;
+            const { achievement_points } = data;
 
             if(level == undefined) return message.channel.send("**Error:** Could not find data!");
 
@@ -44,7 +45,8 @@ module.exports = {
                 {name: "Karma", value: karma, inline: true},
                 {name: "\u200b", value: "\u200b"},
                 {name: "Rank", value: rankDisplay, inline: true},
-                {name: "Online", value: onlineDisplay, inline: true}
+                {name: "Online", value: onlineDisplay, inline: true},
+                {name: "Achievement Points", value: achievement_points}
             );
 
             return message.channel.send(botEmbed);
