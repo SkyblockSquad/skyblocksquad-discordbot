@@ -9,9 +9,7 @@ module.exports = {
 
             const response = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const data = await response.json().catch(error => {
-                if(error.code === 50035) {
                     message.channel.send("**Error:** Could not find data!");
-                }
             });
             
             const { level } = data;
@@ -19,6 +17,10 @@ module.exports = {
             const { rank} = data;
 
             if(level == undefined) return message.channel.send("**Error:** Could not find data!");
+
+            var rankDisplay = "";
+
+            if(rank === "null") rankDisplay = "Default";
 
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
@@ -30,7 +32,7 @@ module.exports = {
                 {name: "Level", value: level, inline: true},
                 {name: "Karma", value: karma, inline: true},
                 {name: "\u200b", value: "\u200b"},
-                {name: "Rank", value: rank}
+                {name: "Rank", value: rankDisplay}
             );
 
             return message.channel.send(botEmbed);
