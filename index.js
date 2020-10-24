@@ -20,12 +20,12 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
 
-	const command = require(`./commands/${file}`);
+    const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 
     console.log(`Command file "${command.name}.js" has been loaded.`);
 
-}
+    }
 
 console.log(`${commandFiles.length} command files have been loaded.`);
 
