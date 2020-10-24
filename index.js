@@ -13,6 +13,11 @@ var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 console.log("Data file \"swearWords.json\" has been loaded.");
 
 const dataFiles = fs.readdirSync('./data').filter(file => file.endsWith('.json'));
+
+for (const file of dataFiles) {   
+    console.log(`Data file "${file.name}" has been loaded.`);
+}
+
 console.log(`${dataFiles.length} data files have been loaded.`);
 
 const client = new discord.Client();
