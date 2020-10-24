@@ -14,7 +14,7 @@ module.exports = {
         });
 
         con.connect(err => {
-            if(err) throw err;
+            if(err) console.log(err);
         });
 
         var user = message.guild.member(message.mentions.users.first());
@@ -33,7 +33,7 @@ module.exports = {
             
             con.query(`SELECT * FROM roles WHERE UserID = '${user.id}' AND RoleID = '${roleID}'`, (err, rows) => {
 
-                if(err) throw err;
+                if(err) console.log(err);
 
                 if(rows.length > 0) {
                     return message.channel.send("**Error:** This user already has this role!");
