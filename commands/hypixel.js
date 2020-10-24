@@ -20,7 +20,8 @@ module.exports = {
 
             var rankDisplay = "";
 
-            if(rank === "null") rankDisplay = "Default";
+            if(rank == null) rankDisplay = "Default";
+            
 
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
