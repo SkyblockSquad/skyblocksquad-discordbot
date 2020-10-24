@@ -9,7 +9,7 @@ module.exports = {
 
             const response = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const data = await response.json().catch(error => {
-                    message.channel.send("**Error:** Could not find data!");
+                    message.channel.send("**Error:** An error occurred!");
             });
             
             const { level } = data;
