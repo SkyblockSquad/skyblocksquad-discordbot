@@ -6,11 +6,11 @@ const moment = require("moment");
 const botConfig = require("./data/botconfig.json");
 console.log("Data file \"botconfig.json\" has been loaded.")
 
-var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
-console.log("Data file \"swearWords.json\" has been loaded.")
-
 var swearAmount = require("./data/swearWords.json");
 console.log("Data file \"swearAmount.json\" has been loaded.")
+
+var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
+console.log("Data file \"swearWords.json\" has been loaded.")
 
 const client = new discord.Client();
 client.login(process.env.token);
@@ -51,6 +51,18 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["swearWords"].length; i++) {
         if(check.includes(swearWords["swearWords"][i])) {
+
+            if(!(swearAmount[message.author.id])) {
+                swearAmount[message.author.id] = {
+                    amount: 0
+                }
+            }
+
+            swearAmount[message.author.id].amount += 1;
+
+            fs.writeFile("./data/swearAmount.json", JSON.stringify(swearAmount), err => {
+                if(err) console.log(err);
+            })
     
             message.delete();
             return message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
