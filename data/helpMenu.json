@@ -11,7 +11,7 @@
 
     "funAndGames": {
         "cmdAmount":"3",
-        "cName":":tada __Fun & Games__",
+        "cName":":tada: __Fun & Games__",
         "cDescription":"*Play some cool games!*",
         "rps":"*Duel the bot to an amazing\nrock, paper,\nscissors game!*",
         "is":"*Ask all your questions to the\nbot! He knows\neverything!*",
@@ -28,7 +28,7 @@
 
     "covid19": {
         "cmdAmount":"1",
-        "cName":"microbe __Covid-19__",
+        "cName":":microbe: __Covid-19__",
         "cDescription":"All commands related to\nthe covid-19\nvirus! Wash your\nhands!",
         "covid":"*See live covid-19 statistics!\nConfirmed cases, recovered\npeople and deaths.*"
     }
