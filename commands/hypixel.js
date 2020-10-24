@@ -43,7 +43,6 @@ module.exports = {
             .addFields(
                 {name: "Level", value: level, inline: true},
                 {name: "Karma", value: karma, inline: true},
-                {name: "\u200b", value: "\u200b"},
                 {name: "Rank", value: rankDisplay, inline: true},
                 {name: "Online", value: onlineDisplay, inline: true},
                 {name: "Achievement Points", value: achievement_points}
