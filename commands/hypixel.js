@@ -35,7 +35,7 @@ module.exports = {
             if(online == false) onlineDisplay = "No";
             if(online == true) onlineDisplay = "Yes";
 
-            var firstLoginDisplay = moment(first_login.format("LL"));
+            var firstLoginDisplay = moment((first_login).format("LL"));
             
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
