@@ -15,6 +15,7 @@ module.exports = {
             const { level } = data;
             const { karma} = data;
             const { rank} = data;
+            const { online } = data;
 
             if(level == undefined) return message.channel.send("**Error:** Could not find data!");
 
@@ -26,6 +27,11 @@ module.exports = {
             if(rank === "MVP_PLUS_PLUS") rankDisplay = "MVP++";
 
             if(rankDisplay === "") rankDisplay = rank;
+
+            var onlineDisplay = "";
+
+            if(online == false) onlineDisplay = "No";
+            if(online == true) onlineDisplay = "Yes"; 
             
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
@@ -37,7 +43,8 @@ module.exports = {
                 {name: "Level", value: level, inline: true},
                 {name: "Karma", value: karma, inline: true},
                 {name: "\u200b", value: "\u200b"},
-                {name: "Rank", value: rankDisplay}
+                {name: "Rank", value: rankDisplay, inline: true},
+                {name: "Online", value: onlineDisplay, inline: true}
             );
 
             return message.channel.send(botEmbed);
