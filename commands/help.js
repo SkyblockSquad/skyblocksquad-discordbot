@@ -17,10 +17,10 @@ module.exports = {
             .addFields(
                 {name: "\u200b", value: "\u200b"},
                 {name: menuData.information["cName"], value: `${menuData.information["cDescription"]}\n**${menuData.information["cmdAmount"]} Commands**`, inline: true},
-                {name: `:tada: __Fun & Games__`, value: "*Play some fun games!*\n**3 Commands**", inline: true},
+                {name: menuData.funAndGames["cName"], value: `${menuData.funAndGames["cDescription"]}\n**${menuData.information["cmdAmount"]} Commands**`, inline: true},
                 {name: "\u200b", value: "\u200b"},
-                {name: `:boomerang: __Hypixel__`, value: "*All Hypixel-related commands!*\n**2 Commands**", inline: true},
-                {name: `:microbe: __Covid-19__`, value: "*Eww! The covid-19 virus!*\n**1 Command**", inline: true},
+                {name: menuData.hypixel["cName"], value: `${menuData.hypixel["cDescription"]}\n**${menuData.hypixel["cmdAmount"]} Commands**`, inline: true},
+                {name: menuData.covid19["cName"], value: `${menuData.covid19["cDescription"]}\n**${menuData.covid19["cmdAmount"]} Commands **`, inline: true}
             );
 
             return message.channel.send(botEmbed);
@@ -56,25 +56,10 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}hack`, value: "*Hack the server!*", inline: true},
-                    {name: `${prefix}is`, value: "*Ask some interesting\nquestions to the bot!*", inline: true},
+                    {name: `${prefix}hack`, value: menuData.funAndGames["hack"], inline: true},
+                    {name: `${prefix}is [arg 1] [args 2]...`, value: menuData.funAndGames["is"], inline: true},
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}rps`, value: "*Duel the bot in a\nrock, paper, scissors game!*"}
-                );
-
-                return message.channel.send(botEmbed);
-
-            } else if(helpMenu === "covid-19" || helpMenu === "covid" || helpMenu === "corona") {
-
-                var botEmbed = new discord.MessageEmbed()
-                .setTitle("HELP (COVID-19)")
-                .setDescription(`See a list of covid-19 commands below! ${embedDescription}`)
-                .setColor(embedColor)
-                .setFooter(embedFooter)
-                .setTimestamp()
-                .addFields(
-                    {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}covid (all | [country])`, value: "*See live covid-19 statistics!\nConfirmed cases, recovered\npeople and deaths.*"},
+                    {name: `${prefix}rps [(rock | paper | scissors)]`, value: menuData.funAndGames["rps"]}
                 );
 
                 return message.channel.send(botEmbed);
@@ -89,13 +74,28 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}profile {username} {profile name}`, value: "*See your Skyblock profile ID!*", inline: true},
-                    {name: `${prefix}hypixel {username}`, value: "*See your Hypixel stats!*", inline: true}
+                    {name: `${prefix}profile [username] [profile name]`, value: menuData.hypixel["profile"], inline: true},
+                    {name: `${prefix}hypixel [username]`, value: menuData.hypixel["hypixel"], inline: true}
+                );
+    
+                return message.channel.send(botEmbed);
+
+            } else if(helpMenu === "covid-19" || helpMenu === "covid" || helpMenu === "corona") {
+
+                var botEmbed = new discord.MessageEmbed()
+                .setTitle("HELP (COVID-19)")
+                .setDescription(`See a list of covid-19 commands below! ${embedDescription}`)
+                .setColor(embedColor)
+                .setFooter(embedFooter)
+                .setTimestamp()
+                .addFields(
+                    {name: "\u200b", value: "\u200b"},
+                    {name: `${prefix}covid [(all | [country])]`, value: menuData.covid19["covid"]},
                 );
 
                 return message.channel.send(botEmbed);
 
-            }
+            } 
 
             return message.channel.send(`**Error:** Invalid category!`);
 

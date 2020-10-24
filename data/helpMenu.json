@@ -9,7 +9,7 @@
         "ping":"*Get information about\nlatency and API ping!*"
     },
 
-    "fun-games": {
+    "funAndGames": {
         "cmdAmount":"3",
         "cName":":tada __Fun & Games__",
         "cDescription":"*Play some cool games!*",
@@ -26,7 +26,7 @@
         "profile":"See information about your\nSkyblock profile!"
     },
 
-    "covid-19": {
+    "covid19": {
         "cmdAmount":"1",
         "cName":"microbe __Covid-19__",
         "cDescription":"All commands related to\nthe covid-19\nvirus! Wash your\nhands!",
