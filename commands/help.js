@@ -17,7 +17,7 @@ module.exports = {
             .addFields(
                 {name: "\u200b", value: "\u200b"},
                 {name: menuData.information["cName"], value: `${menuData.information["cDescription"]}\n**${menuData.information["cmdAmount"]} Commands**`, inline: true},
-                {name: menuData.funAndGames["cName"], value: `${menuData.funAndGames["cDescription"]}\n**${menuData.information["cmdAmount"]} Commands**`, inline: true},
+                {name: menuData.funAndGames["cName"], value: `${menuData.funAndGames["cDescription"]}\n**${menuData.funAndGames["cmdAmount"]} Commands**`, inline: true},
                 {name: "\u200b", value: "\u200b"},
                 {name: menuData.hypixel["cName"], value: `${menuData.hypixel["cDescription"]}\n**${menuData.hypixel["cmdAmount"]} Commands**`, inline: true},
                 {name: menuData.covid19["cName"], value: `${menuData.covid19["cDescription"]}\n**${menuData.covid19["cmdAmount"]} Command**`, inline: true}
