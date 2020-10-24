@@ -45,7 +45,7 @@ module.exports = {
                 {name: "Karma", value: karma, inline: true},
                 {name: "Rank", value: rankDisplay, inline: true},
                 {name: "Online", value: onlineDisplay, inline: true},
-                {name: "Achievement Points", value: achievement_points}
+                {name: "Achievement Points", value: achievement_points, inline: true}
             );
 
             return message.channel.send(botEmbed);
