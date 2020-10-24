@@ -14,7 +14,7 @@ module.exports = {
         });
 
         con.connect(err => {
-            if(err) console.log(err);
+            if(err) throw err;
         });
 
         var user = message.guild.member(message.mentions.users.first());
@@ -31,9 +31,9 @@ module.exports = {
 
         } else if(user && roleName && !remove) {
             
-            con.query(`SELECT * FROM roles WHERE UserID = '${user.id}' AND RoleID = '${roleID}'`,(err, rows) => {
+            con.query(`SELECT * FROM roles WHERE UserID = '${user.id}' AND RoleID = '${roleID}'`, (err, rows) => {
 
-                if(err) console.log(err);
+                if(err) throw err;
 
                 if(rows.length > 0) {
                     return message.channel.send("**Error:** This user already has this role!");
