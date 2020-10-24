@@ -6,7 +6,7 @@ const moment = require("moment");
 const botConfig = require("./data/botconfig.json");
 console.log("Data file \"botconfig.json\" has been loaded.")
 
-var swearAmount = require("./data/swearWords.json");
+var swearAmount = require("./data/swearAmount.json");
 console.log("Data file \"swearAmount.json\" has been loaded.")
 
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
