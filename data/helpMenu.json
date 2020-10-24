@@ -29,7 +29,7 @@
     "covid19": {
         "cmdAmount":"1",
         "cName":":microbe: __Covid-19__",
-        "cDescription":"All commands related to\nthe covid-19\nvirus! Wash your\nhands!",
+        "cDescription":"All commands related to\nthe covid-19virus!\nWash your hands!",
         "covid":"*See live covid-19 statistics!\nConfirmed cases, recovered\npeople and deaths.*"
     }
 
