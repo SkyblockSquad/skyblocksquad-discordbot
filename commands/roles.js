@@ -23,7 +23,7 @@ module.exports = {
 
         if(roleName) {
             var roleInfo = message.guild.roles.cache.find(r => r.name === roleName);
-            if(!roleName) return message.channel.send("**Error:** Role doesn't exist!");
+            if(!roleInfo) return message.channel.send("**Error:** Role doesn't exist!");
             var roleID = roleInfo.id;
         }
 
