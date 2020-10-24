@@ -97,7 +97,7 @@ module.exports = {
 
             }
 
-            return message.channel.send(`**Error:** Invalid category! See a list of valid categorys using **${prefix}help**!`);
+            return message.channel.send(`**Error:** Invalid category!`);
 
         } 
     
