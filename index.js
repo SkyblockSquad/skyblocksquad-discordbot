@@ -6,9 +6,6 @@ const moment = require("moment");
 const botConfig = require("./data/botconfig.json");
 console.log("Data file \"botconfig.json\" has been loaded.")
 
-var swearAmount = require("./data/swearAmount.json");
-console.log("Data file \"swearAmount.json\" has been loaded.")
-
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 console.log("Data file \"swearWords.json\" has been loaded.")
 
@@ -53,24 +50,7 @@ client.on("message", async message => {
         if(check.includes(swearWords["swearWords"][i])) {
     
             message.delete();
-            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
-
-            var userID = message.author.id;
-
-            if(!(swearAmount[userID])) {
-                swearAmount[userID] = {
-                    amount: 0,
-                    name: message.author.user
-                }
-            }
-
-            swearAmount[userID].amount += 1;
-            fs.writeFile("./data/swearAmount.json", JSON.stringify(swearAmount), err => {
-                if(err) console.log(err);
-            })
-
-            return;
-
+            return message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
         }
     }
 
