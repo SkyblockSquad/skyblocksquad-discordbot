@@ -9,6 +9,9 @@ console.log("Data file \"botconfig.json\" has been loaded.")
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 console.log("Data file \"swearWords.json\" has been loaded.")
 
+const dataFiles = fs.readdirSync('./data').filter(file => file.endsWith('.json'));
+console.log(`${dataFiles.length} data files have been loaded.`);
+
 const client = new discord.Client();
 client.login(process.env.token);
 
