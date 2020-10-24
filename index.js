@@ -56,6 +56,8 @@ client.on("message", async message => {
     
     var check = message.content.toLowerCase();
 
+    check.replace("‎", ""); // Invis char bypass
+
     for (let i = 0; i < swearWords["swearWords"].length; i++) {
         if(check.includes(swearWords["swearWords"][i])) {
     
