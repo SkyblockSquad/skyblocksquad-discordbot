@@ -21,8 +21,10 @@ module.exports = {
             var rankDisplay = "";
 
             if(rank == null) rankDisplay = "Default";
+            if(rank === "VIP_PLUS") rankDisplay = "VIP+";
+            if(rank === "MVP_PLUS") rankDisplay = "MVP+";
+            if(rank === "MVP_PLUS_PLUS") rankDisplay = "MVP++";
             
-
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
             .setDescription("See a players Hypixel stats below!")
