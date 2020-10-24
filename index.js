@@ -51,21 +51,25 @@ client.on("message", async message => {
 
     for (let i = 0; i < swearWords["swearWords"].length; i++) {
         if(check.includes(swearWords["swearWords"][i])) {
+    
+            message.delete();
+            message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
 
-            if(!(swearAmount[message.author.id])) {
-                swearAmount[message.author.id] = {
-                    amount: 0
+            var userID = message.author.id;
+
+            if(!(swearAmount[userID])) {
+                swearAmount[userID] = {
+                    amount: 0,
+                    name: message.author.user
                 }
             }
 
-            swearAmount[message.author.id].amount += 1;
-
+            swearAmount[userID].amount += 1;
             fs.writeFile("./data/swearAmount.json", JSON.stringify(swearAmount), err => {
                 if(err) console.log(err);
             })
-    
-            message.delete();
-            return message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({timeout: 10000}));
+
+            return;
 
         }
     }
