@@ -13,6 +13,9 @@ module.exports = {
             });
             
             const { level } = data;
+
+            if(level == undefined) return message.channel.send("**Error:** Could not find data!");
+
             const { karma} = data;
             const { rank} = data;
             const { online } = data;
@@ -21,8 +24,6 @@ module.exports = {
             const { first_login } = data;
             const { last_login } = data;
             const { last_logout } = data;
-
-            if(level == undefined) return message.channel.send("**Error:** Could not find data!");
 
             var rankDisplay = "";
 
