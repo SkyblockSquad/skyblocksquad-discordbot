@@ -1,9 +1,7 @@
 module.exports = {
     name: 'help',
     description: 'help',
-    execute(discord, message, prefix, embedColor, embedFooter, args) {
-
-        const menuData = require("../data/helpMenu.json");
+    execute(discord, message, prefix, embedColor, embedFooter, args, menuData) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
         var helpMenu = args.join(" ");

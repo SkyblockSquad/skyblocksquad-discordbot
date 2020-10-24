@@ -4,10 +4,13 @@ const fetch = require("node-fetch");
 const moment = require("moment");
 
 const botConfig = require("./data/botconfig.json");
-console.log("Data file \"botconfig.json\" has been loaded.")
+console.log("Data file \"botconfig.json\" has been loaded.");
+
+const menuData = require("./data/helpMenu.json");
+console.log("Data file \"helpMenu.json\" has been loaded.");
 
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
-console.log("Data file \"swearWords.json\" has been loaded.")
+console.log("Data file \"swearWords.json\" has been loaded.");
 
 const dataFiles = fs.readdirSync('./data').filter(file => file.endsWith('.json'));
 console.log(`${dataFiles.length} data files have been loaded.`);
@@ -73,7 +76,7 @@ client.on("message", async message => {
     args.shift();
 
     if(command === `${prefix}help`) {
-        client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args);
+        client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args, menuData);
     }
 
     if(command === `${prefix}info`) {
