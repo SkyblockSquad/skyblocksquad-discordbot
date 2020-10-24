@@ -86,13 +86,13 @@ client.on("message", async message => {
 
         var channel = message.guild.channels.cache.find(ch => ch.name === "bot-logs");
             
-            var botEmbed = new discord.MessageEmbed()
-            .setTitle("INVISIBLE CHARACTER FILTER")
-            .setDescription(`${message.author.username} tried to use invisble characters!`)
-            .setColor(embedColor)
-            .setFooter(embedFooter)
-            .setTimestamp()
-            .addField("Warn command", `You can warn them using:\n**eli warn ${message.author.id} Using invisble characters (Rule XI)**`)
+        var botEmbed = new discord.MessageEmbed()
+        .setTitle("INVISIBLE CHARACTER FILTER")
+        .setDescription(`${message.author.username} tried to use invisble characters!`)
+        .setColor(embedColor)
+        .setFooter(embedFooter)
+        .setTimestamp()
+        .addField("Warn command", `You can warn them using:\n**eli warn ${message.author.id} Using invisble characters (Rule XI)**`)
 
         channel.send(botEmbed);
 
