@@ -24,6 +24,8 @@ module.exports = {
             if(rank === "VIP_PLUS") rankDisplay = "VIP+";
             if(rank === "MVP_PLUS") rankDisplay = "MVP+";
             if(rank === "MVP_PLUS_PLUS") rankDisplay = "MVP++";
+
+            if(rankDisplay === "") rankDisplay = rank;
             
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
