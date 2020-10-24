@@ -116,7 +116,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}hypixel`) {
-        client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter)
+        client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter, moment)
     }
 
 });

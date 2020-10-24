@@ -1,7 +1,7 @@
 module.exports = {
     name: 'hypixel',
     description: 'hypixel',
-    execute(message, args, discord, fetch, embedColor, embedFooter) {
+    execute(message, args, discord, fetch, embedColor, embedFooter, moment) {
     
         if(args.length >= 2 || args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,hypixel {username}**!");
 
@@ -17,6 +17,7 @@ module.exports = {
             const { rank} = data;
             const { online } = data;
             const { achievement_points } = data;
+            const { first_login } = data;
 
             if(level == undefined) return message.channel.send("**Error:** Could not find data!");
 
@@ -32,7 +33,9 @@ module.exports = {
             var onlineDisplay = "";
 
             if(online == false) onlineDisplay = "No";
-            if(online == true) onlineDisplay = "Yes"; 
+            if(online == true) onlineDisplay = "Yes";
+
+            var firstLoginDisplay = moment(first_login.format("LL"));
             
             var botEmbed = new discord.MessageEmbed()
             .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
@@ -44,9 +47,9 @@ module.exports = {
                 {name: "Level", value: level, inline: true},
                 {name: "Karma", value: karma, inline: true},
                 {name: "Rank", value: rankDisplay, inline: true},
-                {name: "\u200b", value: "\u200b"},
                 {name: "Online", value: onlineDisplay, inline: true},
-                {name: "Achievement Points", value: achievement_points, inline: true}
+                {name: "Achievement Points", value: achievement_points, inline: true},
+                {name: "First Login", value: firstLoginDisplay, inline: true}
             );
 
             return message.channel.send(botEmbed);
