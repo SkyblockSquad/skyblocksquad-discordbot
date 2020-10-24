@@ -7,5 +7,15 @@
         "me":"*See some cool information\nabout yourself!*",
         "info":"*See information about\nthe server and the bot!*",
         "ping":"*Get information about\nlatency and API ping!*"
+    },
+
+    "fun & games": {
+        "cmdAmount":"3",
+        "cName":":tada __Fun & Games__",
+        "cDescription":"*Play some cool games!*",
+        "rps":"*Duel the bot to an amazing\nrock, paper,\nscissors game!*",
+        "is":"*Ask all your questions to the\nbot! He knows\neverything!*",
+        "hack":"*Hack our server! (You won't\nget banned lol)*"
     }
+
 }
