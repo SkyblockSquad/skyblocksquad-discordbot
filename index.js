@@ -64,8 +64,12 @@ client.on("message", async message => {
         }
     }
 
-    if(message.content.includes("‎")) return message.channel.send(`<@${message.author.id}>: **Please don't use invisible characters!**`).then(msg => msg.delete({timeout: 10000}));
+    if(message.content.includes("‎")) {
 
+        message.delete();
+        return message.channel.send(`<@${message.author.id}>: **Please don't use invisible characters!**`).then(msg => msg.delete({timeout: 10000}));
+
+    }
     if(!(message.member.hasPermission("ADMINISTRATOR"))) {
         if(!(message.channel.id === "703168301634945097")) {
             if(message.content.startsWith(`${prefix}`)) {
