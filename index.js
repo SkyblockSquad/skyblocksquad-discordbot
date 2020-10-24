@@ -159,8 +159,4 @@ client.on("message", async message => {
         client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter, moment)
     }
 
-    if(command === `${prefix}roles`) {
-        client.commands.get("roles").execute(message, args)
-    }
-
 });
