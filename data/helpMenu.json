@@ -9,7 +9,7 @@
         "ping":"*Get information about\nlatency and API ping!*"
     },
 
-    "fun & games": {
+    "fun-games": {
         "cmdAmount":"3",
         "cName":":tada __Fun & Games__",
         "cDescription":"*Play some cool games!*",
@@ -24,6 +24,13 @@
         "cDescription":"Everything related to Hypixel!",
         "hypixel":"See your and other people's\nstats!",
         "profile":"See information about your\nSkyblock profile!"
+    },
+
+    "covid-19": {
+        "cmdAmount":"1",
+        "cName":"microbe __Covid-19__",
+        "cDescription":"All commands related to\nthe covid-19\nvirus! Wash your\nhands!",
+        "covid":"*See live covid-19 statistics!\nConfirmed cases, recovered\npeople and deaths.*"
     }
 
 }
