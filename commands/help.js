@@ -20,7 +20,7 @@ module.exports = {
                 {name: menuData.funAndGames["cName"], value: `${menuData.funAndGames["cDescription"]}\n**${menuData.information["cmdAmount"]} Commands**`, inline: true},
                 {name: "\u200b", value: "\u200b"},
                 {name: menuData.hypixel["cName"], value: `${menuData.hypixel["cDescription"]}\n**${menuData.hypixel["cmdAmount"]} Commands**`, inline: true},
-                {name: menuData.covid19["cName"], value: `${menuData.covid19["cDescription"]}\n**${menuData.covid19["cmdAmount"]} Commands **`, inline: true}
+                {name: menuData.covid19["cName"], value: `${menuData.covid19["cDescription"]}\n**${menuData.covid19["cmdAmount"]} Command**`, inline: true}
             );
 
             return message.channel.send(botEmbed);
