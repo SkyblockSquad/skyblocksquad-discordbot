@@ -3,8 +3,8 @@
         "cmdAmount":"4",
         "cName":":information_source: __Information__",
         "cDescription":"*Get alot of information!*",
-        "help":"*See a list of all bot commands\n from a specific category!*",
-        "me":"*See some cool information about yourself!*",
+        "help":"*See a list of all bot\ncommands from a specific category!*",
+        "me":"*See some cool information\nabout yourself!*",
         "info":"*See information about\nthe server and the bot!*",
         "ping":"*Get information about\nlatency and API ping!*"
     }
