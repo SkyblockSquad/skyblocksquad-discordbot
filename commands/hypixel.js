@@ -53,7 +53,7 @@ module.exports = {
                 {name: "Rank", value: rankDisplay, inline: true},
                 {name: "Online", value: onlineDisplay, inline: true},
                 {name: "Achievement Points", value: achievement_points, inline: true},
-                {name: "Linked Discord Account", value: linkedDiscord, inline: true},
+                {name: "Linked Discord", value: linkedDiscord, inline: true},
                 {name: "First Login", value: `${moment(first_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true},
                 {name: "Last Login", value: `${moment(last_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true},
                 {name: "Last Logout", value: `${moment(last_logout).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true}
