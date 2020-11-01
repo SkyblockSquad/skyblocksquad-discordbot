@@ -159,8 +159,8 @@ client.on("message", async message => {
         client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter, moment);
     }
 
-    if(command === `${prefix}yt`) {
-        client.commands.get("yt").execute(message, args);
+    if(command === `${prefix}poll`) {
+        client.commands.get("poll").execute(message, args);
     }
 
 });
