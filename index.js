@@ -160,7 +160,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}poll`) {
-        client.commands.get("poll").execute(message, args);
+        client.commands.get("poll").execute(message, args, discord, embedColor, embedFooter);
     }
 
 });

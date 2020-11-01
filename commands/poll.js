@@ -1,7 +1,9 @@
+const { DiscordAPIError } = require("discord.js");
+
 module.exports = {
     name: 'poll',
     description: 'poll',
-    execute(message, args) {
+    execute(message, args, discord, embedColor, embedFooter) {
     
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
 
@@ -13,8 +15,26 @@ module.exports = {
         var question = options[0];
         options.shift();
 
+        var botEmbed = new discord.MessageEmbed()
+        .setTitle("POLL")
+        .setDescription(`Poll started by: <@${message.author.id}>`)
+        .setColor(embedColor)
+        .setFooter(embedFooter)
+        .setTimestamp()
+        .addField("Question", `The question is: **${question}**`)
+
         for (let i = 0; i < options.length; i++) {
-            message.react(reactions[i]);
+            
+            const element = options[i]; 
+            
+            botEmbed.addField(`Option ${(i + 1).toString()}`, element);
+        }
+
+        message.channel.send(botEmbed);
+        message.delete();
+
+        for (let i = 0; i < options.length; i++) {
+            botEmbed.react(reactions[i]);
         }
 
     },
