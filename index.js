@@ -115,6 +115,11 @@ client.on("message", async message => {
     var command = args[0]
     args.shift();
 
+    if(command === `${prefix}test`) {
+        message.channel.lastMessage().send("Succes!");
+        return;
+    }
+
     if(command === `${prefix}help`) {
         client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args, menuData);
     }
