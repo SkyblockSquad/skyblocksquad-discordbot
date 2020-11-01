@@ -31,7 +31,11 @@ module.exports = {
             botEmbed.addField(`Option ${(i + 1).toString()}`, element);
         }
 
-        const poll = await message.channel.send(botEmbed);
+        async function sendPoll() {
+            const poll = await message.channel.send(botEmbed);
+        }
+
+        sendPoll();
         message.delete();
 
         for (let i = 0; i < options.length; i++) {
