@@ -35,7 +35,7 @@ module.exports = {
         message.delete();
 
         for (let i = 0; i < options.length; i++) {
-            botEmbed.react(reactions[i]);
+            message.channel.lastMessasge().react(reactions[i]);
         }
 
     },
