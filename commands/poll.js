@@ -32,7 +32,7 @@ module.exports = {
         }
 
         async function sendPoll() {
-            const poll = await message.channel.send(botEmbed);
+            let poll = await message.channel.send(botEmbed);
         }
 
         sendPoll();
