@@ -36,8 +36,8 @@ module.exports = {
 
         for (let i = 0; i < options.length; i++) {
 
-            embed = message.channel.messages.cache.last;
-            embed.react(reactions[i]);
+            message.channel.messages.cache.last().react(reactions[i]);
+
         }
 
     },
