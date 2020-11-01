@@ -1,16 +1,14 @@
-const { DiscordAPIError } = require("discord.js");
-
 module.exports = {
     name: 'poll',
     description: 'poll',
-    execute(message, args, discord, embedColor, embedFooter) {
+    execute(message, discord, embedColor, embedFooter) {
     
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
 
         var options = message.content.split(" / ");
         var reactions = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"];
 
-        if(options.length < 3 || options.length > 11) return message.channel.send("**Error:** Invalid syntax! Please use **,poll [question] [option 1] [option 2] {option 3}...**\n*Minimum 2 options - Maximum 10s options*");
+        if(options.length < 3 || options.length > 11) return message.channel.send("**Error:** Invalid syntax! Please use **,poll [question] / [option 1] / [option 2] / {option 3}...**\n*Minimum 2 options - Maximum 10s options*");
 
         var question = options[0];
         question = question.slice(6, question.length);
