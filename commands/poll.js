@@ -8,7 +8,7 @@ module.exports = {
         var options = message.content.split(" / ");
         var reactions = [":one:", ":two:", ":three:", ":four:", ":five;"];
 
-        message.react(`one`);
+        message.react("1️⃣");
 
     },
 };
