@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'poll',
-    description: 'poll',
+    name: 'pollA',
+    description: 'pollA',
     execute(message, args, discord, embedColor, embedFooter) {
     
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
