@@ -105,7 +105,7 @@ client.on("message", async message => {
             if(message.content.startsWith(`${prefix}`)) {
 
                 message.delete();
-                return message.channel.send(`<@${message.author.id}>: **Please use the <@703168301634945097> channel for bot commands!**`).then(msg => msg.delete({timeout: 10000}));
+                return message.channel.send(`<@${message.author.id}>: **Please use the #bot-commands channel for bot commands!**`).then(msg => msg.delete({timeout: 10000}));
 
             }
         }
@@ -156,7 +156,11 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}hypixel`) {
-        client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter, moment)
+        client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter, moment);
+    }
+
+    if(command === `${prefix}play`) {
+        client.commands.get("play").execute(message);
     }
 
 });
