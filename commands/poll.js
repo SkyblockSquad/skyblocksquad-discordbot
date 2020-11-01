@@ -11,5 +11,9 @@ module.exports = {
         if(options.length < 2) return message.channel.send("**Error:** You need atleast 2 options!");
         if(options.length > 5) return message.channel.send("**Error:** You can only have up to 5 options!");
 
+        for (let i = 0; i < options.length; i++) {
+            message.react(reactions[i]);
+        }
+
     },
 };
