@@ -31,12 +31,12 @@ module.exports = {
             botEmbed.addField(`Option ${(i + 1).toString()}`, element);
         }
 
-        message.channel.send("Creating poll...").then(msg => msg.edit(botEmbed, {timeout: 300}));
+        const poll = await message.channel.send(botEmbed);
         message.delete();
 
         for (let i = 0; i < options.length; i++) {
 
-            message.channel.messages.cache.last().react(reactions[i]);
+            poll.react(reactions[i]);
 
         }
 
