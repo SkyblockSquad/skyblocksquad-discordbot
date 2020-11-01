@@ -36,7 +36,7 @@ module.exports = {
             return poll;
         }
 
-        sendPoll();
+        var poll = sendPoll();
         message.delete();
 
         for (let i = 0; i < options.length; i++) {
