@@ -12,7 +12,8 @@ module.exports = {
         } else var anonymous = "False";
 
         var content = message.content;
-        content.slice(0, content.length - 3);
+        content = content.slice(0, content.length - 3);
+        content = content.split(" / ");
 
         var options = content;
 
