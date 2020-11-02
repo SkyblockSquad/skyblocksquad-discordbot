@@ -27,7 +27,8 @@ module.exports = {
 
         slowmode *= multiplier;
 
-        if(!(Number.isInteger(slowmode))) return message.channel.send("**Error:** You can't set a decimal slowmode!");
+        var decimalCheck = slowmode - Math.ceil(slowmode);
+        if(decimalCheck > 0 && decimalCheck < 1) return message.channel.send("**Error:** You can't set a decimal slowmode!");
 
         if(slowmode < 0) return message.channel.send("**Error:** You can't set a negative slowmode!");
         if(slowmode > 21600) return message.channel.send("**Error:** You can't set slowmode higher then **6 hours**!");
