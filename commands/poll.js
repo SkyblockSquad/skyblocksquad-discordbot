@@ -12,7 +12,7 @@ module.exports = {
         } else var anonymous = "False";
 
         var content = message.content;
-        if(anonymous == "True") content = content.slice(0, content.length - 3);
+        if(anonymous === "True") content = content.slice(0, content.length - 3);
         content = content.split(" / ");
 
         var options = content;
@@ -31,6 +31,8 @@ module.exports = {
         .setFooter(embedFooter)
         .setTimestamp()
         .addField("Question", `The question is: **${question}**`)
+
+        if(anonymous === "False") botEmbed.setDescription(`This poll was started by: <@${message.author.id}>`);
 
         for (let i = 0; i < options.length; i++) {
             
