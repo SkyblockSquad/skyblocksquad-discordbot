@@ -9,7 +9,7 @@ module.exports = {
 
         var slowmode = args[0];
 
-        if(slowmode.incldues(".")) return message.channel.send("**Error:** You can't set a decimal slowmode!");
+        if(slowmode.includes(".")) return message.channel.send("**Error:** You can't set a decimal slowmode!");
 
         if(slowmode.endsWith("m")) {
             var multiplier = 60;
