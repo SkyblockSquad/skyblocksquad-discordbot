@@ -8,8 +8,8 @@ module.exports = {
         if(args.length < 1 || args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,slowmode [duration]**");
 
         var slowmode = args[0];
-
-        if(slowmode.includes(".")) return message.channel.send("**Error:** You can't set a decimal slowmode!");
+        
+        var allowedSymbols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
         if(slowmode.endsWith("m")) {
             var multiplier = 60;
@@ -20,6 +20,18 @@ module.exports = {
         } else {
             var multiplier = 1;
         }
+
+        var symbols = slowmode.split("");
+
+        for (let i = 0; i < symbols.length; i++) {
+            for (let index = 0; index < allowedSymbols.length; index++) {
+                if(symbols[i] === allowedSymbols[index]) {
+                    symbols.shift();
+                }
+            } 
+        }
+
+        if(symbols.length > 0) return message.channel.send("**Error:** That is not a valid number!")
 
         slowmode = parseInt(slowmode, 10);
 
