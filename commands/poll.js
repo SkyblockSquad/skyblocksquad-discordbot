@@ -8,8 +8,8 @@ module.exports = {
         var command = args.join(" ");
 
         if(command.endsWith("-a")) {
-            var anonymous = True;
-        } else var anonymous = False;
+            var anonymous = "True";
+        } else var anonymous = "False";
 
         console.log(anonymous);
 
