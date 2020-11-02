@@ -11,13 +11,10 @@ module.exports = {
             var anonymous = "True";
         } else var anonymous = "False";
 
-        console.log(anonymous);
+        var content = message.content;
+        content.slice(0, content.length - 3);
 
-        var options = message.content.split(" / ");
-
-        options.reverse();
-        options.shift();
-        options.reverse();
+        var options = content;
 
         var reactions = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"];
 
