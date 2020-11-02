@@ -1,13 +1,13 @@
 module.exports = {
     name: 'poll',
     description: 'poll',
-    execute(message, args, discord, embedColor, embedFooter) {
+    execute(message, discord, embedColor, embedFooter) {
     
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
 
         var content = message.content;
 
-        for (let i = 1; i < 3; i++) {
+        for (let i = 0; i < 2; i++) {
 
             if(content.endsWith("-a")) {
                 var anonymous = "True";
