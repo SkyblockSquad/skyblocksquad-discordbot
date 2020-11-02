@@ -6,13 +6,22 @@ module.exports = {
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
 
         var command = args.join(" ");
-
-        if(command.endsWith("-a")) {
-            var anonymous = "True";
-        } else var anonymous = "False";
-
         var content = message.content;
-        if(anonymous === "True") content = content.slice(0, content.length - 3);
+
+        for (let i = 1; i < 3; i++) {
+
+            if(command.endsWith("-a")) {
+                var anonymous = "True";
+                content = content.slice(0, content.length - 3);
+            } else var anonymous = "False";
+
+            if(command.endsWith("-p")) {
+                var ping = "True";
+                content = content.slice(0, content.length - 3);
+            } else var ping = "False";
+
+        }
+
         content = content.split(" / ");
 
         var options = content;
@@ -33,6 +42,7 @@ module.exports = {
         .addField("Question", `The question is: **${question}**`)
 
         if(anonymous === "False") botEmbed.setDescription(`This poll was started by: <@${message.author.id}>`);
+        if(ping === "True") message.channel.send("<@&772859858688802818>");
 
         for (let i = 0; i < options.length; i++) {
             
