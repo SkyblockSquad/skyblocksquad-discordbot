@@ -163,4 +163,8 @@ client.on("message", async message => {
         client.commands.get("poll").execute(message, args, discord, embedColor, embedFooter);
     }
 
+    if(command === `${prefix}slowmode`) {
+        client.commands.get("slowmode").execute(message, args);
+    }
+
 });
