@@ -5,17 +5,16 @@ module.exports = {
     
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
 
-        var command = args.join(" ");
         var content = message.content;
 
         for (let i = 1; i < 3; i++) {
 
-            if(command.endsWith("-a")) {
+            if(content.endsWith("-a")) {
                 var anonymous = "True";
                 content = content.slice(0, content.length - 3);
             } else var anonymous = "False";
 
-            if(command.endsWith("-p")) {
+            if(content.endsWith("-p")) {
                 var ping = "True";
                 content = content.slice(0, content.length - 3);
             } else var ping = "False";
