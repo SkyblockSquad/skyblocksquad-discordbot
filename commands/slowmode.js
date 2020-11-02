@@ -19,7 +19,7 @@ module.exports = {
             var multiplier = 1;
         }
 
-        slowmode = parseInt(slowmode);
+        slowmode = parseInt(slowmode, 10);
 
         if(!(slowmode === 0)) {
             if(!((slowmode / slowmode) === 1)) return message.channel.send("**Error:** That is not a number!");
