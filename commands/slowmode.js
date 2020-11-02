@@ -34,14 +34,8 @@ module.exports = {
         if(symbols.length > 0) return message.channel.send("**Error:** That is not a valid number!")
 
         slowmode = parseInt(slowmode, 10);
-
-        if(!(slowmode === 0)) {
-            if(!((slowmode / slowmode) === 1)) return message.channel.send("**Error:** That is not a number!");
-        }
-
         slowmode *= multiplier;
 
-        if(slowmode < 0) return message.channel.send("**Error:** You can't set a negative slowmode!");
         if(slowmode > 21600) return message.channel.send("**Error:** You can't set slowmode higher then **6 hours**!");
 
         message.channel.setRateLimitPerUser(slowmode);
