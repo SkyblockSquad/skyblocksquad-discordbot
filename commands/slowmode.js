@@ -2,6 +2,10 @@ module.exports = {
     name: 'slowmode',
     description: 'slowmode',
     execute(message, args) {
+
+        function hasDecimal (num) {
+            return !!(num % 1);
+        }
     
         if(!(message.member.hasPermission("MANAGE_CHANNELS"))) return message.channel.send("**Error:** You don't have permission! **(MANAGE_CHANNELS)**");
 
@@ -25,8 +29,9 @@ module.exports = {
             if(!((slowmode / slowmode) === 1)) return message.channel.send("**Error:** That is not a number!");
         }
 
-        slowmode = Math.floor(slowmode);
         slowmode *= multiplier;
+
+        if(!(hasDecimal(slowmode))) return message.channel.send("**Error:** You can't set a decimal slowmode!");
 
         if(slowmode < 0) return message.channel.send("**Error:** You can't set a negative slowmode!");
         if(slowmode > 21600) return message.channel.send("**Error:** You can't set slowmode higher then **6 hours**!");
