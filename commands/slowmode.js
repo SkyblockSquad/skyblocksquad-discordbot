@@ -25,12 +25,11 @@ module.exports = {
             if(!((slowmode / slowmode) === 1)) return message.channel.send("**Error:** That is not a number!");
         }
 
+        slowmode = Math.floor(slowmode);
+        slowmode *= multiplier;
+
         if(slowmode < 0) return message.channel.send("**Error:** You can't set a negative slowmode!");
         if(slowmode > 21600) return message.channel.send("**Error:** You can't set slowmode higher then **6 hours**!");
-
-        slowmode = Math.floor(slowmode);
-
-        slowmode *= multiplier;
 
         message.channel.setRateLimitPerUser(slowmode);
         message.channel.send("**Succes!** The slowmode has been changed! :stopwatch:");
