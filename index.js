@@ -167,4 +167,8 @@ client.on("message", async message => {
         client.commands.get("slowmode").execute(message, args);
     }
 
+    if(command === `${prefix}user`) {
+        client.commands.get("user").execute(message, args);
+    }
+
 });
