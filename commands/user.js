@@ -1,20 +1,17 @@
 module.exports = {
     name: 'user',
     description: 'user',
-    execute(message, args, discord, embedColor, embedFooter, moment, client) {
+    execute(message, args, discord, embedColor, embedFooter, moment) {
     
-        if(args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,player {player name}**\n*If you don't specify a username, show your own stats*");
-
+        var specifiedUser = args.split(" ").shift();
         
-        if(args.length !== 0) {
-            
-            var user = message.guild.members.cache.find(user => user.id === args[0]);
-
-            if(!user || user == undefined) return message.channel.send("**Error:** Oops! Something went wrong!");
-
-        } else {
+        if(args.length < 1) {
             var user = message.author;
+        } else {
+            var user = message.guild.members.cache.find(user => user.name === specifiedUser);
         }
+
+        if(user == undefined) return message.channel.send("**Error:** An error occurred!");
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle(`USER (${user.username.toUpperCase()})`)
