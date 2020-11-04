@@ -1,7 +1,7 @@
 module.exports = {
     name: 'user',
     description: 'user',
-    execute(message, args, discord, embedColor, embedFooter, moment) {
+    execute(message, args, discord, embedColor, embedFooter, moment, client) {
         
         if(args.length < 1) {
             var user = message.author;
