@@ -8,7 +8,7 @@ module.exports = {
         
         if(args.length !== 0) {
             
-            var user = client.users.cache.get(args[0]);
+            var user = message.guild.member(args[0] || client.users.cache.get(args[0])); 
 
             if(!user || user == undefined) return message.channel.send("**Error:** Oops! Something went wrong!");
 
