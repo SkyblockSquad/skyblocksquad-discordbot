@@ -8,11 +8,9 @@ module.exports = {
         
         if(args.length !== 0) {
             
-            var userGuild = client.fetchUser(args[0]);
+            var user = client.users.cache.get(args[0]);
 
-            if(!userGuild || userGuild == undefined) return message.channel.send("**Error:** Oops! Something went wrong!");
-
-            var user = client.fetchUser(args[0]);
+            if(!user || user == undefined) return message.channel.send("**Error:** Oops! Something went wrong!");
 
         } else {
             var user = message.author;
