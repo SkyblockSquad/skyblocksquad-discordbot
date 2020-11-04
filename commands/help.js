@@ -38,7 +38,7 @@ module.exports = {
                 .addFields(
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}help {category}`, value: menuData.information["help"], inline: true},
-                    {name: `${prefix}me`, value: menuData.information["me"], inline: true},
+                    {name: `${prefix}user`, value: menuData.information["user"], inline: true},
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}info`, value: menuData.information["info"], inline: true},
                     {name: `${prefix}ping`, value: menuData.information["ping"], inline: true}

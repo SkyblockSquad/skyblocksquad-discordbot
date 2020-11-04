@@ -123,10 +123,6 @@ client.on("message", async message => {
         client.commands.get("info").execute(discord, message, embedColor, embedFooter, client, args, moment);         
     }
 
-    if(command === `${prefix}me`) {
-        client.commands.get("me").execute(discord, message, embedColor, embedFooter, moment);
-    }
-
     if(command === `${prefix}hack`) {
        client.commands.get("hack").execute(discord, message, embedColor, embedFooter, args);
     }
