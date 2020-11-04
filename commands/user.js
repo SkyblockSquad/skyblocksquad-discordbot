@@ -3,7 +3,6 @@ module.exports = {
     description: 'user',
     execute(message, args, discord, embedColor, embedFooter, moment) {
 
-        args.shift();
         var specifiedUser = args.join(" ");
         
         if(args.length < 1) {
