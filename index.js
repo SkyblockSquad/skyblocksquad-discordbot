@@ -168,7 +168,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}user`) {
-        client.commands.get("user").execute(message, args);
+        client.commands.get("user").execute(message, args, discord, embedColor, embedFooter, moment);
     }
 
 });

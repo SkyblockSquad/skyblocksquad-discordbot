@@ -1,7 +1,7 @@
 module.exports = {
     name: 'user',
     description: 'user',
-    execute(message, args) {
+    execute(message, args, discord, embedColor, embedFooter) {
     
         if(args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,player {player name}**\n*If you don't specify a username, show your own stats*");
 
