@@ -2,8 +2,9 @@ module.exports = {
     name: 'user',
     description: 'user',
     execute(message, args, discord, embedColor, embedFooter, moment) {
-    
-        var specifiedUser = args.shift().join(" ");
+
+        args.shift();
+        var specifiedUser = args.join(" ");
         
         if(args.length < 1) {
             var user = message.author;
