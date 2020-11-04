@@ -8,11 +8,11 @@ module.exports = {
         if(args.length < 1) {
             var user = message.author;
         } else {
-            var userPing = `<&${args[0]}>`;
+            var userPing = `<@${args[0]}>`;
             var user = client.users.cache.get(userPing);
         }
 
-        if(!user) return message.channel.send("**Error:** An error occurred!");
+        if(!user || user == undefined) return message.channel.send("**Error:** An error occurred!");
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle(`USER (${user.username.toUpperCase()})`)
