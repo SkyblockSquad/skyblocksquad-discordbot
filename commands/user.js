@@ -18,8 +18,8 @@ module.exports = {
         }
 
         var botEmbed = new discord.MessageEmbed()
-        .setTitle(`USER ${member.username.toUpperCase()}`)
-        .setDescription(`See info about ${member.username} below!`)
+        .setTitle(`USER ${user.username.toUpperCase()}`)
+        .setDescription(`See info about ${user.username} below!`)
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
