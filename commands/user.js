@@ -8,13 +8,13 @@ module.exports = {
         
         if(args.length !== 0) {
             
-            var user = message.mentions.users.first();
-            var userGuild = message.guild.members.cache.find(usr => user);
+            var user = args[0];
+            var userGuild = message.guild.members.cache.find(name => user);
 
             if(!(userGuild)) return message.channel.send("**Error:** Oops! Something went wrong!");
 
         } else {
-            var user = message.author;
+            var user = message.author.username;
         }
 
         var botEmbed = new discord.MessageEmbed()
