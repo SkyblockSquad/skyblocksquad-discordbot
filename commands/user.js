@@ -11,7 +11,7 @@ module.exports = {
             var user = args[0];
             var userGuild = message.guild.members.cache.find(u => u.id === user);
 
-            if(!(userGuild)) return message.channel.send("**Error:** Oops! Something went wrong!");
+            if(!userGuild || userGuild == undefined) return message.channel.send("**Error:** Oops! Something went wrong!");
 
         } else {
             var user = message.author;
