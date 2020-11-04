@@ -1,14 +1,15 @@
 module.exports = {
     name: 'user',
     description: 'user',
-    execute(message, args, discord, embedColor, embedFooter, moment) {
+    execute(message, args, discord, embedColor, embedFooter, moment, client) {
 
-        if(args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,user {player id}**");
+        if(args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,user {player id}**\n*Don't specify a player for your own stats*");
         
         if(args.length < 1) {
             var user = message.author;
         } else {
-            var user = `<&${args[0]}>`
+            var userPing = `<&${args[0]}>`;
+            var user = client.users.cache.get(userPing);
         }
 
         if(!user) return message.channel.send("**Error:** An error occurred!");
