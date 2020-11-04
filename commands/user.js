@@ -2,16 +2,14 @@ module.exports = {
     name: 'user',
     description: 'user',
     execute(message, args, discord, embedColor, embedFooter, moment) {
-
-        var specifiedUser = args.join(" ");
         
         if(args.length < 1) {
             var user = message.author;
         } else {
-            var user = message.guild.members.cache.find(user => user.name === specifiedUser);
+            const user = client.users.cache.get(args[0]);
         }
 
-        if(user == undefined) return message.channel.send("**Error:** An error occurred!");
+        if(!user) return message.channel.send("**Error:** An error occurred!");
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle(`USER (${user.username.toUpperCase()})`)
