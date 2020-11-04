@@ -8,8 +8,7 @@ module.exports = {
         if(args.length < 1) {
             var user = message.author;
         } else {
-            var userPing = `<@${args[0]}>`;
-            var user = client.users.cache.get(userPing);
+            var user = client.users.cache.get(args[0]);
         }
 
         if(!user || user == undefined) return message.channel.send("**Error:** An error occurred!");
