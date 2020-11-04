@@ -1,30 +1,28 @@
 module.exports = {
     name: 'poll',
     description: 'poll',
-    execute(message, args, discord, embedColor, embedFooter) {
+    execute(message, discord, embedColor, embedFooter) {
     
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
 
-        var command = args.join(" ");
+        var content = message.content;
 
-        if(command.endsWith("-a")) {
+        if(content.endsWith("-a")) {
             var anonymous = "True";
+            content = content.slice(0, content.length - 3);
         } else var anonymous = "False";
 
-        if(command.endsWith("-p")) {
+        if(content.endsWith("-p")) {
             var ping = "True";
+            content = content.slice(0, content.length - 3);
         } else var ping = "False";
 
         if(anonymous === "False") {
-            if(command.endsWith("-a")) {
+            if(content.endsWith("-a")) {
                 var anonymous = "True";
+                content = content.slice(0, content.length - 3)
             } else var anonymous = "False";
         }
-
-        var content = message.content;
-
-        if(anonymous === "True") content = content.slice(0, content.length - 3);
-        if(ping === "True") content = content.slice(0, content.length - 3);
 
         content = content.split(" / ");
 
