@@ -3,7 +3,7 @@ module.exports = {
     description: 'user',
     execute(message, args, discord, embedColor, embedFooter, moment) {
     
-        var specifiedUser = args.split(" ").shift();
+        var specifiedUser = args.shift().join(" ");
         
         if(args.length < 1) {
             var user = message.author;
