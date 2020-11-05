@@ -8,7 +8,7 @@ module.exports = {
         if(args.length < 1) {
             var user = message.author;
         } else {
-            var user = client.users.cache.get(args[0]);
+            client.users.cache.find(u => u.id === args.join(" "));
         }
 
         if(!user || user == undefined) return message.channel.send("**Error:** An error occurred!");
