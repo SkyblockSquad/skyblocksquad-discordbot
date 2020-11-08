@@ -28,8 +28,6 @@ module.exports = {
 
         message.channel.send(choiceEmbed).then(async msg => {
 
-            message.delete();
-
             var emoji = await promptMessage(msg, message.author, 60, ["☑️", "❌"]);
 
             if(emoji === "☑️") {
@@ -45,6 +43,7 @@ module.exports = {
                         .setColor("00BFFF")
                         .addField("User:", `${ticketUser}`, false)
                         .addField("Reason:", `${reason}`, false)
+                        .addField("Accepted by:", `<@${message.author.id}>`, false)
 
                     message.channel.bulkDelete(3);
                     message.channel.send(result);
@@ -65,6 +64,7 @@ module.exports = {
                     .setColor("00BFFF")
                     .addField("User:", `${ticketUser}`, false)
                     .addField("Reason:", `${reason}`, false)
+                    .addField("Rejected by:", `<@${message.author.id}>`, false)
 
                 message.channel.bulkDelete(3);
                 message.channel.send(result);
