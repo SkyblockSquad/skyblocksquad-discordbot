@@ -1,17 +1,11 @@
 module.exports = {
-    name: 'user',
-    description: 'user',
+    name: 'me',
+    description: 'me',
     execute(message, args, discord, embedColor, embedFooter, moment, client) {
 
-        if(args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,user {player id}**\n*Don't specify a player for your own stats*");
-        
-        if(args.length < 1) {
-            var user = message.author;
-        } else {
-            client.users.cache.find(u => u.id === args.join(" "));
-        }
+        if(args.length > 0) return message.channel.send("**Error:** Invalid syntax! Please use **,me**");
 
-        if(!user || user == undefined) return message.channel.send("**Error:** An error occurred!");
+        var user = message.member;
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle(`USER (${user.username.toUpperCase()})`)
