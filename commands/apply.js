@@ -161,6 +161,13 @@ module.exports = {
                                                                 async function sendFinish() {
                                                                     var finish = await settedParent.send(finishing);
 
+                                                                    settedParent.updateOverwrite(author.id, {
+                                                                        SEND_MESSAGES: false,
+                                                                        VIEW_CHANNEL: true,
+                                                                        READ_MESSAGE_HISTORY: true,
+                                                                        READ_MESSAGES: true
+                                                                    });
+
                                                                     setTimeout(function() {
                                                                         finish.delete();
                                                                     }, 8000);
