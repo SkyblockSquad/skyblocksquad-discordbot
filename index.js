@@ -53,6 +53,11 @@ client.on("message", async message => {
 
     if(message.channel.type === "dm") return;
     if(message.author.bot) return;
+
+    var mutedRole = message.member.roles.cache.find(role => role.name === "Muted");
+    if(mutedRole) {
+        message.delete();
+    }
     
     var check = message.content.toLowerCase();
 
@@ -165,6 +170,10 @@ client.on("message", async message => {
 
     if(command === `${prefix}me`) {
         client.commands.get("me").execute(message, args, discord, embedColor, embedFooter, moment, client);
+    }
+
+    if(command === `${prefix}apply`) {
+        client.commands.get("apply").execute(message, discord, embedFooter);
     }
 
 });
