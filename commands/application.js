@@ -48,8 +48,8 @@ module.exports = {
                         .addField("User:", `${ticketUser}`, false)
                         .addField("Reason:", `${reason}`, false)
 
+                    message.channel.bulkDelete(3);
                     message.channel.send(result);
-                    message.channel.bulkDelete(1);
                     message.channel.setTopic(`**User:** ${ticketUser} **Status:** Accepted`);
 
                 })
@@ -68,8 +68,8 @@ module.exports = {
                     .addField("User:", `${ticketUser}`, false)
                     .addField("Reason:", `${reason}`, false)
 
+                message.channel.bulkDelete(3);
                 message.channel.send(result);
-                message.channel.bulkDelete(1);
                 message.channel.setTopic(`**User:** ${ticketUser} **Status:** Rejected`);
 
                 })
