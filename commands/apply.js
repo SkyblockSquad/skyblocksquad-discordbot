@@ -186,6 +186,14 @@ module.exports = {
                                                                     READ_MESSAGES: false
                                                                 });
 
+                                                                var authorEmbed = new discord.MessageEmbed()
+                                                                    .setTitle("APPLICATION AUTHOR")
+                                                                    .setDescription(`This application has been send by: <@${author.id}>`)
+                                                                    .setColor("00BFFF")
+                                                                    .setFooter(embedFooter)
+
+                                                                settedParent.send(authorEmbed);
+
                                                             }, 8000);
                                                         })
                                                     })
