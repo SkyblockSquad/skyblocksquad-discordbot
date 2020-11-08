@@ -38,7 +38,7 @@ module.exports = {
                 
                 message.channel.send(reasonEmbed).then(msg => msg.delete({ timeout: 30000}));
 
-                message.channel.awaitMessage(filter, {max: 1, time: 10000}).then(collected => {
+                message.channel.awaitMessags(filter, {max: 1, time: 10000}).then(collected => {
 
                     var reason = collected.first();
                     
@@ -58,7 +58,7 @@ module.exports = {
 
                 message.channel.send(reasonEmbed).then(msg => msg.delete({ timeout: 30000}));
 
-                message.channel.awaitMessage(filter, {max: 1, time: 10000}).then(collected => {
+                message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
 
                 var reason = collected.first();
                     
