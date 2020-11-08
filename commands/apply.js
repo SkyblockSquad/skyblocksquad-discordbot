@@ -3,7 +3,7 @@ module.exports = {
     description: 'apply',
     execute(message, discord, embedFooter) {
     
-        var categoryID = "699041530740211813";
+        var categoryID = "774903762447630367";
         var author = message.author;
 
         var channelName = "application-" + author.username;
@@ -27,6 +27,7 @@ module.exports = {
             .setFooter(embedFooter);
 
         message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
+        message.delete();
 
         message.guild.channels.create(channelName, {type: "text"}).then(
             (createdChannel) => {
@@ -145,7 +146,7 @@ module.exports = {
                                                                 .setFooter(embedFooter)
                                                                 .setTimestamp()
 
-                                                            settedParent.bulkDelete(14).then(
+                                                            settedParent.bulkDelete(18).then(
                                                                 settedParent.send(application)
                                                             )
                                                         })
