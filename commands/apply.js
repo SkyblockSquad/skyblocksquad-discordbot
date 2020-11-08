@@ -51,6 +51,8 @@ module.exports = {
                             READ_MESSAGE_HISTORY: true
                         });
 
+                        settedParent.setTopic(`**User:** <@${author.id}> **Status:** Unfinished`);
+
                         settedParent.send(`[<@${author.id}>]`);
 
                         var information = new discord.MessageEmbed()
@@ -170,7 +172,7 @@ module.exports = {
                                                                     {name: `**Question 9:** ${question_txt9}`, value: `Answer: ${answer9}`},
                                                                 )
 
-                                                            settedParent.bulkDelete(20).then(
+                                                            settedParent.bulkDelete(1000).then(
                                                                 settedParent.send(application)
                                                             )
 
