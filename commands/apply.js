@@ -147,7 +147,7 @@ module.exports = {
                                                                 .setFooter(embedFooter)
                                                                 .setTimestamp()
 
-                                                            settedParent.bulkDelete(18).then(
+                                                            settedParent.bulkDelete(19).then(
                                                                 settedParent.send(application)
                                                             )
 
