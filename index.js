@@ -179,4 +179,8 @@ client.on("message", async message => {
         client.commands.get("apply").execute(message, discord, embedFooter);
     }
 
+    if(command === `${prefix}application`) {
+        client.commands.get("application").execute(message, args, discord, embedFooter);
+    }
+
 });
