@@ -54,9 +54,12 @@ client.on("message", async message => {
     if(message.channel.type === "dm") return;
     if(message.author.bot) return;
 
-    var mutedRole = message.member.roles.cache.find(role => role.name === "Muted");
+    var mutedRole = message.member.roles.cache.find(role => role.id === "703187997822025738");
     if(mutedRole) {
-        message.delete();
+
+        var staffRole = message.member.roles.cache.find(role => role.id === "714022869516156949");
+        if(!staffRole) message.delete();
+
     }
     
     var check = message.content.toLowerCase();
