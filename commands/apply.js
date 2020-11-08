@@ -51,7 +51,7 @@ module.exports = {
                             READ_MESSAGE_HISTORY: true
                         });
 
-                        settedParent.setTopic(`**User:** <@${author.id}> **Status:** Unfinished`);
+                        settedParent.setTopic(`**User:** <@${author.id}>`);
 
                         settedParent.send(`[<@${author.id}>]`);
 
@@ -195,7 +195,6 @@ module.exports = {
 
                                                                     setTimeout(function() {
                                                                         finish.delete();
-                                                                        settedParent.setTopic(`**User:** <@${author.id}> **Status:** Waiting for reply...`)
                                                                     }, 5000);
                                                                 }
 

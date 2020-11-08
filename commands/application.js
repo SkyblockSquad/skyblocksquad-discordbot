@@ -47,7 +47,6 @@ module.exports = {
 
                     message.channel.bulkDelete(3);
                     message.channel.send(result);
-                    message.channel.setTopic(`**User:** ${ticketUser} **Status:** Accepted **Accepted by:** <@${message.author.id}>`);
 
                 })
 
@@ -68,7 +67,6 @@ module.exports = {
 
                 message.channel.bulkDelete(3);
                 message.channel.send(result);
-                message.channel.setTopic(`**User:** ${ticketUser} **Status:** Rejected **Accepted by:** <@${message.author.id}>`);
 
                 })
 
