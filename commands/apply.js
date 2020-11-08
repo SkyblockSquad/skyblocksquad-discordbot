@@ -170,7 +170,7 @@ module.exports = {
                                                                     {name: `**Question 9:** ${question_txt9}`, value: `Answer: ${answer9}`},
                                                                 )
 
-                                                            settedParent.bulkDelete(19).then(
+                                                            settedParent.bulkDelete(20).then(
                                                                 settedParent.send(application)
                                                             )
 
