@@ -2,6 +2,8 @@ module.exports = {
     name: 'apply',
     description: 'apply',
     execute(message, discord, embedFooter) {
+
+        //
     
         var categoryID = "774903762447630367";
         var author = message.author;
