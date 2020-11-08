@@ -158,13 +158,20 @@ module.exports = {
                                                                     .setColor("00BFFF")
                                                                     .setFooter(embedFooter)
 
-                                                                message.channel.send(finishing);
+                                                                async function sendFinish() {
+                                                                    var finish = await message.channel.send(finishing);
+
+                                                                    setTimeout(function() {
+                                                                        finish.delete();
+                                                                    }, 8000);
+                                                                }
+
+                                                                sendFinish();
 
                                                             }, 2000);
 
                                                             setTimeout(function() {
 
-                                                                message.delete()
                                                                 settedParent.updateOverwrite(author.id, {
                                                                     SEND_MESSAGES: false,
                                                                     VIEW_CHANNEL: false,
