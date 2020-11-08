@@ -180,7 +180,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}application`) {
-        client.commands.get("application").execute(message, args, discord, embedFooter);
+        client.commands.get("application").execute(message, discord);
     }
 
 });

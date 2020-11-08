@@ -1,9 +1,7 @@
-const { Channel } = require("discord.js");
-
 module.exports = {
     name: 'application',
     description: 'application',
-    execute(message, args, discord, embedFooter) {
+    execute(message, discord) {
     
         var categoryID = "774903762447630367";
 
