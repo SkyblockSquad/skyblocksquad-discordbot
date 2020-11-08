@@ -191,12 +191,12 @@ module.exports = {
 
                                                                     setTimeout(function() {
                                                                         finish.delete();
-                                                                    }, 8000);
+                                                                    }, 5000);
                                                                 }
 
                                                                 sendFinish();
 
-                                                            }, 2000);
+                                                            }, 1000);
 
                                                             setTimeout(function() {
 
@@ -215,7 +215,7 @@ module.exports = {
 
                                                                 settedParent.send(authorEmbed);
 
-                                                            }, 8000);
+                                                            }, 7500);
                                                         })
                                                     })
                                                 })
