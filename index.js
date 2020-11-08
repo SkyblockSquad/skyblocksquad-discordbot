@@ -52,6 +52,13 @@ client.on("ready", async () => {
 client.on("message", async message => {
 
     if(message.channel.type === "dm") return;
+
+    if(message.channel.parentID === "774903762447630367") {
+        if(message.author.bot && message.author.id === "649604306596528138") {
+            message.delete();
+        }
+    }
+
     if(message.author.bot) return;
 
     var mutedRole = message.member.roles.cache.find(role => role.id === "703187997822025738");

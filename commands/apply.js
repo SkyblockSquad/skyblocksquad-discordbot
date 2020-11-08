@@ -51,6 +51,8 @@ module.exports = {
                             READ_MESSAGE_HISTORY: true
                         });
 
+                        settedParent.send(`[<@${author.id}>]`);
+
                         var information = new discord.MessageEmbed()
                             .setTitle("WELCOME TO YOUR TICKET!")
                             .setDescription("This is your ticket. Before answering the questions, make sure that you agree with everything in the #applications channel!")
