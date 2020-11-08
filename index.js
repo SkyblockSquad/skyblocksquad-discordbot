@@ -54,7 +54,7 @@ client.on("message", async message => {
     if(message.channel.type === "dm") return;
 
     if(message.channel.parentID === "774903762447630367") {
-        if(message.author.bot && message.author.id === "649604306596528138") {
+        if(message.author.bot && message.author.id !== "715568351052693622") {
             message.delete();
         }
     }
