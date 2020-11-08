@@ -7,7 +7,7 @@ module.exports = {
     
         var categoryID = "774903762447630367";
 
-        var ticketUser = message.guild.member(message.mentions.user.first());
+        var ticketUser = message.guild.member(message.mentions.users.first());
 
         if (message.channel.parentID !== categoryID) return message.channel.send("**Error:** You must be in an application ticket to do this!");
 
