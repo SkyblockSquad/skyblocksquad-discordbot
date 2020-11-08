@@ -159,7 +159,7 @@ module.exports = {
                                                                     .setFooter(embedFooter)
 
                                                                 async function sendFinish() {
-                                                                    var finish = await message.channel.send(finishing);
+                                                                    var finish = await settedParent.send(finishing);
 
                                                                     setTimeout(function() {
                                                                         finish.delete();
