@@ -20,6 +20,8 @@ module.exports = {
 
         if(ticket) return;
 
+        message.delete();
+
         var embed = new discord.MessageEmbed()
             .setTitle("CREATING CHANNEL...")
             .setDescription("Please wait while I create your application ticket...")
@@ -27,7 +29,6 @@ module.exports = {
             .setFooter(embedFooter);
 
         message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
-        message.delete();
 
         message.guild.channels.create(channelName, {type: "text"}).then(
             (createdChannel) => {
@@ -52,7 +53,7 @@ module.exports = {
 
                         var information = new discord.MessageEmbed()
                             .setTitle("WELCOME TO YOUR TICKET!")
-                            .setDescription("This is your ticket. Before answering the questions, make sure that you agree with everything in <@&699041877110030346>!")
+                            .setDescription("This is your ticket. Before answering the questions, make sure that you agree with everything in the #applications channel!")
                             .setColor("00BFFF");
 
                         var question1 = new discord.MessageEmbed()
