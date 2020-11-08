@@ -18,6 +18,20 @@ module.exports = {
             }
         });
 
+        var level10role = message.member.roles.cache.find(role => role.id === "773453677779484672");
+        var level15role = message.member.roles.cache.find(role => role.id === "773453879689740288");
+        var level20role = message.member.roles.cache.find(role => role.id === "773454008974704650");
+        var level25role = message.member.roles.cache.find(role => role.id === "773454133557592094");
+        var level30role = message.member.roles.cache.find(role => role.id === "773454210166554646");
+        var level35role = message.member.roles.cache.find(role => role.id === "773454351787753473");
+        var level40role = message.member.roles.cache.find(role => role.id === "773454498160181259");
+        var level45role = message.member.roles.cache.find(role => role.id === "773454622190600222");
+        var level50role = message.member.roles.cache.find(role => role.id === "773454761503490098");
+
+        if(!level10role && !level15role && !level20role && !level25role && !level30role && !level35role && !level40role && !level45role &&!level50role) {
+            return message.channel.send("**Error:** You must be atleast **level 10** or higher to do this!");
+        }
+
         if(ticket) return;
 
         message.delete();
