@@ -150,6 +150,29 @@ module.exports = {
                                                             settedParent.bulkDelete(18).then(
                                                                 settedParent.send(application)
                                                             )
+
+                                                            setTimeout(function() {
+                                                                var finishing = new discord.MessageEmbed()
+                                                                    .setTitle("FINISHING APLICATION...")
+                                                                    .setDescription("I'm currently finishing your application...")
+                                                                    .setColor("00BFFF")
+                                                                    .setFooter(embedFooter)
+
+                                                                message.channel.send(finishing);
+
+                                                            }, 2000);
+
+                                                            setTimeout(function() {
+
+                                                                message.delete()
+                                                                settedParent.updateOverwrite(author.id, {
+                                                                    SEND_MESSAGES: false,
+                                                                    VIEW_CHANNEL: false,
+                                                                    READ_MESSAGE_HISTORY: false,
+                                                                    READ_MESSAGES: false
+                                                                });
+
+                                                            }, 8000);
                                                         })
                                                     })
                                                 })
