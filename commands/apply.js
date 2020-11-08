@@ -195,6 +195,7 @@ module.exports = {
 
                                                                     setTimeout(function() {
                                                                         finish.delete();
+                                                                        settedParent.setTopic(`**User:** <@${author.id}> **Status:** Waiting for reply...`)
                                                                     }, 5000);
                                                                 }
 
