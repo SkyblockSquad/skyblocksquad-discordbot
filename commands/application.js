@@ -153,6 +153,12 @@ module.exports = {
 
                 message.channel.setParent(archivedCategory);
 
+                message.channel.updateOverwrite(message.guild.roles.cache.find(role => role.name === "@everyone"), {
+                    SEND_MESSAGES: false,
+                    VIEW_CHANNEL: false,
+                    READ_MESSAGE_HISTORY: false
+                });
+
                 var archived = new discord.MessageEmbed()
                     .setTitle("ARCHIVED APPLICATION")
                     .setColor("00BFFF")
