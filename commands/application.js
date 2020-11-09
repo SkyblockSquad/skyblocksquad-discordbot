@@ -52,15 +52,11 @@ module.exports = {
 
                     reason = reason.toString();
 
-                    message.channel.send(`**DEBUG:** ${reason.length}`)
-
                     if(reason.length > 1024) {
                         var plainMessage = "true";
                     } else {
                         var plainMessage = "false";
                     }
-
-                    message.channel.send(`**DEBUG:** ${plainMessage}`)
                     
                     var result = new discord.MessageEmbed()
                         .setTitle("ACCEPTED")
