@@ -159,12 +159,14 @@ module.exports = {
                     READ_MESSAGE_HISTORY: false
                 });
 
+                message.channel.bulkDelete(1);
+
                 var archived = new discord.MessageEmbed()
                     .setTitle("ARCHIVED APPLICATION")
                     .setColor("00BFFF")
                     .setDescription("Succesfully archived this application!")
 
-                message.channel.sened(archived);
+                message.channel.send(archived);
 
             }
 
