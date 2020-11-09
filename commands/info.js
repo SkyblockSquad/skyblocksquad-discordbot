@@ -3,7 +3,7 @@ module.exports = {
     description: 'info',
     execute(discord, message, embedColor, embedFooter, client, args, moment) {
 
-        if(args.length >= 1) return message.channel.send("**Error:** No arguments need to be provided!");
+        if(args.length > 0) return message.channel.send("**Error:** No arguments need to be provided!");
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle("INFO")
