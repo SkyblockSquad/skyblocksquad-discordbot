@@ -66,8 +66,9 @@ client.on("message", async message => {
     var mutedRole = message.member.roles.cache.find(role => role.id === "703187997822025738");
     if(mutedRole) {
 
-        var staffRole = message.member.roles.cache.find(role => role.id === "714022869516156949");
-        if(!staffRole) message.delete();
+        var adminRole = message.member.roles.cache.find(role => role.id === "683205637001183365");
+        var gmRole = message.member.roles.cache.find(role => role.id === "683205412488478809");
+        if(!adminRole && !gmRole) message.delete();
 
     }
     
