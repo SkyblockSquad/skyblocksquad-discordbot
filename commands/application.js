@@ -24,6 +24,16 @@ module.exports = {
             .setColor("00BFFF")
             .addField("Reason:", "Please enter a reason.", false)
 
+        var dmEnabled = new discord.MessageEmbed()
+            .setTitle("SUCCES!")
+            .setColor("00BFF")
+            .setDescription(`I have succesfully sent a DM to ${ticketUser}!`)
+
+        var dmDisabled = new discord.MessageEmbed()
+            .setTitle("ERROR!")
+            .setColor("00BFF")
+            .setDescription(`Couldn't send a DM to ${ticketUser} because they have private messages disabled!`)
+
         const filter = m => m.content;
 
         message.channel.send(choiceEmbed).then(async msg => {
@@ -56,9 +66,9 @@ module.exports = {
                         .addField("Reason:", `${reason}`, false)
 
                     message.member.send(dm).then(() => {
-                        message.channel.send(`I have succesfully send a DM to ${ticketUser}`)
+                        message.channel.send(dmEnabled);
                     }).catch(() => {
-                        message.channel.send("**Error:** That user has disabled private messages! Couldn't send a DM!");
+                        message.channel.send(dmDisabled);
                     })
 
                 })
@@ -89,9 +99,9 @@ module.exports = {
                     .addField("Reason:", `${reason}`, false)
 
                 message.member.send(dm).then(() => {
-                    message.channel.send(`I have succesfully send a DM to ${ticketUser}`)
+                    message.channel.send(dmEnabled)
                 }).catch(() => {
-                    message.channel.send("**Error:** That user has disabled private messages! Couldn't send a DM!");
+                    message.channel.send(dmDisabled);
                 })
 
                 })
