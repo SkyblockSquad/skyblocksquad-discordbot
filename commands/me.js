@@ -5,7 +5,7 @@ module.exports = {
 
         if(args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
 
-        var member = message.guild.member(message.author);
+        var member = message.guild.member(message.member);
 
         var status = member.presence.status;
 
