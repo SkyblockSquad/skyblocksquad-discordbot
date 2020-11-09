@@ -56,7 +56,7 @@ module.exports = {
                         .addField("Reason:", `${reason}`, false)
 
                     message.member.send(dm).then(() => {
-                        message.channel.send(`I have succesfully send a DM to ${ticketUser.username}`)
+                        message.channel.send(`I have succesfully send a DM to ${ticketUser}`)
                     }).catch(() => {
                         message.channel.send("**Error:** That user has disabled private messages! Couldn't send a DM!");
                     })
@@ -89,7 +89,7 @@ module.exports = {
                     .addField("Reason:", `${reason}`, false)
 
                 message.member.send(dm).then(() => {
-                    message.channel.send(`I have succesfully send a DM to ${ticketUser.username}`)
+                    message.channel.send(`I have succesfully send a DM to ${ticketUser}`)
                 }).catch(() => {
                     message.channel.send("**Error:** That user has disabled private messages! Couldn't send a DM!");
                 })
