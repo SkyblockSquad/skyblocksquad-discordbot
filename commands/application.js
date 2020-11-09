@@ -155,6 +155,10 @@ module.exports = {
 
                 message.channel.bulkDelete(1);
 
+                var channelName = "archived-" + ticketUser.username;
+
+                message.channel.setName(channelName.toLowerCase());
+
                 var archived = new discord.MessageEmbed()
                     .setTitle("ARCHIVED APPLICATION")
                     .setColor("00BFFF")
