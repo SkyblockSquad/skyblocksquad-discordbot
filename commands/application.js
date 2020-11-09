@@ -38,7 +38,7 @@ module.exports = {
 
         message.channel.send(choiceEmbed).then(async msg => {
 
-            var emoji = await promptMessage(msg, message.author, 60, ["☑️", "❌"]);
+            var emoji = await promptMessage(msg, message.author, 300, ["☑️", "❌"]);
 
             if(emoji === "☑️") {
                 
