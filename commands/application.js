@@ -42,7 +42,7 @@ module.exports = {
 
             if(emoji === "☑️") {
                 
-                message.channel.send(reasonEmbed).then(msg => msg.delete({ timeout: 30000}));
+                message.channel.send(reasonEmbed);
 
                 message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
 
@@ -93,7 +93,7 @@ module.exports = {
 
             } else if(emoji === "❌") {
 
-                message.channel.send(reasonEmbed).then(msg => msg.delete({ timeout: 30000}));
+                message.channel.send(reasonEmbed);
 
                 message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
 
