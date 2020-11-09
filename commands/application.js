@@ -38,13 +38,13 @@ module.exports = {
 
         message.channel.send(choiceEmbed).then(async msg => {
 
-            var emoji = await promptMessage(msg, message.author, 300, ["☑️", "❌"]);
+            var emoji = await promptMessage(msg, message.author, 120, ["☑️", "❌"]);
 
             if(emoji === "☑️") {
                 
                 message.channel.send(reasonEmbed);
 
-                message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
+                message.channel.awaitMessages(filter, {max: 1, time: 300000}).then(collected => {
 
                     var reason = collected.first();
 
@@ -101,7 +101,7 @@ module.exports = {
 
                 message.channel.send(reasonEmbed);
 
-                message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
+                message.channel.awaitMessages(filter, {max: 1, time: 300000}).then(collected => {
 
                 var reason = collected.first();
 
