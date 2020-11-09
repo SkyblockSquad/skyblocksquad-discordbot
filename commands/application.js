@@ -17,7 +17,8 @@ module.exports = {
             .setTitle("MANAGE APPLICATION")
             .setColor("00BFFF")
             .addField("Accepted:", "☑️", false)
-            .addField("Rejected:", "❌", false);
+            .addField("Rejected:", "❌", false)
+            .addField("Archive application:", "📥", false)
 
          var reasonEmbed = new discord.MessageEmbed()
             .setTitle("MANAGE APPLICATION")
@@ -38,7 +39,7 @@ module.exports = {
 
         message.channel.send(choiceEmbed).then(async msg => {
 
-            var emoji = await promptMessage(msg, message.author, 120, ["☑️", "❌"]);
+            var emoji = await promptMessage(msg, message.author, 120, ["☑️", "❌", "📥"]);
 
             if(emoji === "☑️") {
                 
@@ -145,6 +146,19 @@ module.exports = {
                 })
 
                 })
+
+            } else if(emoji === "📥") {
+
+                var archivedCategory = "775289725710893056";
+
+                message.channel.setParent(archivedCategory);
+
+                var archived = new discord.MessageEmbed()
+                    .setTitle("ARCHIVED APPLICATION")
+                    .setColor("00BFFF")
+                    .setDescription("Succesfully archived this application!")
+
+                message.channel.sened(archived);
 
             }
 
