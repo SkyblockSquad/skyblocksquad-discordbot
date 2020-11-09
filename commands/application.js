@@ -155,7 +155,10 @@ module.exports = {
 
                 message.channel.bulkDelete(1);
 
-                var channelName = "archived-" + ticketUser.username;
+                var channelName = message.channel.name;
+
+                channelName = channelName.slice(12, channelName.length);
+                channelName = "archived-" + channelName.toString();
 
                 message.channel.setName(channelName.toLowerCase());
 
