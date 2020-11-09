@@ -55,6 +55,8 @@ module.exports = {
                     } else {
                         var plainMessage = "false";
                     }
+
+                    message.channel.send(`**DEBUG:** ${plainMessage}`)
                     
                     var result = new discord.MessageEmbed()
                         .setTitle("ACCEPTED")
