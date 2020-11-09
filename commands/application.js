@@ -50,6 +50,8 @@ module.exports = {
 
                     if(reason == undefined) reason = "No reason supplied!";
 
+                    message.channel.send(`**DEBUG:** ${reason.length}`)
+
                     if(reason.length > 1024) {
                         var plainMessage = "true";
                     } else {
