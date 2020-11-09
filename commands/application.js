@@ -48,6 +48,19 @@ module.exports = {
                     message.channel.bulkDelete(3);
                     message.channel.send(result);
 
+                    var dm = new discord.MessageEmbed()
+                        .setTitle("ACCEPTED")
+                        .setColor("00BFFF")
+                        .setDescription("Your Helper application has been accepted!")
+                        .addField("Accepted by:", `<@${message.author.id}>`, false)
+                        .addField("Reason:", `${reason}`, false)
+
+                    message.member.send(dm).then(() => {
+                        message.channel.send(`I have succesfully send a DM to ${ticketUser.username}`)
+                    }).catch(() => {
+                        message.channel.send("**Error:** That user has disabled private messages! Couldn't send a DM!");
+                    })
+
                 })
 
             } else if(emoji === "❌") {
@@ -67,6 +80,19 @@ module.exports = {
 
                 message.channel.bulkDelete(3);
                 message.channel.send(result);
+
+                var dm = new discord.MessageEmbed()
+                    .setTitle("REJECTED")
+                    .setColor("00BFFF")
+                    .setDescription("Your Helper application has been rejected!")
+                    .addField("Rejected by:", `<@${message.author.id}>`, false)
+                    .addField("Reason:", `${reason}`, false)
+
+                message.member.send(dm).then(() => {
+                    message.channel.send(`I have succesfully send a DM to ${ticketUser.username}`)
+                }).catch(() => {
+                    message.channel.send("**Error:** That user has disabled private messages! Couldn't send a DM!");
+                })
 
                 })
 
