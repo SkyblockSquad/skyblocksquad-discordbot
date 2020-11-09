@@ -80,7 +80,7 @@ module.exports = {
                         .setDescription("Your Helper application has been accepted!")
                         .addField("Accepted by:", `<@${message.author.id}>`, false)
 
-                        if(plainMessage === false) {
+                        if(plainMessage === "false") {
                             dm.addField("Reason:", `${reason}`, false)
                         }
 
@@ -125,7 +125,7 @@ module.exports = {
                     .setDescription("Your Helper application has been rejected!")
                     .addField("Rejected by:", `<@${message.author.id}>`, false)
 
-                    if(plainMessage === false) {
+                    if(plainMessage === "false") {
                         dm.addField("Reason:", `${reason}`, false)
                     } 
 
