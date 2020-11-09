@@ -47,13 +47,25 @@ module.exports = {
                 message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
 
                     var reason = collected.first();
+
+                    if(reason == undefined) reason = "No reason supplied!";
+
+                    if(reason.length > 1024) {
+                        var plainMessage = "true";
+                    } else {
+                        var plainMessage = "false";
+                    }
                     
                     var result = new discord.MessageEmbed()
                         .setTitle("ACCEPTED")
                         .setColor("00BFFF")
                         .addField("User:", `${ticketUser}`, false)
-                        .addField("Reason:", `${reason}`, false)
-                        .addField("Accepted by:", `<@${message.author.id}>`, false)
+
+                        if(plainMessage === "false") {
+                            result.addField("Reason:", `${reason}`, false)
+                        }
+
+                        result.addField("Accepted by:", `<@${message.author.id}>`, false)
 
                     message.channel.bulkDelete(3);
                     message.channel.send(result);
@@ -63,9 +75,15 @@ module.exports = {
                         .setColor("00BFFF")
                         .setDescription("Your Helper application has been accepted!")
                         .addField("Accepted by:", `<@${message.author.id}>`, false)
-                        .addField("Reason:", `${reason}`, false)
+
+                        if(plainMessage === false) {
+                            dm.addField("Reason:", `${reason}`, false)
+                        }
 
                     ticketUser.send(dm).then(() => {
+
+                        if(plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
+
                         message.channel.send(dmEnabled);
                     }).catch(() => {
                         message.channel.send(dmDisabled);
@@ -87,8 +105,12 @@ module.exports = {
                     .setTitle("REJECTED")
                     .setColor("00BFFF")
                     .addField("User:", `${ticketUser}`, false)
-                    .addField("Reason:", `${reason}`, false)
-                    .addField("Rejected by:", `<@${message.author.id}>`, false)
+
+                    if(plainMessage === "false") {
+                        result.addField("Reason:", `${reason}`, false)
+                    }
+
+                    result.addField("Rejected by:", `<@${message.author.id}>`, false)
 
                 message.channel.bulkDelete(3);
                 message.channel.send(result);
@@ -98,11 +120,17 @@ module.exports = {
                     .setColor("00BFFF")
                     .setDescription("Your Helper application has been rejected!")
                     .addField("Rejected by:", `<@${message.author.id}>`, false)
-                    .addField("Reason:", `${reason}`, false)
+
+                    if(plainMessage === false) {
+                        dm.addField("Reason:", `${reason}`, false)
+                    } 
 
                 var ticketUser = message.guild.member(message.mentions.users.first());
 
                 ticketUser.send(dm).then(() => {
+
+                    if(plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
+
                     message.channel.send(dmEnabled)
                 }).catch(() => {
                     message.channel.send(dmDisabled);
