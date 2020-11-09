@@ -18,8 +18,10 @@ module.exports = {
 
         var game = user.presence.activities[0] ? user.presence.activities[0].name : "None";
 
+        var username = user.username;
+
         var botEmbed = new discord.MessageEmbed()
-        .setTitle(`USER (${user.username.toUpperCase()})`)
+        .setTitle(`ME (${username.toUpperCase()})`)
         .setDescription(`See info about ${user.username} below!`)
         .setColor(embedColor)
         .setFooter(embedFooter)
