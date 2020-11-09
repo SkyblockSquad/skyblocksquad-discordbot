@@ -104,6 +104,12 @@ module.exports = {
                 var reason = collected.first();
 
                 if(reason == undefined) reason = "No reason supplied!";
+
+                if(reason.length > 1024) {
+                    var plainMessage = "true";
+                } else {
+                    var plainMessage = "false";
+                }
                     
                 var result = new discord.MessageEmbed()
                     .setTitle("REJECTED")
