@@ -16,7 +16,7 @@ module.exports = {
         
         var joinedGuild = moment(member.joinedAt).format("LL");
 
-        var game = member.presence.activities[0] ? member.presence.activities[0].name : "None";
+        var game = member.user.presence.activities[0] ? member.user.presence.activities[0].name : "None";
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle(`USER INFO`)
