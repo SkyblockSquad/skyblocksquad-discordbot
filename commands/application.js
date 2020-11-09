@@ -137,8 +137,6 @@ module.exports = {
                         dm.addField("Reason:", `${reason}`, false)
                     } 
 
-                var ticketUser = message.guild.member(message.mentions.users.first());
-
                 ticketUser.send(dm).then(() => {
 
                     if(plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
