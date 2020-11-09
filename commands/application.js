@@ -80,6 +80,8 @@ module.exports = {
                 message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
 
                 var reason = collected.first();
+
+                if(reason == undefined) reason = "No reason supplied!";
                     
                 var result = new discord.MessageEmbed()
                     .setTitle("REJECTED")
@@ -98,7 +100,7 @@ module.exports = {
                     .addField("Rejected by:", `<@${message.author.id}>`, false)
                     .addField("Reason:", `${reason}`, false)
 
-                message.member.send(dm).then(() => {
+                ticketUser.send(dm).then(() => {
                     message.channel.send(dmEnabled)
                 }).catch(() => {
                     message.channel.send(dmDisabled);
