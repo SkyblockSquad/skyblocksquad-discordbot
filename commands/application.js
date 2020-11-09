@@ -65,7 +65,7 @@ module.exports = {
                         .addField("Accepted by:", `<@${message.author.id}>`, false)
                         .addField("Reason:", `${reason}`, false)
 
-                    message.member.send(dm).then(() => {
+                    ticketUser.send(dm).then(() => {
                         message.channel.send(dmEnabled);
                     }).catch(() => {
                         message.channel.send(dmDisabled);
