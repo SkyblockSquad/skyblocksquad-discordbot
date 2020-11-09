@@ -107,6 +107,8 @@ module.exports = {
 
                 if(reason == undefined) reason = "No reason supplied!";
 
+                reason = reason.toString();
+
                 if(reason.length > 1024) {
                     var plainMessage = "true";
                 } else {
