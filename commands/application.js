@@ -100,6 +100,8 @@ module.exports = {
                     .addField("Rejected by:", `<@${message.author.id}>`, false)
                     .addField("Reason:", `${reason}`, false)
 
+                var ticketUser = message.guild.member(message.mentions.users.first());
+
                 ticketUser.send(dm).then(() => {
                     message.channel.send(dmEnabled)
                 }).catch(() => {
