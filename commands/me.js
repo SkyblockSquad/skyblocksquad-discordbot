@@ -7,16 +7,12 @@ module.exports = {
 
         var member = message.guild.member(message.member);
 
-        var status = member.user.presence.status;
-
         var nickName = member.nickname;
         if(nickName == null || undefined) nickName = "None";
 
         var accountCreated = moment(message.member.user.createdAt).format("LL");
         
         var joinedGuild = moment(member.joinedAt).format("LL");
-
-        var game = member.user.presence.activities[0] ? member.user.presence.activities[0].name : "None";
 
         var botEmbed = new discord.MessageEmbed()
         .setTitle(`USER INFO`)
@@ -30,11 +26,8 @@ module.exports = {
             {name: "User ID", value: member.id, inline: true},
             {name: "User Account Created", value: accountCreated, inline: true},
             {name: "\u200b", value: "\u200b"},
-            {name: "User Status", value: status, inline: true},
-            {name: "User Game", value: game, inline: true},
             {name: "User Nickname", value: nickName, inline: true},
-            {name: "\u200b", value: "\u200b"},
-            {name: "User Joined Server At", value: joinedGuild}
+            {name: "User Joined Server At", value: joinedGuild, inline: true}
         );
 
         return message.channel.send(botEmbed);
