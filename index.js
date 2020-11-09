@@ -181,7 +181,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}me`) {
-        client.commands.get("me").execute(message, args, discord, embedColor, embedFooter, moment, client);
+        client.commands.get("me").execute(message, args, discord, embedColor, embedFooter, moment);
     }
 
     if(command === `${prefix}apply`) {
