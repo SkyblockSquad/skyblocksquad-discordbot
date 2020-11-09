@@ -26,12 +26,12 @@ module.exports = {
 
         var dmEnabled = new discord.MessageEmbed()
             .setTitle("SUCCES!")
-            .setColor("00BFF")
+            .setColor("00BFFF")
             .setDescription(`I have succesfully sent a DM to ${ticketUser}!`)
 
         var dmDisabled = new discord.MessageEmbed()
             .setTitle("ERROR!")
-            .setColor("00BFF")
+            .setColor("00BFFF")
             .setDescription(`Couldn't send a DM to ${ticketUser} because they have private messages disabled!`)
 
         const filter = m => m.content;
