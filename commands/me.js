@@ -12,7 +12,7 @@ module.exports = {
         var nickName = member.nickname;
         if(nickName == null || undefined) nickName = "None";
 
-        var accountCreated = moment(member.createdAt).format("LL");
+        var accountCreated = moment(message.member.user.createdAt).format("LL");
         
         var joinedGuild = moment(member.joinedAt).format("LL");
 
