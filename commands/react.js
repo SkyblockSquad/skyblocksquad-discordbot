@@ -31,7 +31,7 @@ module.exports = {
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
                 .then(collected => message.channel.send(`**${collected.size} people have reacted!**`))
                 .catch(collected => {
-                    message.channel.send(`**Only ${collected.size}/${amoutnInt} people have reacted!**`)
+                    message.channel.send(`**Only ${collected.size}/${amountInt} people have reacted!**`)
                 });
         }
 
