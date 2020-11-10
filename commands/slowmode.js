@@ -39,7 +39,7 @@ module.exports = {
         message.channel.send(`**Checker:** ${checker}`);
         message.channel.send(`**Symbols length:** ${symbols.length}`);
 
-        if(checker === symbols.length) return message.channel.send("**Error:** That is not a valid number!")
+        if(checker == symbols.length) return message.channel.send("**Error:** That is not a valid number!")
 
         slowmode = parseInt(slowmode, 10);
         slowmode *= multiplier;
