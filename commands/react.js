@@ -14,27 +14,26 @@ module.exports = {
             .setFooter(embedFooter)
 
         async function sendEmbed() {
-            return message.channel.send(reactionEmbed);
+            var embed = await message.channel.send(reactionEmbed);
+            embed.react("☑️");
+
+            const filter = (reaction, user) => {
+                return reaction.emoji.name === "☑️" && user.id === message.author.id;
+            };
+    
+            var timeInt = Number.parseInt(args[0], 10);
+            timeInt *= 1000;
+    
+            var amoutnInt = Number.parseInt(args[1], 10);
+    
+            embed.awaitReactions(filter, { max: amoutnInt, time: timeInt, errors: ["time"] })
+                .then(collected => message.channel.send(`**${collected.size} people have reacted!**`))
+                .catch(collected => {
+                    message.channel.send(`**Only ${collected.size}/${amoutnInt} people have reacted!**`)
+                });
         }
 
-        var embed = sendEmbed();
-        embed.react("☑️");
-
-        const filter = (reaction, user) => {
-            return reaction.emoji.name === "☑️" && user.id === message.author.id;
-        };
-
-        var timeInt = Number.parseInt(args[0], 10);
-        timeInt *= 1000;
-
-        var amoutnInt = Number.parseInt(args[1], 10);
-
-        embed.awaitReactions(filter, { max: amoutnInt, time: timeInt, errors: ["time"] })
-            .then(collected => message.channel.send(`**${collected.size} people have reacted!**`))
-            .catch(collected => {
-                message.channel.send(`**Only ${collected.size}/${amoutnInt} people have reacted!**`)
-            });
-
+        sendEmbed();
 
     },
 };
