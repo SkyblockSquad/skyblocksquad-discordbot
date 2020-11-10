@@ -193,4 +193,8 @@ client.on("message", async message => {
         client.commands.get("application").execute(message, discord);
     }
 
+    if(command === `${prefix}react`) {
+        client.commands.get("react").execute(message, args, discod, embedFooter);
+    }
+
 });
