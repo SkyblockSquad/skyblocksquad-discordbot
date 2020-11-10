@@ -32,6 +32,12 @@ module.exports = {
             return message.channel.send("**Error:** You must be atleast **level 10** or higher to do this!");
         }
 
+        var proRole = message.member.roles.cache.find(role => role.id === "683206276586668053");
+        var adminRole = message.member.roles.cache.find(role => role.id === "683205637001183365");
+        var gmRole = message.member.roles.cache.find(role => role.id === "683205412488478809")
+
+        if(!proRole && !adminRole && !gmRole) return message.channel.send("**Error:** You need to be Pro to use this command!");
+
         if(ticket) return;
 
         message.delete();
