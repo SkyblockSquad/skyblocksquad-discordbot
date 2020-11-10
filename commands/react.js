@@ -34,6 +34,12 @@ module.exports = {
             .setColor("00BFFF")
             .setFooter(embedFooter)
 
+        var resultsEmbed = new discord.MessageEmbed()
+            .setTitle("RESULTS!")
+            .setDescription("Loading description...")
+            .setColor("00BFFF")
+            .setFooter(embedFooter)
+
         async function sendEmbed() {
             var embed = await message.channel.send(reactionEmbed);
             embed.react("☑️");
@@ -44,12 +50,20 @@ module.exports = {
     
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
                 .then(collected => {
-                    if(collected.size > 1) message.channel.send(`**HOORAY!** We got **${collected.size}** reactions!`)
-                    if(collected.size == 1) message.channel.send("**POG!** We got **1** reaction!")
+                    if(collected.size > 1) {
+                        resultsEmbed.setDescription(`**HOORAY!** We got **${collected.size}** reactions!`);
+                    }
+                    if(collected.size == 1) {
+                        resultsEmbed.setDescription("**POG!** We got **1** reaction!");
+                    }
                 })
                 .catch(collected => {
-                    if(collected.size > 0) message.channel.send(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`);
-                    if(collected.size == 0) message.channel.send("**BIG OOF!** We got no reactions! :frowning2:")
+                    if(collected.size > 0) {
+                        resultsEmbed.setDescription(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`);
+                    }
+                    if(collected.size == 0) {
+                        resultsEmbed.setDescription("**BIG OOF!** We got no reactions! :frowning2:");
+                    }
                 });
 
             setTimeout(function() {
