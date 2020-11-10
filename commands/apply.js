@@ -32,14 +32,6 @@ module.exports = {
             return message.channel.send("**Error:** You must be atleast **level 10** or higher to do this!");
         }
 
-        var staffRole = message.member.roles.cache.find(role => role.id === "714022869516156949");
-        var adminRole = message.member.roles.cache.find(role => role.id === "683205637001183365");
-        var gmRole = message.member.roles.cache.find(role => role.id === "683205412488478809");
-
-        if(staffRole) {
-            if(!adminRole && !gmRole) return message.channel.send("**Error:** Ummm... You're already staff! :person_facepalming:");
-        } 
-
         if(ticket) return;
 
         message.delete();
