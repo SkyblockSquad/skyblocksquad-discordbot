@@ -15,10 +15,16 @@ module.exports = {
 
         var timeInt = Number.parseInt(args[0], 10);
         timeInt *= 1000;
+
+        var timeCheck = timeInt / 1;
+        if(timeCheck != timeInt) return message.channel.send("**Error:** Invalid time! *(Not a number)*");
     
         var amountInt = Number.parseInt(args[1], 10);
 
-        if(amountInt < 2) return message.channel.send("**Error:** The amount must be atleast 2!");
+        var amountCheck = amountInt / 1;
+        if(amountCheck != amountInt) return message.channel.send("**Error:** Invalid amount! *(Not a number)*");
+
+        if(amountInt < 1) return message.channel.send("**Error:** Invalid amount! Your amount can't be less then 1!");
 
         async function sendEmbed() {
             var embed = await message.channel.send(reactionEmbed);
