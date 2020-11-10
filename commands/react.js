@@ -7,12 +7,6 @@ module.exports = {
 
         if(args.length > 2 || args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,react [seconds] [amount]**! ");
 
-        var reactionEmbed = new discord.MessageEmbed()
-            .setTitle("REACT!")
-            .setDescription("React on this message! Quick! You don't have much time!")
-            .setColor("00BFFF")
-            .setFooter(embedFooter)
-
         var timeInt = Number.parseInt(args[0], 10);
         timeInt *= 1000;
 
@@ -27,6 +21,12 @@ module.exports = {
         if(amountCheck != amountInt) return message.channel.send("**Error:** Invalid amount! *(Not a number)*");
 
         if(amountInt < 1) return message.channel.send("**Error:** Invalid amount! Your amount can't be less then 1!");
+
+        var reactionEmbed = new discord.MessageEmbed()
+        .setTitle("REACT!")
+        .setDescription(`React on this message!\n**Time:** ${args[0]} seconds\n**Amount of reactions:** ${args[1]}`)
+        .setColor("00BFFF")
+        .setFooter(embedFooter)
 
         async function sendEmbed() {
             var embed = await message.channel.send(reactionEmbed);
