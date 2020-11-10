@@ -33,7 +33,7 @@ module.exports = {
             .then(collected => message.channel.send(`**${collected.size} people have reacted!**`))
             .catch(collected => {
                 message.channel.send(`**Only ${collected.size}/${amoutnInt} people have reacted!**`)
-            })
+            });
 
 
     },
