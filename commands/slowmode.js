@@ -24,7 +24,7 @@ module.exports = {
         var symbols = slowmode.split("");
 
         for (let i = 0; i < symbols.length; i++) {
-                message.channel.send(symbol[i]);
+                message.channel.send(symbols[i]);
             for (let index = 0; index < allowedSymbols.length; index++) {
                     message.channel.send(allowedSymbols[index]);
                 if(symbols[i] === allowedSymbols[index]) {
