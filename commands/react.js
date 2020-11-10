@@ -19,7 +19,7 @@ module.exports = {
         var timeCheck = timeInt / 1;
         if(timeCheck != timeInt) return message.channel.send("**Error:** Invalid time! *(Not a number)*");
 
-        if(timeInt < 3) return message.channel.send("**Error:** Invalid time! Your time can't be less then 3 seconds!");
+        if(timeInt < 3000) return message.channel.send("**Error:** Invalid time! Your time can't be less then 3 seconds!");
     
         var amountInt = Number.parseInt(args[1], 10);
 
