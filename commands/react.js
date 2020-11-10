@@ -13,6 +13,13 @@ module.exports = {
             .setColor("00BFFF")
             .setFooter(embedFooter)
 
+        var timeInt = Number.parseInt(args[0], 10);
+        timeInt *= 1000;
+    
+        var amountInt = Number.parseInt(args[1], 10);
+
+        if(amountInt < 2) return message.channel.send("**Error:** The amount must be atleast 2!");
+
         async function sendEmbed() {
             var embed = await message.channel.send(reactionEmbed);
             embed.react("☑️");
@@ -20,13 +27,6 @@ module.exports = {
             const filter = (reaction, user) => {
                 return reaction.emoji.name === "☑️" && user.id === message.author.id;
             };
-    
-            var timeInt = Number.parseInt(args[0], 10);
-            timeInt *= 1000;
-    
-            var amountInt = Number.parseInt(args[1], 10);
-
-            if(amountInt < 2) return message.channel.send("**Error:** The amount must be atleast 2!");
     
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
                 .then(collected => message.channel.send(`**${collected.size} people have reacted!**`))
