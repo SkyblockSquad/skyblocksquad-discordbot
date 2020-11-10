@@ -45,7 +45,7 @@ module.exports = {
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
                 .then(collected => message.channel.send(`**Hooray!** We got **${collected.size}** reactions!`))
                 .catch(collected => {
-                    message.channel.send(`**Only ${collected.size}/${amountInt} people have reacted!**`)
+                    message.channel.send(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`)
                 });
 
             setTimeout(function() {
