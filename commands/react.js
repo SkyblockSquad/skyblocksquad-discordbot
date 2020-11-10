@@ -24,9 +24,11 @@ module.exports = {
             var timeInt = Number.parseInt(args[0], 10);
             timeInt *= 1000;
     
-            var amoutnInt = Number.parseInt(args[1], 10);
+            var amountInt = Number.parseInt(args[1], 10);
+
+            if(amountInt < 2) return message.channel.send("**Error:** The amount must be atleast 2!");
     
-            embed.awaitReactions(filter, { max: amoutnInt, time: timeInt, errors: ["time"] })
+            embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
                 .then(collected => message.channel.send(`**${collected.size} people have reacted!**`))
                 .catch(collected => {
                     message.channel.send(`**Only ${collected.size}/${amoutnInt} people have reacted!**`)
