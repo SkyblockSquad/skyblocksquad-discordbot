@@ -52,16 +52,14 @@ module.exports = {
                 .then(collected => {
                     if(collected.size > 1) {
                         resultsEmbed.setDescription(`**HOORAY!** We got **${collected.size}** reactions!`);
-                    }
-                    if(collected.size == 1) {
+                    } else if(collected.size == 1) {
                         resultsEmbed.setDescription("**POG!** We got **1** reaction!");
                     }
                 })
                 .catch(collected => {
                     if(collected.size > 0) {
                         resultsEmbed.setDescription(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`);
-                    }
-                    if(collected.size == 0) {
+                    } else if(collected.size == 0) {
                         resultsEmbed.setDescription("**BIG OOF!** We got no reactions! :frowning2:");
                     }
                 });
