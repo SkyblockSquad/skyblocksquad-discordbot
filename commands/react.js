@@ -43,7 +43,10 @@ module.exports = {
             };
     
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
-                .then(collected => message.channel.send(`**Hooray!** We got **${collected.size}** reactions!`))
+                .then(collected => {
+                    if(collected.size > 1) message.channel.send(`**HOORAY!** We got **${collected.size}** reactions!`)
+                    if(collected.size == 1) message.channel.send("**POG!** We got **1** reaction!")
+                })
                 .catch(collected => {
                     if(collected.size > 0) message.channel.send(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`);
                     if(collected.size == 0) message.channel.send("**BIG OOF!** We got no reactions! :frowning2:")
