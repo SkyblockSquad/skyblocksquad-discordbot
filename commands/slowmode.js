@@ -26,11 +26,8 @@ module.exports = {
         var checker = 0;
 
         for (let i = 0; i < symbols.length; i++) {
-            message.channel.send(`**Current symbol:** ${symbols[i]}`);
             for (let index = 0; index < allowedSymbols.length; index++) {
-                message.channel.send(`**Current allowed symbol:** ${allowedSymbols[index]}`);
                 if(symbols[i] === allowedSymbols[index]) {
-                    message.channel.send("**Check succesfull!**");
                     checker++;
                 }
             } 
