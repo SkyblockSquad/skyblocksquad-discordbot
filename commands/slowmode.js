@@ -36,7 +36,7 @@ module.exports = {
         message.channel.send(`**Checker:** ${checker}`);
         message.channel.send(`**Symbols length:** ${symbols.length}`);
 
-        var checker = parseInt(checker);
+        checker = parseInt(checker);
         var symbolsLength = parseInt(symbols.length);
 
         if(checker == symbolsLength) return message.channel.send("**Error:** That is not a valid number!")
