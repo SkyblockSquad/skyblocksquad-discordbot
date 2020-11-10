@@ -37,7 +37,7 @@ module.exports = {
         var gmRole = message.member.roles.cache.find(role => role.id === "683205412488478809");
 
         if(staffRole) {
-            if(!adminRole && !gmRole) return message.channel.send("**Error:** Ummm... You're already staff! :person_facepalming:")
+            if(!adminRole && !gmRole) return message.channel.send("**Error:** Ummm... You're already staff! :person_facepalming:");
         } 
 
         if(ticket) return;
