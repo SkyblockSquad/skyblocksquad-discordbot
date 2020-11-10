@@ -28,6 +28,7 @@ module.exports = {
             for (let index = 0; index < allowedSymbols.length; index++) {
                     message.channel.send(`**Current allowed symbol:** ${allowedSymbols[index]}`);
                 if(symbols[i] === allowedSymbols[index]) {
+                    message.channel.send("**Removed one!**");
                     symbols.shift();
                 }
             } 
