@@ -8,8 +8,6 @@ module.exports = {
         if(args.length < 1 || args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,slowmode [duration]**");
 
         var slowmode = args[0];
-        
-        var allowedSymbols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
         if(slowmode.endsWith("m")) {
             var multiplier = 60;
@@ -21,28 +19,11 @@ module.exports = {
             var multiplier = 1;
         }
 
-        var symbols = slowmode.split("");
-
-        var checker = 0;
-
-        for (let i = 0; i < symbols.length; i++) {
-            for (let index = 0; index < allowedSymbols.length; index++) {
-                if(symbols[i] === allowedSymbols[index]) {
-                    checker++;
-                }
-            } 
-        }
-
-        message.channel.send(`**Checker:** ${checker}`);
-        message.channel.send(`**Symbols length:** ${symbols.length}`);
-
-        checker = parseInt(checker);
-        var symbolsLength = parseInt(symbols.length);
-
-        if(checker == symbolsLength) return message.channel.send("**Error:** That is not a valid number!")
-
         slowmode = parseInt(slowmode, 10);
         slowmode *= multiplier;
+
+        var intCheck = slowmode / slowmode;
+        if(intCheck == 1) return message.channel.send("**Error:** That is not a valid number!");
 
         if(slowmode > 21600) return message.channel.send("**Error:** You can't set slowmode higher then **6 hours**!");
 
