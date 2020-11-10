@@ -23,18 +23,17 @@ module.exports = {
 
         var symbols = slowmode.split("");
 
+        var checker = 0;
+
         for (let i = 0; i < symbols.length; i++) {
-                message.channel.send(`**Current symbol:** ${symbols[i]}`);
             for (let index = 0; index < allowedSymbols.length; index++) {
-                    message.channel.send(`**Current allowed symbol:** ${allowedSymbols[index]}`);
                 if(symbols[i] === allowedSymbols[index]) {
-                    message.channel.send("**Removed one!**");
-                    symbols.shift();
+                    checker++;
                 }
             } 
         }
 
-        if(symbols.length > 0) return message.channel.send("**Error:** That is not a valid number!")
+        if(checker === symbols.length) return message.channel.send("**Error:** That is not a valid number!")
 
         slowmode = parseInt(slowmode, 10);
         slowmode *= multiplier;
