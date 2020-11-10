@@ -245,7 +245,7 @@ module.exports = {
                         })
 
                     }).catch(err => {
-                        message.channel.send("**Error:** An error has occurred while trying to perform this command!");
+                        message.channel.send("**Error:** Oops! Something went wrong!");
                     })
             })
 
