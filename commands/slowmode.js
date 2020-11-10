@@ -25,6 +25,8 @@ module.exports = {
         var intCheck = slowmode / slowmode;
         if(intCheck != 1) return message.channel.send("**Error:** That is not a valid number!");
 
+        if(slowmode < 1) return message.channel.send("**Error:** You can't set a negative slowmode!");
+
         if(slowmode > 21600) return message.channel.send("**Error:** You can't set slowmode higher then **6 hours**!");
 
         message.channel.setRateLimitPerUser(slowmode);
