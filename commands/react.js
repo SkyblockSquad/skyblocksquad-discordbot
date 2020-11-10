@@ -24,9 +24,15 @@ module.exports = {
 
         var reactionEmbed = new discord.MessageEmbed()
         .setTitle("REACT!")
-        .setDescription(`React on this message!\n**Time:** ${args[0]} seconds\n**Amount of reactions:** ${args[1]}`)
+        .setDescription(`React on this message!\n**Time:** ${args[0]} seconds\n\n**Amount of reactions:** ${args[1]}`)
         .setColor("00BFFF")
         .setFooter(embedFooter)
+
+        var editedEmbed = new discord.MessageEmbed()
+            .setTitle("REACT!")
+            .setDescription("This reaction game has expired!")
+            .setColor("00BFFF")
+            .setFooter(embedFooter)
 
         async function sendEmbed() {
             var embed = await message.channel.send(reactionEmbed);
@@ -41,6 +47,10 @@ module.exports = {
                 .catch(collected => {
                     message.channel.send(`**Only ${collected.size}/${amountInt} people have reacted!**`)
                 });
+
+            setTimeout(function() {
+                embed.edit(editedEmbed);
+            }, timeInt);
         }
 
         sendEmbed();
