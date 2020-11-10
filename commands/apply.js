@@ -42,7 +42,7 @@ module.exports = {
             .setColor("00BFFF")
             .setFooter(embedFooter);
 
-        message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
+        message.channel.send(embed).then(msg => msg.delete({ timeout: 3000 }));
 
         message.guild.channels.create(channelName, {type: "text"}).then(
             (createdChannel) => {
