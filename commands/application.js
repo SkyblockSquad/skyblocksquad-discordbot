@@ -165,7 +165,7 @@ module.exports = {
                 var archived = new discord.MessageEmbed()
                     .setTitle("ARCHIVED APPLICATION")
                     .setColor("00BFFF")
-                    .setDescription("Succesfully archived this application!")
+                    .setDescription(":inbox_tray: Succesfully archived this application! :inbox_tray:")
 
                 message.channel.send(archived);
 
