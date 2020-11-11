@@ -51,7 +51,7 @@ module.exports = {
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
                 .then(collected => {
 
-                    message.channel.send(`**DEBUG:** ${collected.size}`);
+                    message.channel.send(`**DEBUG:** ${collected.size * 2}`);
 
                     if(collected.size > 1) {
                         resultsEmbed.setDescription(`**HOORAY!** We got **${collected.size}** reactions!`);
@@ -83,7 +83,7 @@ module.exports = {
 
                 .catch(collected => {
 
-                    message.channel.send(`**DEBUG:** ${collected.size}`);
+                    message.channel.send(`**DEBUG:** ${collected.size * 2}`);
 
                     if(collected.size > 0) {
                         resultsEmbed.setDescription(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`);
