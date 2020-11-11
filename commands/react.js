@@ -47,6 +47,9 @@ module.exports = {
             const filter = (reaction, user) => {
                 return reaction.emoji.name === "☑️" && !user.bot;
             };
+
+            message.channel.send(`**DEBUG:** ${amountInt * 2}`);
+            message.channel.send(`**DEBUG:** ${timeInt * 2}`);
     
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
                 .then(collected => {
