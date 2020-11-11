@@ -1,7 +1,7 @@
 module.exports = {
     name: 'react',
     description: 'react',
-    execute(message, args, discord, embedFooter) {
+    execute(message, args, discord, embedFooter, client) {
     
         if(!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission to do this!");
 
@@ -55,19 +55,58 @@ module.exports = {
                     } else if(collected.size == 1) {
                         resultsEmbed.setDescription("**POG!** We got **1** reaction!");
                     }
+
+                    embed.edit(editedEmbed);
+
+                    var reactionUsers = embed.reactions.cache.get("☑️").users.cache.array();
+
+                    for(let i = 0; i < reactionUsers.length; i++) {
+                        if(reactionUsers[i].id == client.user.id) {
+                            reactionUsers.splice(i,1);
+                            continue;
+                        }
+                    }
+
+                    if(reactionUsers.length == 0) {
+                        var usersString = "None";
+                    } else {
+                        var usersString = reactionUsers.join(", ");
+                    }
+
+                    resultsEmbed.addField("Users:", usersString)
+                    message.channel.send(resultsEmbed);
+
                 })
+                
                 .catch(collected => {
                     if(collected.size > 0) {
                         resultsEmbed.setDescription(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`);
                     } else if(collected.size == 0) {
                         resultsEmbed.setDescription("**BIG OOF!** We got no reactions! :frowning2:");
                     }
+
+                    embed.edit(editedEmbed);
+
+                    var reactionUsers = embed.reactions.cache.get("☑️").users.cache.array();
+
+                    for(let i = 0; i < reactionUsers.length; i++) {
+                        if(reactionUsers[i].id == client.user.id) {
+                            reactionUsers.splice(i,1);
+                            continue;
+                        }
+                    }
+
+                    if(reactionUsers.length == 0) {
+                        var usersString = "None";
+                    } else {
+                        var usersString = reactionUsers.join(", ");
+                    }
+
+                    resultsEmbed.addField("Users:", usersString)
+                    message.channel.send(resultsEmbed);
+
                 });
 
-            setTimeout(function() {
-                embed.edit(editedEmbed);
-                message.channel.send(resultsEmbed);
-            }, timeInt);
         }
 
         sendEmbed();
