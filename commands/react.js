@@ -66,6 +66,7 @@ module.exports = {
 
             setTimeout(function() {
                 embed.edit(editedEmbed);
+                message.channel.send(resultsEmbed);
             }, timeInt);
         }
 
