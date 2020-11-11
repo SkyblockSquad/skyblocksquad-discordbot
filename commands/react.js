@@ -45,7 +45,7 @@ module.exports = {
             embed.react("☑️");
 
             const filter = (reaction, user) => {
-                return reaction.emoji.name === "☑️" && user.id === message.author.id;
+                return reaction.emoji.name === "☑️";
             };
     
             embed.awaitReactions(filter, { max: amountInt, time: timeInt, errors: ["time"] })
@@ -77,7 +77,7 @@ module.exports = {
                     message.channel.send(resultsEmbed);
 
                 })
-                
+
                 .catch(collected => {
                     if(collected.size > 0) {
                         resultsEmbed.setDescription(`**RIP!** We only got **${collected.size}/${args[1]}** reactions!`);
