@@ -9,8 +9,12 @@ module.exports = {
         var chars = emojification.split("");
 
         var validChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        
         var numberChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
         var numberWords = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
+        var otherChars = ["#", "*"];
+        var otherEmojis = ["hash", "asterisk"];
 
         for (let i = 0; i < chars.length; i++) {
             for(let x = 0; x < validChars.length; x++) {
@@ -20,6 +24,12 @@ module.exports = {
             for(let o = 0; o < numberChars.length; o++) {
                 if(numberChars[o] === chars[i]) {
                     chars[i] = `:${numberWords[o]}:`;
+                }
+            }
+
+            for(let n = 0; n < otherChars.length; n++) {
+                if(otherChars[n] === chars[i]) {
+                    chars[i] = `:${otherEmojis[n]}:`;
                 }
             }
         }
