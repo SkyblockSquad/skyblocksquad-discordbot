@@ -9,10 +9,18 @@ module.exports = {
         var chars = emojification.split("");
 
         var validChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var numberChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        var numberWords = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
         for (let i = 0; i < chars.length; i++) {
             for(let x = 0; x < validChars.length; x++) {
                 if(validChars[x] === chars[i].toLowerCase()) chars[i] = `:regional_indicator_${chars[i].toLowerCase()}:`;
+            }
+
+            for(let o = 0; o < numberChars.length; o++) {
+                if(numberChars[o] === chars[i]) {
+                    chars[i] = `:${numberWords[o]}:`;
+                }
             }
         }
 
