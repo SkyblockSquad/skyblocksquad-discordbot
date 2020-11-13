@@ -59,7 +59,8 @@ module.exports = {
                     {name: `${prefix}hack`, value: menuData.funAndGames["hack"], inline: true},
                     {name: `${prefix}is [arg 1] [arg 2]...`, value: menuData.funAndGames["is"], inline: true},
                     {name: "\u200b", value: "\u200b"},
-                    {name: `${prefix}rps [(rock | paper | scissors)]`, value: menuData.funAndGames["rps"]}
+                    {name: `${prefix}rps [(rock | paper | scissors)]`, value: menuData.funAndGames["rps"], inline: true},
+                    {name: `${prefix}emojify [text]`, value: menuData.funAndGames["emojify"], inline: true}
                 );
 
                 return message.channel.send(botEmbed);
