@@ -12,7 +12,7 @@ module.exports = {
 
         for (let i = 0; i < chars.length; i++) {
             for(let x = 0; x < validChars.length; x++) {
-                if(validChars[x] === chars[i].toLowerCase()) chars[i] = `:regional_indicator_${chars[i]}:`;
+                if(validChars[x] === chars[i].toLowerCase()) chars[i] = `:regional_indicator_${chars[i].toLowerCase()}:`;
             }
         }
 
