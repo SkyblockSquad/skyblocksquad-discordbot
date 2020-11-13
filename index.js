@@ -89,7 +89,7 @@ client.on("message", async message => {
             .setTimestamp()
             .addFields(
                 {name: "Swearword", value: swearWords["swearWords"][i]},
-                {name: "Warn command", value: `You can warn them using:\n**eli warn ${message.author.id} Swearing (Rule II)**`}
+                {name: "Warn command", value: `You can warn them using:\n**eli warn ${message.author.id} Swearing (Rule IV)**`}
             )
 
             channel.send(botEmbed);
@@ -110,7 +110,7 @@ client.on("message", async message => {
         .setColor(embedColor)
         .setFooter(embedFooter)
         .setTimestamp()
-        .addField("Warn command", `You can warn them using:\n**eli warn ${message.author.id} Using invisble characters (Rule XI)**`)
+        .addField("Warn command", `You can warn them using:\n**eli warn ${message.author.id} Using invisble characters (Rule X)**`)
 
         channel.send(botEmbed);
 
@@ -191,6 +191,10 @@ client.on("message", async message => {
 
     if(command === `${prefix}application`) {
         client.commands.get("application").execute(message, discord);
+    }
+
+    if(command === `${prefix}emojify`) {
+        client.commands.get("emojify").execute(message, discord);
     }
 
 });
