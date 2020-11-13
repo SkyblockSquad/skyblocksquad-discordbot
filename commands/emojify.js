@@ -3,7 +3,7 @@ module.exports = {
     description: 'emojify',
     execute(message, args) {
     
-        if(args.length < 1) return message.channel.send("**Error:** Invalid syntax! Please use **,emojify [text]**");
+        if(args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,emojify [text]**");
 
         var emojification = args.join(" ");
         var chars = emojification.split("");

@@ -194,7 +194,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}emojify`) {
-        client.commands.get("emojify").execute(message, discord);
+        client.commands.get("emojify").execute(message, args);
     }
 
 });
