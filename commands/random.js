@@ -17,6 +17,8 @@ module.exports = {
         var maximumCheck = maximum / 1;
         if(maximumCheck != maximum) return message.channel.send("**Error:** Oops! Something went wrong! *(Maximum amount is not a number)*");
 
+        if(minimum > maximum) return message.channel.send("**Error:** Your minimum count can't be higher then your maximum count!");
+
         var random = Math.floor(Math.random() * maximum + 1);
 
         for (let i = 0; true; i++) {
