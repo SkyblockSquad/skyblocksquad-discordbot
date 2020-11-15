@@ -61,6 +61,16 @@ client.on("message", async message => {
         
     }
 
+    if(message.channel.id === "774544902569590796") {
+        if(message.author.bot && message.author.id === "649604306596528138") {
+            
+            setTimeout(function(){
+                message.channel.send("<@&746261958302367766>");
+            }, 3000);
+
+        }
+    }
+
     if(message.author.bot) return;
 
     var mutedRole = message.member.roles.cache.find(role => role.id === "703187997822025738");
