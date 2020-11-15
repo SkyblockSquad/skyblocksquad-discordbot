@@ -197,4 +197,8 @@ client.on("message", async message => {
         client.commands.get("emojify").execute(message, args);
     }
 
+    if(command === `${prefix}random`) {
+        client.commands.get("random").execute(message, args);
+    }
+
 });
