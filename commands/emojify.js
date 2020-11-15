@@ -6,6 +6,9 @@ module.exports = {
         if(args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,emojify [text]**");
 
         var emojification = args.join(" ");
+
+        if(emojification.length > 50) return message.channel.send("**Error:** I can't emojify a text that is longer then 50 characters!");
+        
         var chars = emojification.split("");
 
         var validChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
