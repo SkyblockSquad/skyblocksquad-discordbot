@@ -82,8 +82,8 @@ module.exports = {
 
                         var question_txt1 = "What is your Minecraft username? (Make sure that all caps are correct and that there are no typo's)";
                         var question_txt2 = "What is your Discord tag? (For example: **SkyblockSquad Bot#3596**)";
-                        var question_txt3 = "For how long have you been in the guild? (Answer 'IDK' if you don't know, we can check)";
-                        var question_txt4 = "Why would you like to be staff?";
+                        var question_txt3 = "For how long have you been in the guild? (If you don't know, we can check)";
+                        var question_txt4 = "Why would you like to join the staff team?";
                         var question_txt5 = "How could you help our staff team?";
                         var question_txt6 = "Why should we choose you above the other applicants?";
                         var question_txt7 = "How many hours are online a day on average? (Doesn't have to be every single day, but most of the time)";
