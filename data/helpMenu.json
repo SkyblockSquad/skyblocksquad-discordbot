@@ -10,7 +10,7 @@
     },
 
     "funAndGames": {
-        "cmdAmount":"4",
+        "cmdAmount":"5",
         "cName":":tada: __Fun & Games__",
         "cDescription":"*Play some cool games!*",
         "rps":"*Duel the bot to an amazing\nrock, paper, scissors game!*",
