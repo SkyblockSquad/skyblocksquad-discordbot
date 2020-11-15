@@ -160,6 +160,20 @@ module.exports = {
                 channelName = channelName.slice(12, channelName.length);
                 channelName = "archived-" + channelName.toString();
 
+                var foundChannels = 0;
+
+                message.guild.channels.cache.forEach(channel => {
+
+                    if(channel.name === channelName.toLowerCase()) {
+                        foundChannels++;
+                    }
+
+                });
+
+                if(foundChannels > 0) {
+                    channelName = channelName + foundChannels;
+                }
+
                 message.channel.setName(channelName.toLowerCase());
 
                 var archived = new discord.MessageEmbed()
