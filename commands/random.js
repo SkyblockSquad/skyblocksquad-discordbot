@@ -30,7 +30,7 @@ module.exports = {
             }
         }
 
-        message.channel.send(`**Your random number is:** ${random}`);
+        message.channel.send(`**Your random number is:** ${random.toLocaleString()}`);
 
     },
 };
