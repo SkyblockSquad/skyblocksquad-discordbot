@@ -60,7 +60,9 @@ module.exports = {
                     {name: `${prefix}is [arg 1] [arg 2]...`, value: menuData.funAndGames["is"], inline: true},
                     {name: "\u200b", value: "\u200b"},
                     {name: `${prefix}rps [(rock | paper | scissors)]`, value: menuData.funAndGames["rps"], inline: true},
-                    {name: `${prefix}emojify [text]`, value: menuData.funAndGames["emojify"], inline: true}
+                    {name: `${prefix}emojify [text]`, value: menuData.funAndGames["emojify"], inline: true},
+                    {name: "\u200b", value: "\u200b"},
+                    {name: `${prefix}random [minimum] [maximum]`, value: menuData.funAndGames["random"]}
                 );
 
                 return message.channel.send(botEmbed);
