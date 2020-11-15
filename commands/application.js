@@ -171,7 +171,7 @@ module.exports = {
                 });
 
                 if(foundChannels > 0) {
-                    channelName = channelName + foundChannels;
+                    channelName = channelName + "-" + foundChannels;
                 }
 
                 message.channel.setName(channelName.toLowerCase());
