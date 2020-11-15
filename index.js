@@ -65,7 +65,7 @@ client.on("message", async message => {
         if(message.author.bot && message.author.id === "649604306596528138") {
             
             setTimeout(function(){
-                message.channel.send("<@&746261958302367766>");
+                message.channel.send("[<@&746261958302367766>]");
             }, 3000);
 
         }
