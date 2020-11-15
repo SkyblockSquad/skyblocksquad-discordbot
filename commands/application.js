@@ -164,7 +164,7 @@ module.exports = {
 
                 message.guild.channels.cache.forEach(channel => {
 
-                    if(channel.name === channelName.toLowerCase()) {
+                    if(channel.name.startsWith(channelName.toLowerCase())) {
                         foundChannels++;
                     }
 
