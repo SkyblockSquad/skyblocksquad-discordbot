@@ -18,6 +18,8 @@ module.exports = {
             .setColor("00BFFF")
             .addField("Accepted:", "☑️", false)
             .addField("Rejected:", "❌", false)
+            .addField("Add user:", "🎟️", false)
+            .addField("Remove user:", "🎫", false)
             .addField("Archive application:", "📥", false)
 
          var reasonEmbed = new discord.MessageEmbed()
@@ -39,7 +41,7 @@ module.exports = {
 
         message.channel.send(choiceEmbed).then(async msg => {
 
-            var emoji = await promptMessage(msg, message.author, 120, ["☑️", "❌", "📥"]);
+            var emoji = await promptMessage(msg, message.author, 120, ["☑️", "❌", "🎟️", "🎫", "📥"]);
 
             if(emoji === "☑️") {
                 
@@ -146,6 +148,50 @@ module.exports = {
                 })
 
                 })
+
+            } else if(emoji === "🎟️") {
+
+                message.channel.bulkDelete(1);
+
+                message.channel.updateOverwrite(ticketUser, {
+                    SEND_MESSAGES: true,
+                    CREATE_INSTANT_INVITE: false,
+                    READ_MESSAGES: true,
+                    ATTACH_FILES: true,
+                    ADD_REACTIONS: false,
+                    CONNECT: false,
+                    READ_MESSAGE_HISTORY: true,
+                    VIEW_CHANNEL: true
+                });
+
+                var embed = new discord.MessageEmbed()
+                    .setTitle("ADDED USER")
+                    .setDescription(`Succesfully added ${ticketUser} to the application ticket!`)
+                    .setColor("00BFFF")
+
+                message.channel.send(embed);
+
+            } else if(emoji === "🎫") {
+
+                message.channel.bulkDelete(1);
+
+                message.channel.updateOverwrite(ticketUser, {
+                    SEND_MESSAGES: false,
+                    CREATE_INSTANT_INVITE: false,
+                    READ_MESSAGES: false,
+                    ATTACH_FILES: false,
+                    ADD_REACTIONS: false,
+                    CONNECT: false,
+                    READ_MESSAGE_HISTORY: false,
+                    VIEW_CHANNEL: false
+                });
+
+                var embed = new discord.MessageEmbed()
+                    .setTitle("REMOVED USER")
+                    .setDescription(`Succesfully removed ${ticketUser} from the application ticket!`)
+                    .setColor("00BFFF")
+
+                message.channel.send(embed);
 
             } else if(emoji === "📥") {
 
