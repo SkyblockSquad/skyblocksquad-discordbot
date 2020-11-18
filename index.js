@@ -143,10 +143,6 @@ client.on("message", async message => {
     var command = args[0]
     args.shift();
 
-    if (command === `${prefix}help`) {
-        client.commands.get("help").execute(discord, message, prefix, embedColor, embedFooter, args, menuData);
-    }
-
     if (command === `${prefix}info`) {
         client.commands.get("info").execute(discord, message, embedColor, embedFooter, client, args, moment);
     }
@@ -211,8 +207,8 @@ client.on("message", async message => {
         client.commands.get("random").execute(message, args);
     }
 
-    if(command === `${prefix}helptest`) {
-        client.commands.get("helptest").execute(message, args, client, discord, embedColor, embedFooter, prefix);
+    if(command === `${prefix}help`) {
+        client.commands.get("help").execute(message, args, client, discord, embedColor, embedFooter, prefix);
     }
 
 });

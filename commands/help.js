@@ -2,106 +2,123 @@ module.exports = {
     name: 'help',
     description: '*See a list of all bot commands from a specific category!*',
     category: 'Information',
-    execute(discord, message, prefix, embedColor, embedFooter, args, menuData) {
+    execute(message, args, client, discord, embedColor, embedFooter, prefix) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
         var helpMenu = args.join(" ");
 
-        if (args.length == 0) {
+        var informationEmbed = new discord.MessageEmbed()
+            .setTitle("HELP (INFORMATION)")
+            .setDescription(`See a list of information commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
 
-            var botEmbed = new discord.MessageEmbed()
+        var funAndGamesEmbed = new discord.MessageEmbed()
+            .setTitle("HELP (FUN & GAMES)")
+            .setDescription(`See a list of fun & games commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
+
+        var hypixelEmbed = new discord.MessageEmbed()
+            .setTitle("HELP (HYPIXEL)")
+            .setDescription(`See a list of Hypixel commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
+
+        var covid19Embed = new discord.MessageEmbed()
+            .setTitle("HELP (COVID-19)")
+            .setDescription(`See a list of covid-19 commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
+
+        var commandList = [];
+
+        client.commands.forEach(command => {
+
+            var constructor = {
+
+                name: command.name,
+                description: command.description,
+                category: command.category
+
+            }
+
+            commandList.push(constructor);
+
+
+
+        });
+
+        var informationAmount = 0;
+        var funAndGamesAmount = 0;
+        var hypixelAmount = 0;
+        var covid19Amount = 0;
+
+        for (let i = 0; i < commandList.length; i++) {
+            const command = commandList[i];
+
+            if (command["category"] == "Information") {
+
+                informationAmount++;
+                informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
+            } else if (command["category"] == "Fun & Games") {
+
+                funAndGamesAmount++;
+                funAndGamesEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
+            } else if (command["category"] == "Hypixel") {
+
+                hypixelAmount++;
+                hypixelEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
+            } else if (command["category"] == "Covid-19") {
+
+                covid19Amount++;
+                covid19Embed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
+            }
+
+        }
+
+        if (helpMenu === "information" || helpMenu === "info") {
+
+            return message.channel.send(informationEmbed);
+
+        } else if (helpMenu === "fun & games" || helpMenu === "fun" || helpMenu === "games" || helpMenu === "fun and games") {
+
+            return message.channel.send(funAndGamesEmbed);
+
+        } else if (helpMenu === "hypixel") {
+
+            return message.channel.send(hypixelEmbed);
+
+        } else if (helpMenu === "covid-19" || helpMenu === "covid" || helpMenu === "corona") {
+
+            return message.channel.send(covid19Embed);
+
+        } else {
+
+            var helpMenuEmbed = new discord.MessageEmbed()
                 .setTitle("HELP")
-                .setDescription(`See a list of bot commands below! ${embedDescription}\n\n**Use ,help [category] to see help about a specific category**`)
+                .setDescription(`See a list of command categorys below! ${embedDescription}\n\n**Use ,help [category] to see help about a specific category**`)
                 .setColor(embedColor)
                 .setFooter(embedFooter)
                 .setTimestamp()
                 .addFields(
                     { name: "\u200b", value: "\u200b" },
-                    { name: menuData.information["cName"], value: `${menuData.information["cDescription"]}\n**${menuData.information["cmdAmount"]} Commands**`, inline: true },
-                    { name: menuData.funAndGames["cName"], value: `${menuData.funAndGames["cDescription"]}\n**${menuData.funAndGames["cmdAmount"]} Commands**`, inline: true },
+                    { name: ":information_source: __Information__", value: `*All commands that\ngive information!*\n**${informationAmount} Commands**`, inline: true },
+                    { name: ":tada: __Fun & Games__", value: `*Play some cool games!*\n**${funAndGamesAmount} Commands**`, inline: true },
                     { name: "\u200b", value: "\u200b" },
-                    { name: menuData.hypixel["cName"], value: `${menuData.hypixel["cDescription"]}\n**${menuData.hypixel["cmdAmount"]} Commands**`, inline: true },
-                    { name: menuData.covid19["cName"], value: `${menuData.covid19["cDescription"]}\n**${menuData.covid19["cmdAmount"]} Command**`, inline: true }
-                );
+                    { name: ":boomerang: __Hypixel__", value: `*Everything related to Hypixel\nand Hypixel Skyblock!*\n**${hypixelAmount} Commands**`, inline: true },
+                    { name: ":microbe: __Covid-19__", value: `*All commands related to\nthe covid-19 virus! Wash\nyour hands!*\n**${covid19Amount} Commands**`, inline: true }
+                )
 
-            return message.channel.send(botEmbed);
-
-        } else if (args.length >= 1) {
-
-            if (helpMenu === "information" || helpMenu === "info") {
-
-                var botEmbed = new discord.MessageEmbed()
-                    .setTitle("HELP (INFORMATION)")
-                    .setDescription(`See a list of information commands below! ${embedDescription}`)
-                    .setColor(embedColor)
-                    .setFooter(embedFooter)
-                    .setTimestamp()
-                    .addFields(
-                        { name: "\u200b", value: "\u200b" },
-                        { name: `${prefix}help {category}`, value: menuData.information["help"], inline: true },
-                        { name: `${prefix}me`, value: menuData.information["me"], inline: true },
-                        { name: "\u200b", value: "\u200b" },
-                        { name: `${prefix}info`, value: menuData.information["info"], inline: true },
-                        { name: `${prefix}ping`, value: menuData.information["ping"], inline: true }
-                    );
-
-                return message.channel.send(botEmbed);
-
-            } else if (helpMenu === "fun & games" || helpMenu === "fun" || helpMenu === "games" || helpMenu === "fun and games") {
-
-                var botEmbed = new discord.MessageEmbed()
-                    .setTitle("HELP (FUN & GAMES)")
-                    .setDescription(`See a list of fun & games commands below! ${embedDescription}`)
-                    .setColor(embedColor)
-                    .setFooter(embedFooter)
-                    .setTimestamp()
-                    .addFields(
-                        { name: "\u200b", value: "\u200b" },
-                        { name: `${prefix}hack`, value: menuData.funAndGames["hack"], inline: true },
-                        { name: `${prefix}is [arg 1] [arg 2]...`, value: menuData.funAndGames["is"], inline: true },
-                        { name: "\u200b", value: "\u200b" },
-                        { name: `${prefix}rps [(rock | paper | scissors)]`, value: menuData.funAndGames["rps"], inline: true },
-                        { name: `${prefix}emojify [text]`, value: menuData.funAndGames["emojify"], inline: true },
-                        { name: "\u200b", value: "\u200b" },
-                        { name: `${prefix}random [minimum] [maximum]`, value: menuData.funAndGames["random"] }
-                    );
-
-                return message.channel.send(botEmbed);
-
-            } else if (helpMenu === "hypixel" || helpMenu === "skyblock" || helpMenu === "sb") {
-
-                var botEmbed = new discord.MessageEmbed()
-                    .setTitle("HELP (HYPIXEL)")
-                    .setDescription(`See a list of Hypixel commands below! ${embedDescription}`)
-                    .setColor(embedColor)
-                    .setFooter(embedFooter)
-                    .setTimestamp()
-                    .addFields(
-                        { name: "\u200b", value: "\u200b" },
-                        { name: `${prefix}profile [username] [profile name]`, value: menuData.hypixel["profile"], inline: true },
-                        { name: `${prefix}hypixel [username]`, value: menuData.hypixel["hypixel"], inline: true }
-                    );
-
-                return message.channel.send(botEmbed);
-
-            } else if (helpMenu === "covid-19" || helpMenu === "covid" || helpMenu === "corona") {
-
-                var botEmbed = new discord.MessageEmbed()
-                    .setTitle("HELP (COVID-19)")
-                    .setDescription(`See a list of covid-19 commands below! ${embedDescription}`)
-                    .setColor(embedColor)
-                    .setFooter(embedFooter)
-                    .setTimestamp()
-                    .addFields(
-                        { name: "\u200b", value: "\u200b" },
-                        { name: `${prefix}covid [(all | [country])]`, value: menuData.covid19["covid"] },
-                    );
-
-                return message.channel.send(botEmbed);
-
-            }
-
-            return message.channel.send(`**Error:** Invalid category!`);
+            return message.channel.send(helpMenuEmbed);
 
         }
 
