@@ -2,7 +2,7 @@ module.exports = {
     name: 'helptest',
     description: '*This description shows\nwhen to use the\nnewline symbol!*',
     category: 'Information',
-    execute(message, args, client, discord, embedColor, embedFooter) {
+    execute(message, args, client, discord, embedColor, embedFooter, prefix) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
         var helpMenu = args.join(" ");

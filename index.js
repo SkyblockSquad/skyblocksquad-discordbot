@@ -212,7 +212,7 @@ client.on("message", async message => {
     }
 
     if(command === `${prefix}helptest`) {
-        client.commands.get("helptest").execute(message, args, client, discord, embedColor, embedFooter);
+        client.commands.get("helptest").execute(message, args, client, discord, embedColor, embedFooter, prefix);
     }
 
 });
