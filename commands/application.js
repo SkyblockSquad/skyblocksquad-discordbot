@@ -55,7 +55,7 @@ module.exports = {
 
             if(userTopic !== "") result = userTopic;
 
-            return userTopic;
+            return result;
 
         }
 
