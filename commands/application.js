@@ -42,18 +42,18 @@ module.exports = {
             var topic = channel.topic.split(" ");
             var topicID = topic[1];
 
-            var userTopic = "";
+            var userTopic = "None";
 
-            message.guild.members.cache.forEach(user => {
+            message.guild.members.cache.forEach(member => {
                 
-                if(user.id === topicID) userTopic = user;
+                if(member.id === topicID) userTopic = member;
                 return;
 
             });
 
             var result = "Error";
 
-            if(userTopic !== "") result = userTopic;
+            if(userTopic !== "None") result = userTopic;
 
             return result;
 

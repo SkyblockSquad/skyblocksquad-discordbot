@@ -47,7 +47,7 @@ client.on("ready", async () => {
 
 // Server detection
 client.on("message", async message => {
-
+    
     if (message.channel.type === "dm") return;
 
     if (message.channel.parentID === "774903762447630367") {

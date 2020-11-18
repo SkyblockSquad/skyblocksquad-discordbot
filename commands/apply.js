@@ -13,7 +13,6 @@ module.exports = {
         message.guild.channels.cache.forEach(channel => {
 
             if (channel.name.toLowerCase() === channelName.toLowerCase()) {
-                ;
                 ticket = true;
                 return message.channel.send("**Error:** You already started an application!");
             }
