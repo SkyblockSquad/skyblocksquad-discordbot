@@ -211,4 +211,8 @@ client.on("message", async message => {
         client.commands.get("random").execute(message, args);
     }
 
+    if(command === `${prefix}helptest`) {
+        client.commands.get("helptest").execute(message, client);
+    }
+
 });
