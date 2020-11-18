@@ -98,7 +98,7 @@ client.on("message", async message => {
                 .setFooter(embedFooter)
                 .setTimestamp()
                 .addFields(
-                    { name: "Swearword", value: swearWords["swearWords"][i] },
+                    { name: "Message", value: message.content },
                     { name: "Warn command", value: `You can warn them using:\n**eli warn ${message.author.id} Swearing (Rule IV)**` }
                 )
 
