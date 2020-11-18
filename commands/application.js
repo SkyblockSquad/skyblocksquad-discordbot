@@ -37,35 +37,6 @@ module.exports = {
             .setColor("00BFFF")
             .setDescription(`Couldn't send a DM to ${ticketUser} because they have private messages disabled!`)
 
-        async function userFromTopic() {
-
-            var topic = message.channel.topic.split(" ");
-            message.channel.send(`**DEBUG:** ${topic}`);
-            var topicID = topic[1];
-            message.channel.send(`**DEBUG:** ${topicID}`)
-
-            var userTopic = "None";
-
-            message.guild.members.cache.forEach(member => {
-                
-                if(member.id === topicID) userTopic = member;
-                return;
-
-            });
-
-            var result = "Error";
-
-            if(userTopic !== "None") result = userTopic;
-
-            message.channel.send(`**DEBUG:** ${result}`);
-            return result;
-
-        }
-
-        var user = userFromTopic();
-
-        user.roles.add('683207431567704078');
-
         const filter = m => m.content;
 
         message.channel.send(choiceEmbed).then(async msg => {
