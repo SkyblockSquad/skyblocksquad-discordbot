@@ -101,6 +101,25 @@ module.exports = {
 
             return message.channel.send(covid19Embed);
 
+        } else {
+
+            var helpMenuEmbed = new discord.MessageEmbed()
+                .setTitle("HELP")
+                .setDescription(`See a list of command categorys below! ${embedDescription}\n\n**Use ,help [category] to see help about a specific category**`)
+                .setColor(embedColor)
+                .setFooter(embedFooter)
+                .setTimestamp()
+                .addFields(
+                    { name: "\u200b", value: "\u200b" },
+                    { name: ":information_source: __Information__", value: `*All commands that give information!*\n**${informationAmount} Commands**`, inline: true },
+                    { name: ":tada: __Fun & Games__", value: `*Play some cool games!*\n**${funAndGamesAmount} Commands**`, inline: true },
+                    { name: "\u200b", value: "\u200b" },
+                    { name: ":boomerang: __Hypixel__", value: `*Everything related to Hypixel and Hypixel Skyblock!*\n**${hypixelAmount} Commands**`, inline: true },
+                    { name: ":microbe: __Covid-19__", value: `*All commands related to\nthe covid-19 virus! Wash\nyour hands!*\n**${covid19Amount} Commands**`, inline: true }
+                )
+
+            return message.channel.send(helpMenuEmbed);
+
         }
 
     },
