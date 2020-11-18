@@ -41,7 +41,7 @@ module.exports = {
 
                 informationAmount++;
 
-                informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}\u200b`);
+                informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
 
             }
 
