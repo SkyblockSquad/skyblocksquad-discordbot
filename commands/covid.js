@@ -1,6 +1,6 @@
 module.exports = {
     name: 'covid',
-    description: 'covid',
+    description: '*See live covid-19 statistics! Confirmed cases, recovered people and deaths.*',
     category: 'Covid-19',
     execute(discord, message, embedColor, embedFooter, args, fetch) {
 

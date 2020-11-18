@@ -111,10 +111,10 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     { name: "\u200b", value: "\u200b" },
-                    { name: ":information_source: __Information__", value: `*All commands that give information!*\n**${informationAmount} Commands**`, inline: true },
+                    { name: ":information_source: __Information__", value: `*All commands that\ngive information!*\n**${informationAmount} Commands**`, inline: true },
                     { name: ":tada: __Fun & Games__", value: `*Play some cool games!*\n**${funAndGamesAmount} Commands**`, inline: true },
                     { name: "\u200b", value: "\u200b" },
-                    { name: ":boomerang: __Hypixel__", value: `*Everything related to Hypixel!*\n**${hypixelAmount} Commands**`, inline: true },
+                    { name: ":boomerang: __Hypixel__", value: `*Everything related to Hypixel\nand Hypixel Skyblock!*\n**${hypixelAmount} Commands**`, inline: true },
                     { name: ":microbe: __Covid-19__", value: `*All commands related to\nthe covid-19 virus! Wash\nyour hands!*\n**${covid19Amount} Commands**`, inline: true }
                 )
 
