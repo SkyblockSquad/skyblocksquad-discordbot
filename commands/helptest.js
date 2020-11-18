@@ -1,6 +1,6 @@
 module.exports = {
     name: 'helptest',
-    description: '*This description shows\nwhen to use the\nnewline symbol!*',
+    description: '*This description shows when to use the newline symbol!*',
     category: 'Information',
     execute(message, args, client, discord, embedColor, embedFooter, prefix) {
 
