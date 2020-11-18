@@ -40,7 +40,9 @@ module.exports = {
         async function applicationTicketID(channel) {
 
             var topic = channel.topic.split(" ");
+            message.channel.send(`**DEBUG:** ${topic}`);
             var topicID = topic[1];
+            message.channel.send(`**DEBUG:** ${topicID}`)
 
             var userTopic = "None";
 
