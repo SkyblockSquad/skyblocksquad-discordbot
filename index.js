@@ -8,9 +8,6 @@ console.log("Loading data files...");
 const botConfig = require("./data/botconfig.json");
 console.log("Data file \"botconfig.json\" has been loaded.");
 
-const menuData = require("./data/helpMenu.json");
-console.log("Data file \"helpMenu.json\" has been loaded.");
-
 var swearWords = JSON.parse(fs.readFileSync("./data/swearWords.json"));
 console.log("Data file \"swearWords.json\" has been loaded.");
 
