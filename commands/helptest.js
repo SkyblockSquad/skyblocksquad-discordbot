@@ -4,7 +4,7 @@ module.exports = {
     category: 'Information',
     execute(message, args, client, discord, embedColor, embedFooter, prefix) {
 
-        var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
+        var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments\n";
         var helpMenu = args.join(" ");
 
         var informationEmbed = new discord.MessageEmbed()
@@ -41,7 +41,7 @@ module.exports = {
 
                 informationAmount++;
 
-                informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+                informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}\n`);
 
             }
 
