@@ -1,6 +1,7 @@
 module.exports = {
     name: 'rps',
-    description: 'rps',
+    description: '*Duel the bot to an amazing rock, paper, scissors game!*',
+    category: 'Fun & Games',
     execute(message, args) {
 
         if (!args[0]) return message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");

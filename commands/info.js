@@ -1,6 +1,7 @@
 module.exports = {
     name: 'info',
-    description: 'info',
+    description: '*See information about the server and the bot!*',
+    category: 'Information',
     execute(discord, message, embedColor, embedFooter, client, args, moment) {
 
         if (args.length > 0) return message.channel.send("**Error:** No arguments need to be provided!");

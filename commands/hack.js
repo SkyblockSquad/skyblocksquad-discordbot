@@ -1,6 +1,7 @@
 module.exports = {
     name: 'hack',
-    description: 'hack',
+    description: '*Hack the server! (You won\'t get banned lol)*',
+    category: 'Fun & Games',
     execute(discord, message, embedColor, embedFooter, args) {
 
         if (message.channel.type == "dm") {

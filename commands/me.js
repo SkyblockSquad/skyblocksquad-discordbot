@@ -1,6 +1,7 @@
 module.exports = {
     name: 'me',
-    description: 'me',
+    description: '*See some cool information about yourself!*',
+    category: 'Information',
     execute(message, args, discord, embedColor, embedFooter, moment) {
 
         if (args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
