@@ -2,7 +2,17 @@ module.exports = {
     name: 'helptest',
     description: '*This description shows\nwhen to use the\nnewline symbol!*',
     category: 'Information',
-    execute(message, client) {
+    execute(message, args, client, discord, embedColor, embedFooter) {
+
+        var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
+        var helpMenu = args.join(" ");
+
+        var informationEmbed = new discord.MessageEmbed()
+            .setTitle("HELP (INFORMATION)")
+            .setDescription(`See a list of information commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
 
         var commandList = [];
 
@@ -31,12 +41,15 @@ module.exports = {
 
                 informationAmount++;
 
+                informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
             }
 
         }
 
-        message.channel.send(`**DEBUG:** var informationAmount = ${informationAmount}`);
-        message.channel.send(commandList);
+        if(helpMenu === "information" || helpMenu === "info") {
+            return message.channel.send(informationEmbed);
+        }
 
     },
 };
