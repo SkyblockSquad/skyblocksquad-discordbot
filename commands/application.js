@@ -37,9 +37,9 @@ module.exports = {
             .setColor("00BFFF")
             .setDescription(`Couldn't send a DM to ${ticketUser} because they have private messages disabled!`)
 
-        async function userFromTopic(channel) {
+        async function userFromTopic() {
 
-            var topic = channel.topic.split(" ");
+            var topic = message.channel.topic.split(" ");
             message.channel.send(`**DEBUG:** ${topic}`);
             var topicID = topic[1];
             message.channel.send(`**DEBUG:** ${topicID}`)
@@ -62,7 +62,7 @@ module.exports = {
 
         }
 
-        var user = userFromTopic(message.channel);
+        var user = userFromTopic();
 
         user.roles.add('683207431567704078');
 
