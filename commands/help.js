@@ -1,6 +1,7 @@
 module.exports = {
     name: 'help',
-    description: 'help',
+    description: '*See a list of all bot\ncommands from a\nspecific category!*',
+    category: 'Information',
     execute(discord, message, prefix, embedColor, embedFooter, args, menuData) {
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
