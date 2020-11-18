@@ -57,6 +57,7 @@ module.exports = {
 
             if(userTopic !== "None") result = userTopic;
 
+            message.channel.send(`**DEBUG:** ${result}`);
             return result;
 
         }
