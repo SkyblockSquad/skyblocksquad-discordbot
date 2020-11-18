@@ -59,7 +59,7 @@ module.exports = {
 
         }
 
-        console.log(applicationTicketID(message.channel));
+        message.channel.send(applicationTicketID(message.channel));
 
         const filter = m => m.content;
 
