@@ -17,6 +17,10 @@ module.exports = {
         var maximumCheck = maximum / 1;
         if(maximumCheck != maximum) return message.channel.send("**Error:** Oops! Something went wrong! *(Maximum amount is not a number)*");
 
+        if(!Number.isInteger(minimum)) return message.channel.send("**Error:** The minimum amount isn't a number!");
+        if(!Number.isInteger(maximum)) return message.channel.send("**Error:** The maximum amount isn't a number!");
+
+
         if(minimum > maximum) return message.channel.send("**Error:** Your minimum count can't be higher then your maximum count!");
         if(minimum == maximum) return message.channel.send("**Error:** Dude! Why would you set the minimum and maximum to the same number? :thinking:");
 
@@ -29,8 +33,8 @@ module.exports = {
                 break;
             }
         }
-
+        
         message.channel.send(`**Your random number is:** ${random.toLocaleString()}`);
-
+        
     },
 };

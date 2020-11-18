@@ -22,9 +22,6 @@ module.exports = {
         slowmode = parseInt(slowmode, 10);
         slowmode *= multiplier;
 
-        // var intCheck = slowmode / 1;
-        // if (intCheck != slowmode) return message.channel.send("**Error:** That is not a valid number!");
-
         if (!Number.isInteger(slowmode)) return message.channel.send("**Error:** That is not a valid number!");
 
         if (slowmode < 0) return message.channel.send("**Error:** You can't set a negative slowmode!");
