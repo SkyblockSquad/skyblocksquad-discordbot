@@ -21,6 +21,13 @@ module.exports = {
             .setFooter(embedFooter)
             .setTimestamp()
 
+        var hypixelEmbed = new discord.MessageEmbed()
+            .setTitle("HELP (HYPIXEL)")
+            .setDescription(`See a list of Hypixel commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
+
         var commandList = [];
 
         client.commands.forEach(command => {
@@ -41,6 +48,7 @@ module.exports = {
 
         var informationAmount = 0;
         var funAndGamesAmount = 0;
+        var hypixelAmount = 0;
 
         for (let i = 0; i < commandList.length; i++) {
             const command = commandList[i];
@@ -48,23 +56,34 @@ module.exports = {
             if (command["category"] == "Information") {
 
                 informationAmount++;
-
                 informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
 
             } else if (command["category"] == "Fun & Games") {
 
                 funAndGamesAmount++;
-
                 funAndGamesEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
+            } else if (command["category"] == "Hypixel") {
+
+                hypixelAmount++;
+                hypixelEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
 
             }
 
         }
 
         if (helpMenu === "information" || helpMenu === "info") {
+
             return message.channel.send(informationEmbed);
+
         } else if (helpMenu === "fun & games" || helpMenu === "fun" || helpMenu === "games" || helpMenu === "fun and games") {
+
             return message.channel.send(funAndGamesEmbed);
+
+        } else if (helpMenu === "hypixel") {
+
+            return message.channel.send(hypixelEmbed);
+
         }
 
     },

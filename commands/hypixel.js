@@ -1,6 +1,7 @@
 module.exports = {
     name: 'hypixel',
-    description: 'hypixel',
+    description: 'See your and other people\'s stats!',
+    category: 'Hypixel',
     execute(message, args, discord, fetch, embedColor, embedFooter, moment) {
 
         if (args.length >= 2 || args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,hypixel {username}**!");
