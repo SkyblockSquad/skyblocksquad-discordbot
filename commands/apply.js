@@ -2,7 +2,7 @@ module.exports = {
     name: 'apply',
     description: 'apply',
     execute(message, discord, embedFooter) {
-    
+
         var categoryID = "774903762447630367";
         var author = message.author;
 
@@ -12,7 +12,8 @@ module.exports = {
 
         message.guild.channels.cache.forEach(channel => {
 
-            if(channel.name.toLowerCase() === channelName.toLowerCase()) {;
+            if (channel.name.toLowerCase() === channelName.toLowerCase()) {
+                ;
                 ticket = true;
                 return message.channel.send("**Error:** You already started an application!");
             }
@@ -28,7 +29,7 @@ module.exports = {
         var level45role = message.member.roles.cache.find(role => role.id === "773454622190600222");
         var level50role = message.member.roles.cache.find(role => role.id === "773454761503490098");
 
-        if(!level10role && !level15role && !level20role && !level25role && !level30role && !level35role && !level40role && !level45role &&!level50role) {
+        if (!level10role && !level15role && !level20role && !level25role && !level30role && !level35role && !level40role && !level45role && !level50role) {
             return message.channel.send("**Error:** You must be atleast **level 10** or higher to do this!");
         }
 
@@ -36,9 +37,9 @@ module.exports = {
         var adminRole = message.member.roles.cache.find(role => role.id === "683205637001183365");
         var gmRole = message.member.roles.cache.find(role => role.id === "683205412488478809")
 
-        if(!proRole && !adminRole && !gmRole) return message.channel.send("**Error:** You need to be Pro to use this command!");
+        if (!proRole && !adminRole && !gmRole) return message.channel.send("**Error:** You need to be Pro to use this command!");
 
-        if(ticket) return;
+        if (ticket) return;
 
         message.delete();
 
@@ -50,7 +51,7 @@ module.exports = {
 
         message.channel.send(embed).then(msg => msg.delete({ timeout: 3000 }));
 
-        message.guild.channels.create(channelName, {type: "text"}).then(
+        message.guild.channels.create(channelName, { type: "text" }).then(
             (createdChannel) => {
                 createdChannel.setParent(categoryID).then(
                     (settedParent) => {
@@ -139,39 +140,39 @@ module.exports = {
 
                         settedParent.send(question1);
 
-                        settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                        settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                             var answer1 = answer.first();
                             settedParent.send(question2);
 
-                            settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                            settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                 var answer2 = answer.first();
                                 settedParent.send(question3);
 
-                                settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                                settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                     var answer3 = answer.first();
                                     settedParent.send(question4);
 
-                                    settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                                    settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                         var answer4 = answer.first();
                                         settedParent.send(question5);
 
-                                        settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                                        settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                             var answer5 = answer.first();
                                             settedParent.send(question6);
 
-                                            settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                                            settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                                 var answer6 = answer.first();
                                                 settedParent.send(question7);
 
-                                                settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                                                settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                                     var answer7 = answer.first();
                                                     settedParent.send(question8);
 
-                                                    settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                                                    settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                                         var answer8 = answer.first();
                                                         settedParent.send(question9);
 
-                                                        settedParent.awaitMessages(s => s.author.id === author.id, {max: 1}).then(answer => {
+                                                        settedParent.awaitMessages(s => s.author.id === author.id, { max: 1 }).then(answer => {
                                                             var answer9 = answer.first();
 
                                                             var application = new discord.MessageEmbed()
@@ -181,22 +182,22 @@ module.exports = {
                                                                 .setFooter(embedFooter)
                                                                 .setTimestamp()
                                                                 .addFields(
-                                                                    {name: `**Question 1:** ${question_txt1}`, value: `Answer: ${answer1}`},
-                                                                    {name: `**Question 2:** ${question_txt2}`, value: `Answer: ${answer2}`},
-                                                                    {name: `**Question 3:** ${question_txt3}`, value: `Answer: ${answer3}`},
-                                                                    {name: `**Question 4:** ${question_txt4}`, value: `Answer: ${answer4}`},
-                                                                    {name: `**Question 5:** ${question_txt5}`, value: `Answer: ${answer5}`},
-                                                                    {name: `**Question 6:** ${question_txt6}`, value: `Answer: ${answer6}`},
-                                                                    {name: `**Question 7:** ${question_txt7}`, value: `Answer: ${answer7}`},
-                                                                    {name: `**Question 8:** ${question_txt8}`, value: `Answer: ${answer8}`},
-                                                                    {name: `**Question 9:** ${question_txt9}`, value: `Answer: ${answer9}`},
+                                                                    { name: `**Question 1:** ${question_txt1}`, value: `Answer: ${answer1}` },
+                                                                    { name: `**Question 2:** ${question_txt2}`, value: `Answer: ${answer2}` },
+                                                                    { name: `**Question 3:** ${question_txt3}`, value: `Answer: ${answer3}` },
+                                                                    { name: `**Question 4:** ${question_txt4}`, value: `Answer: ${answer4}` },
+                                                                    { name: `**Question 5:** ${question_txt5}`, value: `Answer: ${answer5}` },
+                                                                    { name: `**Question 6:** ${question_txt6}`, value: `Answer: ${answer6}` },
+                                                                    { name: `**Question 7:** ${question_txt7}`, value: `Answer: ${answer7}` },
+                                                                    { name: `**Question 8:** ${question_txt8}`, value: `Answer: ${answer8}` },
+                                                                    { name: `**Question 9:** ${question_txt9}`, value: `Answer: ${answer9}` },
                                                                 )
 
                                                             settedParent.bulkDelete(100).then(
                                                                 settedParent.send(application)
                                                             )
 
-                                                            setTimeout(function() {
+                                                            setTimeout(function () {
                                                                 var finishing = new discord.MessageEmbed()
                                                                     .setTitle("FINISHING APLICATION...")
                                                                     .setDescription("I'm currently finishing your application...")
@@ -213,7 +214,7 @@ module.exports = {
                                                                         READ_MESSAGES: true
                                                                     });
 
-                                                                    setTimeout(function() {
+                                                                    setTimeout(function () {
                                                                         finish.delete();
                                                                     }, 5000);
                                                                 }
@@ -222,7 +223,7 @@ module.exports = {
 
                                                             }, 1000);
 
-                                                            setTimeout(function() {
+                                                            setTimeout(function () {
 
                                                                 settedParent.updateOverwrite(author.id, {
                                                                     SEND_MESSAGES: false,

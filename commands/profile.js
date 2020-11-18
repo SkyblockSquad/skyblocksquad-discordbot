@@ -2,8 +2,8 @@ module.exports = {
     name: 'profile',
     description: 'profile',
     execute(message, args, fetch) {
-    
-        if(args.length >= 3 || args.length <= 1) return message.channel.send("**Error:** Invalid syntax! Please use **,profile {username} {profile name}**");
+
+        if (args.length >= 3 || args.length <= 1) return message.channel.send("**Error:** Invalid syntax! Please use **,profile {username} {profile name}**");
 
         async function getData() {
 
@@ -11,7 +11,7 @@ module.exports = {
             const data = await response.json();
             const { id } = data;
 
-            if(id == null || undefined) return message.channel.send("**Error:** Something went wrong! (Unknown username or profile name)");
+            if (id == null || undefined) return message.channel.send("**Error:** Something went wrong! (Unknown username or profile name)");
 
             message.channel.send(`**Profile ID:** __${id}__`);
 

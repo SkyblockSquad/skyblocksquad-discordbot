@@ -2,7 +2,7 @@ module.exports = {
     name: 'application',
     description: 'application',
     execute(message, discord) {
-    
+
         var categoryID = "774903762447630367";
 
         var ticketUser = message.guild.member(message.mentions.users.first());
@@ -22,7 +22,7 @@ module.exports = {
             .addField("Remove user:", "🎫", false)
             .addField("Archive application:", "📥", false)
 
-         var reasonEmbed = new discord.MessageEmbed()
+        var reasonEmbed = new discord.MessageEmbed()
             .setTitle("MANAGE APPLICATION")
             .setColor("00BFFF")
             .addField("Reason:", "Please enter a reason.", false)
@@ -43,34 +43,34 @@ module.exports = {
 
             var emoji = await promptMessage(msg, message.author, 120, ["☑️", "❌", "🎟️", "🎫", "📥"]);
 
-            if(emoji === "☑️") {
-                
+            if (emoji === "☑️") {
+
                 message.channel.send(reasonEmbed);
 
-                message.channel.awaitMessages(filter, {max: 1, time: 300000}).then(collected => {
+                message.channel.awaitMessages(filter, { max: 1, time: 300000 }).then(collected => {
 
                     var reason = collected.first();
 
-                    if(reason == undefined) reason = "No reason supplied!";
+                    if (reason == undefined) reason = "No reason supplied!";
 
                     reason = reason.toString();
 
-                    if(reason.length > 1024) {
+                    if (reason.length > 1024) {
                         var plainMessage = "true";
                     } else {
                         var plainMessage = "false";
                     }
-                    
+
                     var result = new discord.MessageEmbed()
                         .setTitle("ACCEPTED")
                         .setColor("00BFFF")
                         .addField("User:", `${ticketUser}`, false)
 
-                        if(plainMessage === "false") {
-                            result.addField("Reason:", `${reason}`, false)
-                        }
+                    if (plainMessage === "false") {
+                        result.addField("Reason:", `${reason}`, false)
+                    }
 
-                        result.addField("Accepted by:", `<@${message.author.id}>`, false)
+                    result.addField("Accepted by:", `<@${message.author.id}>`, false)
 
                     message.channel.bulkDelete(3);
                     message.channel.send(result);
@@ -81,13 +81,13 @@ module.exports = {
                         .setDescription("Your Helper application has been accepted!")
                         .addField("Accepted by:", `<@${message.author.id}>`, false)
 
-                        if(plainMessage === "false") {
-                            dm.addField("Reason:", `${reason}`, false)
-                        }
+                    if (plainMessage === "false") {
+                        dm.addField("Reason:", `${reason}`, false)
+                    }
 
                     ticketUser.send(dm).then(() => {
 
-                        if(plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
+                        if (plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
 
                         message.channel.send(dmEnabled);
                     }).catch(() => {
@@ -96,60 +96,60 @@ module.exports = {
 
                 })
 
-            } else if(emoji === "❌") {
+            } else if (emoji === "❌") {
 
                 message.channel.send(reasonEmbed);
 
-                message.channel.awaitMessages(filter, {max: 1, time: 300000}).then(collected => {
+                message.channel.awaitMessages(filter, { max: 1, time: 300000 }).then(collected => {
 
-                var reason = collected.first();
+                    var reason = collected.first();
 
-                if(reason == undefined) reason = "No reason supplied!";
+                    if (reason == undefined) reason = "No reason supplied!";
 
-                reason = reason.toString();
+                    reason = reason.toString();
 
-                if(reason.length > 1024) {
-                    var plainMessage = "true";
-                } else {
-                    var plainMessage = "false";
-                }
-                    
-                var result = new discord.MessageEmbed()
-                    .setTitle("REJECTED")
-                    .setColor("00BFFF")
-                    .addField("User:", `${ticketUser}`, false)
+                    if (reason.length > 1024) {
+                        var plainMessage = "true";
+                    } else {
+                        var plainMessage = "false";
+                    }
 
-                    if(plainMessage === "false") {
+                    var result = new discord.MessageEmbed()
+                        .setTitle("REJECTED")
+                        .setColor("00BFFF")
+                        .addField("User:", `${ticketUser}`, false)
+
+                    if (plainMessage === "false") {
                         result.addField("Reason:", `${reason}`, false)
                     }
 
                     result.addField("Rejected by:", `<@${message.author.id}>`, false)
 
-                message.channel.bulkDelete(3);
-                message.channel.send(result);
+                    message.channel.bulkDelete(3);
+                    message.channel.send(result);
 
-                var dm = new discord.MessageEmbed()
-                    .setTitle("REJECTED")
-                    .setColor("00BFFF")
-                    .setDescription("Your Helper application has been rejected!")
-                    .addField("Rejected by:", `<@${message.author.id}>`, false)
+                    var dm = new discord.MessageEmbed()
+                        .setTitle("REJECTED")
+                        .setColor("00BFFF")
+                        .setDescription("Your Helper application has been rejected!")
+                        .addField("Rejected by:", `<@${message.author.id}>`, false)
 
-                    if(plainMessage === "false") {
+                    if (plainMessage === "false") {
                         dm.addField("Reason:", `${reason}`, false)
-                    } 
+                    }
 
-                ticketUser.send(dm).then(() => {
+                    ticketUser.send(dm).then(() => {
 
-                    if(plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
+                        if (plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
 
-                    message.channel.send(dmEnabled)
-                }).catch(() => {
-                    message.channel.send(dmDisabled);
+                        message.channel.send(dmEnabled)
+                    }).catch(() => {
+                        message.channel.send(dmDisabled);
+                    })
+
                 })
 
-                })
-
-            } else if(emoji === "🎟️") {
+            } else if (emoji === "🎟️") {
 
                 message.channel.bulkDelete(1);
 
@@ -171,7 +171,7 @@ module.exports = {
 
                 message.channel.send(embed);
 
-            } else if(emoji === "🎫") {
+            } else if (emoji === "🎫") {
 
                 message.channel.bulkDelete(1);
 
@@ -193,7 +193,7 @@ module.exports = {
 
                 message.channel.send(embed);
 
-            } else if(emoji === "📥") {
+            } else if (emoji === "📥") {
 
                 var archivedCategory = "775289725710893056";
 
@@ -210,13 +210,13 @@ module.exports = {
 
                 message.guild.channels.cache.forEach(channel => {
 
-                    if(channel.name.startsWith(channelName.toLowerCase())) {
+                    if (channel.name.startsWith(channelName.toLowerCase())) {
                         foundChannels++;
                     }
 
                 });
 
-                if(foundChannels > 0) {
+                if (foundChannels > 0) {
                     channelName = channelName + "-" + foundChannels;
                 }
 
@@ -243,7 +243,7 @@ module.exports = {
 
             const filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
 
-            return message.awaitReactions(filter, { max: 1, time: time}).then(collected => collected.first() && collected.first().emoji.name);
+            return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
 
         }
 
