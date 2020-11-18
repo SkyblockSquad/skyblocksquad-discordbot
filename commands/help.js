@@ -1,6 +1,6 @@
 module.exports = {
     name: 'help',
-    description: '*See a list of all bot\ncommands from a\nspecific category!*',
+    description: '*See a list of all bot commands from a specific category!*',
     category: 'Information',
     execute(discord, message, prefix, embedColor, embedFooter, args, menuData) {
 
