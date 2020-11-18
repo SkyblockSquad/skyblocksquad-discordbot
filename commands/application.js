@@ -62,7 +62,9 @@ module.exports = {
 
         }
 
-        message.channel.send(applicationTicketID(message.channel));
+        var userFromTopic = applicationTicketID(message.channel);
+
+        userFromTopic.roles.add('683207431567704078');
 
         const filter = m => m.content;
 
