@@ -36,6 +36,7 @@ module.exports = {
         }
 
         message.channel.send(`**DEBUG:** var informationAmount = ${informationAmount}`);
+        message.channel.send(commandList);
 
     },
 };
