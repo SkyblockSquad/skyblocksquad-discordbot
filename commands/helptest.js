@@ -14,6 +14,13 @@ module.exports = {
             .setFooter(embedFooter)
             .setTimestamp()
 
+        var funAndGamesEmbed = new discord.MessageEmbed()
+            .setTitle("HELP (FUN & GAMES)")
+            .setDescription(`See a list of fun & games commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
+
         var commandList = [];
 
         client.commands.forEach(command => {
@@ -33,6 +40,7 @@ module.exports = {
         });
 
         var informationAmount = 0;
+        var funAndGamesAmount = 0;
 
         for (let i = 0; i < commandList.length; i++) {
             const command = commandList[i];
@@ -43,12 +51,20 @@ module.exports = {
 
                 informationEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
 
+            } else if (command["category"] == "Fun & Games") {
+
+                funAndGamesAmount++;
+
+                funAndGamesEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
             }
 
         }
 
-        if(helpMenu === "information" || helpMenu === "info") {
+        if (helpMenu === "information" || helpMenu === "info") {
             return message.channel.send(informationEmbed);
+        } else if (helpMenu === "fun & games" || helpMenu === "fun" || helpMenu === "games" || helpMenu === "fun and games") {
+            return message.channel.send(funAndGamesEmbed);
         }
 
     },
