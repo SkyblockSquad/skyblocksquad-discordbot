@@ -28,6 +28,13 @@ module.exports = {
             .setFooter(embedFooter)
             .setTimestamp()
 
+        var covid19Embed = new discord.MessageEmbed()
+            .setTitle("HELP (COVID-19)")
+            .setDescription(`See a list of covid-19 commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter(embedFooter)
+            .setTimestamp()
+
         var commandList = [];
 
         client.commands.forEach(command => {
@@ -49,6 +56,7 @@ module.exports = {
         var informationAmount = 0;
         var funAndGamesAmount = 0;
         var hypixelAmount = 0;
+        var covid19Amount = 0;
 
         for (let i = 0; i < commandList.length; i++) {
             const command = commandList[i];
@@ -68,6 +76,11 @@ module.exports = {
                 hypixelAmount++;
                 hypixelEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
 
+            } else if (command["category"] == "Covid-19") {
+
+                covid19Amount++;
+                covid19Embed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
             }
 
         }
@@ -83,6 +96,10 @@ module.exports = {
         } else if (helpMenu === "hypixel") {
 
             return message.channel.send(hypixelEmbed);
+
+        } else if (helpMenu === "covid-19" || helpMenu === "covid" || helpMenu === "corona") {
+
+            return message.channel.send(covid19Embed);
 
         }
 

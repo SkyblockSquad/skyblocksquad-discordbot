@@ -1,6 +1,7 @@
 module.exports = {
     name: 'covid',
     description: 'covid',
+    category: 'Covid-19',
     execute(discord, message, embedColor, embedFooter, args, fetch) {
 
         let countries = args.join(" ");
