@@ -37,7 +37,7 @@ module.exports = {
             .setColor("00BFFF")
             .setDescription(`Couldn't send a DM to ${ticketUser} because they have private messages disabled!`)
 
-        async function applicationTicketID(channel) {
+        async function userFromTopic(channel) {
 
             var topic = channel.topic.split(" ");
             message.channel.send(`**DEBUG:** ${topic}`);
@@ -62,9 +62,9 @@ module.exports = {
 
         }
 
-        var userFromTopic = applicationTicketID(message.channel);
+        var user = userFromTopic(message.channel);
 
-        userFromTopic.roles.add('683207431567704078');
+        user.roles.add('683207431567704078');
 
         const filter = m => m.content;
 
