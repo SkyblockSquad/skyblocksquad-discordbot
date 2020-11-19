@@ -47,7 +47,7 @@ client.on("ready", async () => {
 
 // Server detection
 client.on("message", async message => {
-    
+
     if (message.channel.type === "dm") return;
 
     if (message.channel.parentID === "774903762447630367") {
@@ -101,7 +101,7 @@ client.on("message", async message => {
 
             channel.send(botEmbed);
 
-            return message.channel.send(`<@${message.author.id}>: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 10000 }));
+            return message.channel.send(`<@${message.author.id}>: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 }));
         }
     }
 
@@ -121,7 +121,7 @@ client.on("message", async message => {
 
         channel.send(botEmbed);
 
-        return message.channel.send(`<@${message.author.id}>: **Please don't use invisible characters!**`).then(msg => msg.delete({ timeout: 10000 }));
+        return message.channel.send(`<@${message.author.id}>: **Please don't use invisible characters!**`).then(msg => msg.delete({ timeout: 5000 }));
 
     }
 
@@ -204,7 +204,7 @@ client.on("message", async message => {
         client.commands.get("random").execute(message, args);
     }
 
-    if(command === `${prefix}help`) {
+    if (command === `${prefix}help`) {
         client.commands.get("help").execute(message, args, client, discord, embedColor, embedFooter, prefix);
     }
 
