@@ -101,7 +101,7 @@ client.on("message", async message => {
 
             channel.send(botEmbed);
 
-            return message.channel.send(`<@${message.author.id}>: **Please don't swear!**`).then(msg => msg.delete({ timeout: 10000 }));
+            return message.channel.send(`<@${message.author.id}>: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 10000 }));
         }
     }
 
