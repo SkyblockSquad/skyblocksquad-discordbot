@@ -24,7 +24,7 @@ module.exports = {
             const { links } = data;
             const { first_login } = data;
             const { last_login } = data;
-            const { last_logout } = data;
+            const { rank_plus_color } = data;
 
             var rankDisplay = "";
 
@@ -44,6 +44,22 @@ module.exports = {
             var linkedDiscord = links["DISCORD"];
             if (linkedDiscord == null) linkedDiscord = "None";
 
+            var plusColor = rank_plus_color;
+
+            if (plusColor === "&c") plusColor = "Red (Default)";
+            if (plusColor === "&6") plusColor = "Gold";
+            if (plusColor === "&a") plusColor = "Green";
+            if (plusColor === "&e") plusColor = "Yellow";
+            if (plusColor === "&d") plusColor = "Light Purple";
+            if (plusColor === "&f") plusColor = "White";
+            if (plusColor === "&9") plusColor = "Blue";
+            if (plusColor === "&2") plusColor = "Dark Green";
+            if (plusColor === "&4") plusColor = "Dark Red";
+            if (plusColor === "&3") plusColor = "Dark Aqua";
+            if (plusColor === "&5") plusColor = "Dark Purple";
+            if (plusColor === "&7") plusColor = "Grey";
+            if (plusColor === "&0") plusColor = "Black";
+
             var botEmbed = new discord.MessageEmbed()
                 .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
                 .setDescription("See a players Hypixel stats below!")
@@ -52,14 +68,14 @@ module.exports = {
                 .setTimestamp()
                 .addFields(
                     { name: "Level", value: level, inline: true },
-                    { name: "Karma", value: karma, inline: true },
                     { name: "Rank", value: rankDisplay, inline: true },
+                    { name: "Rank Plus Color", value: plusColor, inline: true },
                     { name: "Online", value: onlineDisplay, inline: true },
+                    { name: "Karma", value: karma, inline: true },
                     { name: "Achievement Points", value: achievement_points, inline: true },
                     { name: "Linked Discord", value: linkedDiscord, inline: true },
                     { name: "First Login", value: `${moment(first_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true },
-                    { name: "Last Login", value: `${moment(last_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true },
-                    { name: "Last Logout", value: `${moment(last_logout).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true }
+                    { name: "Last Login", value: `${moment(last_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true }
                 );
 
             return message.channel.send(botEmbed);
