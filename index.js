@@ -208,4 +208,8 @@ client.on("message", async message => {
         client.commands.get("help").execute(message, args, client, discord, embedColor, embedFooter, prefix);
     }
 
+    if (command === `${prefix}afk`) {
+        client.commands.get("afk").execute(message, args);
+    }
+
 });

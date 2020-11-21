@@ -28,6 +28,13 @@ module.exports = {
             .setFooter(embedFooter)
             .setTimestamp()
 
+        var miscellaneousEmbed = new discord.MessageEmbed()
+            .setTitle("HELP (MISCELLANEOUS)")
+            .setDescription(`See a list of miscellaneous commands below! ${embedDescription}`)
+            .setColor(embedColor)
+            .setFooter()
+            .setTimestamp()
+
         var covid19Embed = new discord.MessageEmbed()
             .setTitle("HELP (COVID-19)")
             .setDescription(`See a list of covid-19 commands below! ${embedDescription}`)
@@ -56,6 +63,7 @@ module.exports = {
         var informationAmount = 0;
         var funAndGamesAmount = 0;
         var hypixelAmount = 0;
+        var miscellaneousAmount = 0;
         var covid19Amount = 0;
 
         for (let i = 0; i < commandList.length; i++) {
@@ -75,6 +83,11 @@ module.exports = {
 
                 hypixelAmount++;
                 hypixelEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
+
+            } else if (command["category"] == "Miscellaneous") {
+
+                miscellaneousAmount++;
+                miscellaneousEmbed.addField(`${prefix}${command["name"]}`, `${command["description"]}`);
 
             } else if (command["category"] == "Covid-19") {
 
@@ -97,6 +110,10 @@ module.exports = {
 
             return message.channel.send(hypixelEmbed);
 
+        } else if (helpMenu === "miscellaneous" || helpMenu === "misc") {
+
+            return message.channel.send(miscellaneousEmbed);
+
         } else if (helpMenu === "covid-19" || helpMenu === "covid" || helpMenu === "corona") {
 
             return message.channel.send(covid19Embed);
@@ -115,7 +132,9 @@ module.exports = {
                     { name: ":tada: __Fun & Games__", value: `*Play some cool games!*\n**${funAndGamesAmount} Commands**`, inline: true },
                     { name: "\u200b", value: "\u200b" },
                     { name: ":boomerang: __Hypixel__", value: `*Everything related to Hypixel\nand Hypixel Skyblock!*\n**${hypixelAmount} Commands**`, inline: true },
-                    { name: ":microbe: __Covid-19__", value: `*All commands related to\nthe covid-19 virus! Wash\nyour hands!*\n**${covid19Amount} Commands**`, inline: true }
+                    { name: ":jigsaw: __Miscellaneous__", value: `*Commands that don't belong\nin any other category!*\n**${miscellaneousAmount} Commands**`, inline: true },
+                    { name: "\u200b", value: "\u200b" },
+                    { name: ":microbe: __Covid-19__", value: `*All commands related to\nthe covid-19 virus! Wash\nyour hands!*\n**${covid19Amount} Commands**` }
                 )
 
             return message.channel.send(helpMenuEmbed);
