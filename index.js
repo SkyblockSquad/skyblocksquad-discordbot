@@ -136,6 +136,18 @@ client.on("message", async message => {
         }
     }
 
+    if(message.mentions.users.size > 0) {
+
+        message.mentions.users.forEach(m => {
+
+            if(m.member.roles.cache.find(role => role.id === "779718452075954197")) {
+                message.channel.send(`**${m.username}** is currently AFK!`);
+            }
+
+        })
+
+    }
+
     var args = message.content.split(" ");
     var command = args[0]
     args.shift();
