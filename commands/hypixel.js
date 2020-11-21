@@ -60,7 +60,7 @@ module.exports = {
             if (plusColor === "&7") plusColor = "Grey";
             if (plusColor === "&0") plusColor = "Black";
 
-            if(!rankDisplay === "MVP+" && !rankDisplay === "MVP++") plusColor = "None";
+            if(!(rankDisplay === "MVP+") && !(rankDisplay === "MVP++")) plusColor = "None";
 
             var botEmbed = new discord.MessageEmbed()
                 .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
