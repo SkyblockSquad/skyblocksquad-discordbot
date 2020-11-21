@@ -32,6 +32,7 @@ module.exports = {
             if (rank === "VIP_PLUS") rankDisplay = "VIP+";
             if (rank === "MVP_PLUS") rankDisplay = "MVP+";
             if (rank === "MVP_PLUS_PLUS") rankDisplay = "MVP++";
+            if (rank === "YOUTUBER") rankDisplay = "YT";
 
             if (rankDisplay === "") rankDisplay = rank;
 
