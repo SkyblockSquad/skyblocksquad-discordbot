@@ -64,7 +64,7 @@ module.exports = {
 
             var botEmbed = new discord.MessageEmbed()
                 .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
-                .setDescription("See a players Hypixel stats below!")
+                .setDescription("See a players Hypixel stats below!\n**Note:** Rank plus color is 'None' if\nthe player's rank isn't MVP+ or MVP++")
                 .setColor(embedColor)
                 .setFooter(embedFooter)
                 .setTimestamp()
