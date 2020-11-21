@@ -4,6 +4,8 @@ module.exports = {
     category: 'Miscellaneous',
     execute(message, args) {
 
+        if(args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
+
         var level15role = message.member.roles.cache.find(role => role.id === "773453879689740288");
         var level20role = message.member.roles.cache.find(role => role.id === "773454008974704650");
         var level25role = message.member.roles.cache.find(role => role.id === "773454133557592094");
