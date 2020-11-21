@@ -60,11 +60,9 @@ module.exports = {
             if (plusColor === "&7") plusColor = "Grey";
             if (plusColor === "&0") plusColor = "Black";
 
-            if(!(rankDisplay === "MVP+") && !(rankDisplay === "MVP++")) plusColor = "None";
-
             var botEmbed = new discord.MessageEmbed()
                 .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
-                .setDescription("See a players Hypixel stats below!\n**Note:** Rank plus color is 'None' if\nthe player's rank isn't MVP+ or MVP++")
+                .setDescription("See a players Hypixel stats below!")
                 .setColor(embedColor)
                 .setFooter(embedFooter)
                 .setTimestamp()
