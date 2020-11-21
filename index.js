@@ -140,7 +140,9 @@ client.on("message", async message => {
 
         message.mentions.users.forEach(m => {
 
-            if(m.member.roles.cache.find(role => role.id === "779718452075954197")) {
+            var afkRole = message.guild.members.cache.get(m).roles.cache.find(role => role.id === "779718452075954197");
+
+            if(!afkRole == undefined) {
                 message.channel.send(`**${m.username}** is currently AFK!`);
             }
 
