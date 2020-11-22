@@ -172,6 +172,11 @@ client.on("message", async message => {
 
     }
 
+    var randomTrigger = Math.ceil(Math.random() * 5);
+    if(randomTrigger == 3) {
+        console.log("test");
+    }
+
     var args = message.content.split(" ");
     var command = args[0]
     args.shift();
