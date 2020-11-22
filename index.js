@@ -207,7 +207,7 @@ client.on("message", async message => {
     }
 
     if (command === `${prefix}application`) {
-        client.commands.get("application").execute(message, discord);
+        client.commands.get("application").execute(message, discord, args);
     }
 
     if (command === `${prefix}emojify`) {

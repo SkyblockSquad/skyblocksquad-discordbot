@@ -1,7 +1,9 @@
 module.exports = {
     name: 'application',
     description: 'application',
-    execute(message, discord) {
+    execute(message, discord, args) {
+
+        if(args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
 
         var categoryID = "774903762447630367";
 
