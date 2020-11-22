@@ -5,13 +5,24 @@ module.exports = {
 
         var categoryID = "774903762447630367";
 
-        var ticketUser = message.guild.member(message.mentions.users.first());
-
         if (message.channel.parentID !== categoryID) return message.channel.send("**Error:** You must be in an application ticket to do this!");
 
         if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**Error:** You don't have permission to do this!");
 
-        if (!ticketUser) return message.channel.send("**Error:** Couldn't find that user!");
+        function getTicketOwner(channel) {
+
+            var topic = channel.topic;
+
+            var ticketArgs = topic.split(" ");
+            var ticketID = ticketArgs[1];
+
+            var ticketOwner = message.guild.members.cache.get(ticketID);
+            
+            return ticketOwner;
+
+        }
+
+        var ticketUser = getTicketOwner(message.channel);
 
         var choiceEmbed = new discord.MessageEmbed()
             .setTitle("MANAGE APPLICATION")
@@ -36,21 +47,6 @@ module.exports = {
             .setTitle("ERROR!")
             .setColor("00BFFF")
             .setDescription(`Couldn't send a DM to ${ticketUser} because they have private messages disabled!`)
-
-        function getTicketOwner(channel) {
-
-            var topic = channel.topic;
-
-            var ticketArgs = topic.split(" ");
-            var ticketID = ticketArgs[1];
-
-            var ticketOwner = message.guild.members.cache.get(ticketID);
-            
-            return ticketOwner;
-
-        }
-
-        getTicketOwner(message.channel).roles.add('683207431567704078');
 
         const filter = m => m.content;
 

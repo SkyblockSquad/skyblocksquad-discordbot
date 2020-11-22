@@ -75,7 +75,7 @@ module.exports = {
                             READ_MESSAGE_HISTORY: true
                         });
 
-                        settedParent.setTopic(`**User:** <@${author.id}>`);
+                        settedParent.setTopic(`**ID:** ${author.id} **User:** <@${author.id}>`);
 
                         settedParent.send(`[<@${author.id}>]`);
 
