@@ -38,11 +38,6 @@ module.exports = {
             .setColor("00BFFF")
             .addField("Reason:", "Please enter a reason.", false)
 
-        var userEmbed = new discord.MessageEmbed()
-            .setTitle("MANAGE APPLICATION")
-            .setColor("00BFFF")
-            .addField("User:", "Please enter the id of a user.", false)
-
         var dmEnabled = new discord.MessageEmbed()
             .setTitle("SUCCES!")
             .setColor("00BFFF")
@@ -167,41 +162,25 @@ module.exports = {
 
             } else if (emoji === "🎟️") {
 
-                message.channel.send(userEmbed);
+                message.channel.bulkDelete(1);
 
-                message.channel.awaitMessages(filter, { max: 1, time: 600000 }).then(collected => {
+                message.channel.updateOverwrite(ticketUser, {
+                    SEND_MESSAGES: false,
+                    CREATE_INSTANT_INVITE: false,
+                    READ_MESSAGES: false,
+                    ATTACH_FILES: false,
+                    ADD_REACTIONS: false,
+                    CONNECT: false,
+                    READ_MESSAGE_HISTORY: false,
+                    VIEW_CHANNEL: false
+                });
 
-                    message.channel.bulkDelete(3);
+                var embed = new discord.MessageEmbed()
+                    .setTitle("ADDED USER")
+                    .setDescription(`Succesfully added ${ticketUser} to the application ticket!`)
+                    .setColor("00BFFF")
 
-                    var user = collected.first();
-
-                    if (user == undefined) return message.channel.send("**Error:** Command timed out.");
-
-                    user = user.toString().trim();
-
-                    var addUser = message.guild.members.cache.get(user);
-
-                    if(addUser == undefined) return message.channel.send("**Error:** Invalid player ID provided.");
-
-                    message.channel.updateOverwrite(addUser, {
-                        SEND_MESSAGES: true,
-                        CREATE_INSTANT_INVITE: false,
-                        READ_MESSAGES: true,
-                        ATTACH_FILES: true,
-                        ADD_REACTIONS: false,
-                        CONNECT: false,
-                        READ_MESSAGE_HISTORY: true,
-                        VIEW_CHANNEL: true
-                    });
-
-                    var embed = new discord.MessageEmbed()
-                        .setTitle("ADDED USER")
-                        .setDescription(`Succesfully added ${addUser} to the application ticket!`)
-                        .setColor("00BFFF")
-
-                    message.channel.send(embed);
-
-                })
+                message.channel.send(embed);
 
             } else if (emoji === "🎫") {
 
