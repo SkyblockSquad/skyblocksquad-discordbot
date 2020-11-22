@@ -42,13 +42,14 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
 
-    var activities = ["skyblock", "music", "youtube"];
+    var activities = ["skyblock", "music", "youtube", "bedwars"];
 
     var activity = activities[Math.floor(Math.random() * activities.length)];
 
     if (activity === "skyblock") client.user.setActivity("Hypixel Skyblock", { type: "PLAYING" });
     if (activity === "music") client.user.setActivity("some nice music", { type: "LISTENING" });
     if (activity === "youtube") client.user.setActivity("memes on Youtube", { type: "WATCHING" });
+    if (activity === "bedwars") client.user.setActivity("bedwars", { type: "COMPETING" });
 
 });
 
