@@ -135,7 +135,7 @@ client.on("message", async message => {
             }
         }
     }
-
+    
     if(message.mentions.users.size > 0) {
 
         message.mentions.users.forEach(m => {

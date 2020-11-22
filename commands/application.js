@@ -177,7 +177,7 @@ module.exports = {
 
                     if (user == undefined) return message.channel.send("**Error:** Command timed out.");
 
-                    user = user.toString();
+                    user = user.toString().trim();
 
                     var addUser = message.guild.members.cache.get(user);
 
