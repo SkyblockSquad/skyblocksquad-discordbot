@@ -50,9 +50,16 @@ client.on("message", async message => {
 
     if (message.channel.type === "dm") return;
 
-    if(message.author.bot && message.author.id === "715568351052693622"){
-        var botRole = message.guild.me.roles.cache.get('780104794756218920');
-        if(!botRole) message.guild.me.roles.add(botRole);
+    if (message.author.bot && message.author.id === "715568351052693622") {
+        var roleCheck = message.guild.me.roles.cache.get('780104794756218920');
+        if (!roleCheck) {
+            var botRole = message.guild.roles.cache.get('780104794756218920');
+            if (botRole) {
+                message.guild.me.roles.add(botRole)
+            } else {
+                console.log("Couldn't find the SkyblockSquad Bot role! Has it been deleted?");
+            }
+        }
     }
 
     if (message.channel.parentID === "774903762447630367") {
