@@ -7,6 +7,10 @@ module.exports = {
         // ,embed title / description / color / footer / timestamp
         // x = nothing
 
+        const botConfig = require("../data/botconfig.json");
+
+        var prefix = botConfig.prefix;
+
         var seperator = " / ";
 
         var seperatedArgs = args.join(" ").split(seperator);
@@ -38,7 +42,27 @@ module.exports = {
             timestamp = seperatedArgs[4];
         }
 
-        console.log(color);
+        title = title.slice(prefix.length + 5);
+
+        var createdEmbed = new discord.MessageEmbed()
+            .setTitle(title)
+            .setDescription(description);
+
+        if(color !== undefined) {
+            createdEmbed.setColor(color);
+        }
+
+        if(footer !== undefined) {
+            createdEmbed.setFooter(footer);
+        }
+
+        if(timestamp !== undefined) {
+            if(timestamp !== "yes" && timestamp !== "no") return message.channel.send("**Error:** Timestamp must be either **yes** or **no**!");
+            
+            if(timestamp == "yes") createdEmbed.setTimestamp();
+        }
+
+        message.channel.send(createdEmbed);
 
     },
 };
