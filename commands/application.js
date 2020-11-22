@@ -50,7 +50,7 @@ module.exports = {
 
         }
 
-        message.channel.send(`**DEBUG:** ${getTicketOwner(message.channel)}`);
+        getTicketOwner(message.channel).roles.add('683207431567704078');
 
         const filter = m => m.content;
 
