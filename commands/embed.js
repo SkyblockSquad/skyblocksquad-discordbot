@@ -38,8 +38,6 @@ module.exports = {
             timestamp = seperatedArgs[4];
         }
 
-        title = title.slice(7);
-
         var createdEmbed = new discord.MessageEmbed()
             .setTitle(title)
             .setDescription(description);
