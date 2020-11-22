@@ -4,9 +4,6 @@ module.exports = {
     category: 'Miscellaneous',
     execute(message, args, discord) {
 
-        // ,embed title / description / color / footer / timestamp
-        // x = nothing
-
         var seperator = " / ";
 
         var seperatedArgs = args.join(" ").split(seperator);
@@ -31,7 +28,7 @@ module.exports = {
         }
 
         if (seperatedArgs.length >= 4) {
-            footer = seperatedArgs[3];
+            if(seperatedArgs[3].toLowerCase() !== "none") footer = seperatedArgs[3];
         }
 
         if (seperatedArgs.length == 5) {
@@ -50,11 +47,7 @@ module.exports = {
             createdEmbed.setFooter(footer);
         }
 
-        if(timestamp !== undefined) {
-            if(timestamp !== "yes" && timestamp !== "no") return message.channel.send("**Error:** Timestamp must be either **yes** or **no**!");
-            
-            if(timestamp == "yes") createdEmbed.setTimestamp();
-        }
+        if(timestamp !== undefined) createdEmbed.setTimestamp();
 
         message.channel.send(createdEmbed);
 
