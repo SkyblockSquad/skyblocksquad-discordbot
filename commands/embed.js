@@ -7,10 +7,6 @@ module.exports = {
         // ,embed title / description / color / footer / timestamp
         // x = nothing
 
-        const botConfig = require("../data/botconfig.json");
-
-        var prefix = botConfig.prefix;
-
         var seperator = " / ";
 
         var seperatedArgs = args.join(" ").split(seperator);
@@ -42,7 +38,7 @@ module.exports = {
             timestamp = seperatedArgs[4];
         }
 
-        title = title.slice(prefix.length + 5);
+        title = title.slice(7);
 
         var createdEmbed = new discord.MessageEmbed()
             .setTitle(title)
