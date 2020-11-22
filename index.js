@@ -135,14 +135,14 @@ client.on("message", async message => {
             }
         }
     }
-    
-    if(message.mentions.users.size > 0) {
+
+    if (message.mentions.users.size > 0) {
 
         message.mentions.users.forEach(m => {
 
             var afkRole = message.guild.members.cache.get(m.id).roles.cache.find(role => role.id === "779718452075954197");
 
-            if(afkRole) {
+            if (afkRole) {
                 message.channel.send(`**${m.username}** is currently AFK!`);
             }
 
@@ -224,6 +224,10 @@ client.on("message", async message => {
 
     if (command === `${prefix}afk`) {
         client.commands.get("afk").execute(message, args);
+    }
+
+    if (command === `${prefix}embed`) {
+        client.commands.get("embed").execute(message, args, discord);
     }
 
 });
