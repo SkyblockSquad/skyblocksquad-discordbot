@@ -25,17 +25,25 @@ module.exports = {
         if (minimum > maximum) return message.channel.send("**Error:** Your minimum count can't be higher then your maximum count!");
         if (minimum == maximum) return message.channel.send("**Error:** Dude! Why would you set the minimum and maximum to the same number? :thinking:");
 
-        var random = Math.floor(Math.random() * maximum + 1);
-
-        for (let i = 0; true; i++) {
-            if (random < minimum) {
-                random = Math.floor(Math.random() * maximum + 1);
-            } else {
-                break;
-            }
-        }
+        var random = randomInteger(minimum, maximum);
 
         message.channel.send(`**Your random number is:** ${random.toLocaleString()}`);
+
+        function randomInteger(minimum, maximum) {
+
+            var random = Math.floor(Math.random() * maximum + 1);
+
+            for (let i = 0; true; i++) {
+                if(random < minimum) {
+                    random = Math.floor(Mat.random() * maximum + 1);
+                } else {
+                    break;
+                }
+            }
+
+            return random;
+
+        }
 
     },
 };
