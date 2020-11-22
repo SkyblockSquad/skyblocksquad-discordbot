@@ -37,6 +37,21 @@ module.exports = {
             .setColor("00BFFF")
             .setDescription(`Couldn't send a DM to ${ticketUser} because they have private messages disabled!`)
 
+        function getTicketOwner(channel) {
+
+            var topic = channel.topic;
+
+            var ticketArgs = topic.split(" ");
+            var ticketID = ticketArgs[1];
+
+            var ticketOwner = message.guild.members.cache.get(ticketID);
+            
+            return ticketOwner;
+
+        }
+
+        message.channel.send(`**DEBUG:** ${getTicketOwner(message.channel)}`);
+
         const filter = m => m.content;
 
         message.channel.send(choiceEmbed).then(async msg => {
