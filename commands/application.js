@@ -171,6 +171,8 @@ module.exports = {
 
                 message.channel.awaitMessages(filter, { max: 1, time: 600000 }).then(collected => {
 
+                    message.channel.bulkDelete(3);
+
                     var user = collected.first();
 
                     if (user == undefined) return message.channel.send("**Error:** Command timed out.");
@@ -196,8 +198,6 @@ module.exports = {
                         .setTitle("ADDED USER")
                         .setDescription(`Succesfully added ${addUser} to the application ticket!`)
                         .setColor("00BFFF")
-
-                    message.channel.bulkDelete(2);
 
                     message.channel.send(embed);
 
