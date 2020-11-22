@@ -17,7 +17,7 @@ module.exports = {
             var ticketID = ticketArgs[1];
 
             var ticketOwner = message.guild.members.cache.get(ticketID);
-            
+
             return ticketOwner;
 
         }
@@ -37,6 +37,11 @@ module.exports = {
             .setTitle("MANAGE APPLICATION")
             .setColor("00BFFF")
             .addField("Reason:", "Please enter a reason.", false)
+
+        var userEmbed = new discord.MessageEmbed()
+            .setTitle("MANAGE APPLICATION")
+            .setColor("00BFFF")
+            .addField("User:", "Please ping a user id.", false)
 
         var dmEnabled = new discord.MessageEmbed()
             .setTitle("SUCCES!")
@@ -111,7 +116,7 @@ module.exports = {
 
                 message.channel.send(reasonEmbed);
 
-                message.channel.awaitMessages(filter, { max: 1, time: 300000 }).then(collected => {
+                message.channel.awaitMessages(filter, { max: 1, time: 120000 }).then(collected => {
 
                     var reason = collected.first();
 
@@ -164,23 +169,37 @@ module.exports = {
 
                 message.channel.bulkDelete(1);
 
-                message.channel.updateOverwrite(ticketUser, {
-                    SEND_MESSAGES: true,
-                    CREATE_INSTANT_INVITE: false,
-                    READ_MESSAGES: true,
-                    ATTACH_FILES: true,
-                    ADD_REACTIONS: false,
-                    CONNECT: false,
-                    READ_MESSAGE_HISTORY: true,
-                    VIEW_CHANNEL: true
-                });
+                message.channel.send(userEmbed);
 
-                var embed = new discord.MessageEmbed()
-                    .setTitle("ADDED USER")
-                    .setDescription(`Succesfully added ${ticketUser} to the application ticket!`)
-                    .setColor("00BFFF")
+                message.channel.awaitMessages(filter, { max: 1, time: 600000 }).then(collected => {
 
-                message.channel.send(embed);
+                    var user = collected.first();
+
+                    if (user == undefined) return message.channel.send("**Error:** Command timed out.");
+
+                    user = user.toString();
+
+                    var addUser = message.guild.members.cache.get(user);
+
+                    message.channel.updateOverwrite(addUser, {
+                        SEND_MESSAGES: true,
+                        CREATE_INSTANT_INVITE: false,
+                        READ_MESSAGES: true,
+                        ATTACH_FILES: true,
+                        ADD_REACTIONS: false,
+                        CONNECT: false,
+                        READ_MESSAGE_HISTORY: true,
+                        VIEW_CHANNEL: true
+                    });
+
+                    var embed = new discord.MessageEmbed()
+                        .setTitle("ADDED USER")
+                        .setDescription(`Succesfully added ${addUser} to the application ticket!`)
+                        .setColor("00BFFF")
+
+                    message.channel.send(embed);
+
+                })
 
             } else if (emoji === "🎫") {
 
