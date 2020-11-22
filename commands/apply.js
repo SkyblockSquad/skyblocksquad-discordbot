@@ -82,7 +82,8 @@ module.exports = {
                         var information = new discord.MessageEmbed()
                             .setTitle("WELCOME TO YOUR TICKET!")
                             .setDescription("This is your ticket. Before answering the questions, make sure that you agree with everything in the #applications channel!")
-                            .setColor("00BFFF");
+                            .setColor("00BFFF")
+                            .addField("Note", "If the bot doesn't respond in about a minute,\nit's probally because the bot restarted\nor crashed during your application. Please\nmessage an Administrator if this happens.");
 
                         var question_txt1 = "What is your Minecraft username? (Make sure that all caps are correct and that there are no typo's)";
                         var question_txt2 = "What is your Discord tag? (For example: **SkyblockSquad Bot#3596**)";
