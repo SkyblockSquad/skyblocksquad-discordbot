@@ -8,7 +8,7 @@ module.exports = {
 
         var seperatedArgs = args.join(" ").split(seperator);
 
-        if (seperatedArgs.length < 2) return message.channel.send("**Error:** You need to provide a title and a description!");
+        if (seperatedArgs.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,embed [title] / [description] / {color} / {footer} / {timestamp}**\n*Title and description is required, the rest isn't*\n*To provide a color, use hexadecimal, for example: #ff00b9,*\n*or a color's name, for example RED*\n*Type 'none' for an empty footer*\n*To set a timestamp, provide anything*");
 
         if (seperatedArgs.length > 5) return message.channel.send("**Error:** Too much arguments provided!");
 
