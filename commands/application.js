@@ -41,7 +41,7 @@ module.exports = {
         var userEmbed = new discord.MessageEmbed()
             .setTitle("MANAGE APPLICATION")
             .setColor("00BFFF")
-            .addField("User:", "Please ping a user id.", false)
+            .addField("User:", "Please enter the id of a user.", false)
 
         var dmEnabled = new discord.MessageEmbed()
             .setTitle("SUCCES!")
@@ -167,8 +167,6 @@ module.exports = {
 
             } else if (emoji === "🎟️") {
 
-                message.channel.bulkDelete(1);
-
                 message.channel.send(userEmbed);
 
                 message.channel.awaitMessages(filter, { max: 1, time: 600000 }).then(collected => {
@@ -180,6 +178,8 @@ module.exports = {
                     user = user.toString();
 
                     var addUser = message.guild.members.cache.get(user);
+
+                    if(addUser == undefined) return message.channel.send("**Error:** Invalid player ID provided.");
 
                     message.channel.updateOverwrite(addUser, {
                         SEND_MESSAGES: true,
@@ -196,6 +196,8 @@ module.exports = {
                         .setTitle("ADDED USER")
                         .setDescription(`Succesfully added ${addUser} to the application ticket!`)
                         .setColor("00BFFF")
+
+                    message.channel.bulkDelete(2);
 
                     message.channel.send(embed);
 
