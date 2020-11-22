@@ -41,11 +41,17 @@ var embedFooter = botConfig.embedFooter;
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
-    client.user.setActivity(",help | SkyblockSquad Bot", { type: "PLAYING" });
+
+    var activities = ["skyblock", "music", "youtube"];
+
+    var activity = activities[Math.floor(Math.random() * activities.length)];
+
+    if (activity === "skyblock") client.user.setActivity("Hypixel Skyblock", { type: "PLAYING" });
+    if (activity === "music") client.user.setActivity("some nice music", { type: "LISTENING" });
+    if (activity === "youtube") client.user.setActivity("memes on Youtube", { type: "WATCHING" });
 
 });
 
-// Server detection
 client.on("message", async message => {
 
     if (message.channel.type === "dm") return;
