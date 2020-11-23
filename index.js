@@ -42,17 +42,7 @@ client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
 
-    var activities = ["skyblock", "music", "youtube", "bedwars", "server stats"];
-
-    var activity = activities[Math.floor(Math.random() * activities.length)];
-
-    var guild = client.guilds.cache.get('683205054681055233');
-
-    if (activity === "skyblock") client.user.setActivity("Hypixel Skyblock", { type: "PLAYING" });
-    if (activity === "music") client.user.setActivity("some nice music", { type: "LISTENING" });
-    if (activity === "youtube") client.user.setActivity("memes on Youtube", { type: "WATCHING" });
-    if (activity === "bedwars") client.user.setActivity("bedwars", { type: "COMPETING" });
-    if (activity === "server stats") client.user.setActivity(`SkyblockSquad Discord stats: ${guild.memberCount} members!`, { type: "WATCHING" });
+    setRandomActivity();
 
 });
 
@@ -174,17 +164,7 @@ client.on("message", async message => {
 
     var randomTrigger = Math.ceil(Math.random() * 10);
     if (randomTrigger == 5) {
-        var activities = ["skyblock", "music", "youtube", "bedwars", "server stats"];
-
-        var activity = activities[Math.floor(Math.random() * activities.length)];
-
-        var guild = client.guilds.cache.get('683205054681055233');
-
-        if (activity === "skyblock") client.user.setActivity("Hypixel Skyblock", { type: "PLAYING" });
-        if (activity === "music") client.user.setActivity("some nice music", { type: "LISTENING" });
-        if (activity === "youtube") client.user.setActivity("memes on Youtube", { type: "WATCHING" });
-        if (activity === "bedwars") client.user.setActivity("bedwars", { type: "COMPETING" });
-        if (activity === "server stats") client.user.setActivity(`SkyblockSquad Discord stats: ${guild.memberCount} members!`, { type: "WATCHING" });
+        setRandomActivity();
     }
 
     var args = message.content.split(" ");
@@ -268,3 +248,19 @@ client.on("message", async message => {
     }
 
 });
+
+function setRandomActivity() {
+
+    var activities = ["skyblock", "music", "youtube", "bedwars", "server stats"];
+
+    var activity = activities[Math.floor(Math.random() * activities.length)];
+
+    var guild = client.guilds.cache.get('683205054681055233');
+
+    if (activity === "skyblock") client.user.setActivity("Hypixel Skyblock", { type: "PLAYING" });
+    if (activity === "music") client.user.setActivity("some nice music", { type: "LISTENING" });
+    if (activity === "youtube") client.user.setActivity("memes on Youtube", { type: "WATCHING" });
+    if (activity === "bedwars") client.user.setActivity("bedwars", { type: "COMPETING" });
+    if (activity === "server stats") client.user.setActivity(`SkyblockSquad Discord stats: ${guild.memberCount} members!`, { type: "WATCHING" });
+
+}

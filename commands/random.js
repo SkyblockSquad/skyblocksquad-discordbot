@@ -34,7 +34,7 @@ module.exports = {
             var random = Math.floor(Math.random() * maximum + 1);
 
             for (let i = 0; true; i++) {
-                if(random < minimum) {
+                if (random < minimum) {
                     random = Math.floor(Math.random() * maximum + 1);
                 } else {
                     break;
