@@ -113,7 +113,7 @@ client.on("message", async message => {
             var botEmbed = new discord.MessageEmbed()
                 .setTitle("SWEAR FILTER")
                 .setDescription(`${message.author.username} tried to swear!`)
-                .setColor(embedColor)
+                .setColor("#FF0000")
                 .setFooter(embedFooter)
                 .setTimestamp()
                 .addFields(
@@ -136,7 +136,7 @@ client.on("message", async message => {
         var botEmbed = new discord.MessageEmbed()
             .setTitle("INVISIBLE CHARACTER FILTER")
             .setDescription(`${message.author.username} tried to use invisble characters!`)
-            .setColor(embedColor)
+            .setColor("#FF0000")
             .setFooter(embedFooter)
             .setTimestamp()
             .addField("Warn command", `You can warn them using:\n**eli warn ${message.author.id} Using invisble characters (Rule X)**`)
