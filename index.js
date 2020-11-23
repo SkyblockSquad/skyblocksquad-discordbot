@@ -162,10 +162,8 @@ client.on("message", async message => {
 
     }
 
-    var randomTrigger = Math.ceil(Math.random() * 10);
-    if (randomTrigger == 5) {
-        setRandomActivity();
-    }
+    var chance = randomChance(10);
+    if(chance) setRandomActivity();
 
     var args = message.content.split(" ");
     var command = args[0]
@@ -262,5 +260,35 @@ function setRandomActivity() {
     if (activity === "youtube") client.user.setActivity("memes on Youtube", { type: "WATCHING" });
     if (activity === "bedwars") client.user.setActivity("bedwars", { type: "COMPETING" });
     if (activity === "server stats") client.user.setActivity(`SkyblockSquad Discord stats: ${guild.memberCount} members!`, { type: "WATCHING" });
+
+}
+
+function randomInteger(minimum, maximum) {
+
+    var random = Math.floor(Math.random() * maximum + 1);
+
+    for (let i = 0; true; i++) {
+        if (random < minimum) {
+            random = Math.floor(Math.random() * maximum + 1);
+        } else {
+            break;
+        }
+    }
+
+    return random;
+
+}
+
+function randomChance(percentage) {
+
+    var calc = 100 / percentage;
+
+    var random = randomInteger(1, Math.round(calc));
+
+    if(random == 1) {
+        return true;
+    } else {
+        return false;
+    }
 
 }
