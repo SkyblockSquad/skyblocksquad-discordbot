@@ -279,6 +279,7 @@ function randomInteger(minimum, maximum) {
 
 }
 
+// Requires function randomInteger
 function randomChance(percentage) {
 
     var calc = 100 / percentage;
