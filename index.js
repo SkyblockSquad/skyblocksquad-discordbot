@@ -60,7 +60,7 @@ client.on("ready", async () => {
 
 client.on("message", async message => {
 
-    for (const system of systems) {
+    for (const system of client.systems) {
 
         system.execute(client, message, args);
 
