@@ -109,26 +109,6 @@ client.on("message", async message => {
 
     }
 
-    if (message.content.includes("‎")) {
-
-        message.delete();
-
-        var channel = message.guild.channels.cache.find(ch => ch.name === "bot-logs");
-
-        var botEmbed = new discord.MessageEmbed()
-            .setTitle("INVISIBLE CHARACTER FILTER")
-            .setDescription(`${message.author.username} tried to use invisble characters!`)
-            .setColor("#FF0000")
-            .setFooter(embedFooter)
-            .setTimestamp()
-            .addField("Warn command", `You can warn them using:\n**eli warn ${message.author.id} Using invisble characters (Rule X)**`)
-
-        channel.send(botEmbed);
-
-        return message.channel.send(`<@${message.author.id}>: **Please don't use invisible characters!**`).then(msg => msg.delete({ timeout: 5000 }));
-
-    }
-
     if (!(message.member.hasPermission("ADMINISTRATOR"))) {
         if (!(message.channel.id === "703168301634945097")) {
             if (message.content.startsWith(`${prefix}`)) {
