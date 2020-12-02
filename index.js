@@ -1,7 +1,5 @@
 const discord = require("discord.js");
 const fs = require("fs");
-const fetch = require("node-fetch");
-const moment = require("moment");
 
 const client = new discord.Client();
 client.login(process.env.token);
@@ -33,8 +31,23 @@ for (const file of commandFiles) {
 
 console.log(`${commandFiles.length} command files have been loaded.`);
 
+console.log("Loading system files...");
+
+client.systems = new discord.Collection();
+const systemFiles = fs.readdirSync('./systems').filter(file => file.endsWith('.js'));
+
+for (const file of systemFiles) {
+
+    const system = require(`./systems/${file}`);
+    client.systems.set(system.name, system);
+
+    console.log(`System file "${system.name}.js" has been loaded.`)
+
+}
+
+console.log(`${systemFiles.length} system files have been loaded.`);
+
 var prefix = botConfig.prefix;
-var embedColor = botConfig.embedColor;
 var embedFooter = botConfig.embedFooter;
 
 client.on("ready", async () => {
@@ -162,7 +175,7 @@ client.on("message", async message => {
     }
 
     var chance = randomChance(10);
-    if(chance) setRandomActivity();
+    if (chance) setRandomActivity();
 
     var args = message.content.split(" ");
     var command = args[0]
@@ -170,7 +183,7 @@ client.on("message", async message => {
 
     var commands = client.commands.get(command.slice(prefix.length));
 
-    if(commands) commands.execute(client, message, args);
+    if (commands) commands.execute(client, message, args);
 
 });
 
@@ -213,7 +226,7 @@ function randomChance(percentage) {
 
     var random = randomInteger(1, Math.round(calc));
 
-    if(random == 1) {
+    if (random == 1) {
         return true;
     } else {
         return false;
