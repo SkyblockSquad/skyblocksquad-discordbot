@@ -63,28 +63,10 @@ client.on("message", async message => {
     client.systems.forEach(system => {
 
         system.execute(client, message, args);
-
+        
     })
 
     if (message.channel.type === "dm") return;
-
-    if (message.channel.parentID === "774903762447630367") {
-
-        if (message.author.bot && message.author.id !== "715568351052693622") {
-            message.delete();
-        }
-
-    }
-
-    if (message.channel.id === "774544902569590796") {
-        if (message.author.bot && message.author.id === "649604306596528138") {
-
-            setTimeout(function () {
-                message.channel.send("[<@&746261958302367766>]");
-            }, 3000);
-
-        }
-    }
 
     if (message.author.bot) return;
 
