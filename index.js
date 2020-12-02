@@ -166,7 +166,7 @@ client.on("message", async message => {
 
     var args = message.content.split(" ");
     var command = args[0]
-    args = args.shift();
+    args.shift();
 
     var commands = client.commands.get(command.slice(prefix.length));
 
