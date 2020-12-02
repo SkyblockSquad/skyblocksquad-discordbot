@@ -33,6 +33,7 @@ module.exports = {
                     .setTimestamp()
                     .addFields(
                         { name: "Message", value: message.content },
+                        { name: "Channel", value: message.channel },
                         { name: "Warn Command", value: `You can warn them using:\n**eli warn ${message.author.id} Swearing (Rule IV)**` }
                     )
 
