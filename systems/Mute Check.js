@@ -18,10 +18,10 @@ module.exports = {
 
         function permissionLevel(member) {
 
-            var helperRole = message.guild.roles.cache.has("683206050048114728");
-            var moderatorRole = message.guild.roles.cache.has("683205888034603042");
-            var administratorRole = message.guild.roles.cache.has("683205637001183365");
-            var guildMasterRole = message.guild.roles.cache.has("683205412488478809");
+            var helperRole = message.member.roles.cache.has("683206050048114728");
+            var moderatorRole = message.member.roles.cache.has("683205888034603042");
+            var administratorRole = message.member.roles.cache.has("683205637001183365");
+            var guildMasterRole = message.member.roles.cache.has("683205412488478809");
 
             if (!helperRole && !moderatorRole && !administratorRole && !guildMasterRole) {
                 return 1;
