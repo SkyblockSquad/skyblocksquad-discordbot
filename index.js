@@ -60,6 +60,12 @@ client.on("ready", async () => {
 
 client.on("message", async message => {
 
+    for (const system of systems) {
+
+        system.execute(client, message, args);
+
+    }
+
     if (message.channel.type === "dm") return;
 
     if (message.author.bot && message.author.id === "715568351052693622") {
