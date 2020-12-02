@@ -3,6 +3,9 @@ module.exports = {
     execute(client, message, args) {
 
         const discord = require("discord.js");
+        const botConfig = require("../data/botconfig.json");
+
+        var embedFooter = botConfig.embedFooter;
 
         if (message.content.includes("‎")) {
 
