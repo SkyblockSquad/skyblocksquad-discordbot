@@ -59,7 +59,7 @@ client.on("ready", async () => {
 });
 
 client.on("message", async message => {
-
+    
     client.systems.forEach(system => {
 
         system.execute(client, message, args);
