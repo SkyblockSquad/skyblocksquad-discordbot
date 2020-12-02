@@ -2,7 +2,14 @@ module.exports = {
     name: 'covid',
     description: '*See live covid-19 statistics! Confirmed cases, recovered people and deaths.*',
     category: 'Covid-19',
-    execute(discord, message, embedColor, embedFooter, args, fetch) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
+        const fetch = require("node-fetch");
+        const botConfig = require("../data/botconfig.json");
+
+        var embedColor = botConfig.embedColor;
+        var embedFooter = botConfig.embedFooter;
 
         let countries = args.join(" ");
 

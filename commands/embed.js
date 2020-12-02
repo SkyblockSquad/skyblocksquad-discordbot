@@ -2,7 +2,9 @@ module.exports = {
     name: 'embed',
     description: '*Create a nice looking embed!*',
     category: 'Miscellaneous',
-    execute(message, args, discord) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
 
         var seperator = " / ";
 

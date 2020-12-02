@@ -2,7 +2,15 @@ module.exports = {
     name: 'hypixel',
     description: 'See your and other people\'s stats!',
     category: 'Hypixel',
-    execute(message, args, discord, fetch, embedColor, embedFooter, moment) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
+        const fetch = require("node-fetch");
+        const moment = require("moment");
+        const botConfig = require("../data/botconfig.json");
+
+        var embedColor = botConfig.embedColor;
+        var embedFooter = botConfig.embedFooter;
 
         if (args.length >= 2 || args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,hypixel {username}**!");
 

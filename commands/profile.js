@@ -2,7 +2,9 @@ module.exports = {
     name: 'profile',
     description: 'See information about your Skyblock profile!',
     category: 'Hypixel',
-    execute(message, args, fetch) {
+    execute(client, message, args) {
+
+        const fetch = require("node-fetch");
 
         if (args.length >= 3 || args.length <= 1) return message.channel.send("**Error:** Invalid syntax! Please use **,profile {username} {profile name}**");
 

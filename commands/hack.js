@@ -2,7 +2,13 @@ module.exports = {
     name: 'hack',
     description: '*Hack the server! (You won\'t get banned lol)*',
     category: 'Fun & Games',
-    execute(discord, message, embedColor, embedFooter, args) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
+        const botConfig = require("../data/botconfig.json");
+
+        var embedColor = botConfig.embedColor;
+        var embedFooter = botConfig.embedFooter;
 
         if (message.channel.type == "dm") {
             message.channel.send('**Error:** This command can not be used in DM!');

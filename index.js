@@ -3,6 +3,9 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 const moment = require("moment");
 
+const client = new discord.Client();
+client.login(process.env.token);
+
 console.log("Loading data files...");
 
 const botConfig = require("./data/botconfig.json");
@@ -13,9 +16,6 @@ console.log("Data file \"swearWords.json\" has been loaded.");
 
 const dataFiles = fs.readdirSync('./data').filter(file => file.endsWith('.json'));
 console.log(`${dataFiles.length} data files have been loaded.`);
-
-const client = new discord.Client();
-client.login(process.env.token);
 
 console.log("Loading command files...");
 
@@ -37,7 +37,6 @@ var prefix = botConfig.prefix;
 var embedColor = botConfig.embedColor;
 var embedFooter = botConfig.embedFooter;
 
-// Console log + set activity
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is ready.`);
@@ -167,83 +166,87 @@ client.on("message", async message => {
 
     var args = message.content.split(" ");
     var command = args[0]
-    args.shift();
+    args = args.shift();
 
-    if (command === `${prefix}info`) {
-        client.commands.get("info").execute(discord, message, embedColor, embedFooter, client, args, moment);
-    }
+    var commands = client.commands.get(command.slice(prefix.length));
 
-    if (command === `${prefix}hack`) {
-        client.commands.get("hack").execute(discord, message, embedColor, embedFooter, args);
-    }
+    if(commands) commands.execute(client, message, args);
 
-    if (command === `${prefix}is`) {
-        client.commands.get("is").execute(message, args);
-    }
+    // if (command === `${prefix}info`) {
+    //     client.commands.get("info").execute(discord, message, embedColor, embedFooter, client, args, moment);
+    // }
 
-    if (command === `${prefix}covid`) {
-        client.commands.get("covid").execute(discord, message, embedColor, embedFooter, args, fetch);
-    }
+    // if (command === `${prefix}hack`) {
+    //     client.commands.get("hack").execute(discord, message, embedColor, embedFooter, args);
+    // }
 
-    if (command === `${prefix}rps`) {
-        client.commands.get("rps").execute(message, args);
-    }
+    // if (command === `${prefix}is`) {
+    //     client.commands.get("is").execute(message, args);
+    // }
 
-    if (command === `${prefix}say`) {
-        client.commands.get("say").execute(message, args);
-    }
+    // if (command === `${prefix}covid`) {
+    //     client.commands.get("covid").execute(discord, message, embedColor, embedFooter, args, fetch);
+    // }
 
-    if (command === `${prefix}ping`) {
-        client.commands.get("ping").execute(message, args, client);
-    }
+    // if (command === `${prefix}rps`) {
+    //     client.commands.get("rps").execute(message, args);
+    // }
 
-    if (command === `${prefix}profile`) {
-        client.commands.get("profile").execute(message, args, fetch);
-    }
+    // if (command === `${prefix}say`) {
+    //     client.commands.get("say").execute(message, args);
+    // }
 
-    if (command === `${prefix}hypixel`) {
-        client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter, moment);
-    }
+    // if (command === `${prefix}ping`) {
+    //     client.commands.get("ping").execute(message, args, client);
+    // }
 
-    if (command === `${prefix}poll`) {
-        client.commands.get("poll").execute(message, discord, embedColor, embedFooter);
-    }
+    // if (command === `${prefix}profile`) {
+    //     client.commands.get("profile").execute(message, args, fetch);
+    // }
 
-    if (command === `${prefix}slowmode`) {
-        client.commands.get("slowmode").execute(message, args);
-    }
+    // if (command === `${prefix}hypixel`) {
+    //     client.commands.get("hypixel").execute(message, args, discord, fetch, embedColor, embedFooter, moment);
+    // }
 
-    if (command === `${prefix}me`) {
-        client.commands.get("me").execute(message, args, discord, embedColor, embedFooter, moment);
-    }
+    // if (command === `${prefix}poll`) {
+    //     client.commands.get("poll").execute(message, discord, embedColor, embedFooter);
+    // }
 
-    if (command === `${prefix}apply`) {
-        client.commands.get("apply").execute(message, discord, embedFooter);
-    }
+    // if (command === `${prefix}slowmode`) {
+    //     client.commands.get("slowmode").execute(message, args);
+    // }
 
-    if (command === `${prefix}application`) {
-        client.commands.get("application").execute(message, discord, args);
-    }
+    // if (command === `${prefix}me`) {
+    //     client.commands.get("me").execute(message, args, discord, embedColor, embedFooter, moment);
+    // }
 
-    if (command === `${prefix}emojify`) {
-        client.commands.get("emojify").execute(message, args);
-    }
+    // if (command === `${prefix}apply`) {
+    //     client.commands.get("apply").execute(message, discord, embedFooter);
+    // }
 
-    if (command === `${prefix}random`) {
-        client.commands.get("random").execute(message, args);
-    }
+    // if (command === `${prefix}application`) {
+    //     client.commands.get("application").execute(message, discord, args);
+    // }
 
-    if (command === `${prefix}help`) {
-        client.commands.get("help").execute(message, args, client, discord, embedColor, embedFooter, prefix);
-    }
+    // if (command === `${prefix}emojify`) {
+    //     client.commands.get("emojify").execute(message, args);
+    // }
 
-    if (command === `${prefix}afk`) {
-        client.commands.get("afk").execute(message, args);
-    }
+    // if (command === `${prefix}random`) {
+    //     client.commands.get("random").execute(message, args);
+    // }
 
-    if (command === `${prefix}embed`) {
-        client.commands.get("embed").execute(message, args, discord);
-    }
+    // if (command === `${prefix}help`) {
+    //     client.commands.get("help").execute(message, args, client, discord, embedColor, embedFooter, prefix);
+    // }
+
+    // if (command === `${prefix}afk`) {
+    //     client.commands.get("afk").execute(message, args);
+    // }
+
+    // if (command === `${prefix}embed`) {
+    //     client.commands.get("embed").execute(message, args, discord);
+    // }
 
 });
 

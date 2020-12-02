@@ -1,7 +1,7 @@
 module.exports = {
     name: 'say',
     description: 'say',
-    execute(message, args) {
+    execute(client, message, args) {
 
         if (!(message.member.hasPermission("ADMINISTRATOR"))) return;
         if (args.length == 0) return;

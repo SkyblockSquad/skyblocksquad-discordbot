@@ -1,7 +1,12 @@
 module.exports = {
     name: 'apply',
     description: 'apply',
-    execute(message, discord, embedFooter) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
+        const botConfig = require("../data/botconfig.json");
+
+        var embedFooter = botConfig.embedFooter;
 
         var categoryID = "774903762447630367";
         var author = message.author;

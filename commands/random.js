@@ -2,7 +2,7 @@ module.exports = {
     name: 'random',
     description: '*Generate a random numer!*',
     category: 'Fun & Games',
-    execute(message, args) {
+    execute(client, message, args) {
 
         if (args.length > 2 || args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,random [minimum] [maximum]**");
 

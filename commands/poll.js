@@ -1,7 +1,13 @@
 module.exports = {
     name: 'poll',
     description: 'poll',
-    execute(message, discord, embedColor, embedFooter) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
+        const botConfig = require("../data/botconfig.json");
+
+        var embedColor = botConfig.embedColor;
+        var embedFooter = botConfig.embedFooter;
 
         if (!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
 

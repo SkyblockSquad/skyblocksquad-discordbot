@@ -2,7 +2,7 @@ module.exports = {
     name: 'emojify',
     description: '*Transform a text into emojis! Wauw!*',
     category: 'Fun & Games',
-    execute(message, args) {
+    execute(client, message, args) {
 
         if (args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,emojify [text]**");
 

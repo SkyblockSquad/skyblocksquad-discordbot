@@ -1,7 +1,9 @@
 module.exports = {
     name: 'application',
     description: 'application',
-    execute(message, discord, args) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
 
         if(args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
 

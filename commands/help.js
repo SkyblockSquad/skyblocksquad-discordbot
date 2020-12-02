@@ -2,7 +2,14 @@ module.exports = {
     name: 'help',
     description: '*See a list of all bot commands from a specific category!*',
     category: 'Information',
-    execute(message, args, client, discord, embedColor, embedFooter, prefix) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
+        const botConfig = require("../data/botconfig.json");
+
+        var prefix = botConfig.prefix;
+        var embedColor = botConfig.embedColor;
+        var embedFooter = botConfig.embedFooter;
 
         var embedDescription = "\n\n[] = required / {} = optional / () = multiple possible arguments";
         var helpMenu = args.join(" ");

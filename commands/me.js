@@ -2,7 +2,14 @@ module.exports = {
     name: 'me',
     description: '*See some cool information about yourself!*',
     category: 'Information',
-    execute(message, args, discord, embedColor, embedFooter, moment) {
+    execute(client, message, args) {
+
+        const discord = require("discord.js");
+        const moment = require("moment");
+        const botConfig = require("../data/botconfig.json");
+
+        var embedColor = botConfig.embedColor;
+        var embedFooter = botConfig.embedFooter;
 
         if (args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
 
