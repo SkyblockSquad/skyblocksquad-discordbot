@@ -70,15 +70,6 @@ client.on("message", async message => {
 
     if (message.author.bot) return;
 
-    var mutedRole = message.member.roles.cache.find(role => role.id === "703187997822025738");
-    if (mutedRole) {
-
-        var adminRole = message.member.roles.cache.find(role => role.id === "683205637001183365");
-        var gmRole = message.member.roles.cache.find(role => role.id === "683205412488478809");
-        if (!adminRole && !gmRole) message.delete();
-
-    }
-
     if (!(message.member.hasPermission("ADMINISTRATOR"))) {
         if (!(message.channel.id === "703168301634945097")) {
             if (message.content.startsWith(`${prefix}`)) {

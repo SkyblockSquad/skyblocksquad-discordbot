@@ -8,9 +8,9 @@ module.exports = {
 
         if(!(roleInServer)) return console.log("Oops! Couldn't find the SkyblockSquad Bot role!");
         
-        var roleInBot = message.guild.me.roles.cache.get("780104794756218920");
+        var roleInBot = message.guild.me.roles.cache.has("780104794756218920");
 
-        if(!(roleInBot)) {
+        if(!roleInBot) {
             message.guild.me.roles.add(roleInServer);
         }
 
