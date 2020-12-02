@@ -12,7 +12,7 @@ module.exports = {
 
         if (message.author.bot) return;
 
-        var swearWords = JSON.parse(fs.readFileSync("../data/swearWords.json"));
+        var swearWords = require("../data/swearWords.json");
 
         var swearCheck = message.content.toLowerCase();
 
