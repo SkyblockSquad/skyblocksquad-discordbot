@@ -39,7 +39,7 @@ module.exports = {
             .setTitle("HELP (MISCELLANEOUS)")
             .setDescription(`See a list of miscellaneous commands below! ${embedDescription}`)
             .setColor(embedColor)
-            .setFooter()
+            .setFooter(embedFooter)
             .setTimestamp()
 
         var covid19Embed = new discord.MessageEmbed()
