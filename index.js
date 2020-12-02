@@ -60,11 +60,11 @@ client.on("ready", async () => {
 
 client.on("message", async message => {
 
-    for (const system of client.systems) {
+    client.systems.forEach(system => {
 
         system.execute(client, message, args);
 
-    }
+    })
 
     if (message.channel.type === "dm") return;
 
