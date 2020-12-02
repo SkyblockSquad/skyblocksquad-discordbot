@@ -109,32 +109,6 @@ client.on("message", async message => {
 
     }
 
-    var check = message.content.toLowerCase();
-
-    for (let i = 0; i < swearWords["swearWords"].length; i++) {
-        if (check.includes(swearWords["swearWords"][i])) {
-
-            message.delete();
-
-            var channel = message.guild.channels.cache.find(ch => ch.name === "bot-logs");
-
-            var botEmbed = new discord.MessageEmbed()
-                .setTitle("SWEAR FILTER")
-                .setDescription(`${message.author.username} tried to swear!`)
-                .setColor("#FF0000")
-                .setFooter(embedFooter)
-                .setTimestamp()
-                .addFields(
-                    { name: "Message", value: message.content },
-                    { name: "Warn command", value: `You can warn them using:\n**eli warn ${message.author.id} Swearing (Rule IV)**` }
-                )
-
-            channel.send(botEmbed);
-
-            return message.channel.send(`<@${message.author.id}>: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 }));
-        }
-    }
-
     if (message.content.includes("‎")) {
 
         message.delete();
