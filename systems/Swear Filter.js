@@ -3,7 +3,6 @@ module.exports = {
     execute(client, message, args) {
 
         const discord = require("discord.js");
-        const fs = require("fs");
         const botConfig = require("../data/botconfig.json");
 
         var embedFooter = botConfig.embedFooter;
