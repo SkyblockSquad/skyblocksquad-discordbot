@@ -61,7 +61,12 @@ client.on("message", async message => {
 
     client.systems.forEach(system => {
 
-        system.execute(client, message, args);
+        if(system.name === "Return Test") {
+            var test = system.execute(client, message, args);
+            console.log(test);
+        } else {
+            system.execute(client, message, args);
+        }
 
     })
 
