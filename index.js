@@ -48,7 +48,6 @@ for (const file of systemFiles) {
 console.log(`${systemFiles.length} system files have been loaded.`);
 
 var prefix = botConfig.prefix;
-var embedFooter = botConfig.embedFooter;
 
 client.on("ready", async () => {
 
@@ -63,23 +62,12 @@ client.on("message", async message => {
     client.systems.forEach(system => {
 
         system.execute(client, message, args);
-        
+
     })
 
     if (message.channel.type === "dm") return;
 
     if (message.author.bot) return;
-
-    if (!(message.member.hasPermission("ADMINISTRATOR"))) {
-        if (!(message.channel.id === "703168301634945097")) {
-            if (message.content.startsWith(`${prefix}`)) {
-
-                message.delete();
-                return message.channel.send(`<@${message.author.id}>: **Please use the #bot-commands channel for bot commands!**`).then(msg => msg.delete({ timeout: 10000 }));
-
-            }
-        }
-    }
 
     if (message.mentions.users.size > 0) {
 
@@ -88,7 +76,7 @@ client.on("message", async message => {
             var afkRole = message.guild.members.cache.get(m.id).roles.cache.find(role => role.id === "779718452075954197");
 
             if (afkRole) {
-                message.channel.send(`**${m.username}** is currently AFK!`);
+                message.channel.send(`**${m.username}** is currently AFK!`).then(msg => msg.delete({ timeout: 7500 }));
             }
 
         })

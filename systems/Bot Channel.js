@@ -1,20 +1,24 @@
 module.exports = {
-    name: 'Mute Check',
+    name: 'Bot Channel',
     execute(client, message, args) {
+
+        const botConfig = require("../data/botconfig.json");
+
+        var prefix = botConfig.prefix;
 
         if (message.channel.type === "dm") return;
 
         if (message.author.bot) return;
 
-        var roleInServer = message.guild.roles.cache.get("703187997822025738");
+        if (permissionLevel(message.member) >= 4) return;
 
-        if (!(roleInServer)) return console.log("Oops! Couldn't find the Muted role!");
+        if (message.channel.id === "703168301634945097") return;
 
-        var roleInUser = message.member.roles.cache.has("703187997822025738");
+        if (!(message.content.startsWith(prefix))) return;
 
-        if (!roleInUser) return;
+        message.delete();
 
-        if(permissionLevel(message.member) < 4) message.delete();
+        return message.channel.send(`${message.author}: **Please use the <#703168301634945097> channel for bot commands!**`).then(msg => msg.delete({ timeout: 5000 }));
 
         function permissionLevel(member) {
 
