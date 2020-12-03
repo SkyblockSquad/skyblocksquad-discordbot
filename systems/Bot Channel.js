@@ -10,7 +10,7 @@ module.exports = {
 
         if (message.author.bot) return true;
 
-        if (permissionLevel(message.member) >= 4) return true;
+        if (permissionLevel(message.member) >= 2) return true;
 
         if (message.channel.id === "703168301634945097") return true;
 
