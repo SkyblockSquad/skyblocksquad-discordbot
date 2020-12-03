@@ -50,16 +50,23 @@ client.on("ready", async () => {
 
 client.on("message", async message => {
 
+    var returnStatements = [];
+
     client.systems.forEach(system => {
 
-        if(system.name === "Return Test") {
-            var test = system.execute(client, message, args);
-            console.log(test);
-        } else {
-            system.execute(client, message, args);
-        }
+        var statement = system.execute(client, message, args);
+
+        returnStatements.push(statement);
 
     })
+
+    var canContinue = true;
+
+    returnStatements.forEach(statement => {
+        if(statement == false) canContinue = false;
+    })
+
+    if(canContinue == false) return;
 
     if (message.channel.type === "dm") return;
 

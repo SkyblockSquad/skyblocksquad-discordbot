@@ -7,9 +7,9 @@ module.exports = {
 
         var embedFooter = botConfig.embedFooter;
 
-        if (message.channel.type === "dm") return;
+        if (message.channel.type === "dm") return true;
 
-        if (message.author.bot) return;
+        if (message.author.bot) return true;
 
         var swearWords = require("../data/swearWords.json");
 
@@ -23,7 +23,10 @@ module.exports = {
 
                 var logsChannel = message.guild.channels.cache.find(ch => ch.name === "bot-logs");
 
-                if (!(logsChannel)) return console.log("Oops! Couldn't find a channel named \"bot-logs\"!");
+                if (!(logsChannel)) {
+                    console.log("Oops! Couldn't find a channel named \"bot-logs\"!");
+                    return true;
+                }
 
                 var swearEmbed = new discord.MessageEmbed()
                     .setTitle("SWEAR FILTER")
@@ -39,7 +42,9 @@ module.exports = {
 
                 logsChannel.send(swearEmbed);
 
-                return message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 }));
+                message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 }));
+
+                return false;
 
             }
 

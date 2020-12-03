@@ -2,19 +2,27 @@ module.exports = {
     name: 'Mute Check',
     execute(client, message, args) {
 
-        if (message.channel.type === "dm") return;
+        if (message.channel.type === "dm") return true;
 
-        if (message.author.bot) return;
+        if (message.author.bot) return true;
 
         var roleInServer = message.guild.roles.cache.get("703187997822025738");
 
-        if (!(roleInServer)) return console.log("Oops! Couldn't find the Muted role!");
+        if (!(roleInServer)) {
+            console.log("Oops! Couldn't find the Muted role!");
+            return true;
+        }
 
         var roleInUser = message.member.roles.cache.has("703187997822025738");
 
-        if (!roleInUser) return;
+        if (!roleInUser) return true;
 
-        if(permissionLevel(message.member) < 4) message.delete();
+        if(permissionLevel(message.member) < 4) {
+            message.delete();
+            return false;
+        }
+
+        return true;
 
         function permissionLevel(member) {
 

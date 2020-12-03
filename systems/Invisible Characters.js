@@ -13,7 +13,10 @@ module.exports = {
 
             var logsChannel = message.guild.channels.cache.find(ch => ch.name === "bot-logs");
 
-            if (!(logsChannel)) return console.log("Oops! Couldn't find a channel named \"bot-logs\"!");
+            if (!(logsChannel)) {
+                console.log("Oops! Couldn't find a channel named \"bot-logs\"!");
+                return true;
+            }
 
             var invisCharEmbed = new discord.MessageEmbed()
                 .setTitle("INVISIBLE CHARACTER FILTER")
@@ -28,7 +31,9 @@ module.exports = {
 
             logsChannel.send(invisCharEmbed);
 
-            return message.channel.send(`${message.author}: **Please don't use invisible characters!**`).then(msg => msg.delete({ timeout: 5000 }));
+            message.channel.send(`${message.author}: **Please don't use invisible characters!**`).then(msg => msg.delete({ timeout: 5000 }));
+
+            return false;
 
         }
 

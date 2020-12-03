@@ -6,19 +6,21 @@ module.exports = {
 
         var prefix = botConfig.prefix;
 
-        if (message.channel.type === "dm") return;
+        if (message.channel.type === "dm") return true;
 
-        if (message.author.bot) return;
+        if (message.author.bot) return true;
 
-        if (permissionLevel(message.member) >= 4) return;
+        if (permissionLevel(message.member) >= 4) return true;
 
-        if (message.channel.id === "703168301634945097") return;
+        if (message.channel.id === "703168301634945097") return true;
 
-        if (!(message.content.startsWith(prefix))) return;
+        if (!(message.content.startsWith(prefix))) return true;
 
         message.delete();
 
-        return message.channel.send(`${message.author}: **Please use the <#703168301634945097> channel for bot commands!**`).then(msg => msg.delete({ timeout: 5000 }));
+        message.channel.send(`${message.author}: **Please use the <#703168301634945097> channel for bot commands!**`).then(msg => msg.delete({ timeout: 5000 }));
+
+        return false;
 
         function permissionLevel(member) {
 
