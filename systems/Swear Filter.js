@@ -17,7 +17,7 @@ module.exports = {
 
         for (let i = 0; i < swearWords["swearWords"].length; i++) {
 
-            if (swearCheck.includes(swearWords["swearWords"][i])) {
+            if (swearCheck.includes(swearWords["swearWords"][i])/* || swearCheck.includes(swearWords["swearWords"][i].replace("a", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("e", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("i", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("o", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("u", "*"))*/) {
 
                 message.delete();
 
@@ -42,7 +42,7 @@ module.exports = {
 
                 logsChannel.send(swearEmbed);
 
-                message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 }));
+                message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 })); // This might need to be moved above the if (!(logsChannel)) { to make sure it is always sent
 
                 return false;
 
