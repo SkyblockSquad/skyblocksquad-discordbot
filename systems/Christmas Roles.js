@@ -13,10 +13,10 @@ module.exports = {
         var iceWizardChance = randomChance(1);
         var yetiChance = randomChance(1);
 
-        var snowmanChance2 = randomChance(5);
-        var santaChance2 = randomChance(5);
-        var iceWizardChance2 = randomChance(1);
-        var yetiChance2 = randomChance(1);
+        var snowmanChance2 = randomChance(40);
+        var santaChance2 = randomChance(40);
+        var iceWizardChance2 = randomChance(20);
+        var yetiChance2 = randomChance(20);
 
         var roleEmbed = new discord.MessageEmbed()
             .setTitle("CHRISTMAS EVENT")
