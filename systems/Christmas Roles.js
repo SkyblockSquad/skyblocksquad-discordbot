@@ -15,6 +15,8 @@ module.exports = {
         var yetiChance = randomChance(1);
         var kingChance = randomChance(1);
         var godChance = randomChance(1);
+        var frostyChance = randomChance(5);
+        var grinchChance = randomChance(10);
 
         var snowmanChance2 = randomChance(70);
         var santaChance2 = randomChance(70);
@@ -23,6 +25,8 @@ module.exports = {
         var yetiChance2 = randomChance(40);
         var kingChance2 = randomChance(50);
         var godChance2 = randomChance(10);
+        var frostyChance2 = randomChance(60);
+        var grinchChance2 = randomChance(80);
 
         var roleEmbed = new discord.MessageEmbed()
             .setTitle("CHRISTMAS EVENT")
@@ -77,6 +81,20 @@ module.exports = {
             if (!(hasGod)) {
                 message.member.roles.add(message.guild.roles.cache.get("785088313392365588"));
                 roleEmbed.addField("Role", "GODLY! <@&785090640132046858>");
+                message.channel.send(roleEmbed);
+            }
+        } else if (frostyChance && frostyChance2) {
+            var hasFrosty = message.member.roles.cache.has("785098208761610250");
+            if (!(hasFrosty)) {
+                message.member.roles.add(message.guild.roles.cache.get("785098208761610250"));
+                roleEmbed.addField("Role", "LEGENDARY! <@&785098208761610250>");
+                message.channel.send(roleEmbed);
+            }
+        } else if (grinchChance && grinchChance2) {
+            var hasGrinch = message.member.roles.cache.has("785098460764045313");
+            if (!(hasGrinch)) {
+                message.member.roles.add(message.guild.roles.cache.get("785098460764045313"));
+                roleEmbed.addField("Role", "RARE! <@&785098460764045313>");
                 message.channel.send(roleEmbed);
             }
         }
