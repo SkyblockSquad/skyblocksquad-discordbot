@@ -11,21 +11,21 @@ module.exports = {
         var snowmanChance = randomChance(5);
         var santaChance = randomChance(5);
         var snowGolemChance = randomChance(5)
-        var iceWizardChance = randomChance(1);
+        var iceWizardChance = randomChance(5);
         var yetiChance = randomChance(1);
         var kingChance = randomChance(1);
         var godChance = randomChance(1);
         var frostyChance = randomChance(5);
-        var grinchChance = randomChance(10);
+        var grinchChance = randomChance(20);
 
         var snowmanChance2 = randomChance(70);
         var santaChance2 = randomChance(70);
         var snowGolemChance2 = randomChance(50);
-        var iceWizardChance2 = randomChance(40);
+        var iceWizardChance2 = randomChance(50);
         var yetiChance2 = randomChance(40);
         var kingChance2 = randomChance(50);
         var godChance2 = randomChance(10);
-        var frostyChance2 = randomChance(60);
+        var frostyChance2 = randomChance(70);
         var grinchChance2 = randomChance(80);
 
         var roleEmbed = new discord.MessageEmbed()
