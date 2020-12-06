@@ -31,7 +31,7 @@ module.exports = {
 
             logsChannel.send(invisCharEmbed);
 
-            message.channel.send(`${message.author}: **Please don't use invisible characters!**`).then(msg => msg.delete({ timeout: 5000 }));
+            message.channel.send(`${message.author}: **Please don't use invisible characters!**`).then(msg => msg.delete({ timeout: 5000 })).catch();
 
             return false;
 

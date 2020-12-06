@@ -42,7 +42,7 @@ module.exports = {
 
                 logsChannel.send(swearEmbed);
 
-                message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 })); // This might need to be moved above the if (!(logsChannel)) { to make sure it is always sent
+                message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 })).catch(); // This might need to be moved above the if (!(logsChannel)) { to make sure it is always sent
 
                 return false;
 
