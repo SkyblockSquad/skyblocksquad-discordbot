@@ -10,11 +10,13 @@ module.exports = {
 
         var snowmanChance = randomChance(5);
         var santaChance = randomChance(5);
+        var snowGolemChance = randomChance(5)
         var iceWizardChance = randomChance(1);
         var yetiChance = randomChance(1);
 
         var snowmanChance2 = randomChance(70);
         var santaChance2 = randomChance(70);
+        var snowGolemChance2 = randomChance(50);
         var iceWizardChance2 = randomChance(40);
         var yetiChance2 = randomChance(40);
 
@@ -50,6 +52,13 @@ module.exports = {
             if (!(hasYeti)) {
                 message.member.roles.add(message.guild.roles.cache.get("785072273295933442"));
                 roleEmbed.addField("Role", "MYTHIC! <@&785072273295933442>");
+                message.channel.send(roleEmbed);
+            }
+        } else if (snowGolemChance && snowGolemChance2) {
+            var hasSnowGolem = message.member.roles.cache.has("785086927182757908");
+            if (!(hasSnowGolem)) {
+                message.member.roles.add(message.guild.roles.cache.get("785086927182757908"));
+                roleEmbed.addField("Role", "EPIC! <@&785086927182757908>");
                 message.channel.send(roleEmbed);
             }
         }
