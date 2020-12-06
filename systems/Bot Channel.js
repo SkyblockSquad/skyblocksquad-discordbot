@@ -18,7 +18,7 @@ module.exports = {
 
         message.delete();
 
-        message.channel.send(`${message.author}: **Please use the <#703168301634945097> channel for bot commands!**`).then(msg => msg.delete({ timeout: 5000 })).catch();
+        message.channel.send(`${message.author}: **Please use the <#703168301634945097> channel for bot commands!**`).then(msg => msg.delete({ timeout: 5000 }));
 
         return false;
 

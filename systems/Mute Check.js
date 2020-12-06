@@ -18,7 +18,7 @@ module.exports = {
         if (!roleInUser) return true;
 
         if(permissionLevel(message.member) < 4) {
-            message.delete().catch();
+            message.delete();
             return false;
         }
 
