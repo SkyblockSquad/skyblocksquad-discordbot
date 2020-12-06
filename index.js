@@ -72,20 +72,6 @@ client.on("message", async message => {
 
     if (message.author.bot) return;
 
-    if (message.mentions.users.size > 0) {
-
-        message.mentions.users.forEach(m => {
-
-            var afkRole = message.guild.members.cache.get(m.id).roles.cache.find(role => role.id === "779718452075954197");
-
-            if (afkRole) {
-                message.channel.send(`**${m.username}** is currently AFK!`).then(msg => msg.delete({ timeout: 7500 }));
-            }
-
-        })
-
-    }
-
     var chance = randomChance(10);
     if (chance) setRandomActivity();
 
