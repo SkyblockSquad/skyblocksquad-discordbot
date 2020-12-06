@@ -13,6 +13,7 @@ module.exports = {
         var snowGolemChance = randomChance(5)
         var iceWizardChance = randomChance(1);
         var yetiChance = randomChance(1);
+        var kingChance = randomChance(1);
         var godChance = randomChance(1);
 
         var snowmanChance2 = randomChance(70);
@@ -20,7 +21,8 @@ module.exports = {
         var snowGolemChance2 = randomChance(50);
         var iceWizardChance2 = randomChance(40);
         var yetiChance2 = randomChance(40);
-        var godChance2 = randomChance(50);
+        var kingChance2 = randomChance(50);
+        var godChance2 = randomChance(10);
 
         var roleEmbed = new discord.MessageEmbed()
             .setTitle("CHRISTMAS EVENT")
@@ -63,11 +65,18 @@ module.exports = {
                 roleEmbed.addField("Role", "EPIC! <@&785086927182757908>");
                 message.channel.send(roleEmbed);
             }
-        } else if (godChance && godChance2) {
-            var hasGod = message.member.roles.cache.has("785088313392365588");
-            if (!(hasGod)) {
+        } else if (kingChance && kingChance2) {
+            var hasKing = message.member.roles.cache.has("785088313392365588");
+            if (!(hasKing)) {
                 message.member.roles.add(message.guild.roles.cache.get("785088313392365588"));
                 roleEmbed.addField("Role", "MYTHIC! <@&785088313392365588>");
+                message.channel.send(roleEmbed);
+            }
+        } else if (godChance && godChance2) {
+            var hasGod = message.member.roles.cache.has("785090640132046858");
+            if (!(hasGod)) {
+                message.member.roles.add(message.guild.roles.cache.get("785088313392365588"));
+                roleEmbed.addField("Role", "GODLY! <@&785090640132046858>");
                 message.channel.send(roleEmbed);
             }
         }
