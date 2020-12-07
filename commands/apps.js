@@ -16,10 +16,10 @@ module.exports = {
         
         if (aArgs.toLowerCase() === "open") {
             botConfig.applicationsOpen = true;
-            return true;
+            return message.channel.send("**Applications are now open!**");
         } else if (aArgs.toLowerCase() === "close") {
             botConfig.applicationsOpen = false;
-            return false;
+            return message.channel.send("**Applications are now closed.");
         }
         
         var embed = new discord.MessageEmbed()
