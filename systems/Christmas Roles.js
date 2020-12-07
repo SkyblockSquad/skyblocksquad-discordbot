@@ -79,7 +79,7 @@ module.exports = {
         } else if (godChance && godChance2) {
             var hasGod = message.member.roles.cache.has("785090640132046858");
             if (!(hasGod)) {
-                message.member.roles.add(message.guild.roles.cache.get("785088313392365588"));
+                message.member.roles.add(message.guild.roles.cache.get("785090640132046858"));
                 roleEmbed.addField("Role", "GODLY! <@&785090640132046858>");
                 message.channel.send(roleEmbed);
             }
