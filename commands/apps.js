@@ -24,7 +24,7 @@ module.exports = {
         
         var embed = new discord.MessageEmbed()
             .setTitle("Application Management")
-            .setDescription("Manage applications with the below commands");
+            .setDescription("Manage applications with the below commands")
             .setColor(botConfig.embedColor)
             .setFooter(botConfig.embedFooter)
             .setTimestamp()
