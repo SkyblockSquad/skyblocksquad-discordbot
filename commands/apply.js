@@ -6,9 +6,7 @@ module.exports = {
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
         
-        if (botConfig.applicationsOpen === false) {
-            return message.channel.send("Applications are currently closed.  Sorry for any inconvenience.");
-        }
+        if (botConfig.applicationsOpen === false) return message.channel.send("Applications are currently closed. Sorry for any inconvenience.");
 
         var embedFooter = botConfig.embedFooter;
 
