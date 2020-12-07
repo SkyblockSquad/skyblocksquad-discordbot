@@ -1,5 +1,6 @@
 {
     "prefix": ",",
     "embedColor": "#00bfff",
-    "embedFooter": "SkyblockSquad Bot • Made for SkyblockSquad Guild"
+    "embedFooter": "SkyblockSquad Bot • Made for SkyblockSquad Guild",
+    "applicationsOpen": true
 }
