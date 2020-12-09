@@ -5,8 +5,8 @@ module.exports = {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
-        
-        if (botConfig.applicationsOpen === false) return message.channel.send("Applications are currently closed. Sorry for any inconvenience.");
+
+        if (message.guild.me.roles.cache.has("786237532684681246")) return message.channel.send("Applications are currently closed. Sorry for any inconvenience.");
 
         var embedFooter = botConfig.embedFooter;
 
@@ -47,7 +47,7 @@ module.exports = {
 
         var bannedRole = message.member.roles.cache.find(role => role.id === "779011412411547669");
 
-        if(bannedRole) return message.channel.send("**Error:** Oops! You are application banned!");
+        if (bannedRole) return message.channel.send("**Error:** Oops! You are application banned!");
 
         if (ticket) return;
 

@@ -63,10 +63,10 @@ client.on("message", async message => {
     var canContinue = true;
 
     returnStatements.forEach(statement => {
-        if(statement == false) canContinue = false;
+        if (statement == false) canContinue = false;
     })
 
-    if(canContinue == false) return;
+    if (canContinue == false) return;
 
     if (message.channel.type === "dm") return;
 
@@ -127,6 +127,46 @@ function randomChance(percentage) {
     if (random == 1) {
         return true;
     } else {
+        return false;
+    }
+
+}
+
+function addrole(member, id) {
+
+    var hasRole = member.roles.cache.has(id);
+
+    if (!(hasRole)) {
+        member.roles.add(id);
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+function removerole(member, id) {
+
+    var hasRole = member.roles.cache.has(id);
+
+    if (!(hasRole)) {
+        return false;
+    } else {
+        member.roles.remove(id);
+        return true;
+    }
+
+}
+
+function togglerole(member, id) {
+
+    var hasRole = member.roles.cache.has(id);
+
+    if (!(hasRole)) {
+        member.roles.add(id);
+        return true;
+    } else {
+        member.roles.remove(id);
         return false;
     }
 
