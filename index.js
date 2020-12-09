@@ -171,3 +171,33 @@ function togglerole(member, id) {
     }
 
 }
+
+function getHighestValue(array) {
+
+    var highestValue = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+
+        if (element > highestValue) highestValue = element;
+
+    }
+
+    return highestValue;
+
+}
+
+function getLowestValue(array) {
+
+    var lowestValue = 999999999999999999999999999999999999;
+
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+
+        if (element < lowestValue) lowestValue = element;
+
+    }
+
+    return lowestValue;
+
+}
