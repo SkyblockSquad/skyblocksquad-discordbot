@@ -17,7 +17,7 @@ module.exports = {
 
         for (let i = 0; i < swearWords["swearWords"].length; i++) {
 
-            if (swearCheck.includes(swearWords["swearWords"][i]) || swearCheck.includes(swearWords["swearWords"][i].replace("a", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("e", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("i", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("o", "*")) || swearCheck.includes(swearWords["swearWords"][i].replace("u", "*"))) {
+            if (swearCheck.includes(swearWords["swearWords"][i])) {
 
                 message.delete();
 
