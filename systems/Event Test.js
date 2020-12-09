@@ -47,7 +47,7 @@ module.exports = {
         function eventRoles(roles, member, channel) {
 
             for (let i = 0; i < roles.length; i = i + 4) {
-                
+
                 var roleID = roles[i];
                 var roleChance1 = roles[i + 1];
                 var roleChance2 = roles[i + 2];
@@ -58,8 +58,8 @@ module.exports = {
 
                 var hasRole = member.roles.cache.has(roleID);
 
-                if(!(hasRole) && chance1 && chance2) {
-                    
+                if (!(hasRole) && chance1 && chance2) {
+
                     member.roles.add(roleID);
 
                     var roleEmbed = new discord.MessageEmbed()
@@ -71,7 +71,7 @@ module.exports = {
                         .addField("Role", `**${roleRarity}!** <@&${roleID}>`)
 
                     channel.send(roleEmbed);
-                        
+
                 }
 
             }
