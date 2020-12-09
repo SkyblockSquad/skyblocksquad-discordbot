@@ -14,12 +14,12 @@ module.exports = {
 
         if (aArgs.toLowerCase() === "open") {
 
-            message.guild.me.roles.add("786237532684681246");
+            message.guild.me.roles.remove("786237532684681246");
             return message.channel.send("**Applications are now open!**");
 
         } else if (aArgs.toLowerCase() === "close") {
 
-            message.guild.me.roles.remove("786237532684681246");
+            message.guild.me.roles.add("786237532684681246");
             return message.channel.send("**Applications are now closed.**");
 
         }
