@@ -11,11 +11,10 @@ module.exports = {
 
         if(!(target)) return message.channel.send("**Error:** Couldn't find that user!");
 
-        var oldNickname = target.nickname;
         var nickname = args.slice(1).join(" ");
 
         target.setNickname(nickname).then(() => {
-            return message.channel.send(`Succesfully changed the nickname of **${target.user.username}** from **${oldNickname}** to **${nickname}**!`);
+            return message.channel.send(`Succesfully changed the nickname of **${target.user.username}** to **${nickname}**!`);
         }).catch(() => {
             return message.channel.send("**Error:** Oops! I don't have permission to do that!");
         });
