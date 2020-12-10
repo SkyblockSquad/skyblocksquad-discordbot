@@ -36,7 +36,7 @@ module.exports = {
         var text = "**Christmas Event Leaderboard**";
 
         for (let i = 0; i < scoresList.length; i++) {
-            text = text + `**${i + 1}.** ${scoresList[i][userID]}, ${scoresList[i][userScore]}`;
+            text = text + `**${i + 1}.** ${scoresList[i]["userID"]}, ${scoresList[i]["userScore"]}`;
         }
 
         message.channel.send(text);
