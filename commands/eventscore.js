@@ -37,7 +37,7 @@ module.exports = {
                     if (!(roleRarity === "GODLY")) {
                         score++
                     } else {
-                        score = score + 3;
+                        score = score + 2;
                     }
                 }
 
