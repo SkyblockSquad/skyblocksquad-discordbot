@@ -5,11 +5,11 @@ module.exports = {
 
         if(permissionLevel(message.member) < 3) return message.channel.send("**Error:** You don't have permission to do this!");
 
-        if(args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,nickname [user id] [nickname]**");
+        if(args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,nickname [user] [nickname]**");
 
-        var target = message.guild.members.cache.get(args[0]);
+        var target = message.mentions.users.first();
 
-        if(!(target)) return message.channel.send("**Error:** Couldn't find any user with that ID!");
+        if(!(target)) return message.channel.send("**Error:** Couldn't find that user!");
 
         var oldNickname = target.nickname;
         var nickname = args.slice(1).join(" ");
