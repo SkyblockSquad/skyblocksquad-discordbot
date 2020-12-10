@@ -1,14 +1,19 @@
 module.exports = {
-    name: 'Event Test',
+    name: 'Christmas Event',
     execute(client, message, args) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
 
-        var run = false;
-        if (!run) return true;
-
-        var roleList = ["785071592412807180", 20, 20, "COMMON"];
+        var roleList = ["785071592412807180", 20, 100, "COMMON",
+                        "785098460764045313", 10, 100, "RARE",
+                        "785071932117876736", 10, 100, "RARE",
+                        "785086927182757908", 5, 100, "EPIC",
+                        "785098208761610250", 10, 10, "LEGENDARY",
+                        "785072139882463252", 10, 10, "LEGENDARY",
+                        "785088313392365588", 10, 10, "MYTHIC",
+                        "785072273295933442", 10, 10, "MYTHIC",
+                        "785090640132046858", 10, 10, "GODLY"];
 
         eventRoles(roleList, message.member, message.channel);
 
@@ -75,6 +80,29 @@ module.exports = {
                 }
 
             }
+
+        }
+
+        function calculateEventScore(roles, member) {
+
+            var score = 0;
+
+            for (let i = 0; i < roles.length; i = i + 4) {
+
+                var roleID = roles[i];
+                var roleRarity = roles[i + 3];
+
+                var hasRole = member.roles.cache.has(roleID);
+
+                if (!(roleRarity === "GODLY")) {
+                    score++;
+                } else {
+                    score = score + 3;
+                }
+
+            }
+
+            return score;
 
         }
 
