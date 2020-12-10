@@ -7,16 +7,19 @@ module.exports = {
 
         if(args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,nickname [user] [nickname]**");
 
-        var target = message.mentions.users.first();
+        var target = message.guild.members.cache.get(message.mentions.users.first().id);
 
         if(!(target)) return message.channel.send("**Error:** Couldn't find that user!");
 
         var oldNickname = target.nickname;
         var nickname = args.slice(1).join(" ");
 
-        target.setNickname(nickname);
+        target.setNickname(nickname).then(() => {
+            return message.channel.send(`Succesfully changed the nickname of **${target.user.username}** from **${oldNickname}** to **${nickname}**!`);
+        }).catch(() => {
+            return message.channel.send("**Error:** Oops! I don't have permission to do that!");
+        });
 
-        return message.channel.send(`Succesfully changed the nickname of **${target.user.username}** from **${oldNickname}** to **${nickname}**!`);
 
         function permissionLevel(member) {
 
