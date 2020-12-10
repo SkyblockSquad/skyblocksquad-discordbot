@@ -2,8 +2,8 @@ module.exports = {
     name: 'Christmas Event',
     execute(client, message, args) {
 
-        if (message.channel.type === "dm") return;
-        if (message.author.bot) return;
+        if (message.channel.type === "dm") return true;
+        if (message.author.bot) return true;
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
