@@ -132,46 +132,6 @@ function randomChance(percentage) {
 
 }
 
-function addrole(member, id) {
-
-    var hasRole = member.roles.cache.has(id);
-
-    if (!(hasRole)) {
-        member.roles.add(id);
-        return true;
-    } else {
-        return false;
-    }
-
-}
-
-function removerole(member, id) {
-
-    var hasRole = member.roles.cache.has(id);
-
-    if (!(hasRole)) {
-        return false;
-    } else {
-        member.roles.remove(id);
-        return true;
-    }
-
-}
-
-function togglerole(member, id) {
-
-    var hasRole = member.roles.cache.has(id);
-
-    if (!(hasRole)) {
-        member.roles.add(id);
-        return true;
-    } else {
-        member.roles.remove(id);
-        return false;
-    }
-
-}
-
 function getHighestValue(array) {
 
     var highestValue = 0;
