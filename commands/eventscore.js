@@ -16,6 +16,7 @@ module.exports = {
             "785072139882463252", 10, 10, "LEGENDARY",
             "785088313392365588", 10, 10, "MYTHIC",
             "785072273295933442", 10, 10, "MYTHIC",
+            "786640522722017400", 10, 10, "MYTHIC",
             "785090640132046858", 10, 10, "GODLY"];
 
         var score = calculateEventScore(roleList, message.member);
