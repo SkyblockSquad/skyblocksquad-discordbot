@@ -31,28 +31,15 @@ module.exports = {
             scoresList.push(constructor);
         });
 
-        var sorted = [];
-        var keys = Object.keys(scoresList);
+        scoresList.sort((a, b) => { b.userScore - a.userScore });
 
-        for (let user in scoresList) {
-            const score = score[user].userScore;
+        var text = "**Christmas Event Leaderboard**";
 
-            const entry = { [keys[sorted.length]]: scoresList[user] }
-
-            if (sorted.length === 0) {
-                sorted.push(entry);
-
-                continue;
-            }
-
-            let i = 0;
-            while (sorted[i] !== undefined && sorted[i][Object.keys(sorted[i])].userScore > score) {
-                i++;
-            }
-
-            sorted.splice(i, 0, entry)
-
+        for (let i = 0; i < scoresList.length; i++) {
+            text = text + `**${i + 1}.** ${scoresList[i][userID]}, ${scoresList[i][userScore]}`;
         }
+
+        message.channel.send(text);
 
         function calculateEventScore(roles, member) {
 
