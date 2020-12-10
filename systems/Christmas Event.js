@@ -2,18 +2,21 @@ module.exports = {
     name: 'Christmas Event',
     execute(client, message, args) {
 
+        if (message.channel.type === "dm") return;
+        if (message.author.bot) return;
+
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
 
         var roleList = ["785071592412807180", 20, 100, "COMMON",
-                        "785098460764045313", 10, 100, "RARE",
-                        "785071932117876736", 10, 100, "RARE",
-                        "785086927182757908", 5, 100, "EPIC",
-                        "785098208761610250", 10, 10, "LEGENDARY",
-                        "785072139882463252", 10, 10, "LEGENDARY",
-                        "785088313392365588", 10, 10, "MYTHIC",
-                        "785072273295933442", 10, 10, "MYTHIC",
-                        "785090640132046858", 10, 10, "GODLY"];
+            "785098460764045313", 10, 100, "RARE",
+            "785071932117876736", 10, 100, "RARE",
+            "785086927182757908", 5, 100, "EPIC",
+            "785098208761610250", 10, 10, "LEGENDARY",
+            "785072139882463252", 10, 10, "LEGENDARY",
+            "785088313392365588", 10, 10, "MYTHIC",
+            "785072273295933442", 10, 10, "MYTHIC",
+            "785090640132046858", 10, 10, "GODLY"];
 
         eventRoles(roleList, message.member, message.channel);
 
@@ -69,7 +72,7 @@ module.exports = {
 
                     var roleEmbed = new discord.MessageEmbed()
                         .setTitle("EVENT ROLE")
-                        .setDescription(`<@${member.id}>: **Congrats! You got a new event role!`)
+                        .setDescription(`<@${member.id}>: **Congrats! You got a new event role!**`)
                         .setColor(botConfig.embedColor)
                         .setFooter(botConfig.embedFooter)
                         .setTimestamp()
