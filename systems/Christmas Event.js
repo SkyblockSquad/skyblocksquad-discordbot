@@ -7,19 +7,16 @@ module.exports = {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
+        const eventData = require("../data/christmasEvent.json");
 
-        var roleList = ["785071592412807180", 20, 100, "COMMON",
-            "785098460764045313", 10, 100, "RARE",
-            "785071932117876736", 10, 100, "RARE",
-            "785086927182757908", 5, 100, "EPIC",
-            "785098208761610250", 10, 10, "LEGENDARY",
-            "785072139882463252", 10, 10, "LEGENDARY",
-            "785088313392365588", 10, 10, "MYTHIC",
-            "785072273295933442", 10, 10, "MYTHIC",
-            "786640522722017400", 10, 10, "MYTHIC",
-            "785090640132046858", 10, 10, "GODLY"];
+        var roleList = eventData.roles;
 
-        eventRoles(roleList, message.member, message.channel);
+        var roleSettings = {
+            allowMultiple: true,
+            sendEmbed: true
+        }
+
+        eventRoles(roleList, roleSettings, message.member, message.channel);
 
         function randomInteger(minimum, maximum) {
 
@@ -53,7 +50,7 @@ module.exports = {
         }
 
         // Requires function randomChance
-        function eventRoles(roles, member, channel) {
+        function eventRoles(roles, settings, member, channel) {
 
             for (let i = 0; i < roles.length; i = i + 4) {
 
@@ -79,34 +76,13 @@ module.exports = {
                         .setTimestamp()
                         .addField("Role", `**${roleRarity}!** <@&${roleID}>`)
 
-                    channel.send(roleEmbed);
+                    if (settings.sendEmbed == true) channel.send(roleEmbed);
+
+                    if (settings.allowMultiple == false) break;
 
                 }
 
             }
-
-        }
-
-        function calculateEventScore(roles, member) {
-
-            var score = 0;
-
-            for (let i = 0; i < roles.length; i = i + 4) {
-
-                var roleID = roles[i];
-                var roleRarity = roles[i + 3];
-
-                var hasRole = member.roles.cache.has(roleID);
-
-                if (!(roleRarity === "GODLY")) {
-                    score++;
-                } else {
-                    score = score + 3;
-                }
-
-            }
-
-            return score;
 
         }
 
