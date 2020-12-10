@@ -23,7 +23,7 @@ module.exports = {
 
             var constructor = {
 
-                userID: member.id,
+                userName: member.user.username,
                 userScore: score
 
             }
@@ -36,7 +36,7 @@ module.exports = {
         var text = "**Christmas Event Leaderboard**";
 
         for (let i = 0; i < scoresList.length; i++) {
-            text = text + `\n**${i + 1}.** ${scoresList[i]["userID"]}, ${scoresList[i]["userScore"]}`;
+            text = text + `\n**${i + 1}.** ${scoresList[i]["userName"]}, ${scoresList[i]["userScore"]}`;
         }
 
         message.channel.send(text);
