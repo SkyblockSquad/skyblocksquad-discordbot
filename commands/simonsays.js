@@ -14,6 +14,7 @@ module.exports = {
             .setColor(botConfig.embedColor)
             .setFooter(botConfig.embedFooter)
             .addFields(
+                { name: `**${prefix}ss enter`, value: "Enter a Simon Says event!" },
                 { name: `**${prefix}ss startevent**`, value: "Start a new Simon Says event!" }
             )
 
@@ -33,12 +34,14 @@ module.exports = {
             //     READ_MESSAGE_HISTORY: true
             // });
 
-            message.channel.send("**Succesfully started new Simon Says event!");
+            message.channel.send("**Succesfully started new Simon Says event!**");
 
-            ssChannel.send(`Starting new **Simon Says** event in **5 minutes**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
+            message.guild.me.roles.add("787001746139512842");
+
+            ssChannel.send(`Starting a new **Simon Says** event in **5 minutes**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
 
             setTimeout(function () {
-                ssChannel.send(`Starting new **Simon Says** event in **1 minute**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
+                ssChannel.send(`Starting a new **Simon Says** event in **1 minute**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
 
                 setTimeout(function () {
                     ssChannel.updateOverwrite(message.guild.roles.cache.find(role => role.name === "SS: Participant"), {
@@ -53,7 +56,7 @@ module.exports = {
                         READ_MESSAGE_HISTORY: true
                     });
 
-                    ssChannel.send(`**Simon Says** event has started! You can now talk!`);
+                    ssChannel.send(`The **Simon Says** event has started! You can now talk!`);
 
                 }, 60000)
             }, 240000)
@@ -71,6 +74,25 @@ module.exports = {
             message.member.roles.add(message.guild.roles.cache.get("787001746139512842"));
 
             message.channel.send("**You have succesfully entered the event!");
+
+        } else if (args[0].toLowerCase() === "eliminate") {
+
+            if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
+
+            var eventActive = message.guild.me.roles.cache.has("787001746139512842");
+
+            if (!(eventActive)) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
+
+            var target = message.guild.members.cache.get(message.mentions.users.first().id);
+
+            var targetIsAlive = target.roles.cache.has("787000309108965418");
+
+            if (!(targetIsAlive)) return message.channel.send("**Error:** That person hasn't entered the event or is already dead!");
+
+            target.roles.add("787000414246797352");
+            target.roles.remove("787000309108965418");
+
+            message.channel.send(`**${target.user.username}** has been eliminated!`);
 
         }
 
