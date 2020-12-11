@@ -33,6 +33,8 @@ module.exports = {
             //     READ_MESSAGE_HISTORY: true
             // });
 
+            message.channel.send("**Succesfully started new Simon Says event!");
+
             ssChannel.send(`Starting new **Simon Says** event in **5 minutes**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
 
             setTimeout(function () {
@@ -51,13 +53,24 @@ module.exports = {
                         READ_MESSAGE_HISTORY: true
                     });
 
-                    ssChannel.channel.send(`**Simon Says** event has started! You can now talk!`);
-                    
+                    ssChannel.send(`**Simon Says** event has started! You can now talk!`);
+
                 }, 60000)
             }, 240000)
 
+        } else if (args[0].toLowerCase() === "enter") {
 
-            eventPrompt(ssChannel);
+            var eventActive = message.guild.me.roles.cache.has("787001746139512842");
+
+            if (!(eventActive)) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
+
+            var hasEntered = message.member.roles.cache.has("787001746139512842");
+
+            if (hasEntered) return message.channel.send("**Error:** You have already entered the Simon Says event!");
+
+            message.member.roles.add(message.guild.roles.cache.get("787001746139512842"));
+
+            message.channel.send("**You have succesfully entered the event!");
 
         }
 
