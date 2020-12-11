@@ -14,8 +14,9 @@ module.exports = {
             .setColor(botConfig.embedColor)
             .setFooter(botConfig.embedFooter)
             .addFields(
-                { name: `**${prefix}ss enter`, value: "Enter a Simon Says event!" },
-                { name: `**${prefix}ss startevent**`, value: "Start a new Simon Says event!" }
+                { name: `${prefix}ss enter`, value: "Enter a Simon Says event!" },
+                { name: `${prefix}ss startevent`, value: "Start a new Simon Says event!" },
+                { name: `${prefix}ss eliminate`, value: "Eliminate a player from the event!" }
             )
 
         if (args.length < 1) return message.channel.send(helpEmbed);
@@ -34,7 +35,7 @@ module.exports = {
             //     READ_MESSAGE_HISTORY: true
             // });
 
-            message.channel.send("**Succesfully started new Simon Says event!**");
+            message.channel.send("**Succesfully started a new Simon Says event!**");
 
             message.guild.me.roles.add("787001746139512842");
 
@@ -67,13 +68,13 @@ module.exports = {
 
             if (!(eventActive)) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
 
-            var hasEntered = message.member.roles.cache.has("787001746139512842");
+            var hasEntered = message.member.roles.cache.has("787000309108965418");
 
             if (hasEntered) return message.channel.send("**Error:** You have already entered the Simon Says event!");
 
-            message.member.roles.add(message.guild.roles.cache.get("787001746139512842"));
+            message.member.roles.add(message.guild.roles.cache.get("787000309108965418"));
 
-            message.channel.send("**You have succesfully entered the event!");
+            message.channel.send("**You have succesfully entered the event!**");
 
         } else if (args[0].toLowerCase() === "eliminate") {
 
