@@ -19,9 +19,11 @@ module.exports = {
                 setTimeout(function() {
                     var resultsEmbed = new discord.MessageEmbed()
                         .setTitle("CHRISTMAS EVENT RESULTS")
-                        .setDescription("Below you can find the results for the Christmas Event!\n:first_place: - {score} {name}\n:second_place: - {score} {name}\n:third_place: - {score} {name}")
+                        .setDescription("Below you can find the results for the Christmas Event!\n\n:first_place: - {score} {name}\n:second_place: - {score} {name}\n:third_place: - {score} {name}")
                         .setColor(botConfig.embedColor)
                         .setFooter(botConfig.embedFooter)
+
+                    message.channel.send(resultsEmbed);
 
                 }, 30000);
             }, 30000)
