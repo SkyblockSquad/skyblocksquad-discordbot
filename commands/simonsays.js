@@ -84,6 +84,8 @@ module.exports = {
 
             if (!(eventActive)) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
 
+            if(!(message.mentions.users.size > 0)) return message.channel.send("**Error:** Please provide a user.");
+
             var target = message.guild.members.cache.get(message.mentions.users.first().id);
 
             var targetIsAlive = target.roles.cache.has("787000309108965418");
