@@ -29,6 +29,8 @@ module.exports = {
 
             if (!(ssChannel)) return message.channel.send("**Error:** Couldn't find the Simon Says channel!");
 
+            if (!(eventStatus(ssChannel) === "Inactive")) return message.channel.send("**Error:** There is already an event active!");
+
             // ssChannel.updateOverwrite(message.guild.roles.cache.find(role => role.name === "Verified"), {
             //     SEND_MESSAGES: false,
             //     VIEW_CHANNEL: true,
@@ -37,7 +39,7 @@ module.exports = {
 
             message.channel.send("**Succesfully started a new Simon Says event!**");
 
-            message.guild.me.roles.add("787001746139512842");
+            ssChannel.setTopic("**Status:** Active");
 
             ssChannel.send(`Starting a new **Simon Says** event in **5 minutes**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
 
@@ -64,9 +66,7 @@ module.exports = {
 
         } else if (args[0].toLowerCase() === "enter") {
 
-            var eventActive = message.guild.me.roles.cache.has("787001746139512842");
-
-            if (!(eventActive)) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
+            if (!(eventStatus(ssChannel) === "Starting")) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
 
             var hasEntered = message.member.roles.cache.has("787000309108965418");
 
@@ -80,11 +80,9 @@ module.exports = {
 
             if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
 
-            var eventActive = message.guild.me.roles.cache.has("787001746139512842");
+            if (!(eventStatus(ssChannel) === "Active")) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
 
-            if (!(eventActive)) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
-
-            if(!(message.mentions.users.size > 0)) return message.channel.send("**Error:** Please provide a user.");
+            if (!(message.mentions.users.size > 0)) return message.channel.send("**Error:** Please provide a user.");
 
             var target = message.guild.members.cache.get(message.mentions.users.first().id);
 
@@ -117,6 +115,14 @@ module.exports = {
             } else if (!helperRole && !moderatorRole && !administratorRole && guildMasterRole) {
                 return 5;
             }
+
+        }
+
+        function eventStatus(channel) {
+
+            var status = channel.topic.split(" ")[1];
+
+            return status;
 
         }
 
