@@ -53,7 +53,7 @@ module.exports = {
                         READ_MESSAGE_HISTORY: true
                     });
 
-                    ssChannel.updateOverwrite(message.guild.roles.cache.find(role => role.name === "@everyone"), {
+                    ssChannel.updateOverwrite(message.guild.roles.cache.find(role => role.name === "Verified"), {
                         SEND_MESSAGES: false,
                         VIEW_CHANNEL: false,
                         READ_MESSAGE_HISTORY: false
@@ -79,6 +79,8 @@ module.exports = {
 
             message.member.roles.add(message.guild.roles.cache.get("787000309108965418"));
 
+            ssChannel.setTopic(generateNewTopic(ssChannel, remainingUsers + 1));
+
             message.channel.send("**You have succesfully entered the event!**");
 
         } else if (args[0].toLowerCase() === "eliminate" || args[0].toLowerCase() === "elim") {
@@ -101,6 +103,8 @@ module.exports = {
 
             target.roles.remove("787000309108965418");
 
+            ssChannel.setTopic(generateNewTopic(ssChannel, remainingUsers - 1));
+
             message.channel.send(`**${target.user.username}** has been eliminated!`);
 
         } else if (args[0].toLowerCase() === "revive") {
@@ -122,6 +126,8 @@ module.exports = {
             if (targetIsAlive) return message.channel.send("**Error:** That person is already alive!");
 
             target.roles.add("787000309108965418");
+
+            ssChannel.setTopic(generateNewTopic(ssChannel, remainingUsers + 1));
 
             message.channel.send(`**${target.user.username}** has been revived!`);
 
@@ -155,7 +161,7 @@ module.exports = {
 
         }
 
-        function getRemainingUsers(channel) {
+        function remainingUsers(channel) {
 
             var remaining = channel.topic.split(" ")[3];
             return remaining;
