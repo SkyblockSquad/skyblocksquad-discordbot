@@ -37,9 +37,9 @@ module.exports = {
             //     READ_MESSAGE_HISTORY: true
             // });
 
-            message.channel.send("**Succesfully started a new Simon Says event!**");
-
             ssChannel.setTopic("**Status:** Starting **Remaining:** 0");
+
+            message.channel.send("**Succesfully started a new Simon Says event!**");
 
             ssChannel.send(`Starting a new **Simon Says** event in **5 minutes**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
 
