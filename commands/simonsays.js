@@ -53,10 +53,10 @@ module.exports = {
                         READ_MESSAGE_HISTORY: true
                     });
 
-                    ssChannel.updateOverwrite(message.guild.roles.cache.find(role => role.name === "SS: Eliminated"), {
+                    ssChannel.updateOverwrite(message.guild.roles.cache.find(role => role.name === "@everyone"), {
                         SEND_MESSAGES: false,
-                        VIEW_CHANNEL: true,
-                        READ_MESSAGE_HISTORY: true
+                        VIEW_CHANNEL: false,
+                        READ_MESSAGE_HISTORY: false
                     });
 
                     ssChannel.setTopic("**Status:** Active");
@@ -151,8 +151,23 @@ module.exports = {
         function eventStatus(channel) {
 
             var status = channel.topic.split(" ")[1];
-
             return status;
+
+        }
+
+        function getRemainingUsers(channel) {
+
+            var remaining = channel.topic.split(" ")[3];
+            return remaining;
+
+        }
+
+        function generateNewTopic(channel, remaining) {
+
+            var status = channel.topic.split(" ")[1];
+            var generatedTopic = `**Status:** ${status} **Remaining:** ${remaining}`;
+
+            return generatedTopic;
 
         }
 
