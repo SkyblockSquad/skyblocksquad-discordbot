@@ -37,7 +37,8 @@ module.exports = {
             //     READ_MESSAGE_HISTORY: true
             // });
 
-            ssChannel.setTopic("**Status:** Starting **Remaining:** 0");
+            var startingTopic = updateStatus(ssChannel, "Starting");
+            ssChannel.setTopic(startingTopic);
 
             message.channel.send("**Succesfully started a new Simon Says event!**");
 
@@ -59,7 +60,8 @@ module.exports = {
                         READ_MESSAGE_HISTORY: false
                     });
 
-                    ssChannel.setTopic("**Status:** Active **Remaining:** 0");
+                    var activeTopic = updateStatus(ssChannel, "Active");
+                    ssChannel.setTopic(activeTopic);
 
                     ssChannel.send(`The **Simon Says** event has started! You can now talk!`);
                     ssChannel.send("[<@&787000309108965418>]")
@@ -79,7 +81,7 @@ module.exports = {
 
             message.member.roles.add(message.guild.roles.cache.get("787000309108965418"));
 
-            var newTopic = generateNewTopic(ssChannel, remainingUsers(ssChannel) + 1);
+            var newTopic = updateRemaining(ssChannel, remainingUsers(ssChannel) + 1);
             ssChannel.setTopic(newTopic);
 
             message.channel.send("**You have succesfully entered the event!**");
@@ -104,7 +106,7 @@ module.exports = {
 
             target.roles.remove("787000309108965418");
 
-            var newTopic = generateNewTopic(ssChannel, remainingUsers(ssChannel) + 1);
+            var newTopic = updateRemaining(ssChannel, remainingUsers(ssChannel) + 1);
             ssChannel.setTopic(newTopic);
 
             message.channel.send(`**${target.user.username}** has been eliminated!`);
@@ -129,7 +131,7 @@ module.exports = {
 
             target.roles.add("787000309108965418");
 
-            var newTopic = generateNewTopic(ssChannel, remainingUsers(ssChannel) + 1);
+            var newTopic = updateRemaining(ssChannel, remainingUsers(ssChannel) + 1);
             ssChannel.setTopic(newTopic);
 
             message.channel.send(`**${target.user.username}** has been revived!`);
@@ -171,12 +173,21 @@ module.exports = {
 
         }
 
-        function generateNewTopic(channel, remaining) {
+        function updateRemaining(channel, remaining) {
 
             var status = channel.topic.split(" ")[1];
             var generatedTopic = `**Status:** ${status} **Remaining:** ${remaining}`;
 
             return generatedTopic;
+
+        }
+
+        function updateStatus(channel, status) {
+
+            var remaining = channel.topic.split(" ")[3];
+            var generatedTopic = `**Status: ${status} **Remaining:** ${remaining}`
+
+            return generatedTopic
 
         }
 
