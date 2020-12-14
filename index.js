@@ -79,6 +79,8 @@ client.on("message", async message => {
     var command = args[0]
     args.shift();
 
+    if (!(message.content.startsWith(prefix))) return;
+
     var commands = client.commands.get(command.slice(prefix.length));
 
     if (commands) commands.execute(client, message, args);

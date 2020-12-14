@@ -62,11 +62,14 @@ module.exports = {
                     ssChannel.setTopic("**Status:** Active");
 
                     ssChannel.send(`The **Simon Says** event has started! You can now talk!`);
+                    ssChannel.send("[<@&787000309108965418>]")
 
                 }, 60000)
             }, 240000)
 
         } else if (args[0].toLowerCase() === "enter") {
+
+            var ssChannel = message.guild.channels.cache.find(ch => ch.name === "simon-says");
 
             if (!(eventStatus(ssChannel) === "Starting")) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
 
@@ -78,13 +81,17 @@ module.exports = {
 
             message.channel.send("**You have succesfully entered the event!**");
 
-        } else if (args[0].toLowerCase() === "eliminate") {
+        } else if (args[0].toLowerCase() === "eliminate" || args[0].toLowerCase() === "elim") {
 
             if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
+
+            var ssChannel = message.guild.channels.cache.find(ch => ch.name === "simon-says");
 
             if (!(eventStatus(ssChannel) === "Active")) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
 
             if (!(message.mentions.users.size > 0)) return message.channel.send("**Error:** Please provide a user.");
+
+            if (message.mentions.users.size > 1) return message.channel.send("**Error:** Please only provide one user at a time.")
 
             var target = message.guild.members.cache.get(message.mentions.users.first().id);
 
@@ -92,10 +99,31 @@ module.exports = {
 
             if (!(targetIsAlive)) return message.channel.send("**Error:** That person hasn't entered the event or is already dead!");
 
-            target.roles.add("787000414246797352");
             target.roles.remove("787000309108965418");
 
             message.channel.send(`**${target.user.username}** has been eliminated!`);
+
+        } else if (args[0].toLowerCase() === "revive") {
+
+            if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
+
+            var ssChannel = message.guild.channels.cache.find(ch => ch.name === "simon-says");
+
+            if (!(eventStatus(ssChannel) === "Active")) return message.channel.send("**Error:** There is no Simon Says event active at the moment!");
+
+            if (!(message.mentions.users.size > 0)) return message.channel.send("**Error:** Please provide a user.");
+
+            if (message.mentions.users.size > 1) return message.channel.send("**Error:** Please only provide one user at a time.")
+
+            var target = message.guild.members.cache.get(message.mentions.users.first().id);
+
+            var targetIsAlive = target.roles.cache.has("787000309108965418");
+
+            if (targetIsAlive) return message.channel.send("**Error:** That person is already alive!");
+
+            target.roles.add("787000309108965418");
+
+            message.channel.send(`**${target.user.username}** has been revived!`);
 
         }
 

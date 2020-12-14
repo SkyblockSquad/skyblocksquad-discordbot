@@ -170,13 +170,11 @@ module.exports = {
 
                 message.channel.updateOverwrite(ticketUser, {
                     SEND_MESSAGES: false,
-                    CREATE_INSTANT_INVITE: false,
-                    READ_MESSAGES: false,
-                    ATTACH_FILES: false,
+                    READ_MESSAGES: true,
+                    ATTACH_FILES: true,
                     ADD_REACTIONS: false,
-                    CONNECT: false,
-                    READ_MESSAGE_HISTORY: false,
-                    VIEW_CHANNEL: false
+                    READ_MESSAGE_HISTORY: true,
+                    VIEW_CHANNEL: true
                 });
 
                 var embed = new discord.MessageEmbed()
@@ -192,11 +190,9 @@ module.exports = {
 
                 message.channel.updateOverwrite(ticketUser, {
                     SEND_MESSAGES: false,
-                    CREATE_INSTANT_INVITE: false,
                     READ_MESSAGES: false,
                     ATTACH_FILES: false,
                     ADD_REACTIONS: false,
-                    CONNECT: false,
                     READ_MESSAGE_HISTORY: false,
                     VIEW_CHANNEL: false
                 });
