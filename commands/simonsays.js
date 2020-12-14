@@ -79,7 +79,8 @@ module.exports = {
 
             message.member.roles.add(message.guild.roles.cache.get("787000309108965418"));
 
-            ssChannel.setTopic(generateNewTopic(ssChannel, remainingUsers + 1));
+            var newTopic = generateNewTopic(ssChannel, remainingUsers(ssChannel) + 1);
+            ssChannel.setTopic(newTopic);
 
             message.channel.send("**You have succesfully entered the event!**");
 
@@ -103,7 +104,8 @@ module.exports = {
 
             target.roles.remove("787000309108965418");
 
-            ssChannel.setTopic(generateNewTopic(ssChannel, remainingUsers - 1));
+            var newTopic = generateNewTopic(ssChannel, remainingUsers(ssChannel) + 1);
+            ssChannel.setTopic(newTopic);
 
             message.channel.send(`**${target.user.username}** has been eliminated!`);
 
@@ -127,7 +129,8 @@ module.exports = {
 
             target.roles.add("787000309108965418");
 
-            ssChannel.setTopic(generateNewTopic(ssChannel, remainingUsers + 1));
+            var newTopic = generateNewTopic(ssChannel, remainingUsers(ssChannel) + 1);
+            ssChannel.setTopic(newTopic);
 
             message.channel.send(`**${target.user.username}** has been revived!`);
 
