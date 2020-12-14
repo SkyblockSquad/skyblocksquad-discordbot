@@ -39,7 +39,7 @@ module.exports = {
 
             message.channel.send("**Succesfully started a new Simon Says event!**");
 
-            ssChannel.setTopic("**Status:** Starting");
+            ssChannel.setTopic("**Status:** Starting **Remaining:** 0");
 
             ssChannel.send(`Starting a new **Simon Says** event in **5 minutes**! To enter the event, go to <#703168301634945097> and type: **${prefix}ss enter**!`);
 
@@ -59,7 +59,7 @@ module.exports = {
                         READ_MESSAGE_HISTORY: false
                     });
 
-                    ssChannel.setTopic("**Status:** Active");
+                    ssChannel.setTopic("**Status:** Active **Remaining:** 0");
 
                     ssChannel.send(`The **Simon Says** event has started! You can now talk!`);
                     ssChannel.send("[<@&787000309108965418>]")
