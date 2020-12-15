@@ -20,6 +20,8 @@ for (const file of commandFiles) {
 
     console.log(`Command file "${command.name}.js" has been loaded.`);
 
+    if (!(command.aliases)) return;
+
     command.aliases.forEach(alias => {
         client.aliases.set(alias, command.name);
     })
