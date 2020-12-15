@@ -14,7 +14,8 @@ module.exports = {
         var loopMessage = args.slice(1, args.length).join(" ");
 
         for (let i = 0; i < amount; i++) {
-            message.channel.send(loopMessage);
+            var loopText = loopMessage.replace("{index}", `${(i + 1).toLocaleString()}`);
+            message.channel.send(loopText);
         }
 
         function permissionLevel(member) {
