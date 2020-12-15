@@ -1,6 +1,7 @@
 module.exports = {
     name: 'slowmode',
     description: 'slowmode',
+    aliases: ['sm'],
     execute(client, message, args) {
 
         if (!(message.member.hasPermission("MANAGE_CHANNELS"))) return message.channel.send("**Error:** You don't have permission! **(MANAGE_CHANNELS)**");
