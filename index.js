@@ -11,12 +11,18 @@ console.log("Loading command files...");
 client.commands = new discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
+client.aliases = new discord.Collection();
+
 for (const file of commandFiles) {
 
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 
     console.log(`Command file "${command.name}.js" has been loaded.`);
+
+    command.aliases.forEach(alias => {
+        client.aliases.set(alias, command.name);
+    })
 
 }
 
@@ -81,8 +87,7 @@ client.on("message", async message => {
 
     if (!(message.content.startsWith(prefix))) return;
 
-    var commands = client.commands.get(command.slice(prefix.length));
-
+    var commands = client.commands.get(command.slice(prefix.length)) || client.commands.get(client.aliases.get(command.slice(prefix.length)));
     if (commands) commands.execute(client, message, args);
 
 });
