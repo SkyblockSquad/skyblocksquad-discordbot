@@ -11,10 +11,10 @@ module.exports = {
 
         message.delete();
 
-        var message = args.slice(1, args.length).join(" ");
+        var loopMessage = args.slice(1, args.length).join(" ");
 
         for (let i = 0; i < amount; i++) {
-            message.channel.send(message);
+            message.channel.send(loopMessage);
         }
 
         function permissionLevel(member) {
