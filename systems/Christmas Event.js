@@ -12,8 +12,14 @@ module.exports = {
         var roleList = eventData.roles;
 
         var roleSettings = {
-            allowMultiple: true,
+            allowMultiple: false,
             sendEmbed: true
+        }
+
+        if(!(message.channel.parentID === "683205203465601104")) {
+            if(!(message.channel.parentID === "683207849966436412")) {
+                return true;
+            }
         }
 
         eventRoles(roleList, roleSettings, message.member, message.channel);
