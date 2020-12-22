@@ -1,11 +1,10 @@
 module.exports = {
     name: 'info',
-    description: '*See information about the server and the bot!*',
+    description: '*See information about the bot!*',
     category: 'Information',
     execute(client, message, args) {
 
         const discord = require("discord.js");
-        const moment = require("moment");
         const botConfig = require("../data/botconfig.json");
 
         var embedColor = botConfig.embedColor;
@@ -21,10 +20,6 @@ module.exports = {
             .setTimestamp()
 
         botEmbed.addFields(
-            { name: "Server Name", value: message.guild.name },
-            { name: "Server Member Count", value: message.guild.memberCount },
-            { name: "Server Owner", value: `${message.guild.owner} (${message.guild.ownerID})` },
-            { name: "Server Created At", value: `${moment(message.guild.createdAt).format("LL")}` },
             { name: "Bot Embed Color", value: embedColor },
             { name: "Bot Uptime", value: client.uptime }
         );
