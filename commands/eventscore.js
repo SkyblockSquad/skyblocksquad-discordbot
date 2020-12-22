@@ -28,7 +28,7 @@ module.exports = {
                 var hasRole = member.roles.cache.has(roleID);
 
                 if (hasRole) {
-                    if (roleRarity === "CHROMATIC") {
+                    if (roleRarity === "SUPREME") {
                         score = score + 3;
                     } else if (roleRarity === "GODLY") {
                         score = score + 2;
