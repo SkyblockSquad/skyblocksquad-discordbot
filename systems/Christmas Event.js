@@ -22,6 +22,9 @@ module.exports = {
             }
         }
 
+        var run = false;
+        if(!run) return true;
+
         eventRoles(roleList, roleSettings, message.member, message.channel);
 
         function randomInteger(minimum, maximum) {
