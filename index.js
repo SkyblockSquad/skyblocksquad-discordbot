@@ -1,6 +1,8 @@
 const discord = require("discord.js");
 const fs = require("fs");
 
+// test
+
 const client = new discord.Client();
 client.login(process.env.token);
 
