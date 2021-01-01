@@ -4,6 +4,8 @@ module.exports = {
     category: 'Fun & Games',
     execute(client, message, args) {
 
+        if(args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,repeat [message]**!")
+
         var input = args.join(" ");
 
         if(input.toLowerCase() === "im dumb" || input.toLowerCase() === "i'm dumb") return message.channel.send("Yeah we know.");
