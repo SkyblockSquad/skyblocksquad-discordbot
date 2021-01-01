@@ -4,7 +4,7 @@ module.exports = {
     category: 'Fun & Games',
     execute(client, message, args) {
 
-        if(args.length > 1) return message.channel.send("**Error:** Invalid syntax! Please use **,repeat [message]**!")
+        if(args.length < 1) return message.channel.send("**Error:** Invalid syntax! Please use **,repeat [message]**!")
 
         var input = args.join(" ");
 
