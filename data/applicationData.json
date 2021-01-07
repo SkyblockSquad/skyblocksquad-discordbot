@@ -1,0 +1,11 @@
+{
+    "question1":"What is your Minecraft username? (Make sure that all caps are correct and that there are no typo's)",
+    "question2":"What is your Discord tag? (For example: **SkyblockSquad Bot#3596**)",
+    "question3":"For how long have you been in the guild? (If you don't know, we can check)",
+    "question4":"Why would you like to join the staff team?",
+    "question5":"How could you help our staff team?",
+    "question6":"Why should we choose you above the other applicants?",
+    "question7":"How many hours are online a day on average? (Doesn't have to be every single day, but most of the time)",
+    "question8":"How much guild experience do you get a day on average? (Doesn't have to be every single day, but most of the time, you can check using **/guild top**)",
+    "question9":"Anything else you want to tell us? (Say **no** if you don't)"
+}

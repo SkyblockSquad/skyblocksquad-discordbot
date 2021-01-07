@@ -5,6 +5,7 @@ module.exports = {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
+        const applicationData = require("../data/applicationData.json");
 
         if (message.guild.me.roles.cache.has("786237532684681246")) return message.channel.send("Applications are currently closed. Sorry for any inconvenience.");
 
@@ -92,15 +93,15 @@ module.exports = {
                             .setColor("00BFFF")
                             .addField("Note", "If the bot doesn't respond in about a minute,\nit's probally because the bot restarted\nor crashed during your application. Please\nmessage an Administrator if this happens.");
 
-                        var question_txt1 = "What is your Minecraft username? (Make sure that all caps are correct and that there are no typo's)";
-                        var question_txt2 = "What is your Discord tag? (For example: **SkyblockSquad Bot#3596**)";
-                        var question_txt3 = "For how long have you been in the guild? (If you don't know, we can check)";
-                        var question_txt4 = "Why would you like to join the staff team?";
-                        var question_txt5 = "How could you help our staff team?";
-                        var question_txt6 = "Why should we choose you above the other applicants?";
-                        var question_txt7 = "How many hours are online a day on average? (Doesn't have to be every single day, but most of the time)";
-                        var question_txt8 = "How much guild experience do you get a day on average? (Doesn't have to be every single day, but most of the time, you can check using **/guild top**)";
-                        var question_txt9 = "Anything else you want to tell us? (Say **no** if you don't)";
+                        var question_txt1 = applicationData.question1;
+                        var question_txt2 = applicationData.question2;
+                        var question_txt3 = applicationData.question3;
+                        var question_txt4 = applicationData.question4;
+                        var question_txt5 = applicationData.question5;
+                        var question_txt6 = applicationData.question6;
+                        var question_txt7 = applicationData.question7;
+                        var question_txt8 = applicationData.question8;
+                        var question_txt9 = applicationData.question9;
 
                         var question1 = new discord.MessageEmbed()
                             .setTitle("QUESTION 1")
