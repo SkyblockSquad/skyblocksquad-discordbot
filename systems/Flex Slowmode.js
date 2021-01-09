@@ -23,7 +23,7 @@ module.exports = {
         if (dataFile[userID].messages >= 3) {
 
             message.delete();
-            message.channel.send(`<@${message.author.id}>: **You can only send 3 messages in <#687702496482689062> every 30 minutes!`).then(msg => msg.delete({ timeout: 5000 }));
+            message.channel.send(`<@${message.author.id}>: **You can only send 3 messages in <#687702496482689062> every 30 minutes!**`).then(msg => msg.delete({ timeout: 5000 }));
 
             canContinue = false;
 
@@ -32,7 +32,7 @@ module.exports = {
         }
 
         fs.writeFile("../data/slowmodeData.json", JSON.stringify(dataFile), err => {
-            if (err) console.log(err);
+            
         });
 
         return canContinue;
