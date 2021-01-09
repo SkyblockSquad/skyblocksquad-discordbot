@@ -22,10 +22,13 @@ module.exports = {
 
         if (dataFile[userID].messages >= 3) {
 
-            message.delete();
-            message.channel.send(`<@${message.author.id}>: **You can only send 3 messages in <#687702496482689062> every 30 minutes!**`).then(msg => msg.delete({ timeout: 5000 }));
+            if (permissionLevel(message.member) < 3) {
+                
+                message.delete();
+                message.channel.send(`<@${message.author.id}>: **You can only send 3 messages in <#687702496482689062> every 30 minutes!**`).then(msg => msg.delete({ timeout: 5000 }));
 
-            canContinue = false;
+                canContinue = false;
+            }
 
         } else {
             dataFile[userID].messages += 1;
@@ -47,6 +50,27 @@ module.exports = {
         }
 
         return canContinue;
+
+        function permissionLevel(member) {
+
+            var helperRole = member.roles.cache.has("683206050048114728");
+            var moderatorRole = member.roles.cache.has("683205888034603042");
+            var administratorRole = member.roles.cache.has("683205637001183365");
+            var guildMasterRole = member.roles.cache.has("683205412488478809");
+
+            if (!helperRole && !moderatorRole && !administratorRole && !guildMasterRole) {
+                return 1;
+            } else if (helperRole && !moderatorRole && !administratorRole && !guildMasterRole) {
+                return 2;
+            } else if (!helperRole && moderatorRole && !administratorRole && !guildMasterRole) {
+                return 3;
+            } else if (!helperRole && !moderatorRole && administratorRole && !guildMasterRole) {
+                return 4;
+            } else if (!helperRole && !moderatorRole && !administratorRole && guildMasterRole) {
+                return 5;
+            }
+
+        }
 
     },
 };
