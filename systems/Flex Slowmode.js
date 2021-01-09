@@ -9,7 +9,7 @@ module.exports = {
         if (message.author.bot) return true;
         if (message.channel.type === "dm") return true;
 
-        if (!(message.channel.id === "766907402658250752")) return true;
+        if (!(message.channel.id === "687702496482689062")) return true;
 
         var userID = message.author.id;
         var canContinue = true;
@@ -43,10 +43,8 @@ module.exports = {
 
                 });
 
-            }, 10000)
+            }, 1800000)
         }
-
-        // 1.800.000
 
         return canContinue;
 
