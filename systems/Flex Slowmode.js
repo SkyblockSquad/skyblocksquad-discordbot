@@ -32,8 +32,21 @@ module.exports = {
         }
 
         fs.writeFile("../data/slowmodeData.json", JSON.stringify(dataFile), err => {
-            
+
         });
+
+        if (canContinue) {
+            setTimeout(function () {
+
+                dataFile[userID].messages -= 1;
+                fs.writeFile("../data/slowmodeData.json", JSON.stringify(dataFile), err => {
+
+                });
+
+            }, 10000)
+        }
+
+        // 1.800.000
 
         return canContinue;
 
