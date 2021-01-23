@@ -39,7 +39,7 @@ module.exports = {
                 return 3;
             } else if (!helperRole && !moderatorRole && administratorRole && !guildMasterRole) {
                 return 4;
-            } else if (!helperRole && !moderatorRole && !administratorRole && guildMasterRole) {
+            } else if (!helperRole && !moderatorRole && administratorRole && guildMasterRole) {
                 return 5;
             }
 
