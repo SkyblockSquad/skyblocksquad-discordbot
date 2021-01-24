@@ -1,6 +1,6 @@
 module.exports = {
     name: 'staffcommands',
-    description: '*See a list of all staff commands! (Staff Only)*',
+    description: 'See a list of all staff commands! (Staff Only)',
     category: 'Information',
     aliases: ['scmds'],
     execute(client, message, args) {

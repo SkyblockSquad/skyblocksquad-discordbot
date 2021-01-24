@@ -1,6 +1,6 @@
 module.exports = {
     name: 'is',
-    description: '*Ask all your questions to the bot! He knows everything!*',
+    description: 'Ask all your questions to the bot! He knows everything!',
     category: 'Fun & Games',
     execute(client, message, args) {
 

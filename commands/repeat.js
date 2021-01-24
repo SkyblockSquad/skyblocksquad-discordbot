@@ -1,6 +1,6 @@
 module.exports = {
     name: 'repeat',
-    description: 'Make the bot repeat a message you say!',
+    description: 'Make the bot repeat whatever you say!',
     category: 'Fun & Games',
     execute(client, message, args) {
 

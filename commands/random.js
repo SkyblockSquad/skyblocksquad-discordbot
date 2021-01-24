@@ -1,6 +1,6 @@
 module.exports = {
     name: 'random',
-    description: '*Generate a random numer!*',
+    description: 'Generate a random numer between a certain minimum and maximum!',
     category: 'Fun & Games',
     execute(client, message, args) {
 

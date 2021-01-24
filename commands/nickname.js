@@ -1,6 +1,6 @@
 module.exports = {
     name: 'nickname',
-    description: 'Set a user\'s nickname! (Moderator+)',
+    description: 'Change a user\'s nickname! (Mod+)',
     category: 'Staff',
     execute(client, message, args) {
 

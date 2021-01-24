@@ -1,6 +1,6 @@
 module.exports = {
     name: 'embed',
-    description: '*Create a nice looking embed!*',
+    description: 'Create a nice looking embed!',
     category: 'Miscellaneous',
     execute(client, message, args) {
 

@@ -1,6 +1,6 @@
 module.exports = {
     name: 'covid',
-    description: '*See live covid-19 statistics! Confirmed cases, recovered people and deaths.*',
+    description: 'See live covid-19 statistics! Confirmed cases, recovered people and deaths.',
     category: 'Covid-19',
     aliases: ['corona'],
     execute(client, message, args) {

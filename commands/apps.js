@@ -1,6 +1,6 @@
 module.exports = {
     name: 'apps',
-    description: 'Open or close staff applications (Admin+)',
+    description: 'Open or close staff applications. (Admin+)',
     category: 'Staff',
     aliases: ['applications'],
     execute(client, message, args) {

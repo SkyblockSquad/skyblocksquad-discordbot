@@ -1,6 +1,6 @@
 module.exports = {
     name: 'info',
-    description: '*See information about the bot!*',
+    description: 'See information about the bot!',
     category: 'Information',
     execute(client, message, args) {
 

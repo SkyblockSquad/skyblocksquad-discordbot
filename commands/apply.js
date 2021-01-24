@@ -1,6 +1,7 @@
 module.exports = {
     name: 'apply',
-    description: 'apply',
+    description: 'Apply for Helper! (Level 5)+',
+    category: 'Miscellaneous',
     execute(client, message, args) {
 
         const discord = require("discord.js");

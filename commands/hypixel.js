@@ -1,6 +1,6 @@
 module.exports = {
     name: 'hypixel',
-    description: 'See your and other people\'s stats!',
+    description: 'See your and other people\'s Hypixel stats!',
     category: 'Hypixel',
     execute(client, message, args) {
 

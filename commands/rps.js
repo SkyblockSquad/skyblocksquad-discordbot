@@ -1,6 +1,6 @@
 module.exports = {
     name: 'rps',
-    description: '*Duel the bot to an amazing rock, paper, scissors game!*',
+    description: 'Duel the bot to an amazing rock, paper, scissors game!',
     category: 'Fun & Games',
     execute(client, message, args) {
 

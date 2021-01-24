@@ -1,6 +1,6 @@
 module.exports = {
     name: 'help',
-    description: '*See a list of all bot commands from a specific category!*',
+    description: 'See a list of all bot commands from a specific category!',
     category: 'Information',
     execute(client, message, args) {
 

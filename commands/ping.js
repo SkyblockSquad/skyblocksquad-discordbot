@@ -1,6 +1,6 @@
 module.exports = {
     name: 'ping',
-    description: '*Get information about latency and API ping!*',
+    description: 'Get information about latency and API ping!',
     category: 'Information',
     execute(client, message, args) {
 

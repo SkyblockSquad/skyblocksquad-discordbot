@@ -1,6 +1,6 @@
 module.exports = {
     name: 'emojify',
-    description: '*Transform a text into emojis! Wauw!*',
+    description: 'Transform a text into emojis! Wauw!',
     category: 'Fun & Games',
     execute(client, message, args) {
 

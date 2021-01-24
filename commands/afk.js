@@ -1,6 +1,6 @@
 module.exports = {
     name: 'afk',
-    description: '*Toggle afk mode! (Level 15+ only)*',
+    description: 'Toggle afk mode! (Level 15+)',
     category: 'Miscellaneous',
     execute(client, message, args) {
 
