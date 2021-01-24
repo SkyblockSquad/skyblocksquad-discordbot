@@ -1,6 +1,7 @@
 module.exports = {
     name: 'apps',
-    description: 'Open or close the applications',
+    description: 'Open or close staff applications (Admin+)',
+    category: 'Staff',
     aliases: ['applications'],
     execute(client, message, args) {
 
@@ -11,7 +12,7 @@ module.exports = {
         var guildMaster = message.member.roles.cache.has("683205412488478809");
         var aArgs = args.join(" ");
 
-        if (!staffManager && !guildMaster) return message.channel.send("**Error:**  Insufficient permissions.");
+        if (!staffManager && !guildMaster) return message.channel.send("**Error:** You don't have permission to do this!");
 
         if (aArgs.toLowerCase() === "open") {
 

@@ -1,17 +1,18 @@
 module.exports = {
     name: 'application',
-    description: 'application',
+    description: 'Manage applications. (Admin+)',
+    category: 'Staff',
     execute(client, message, args) {
 
         const discord = require("discord.js");
 
-        if(args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
+        if (args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
 
         var categoryID = "774903762447630367";
 
         if (message.channel.parentID !== categoryID) return message.channel.send("**Error:** You must be in an application ticket to do this!");
 
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**Error:** You don't have permission to do this!");
+        if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
 
         function getTicketOwner(channel) {
 
@@ -255,6 +256,27 @@ module.exports = {
             const filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
 
             return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
+
+        }
+
+        function permissionLevel(member) {
+
+            var helperRole = member.roles.cache.has("683206050048114728");
+            var moderatorRole = member.roles.cache.has("683205888034603042");
+            var administratorRole = member.roles.cache.has("683205637001183365");
+            var guildMasterRole = member.roles.cache.has("683205412488478809");
+
+            if (!helperRole && !moderatorRole && !administratorRole && !guildMasterRole) {
+                return 1;
+            } else if (helperRole && !moderatorRole && !administratorRole && !guildMasterRole) {
+                return 2;
+            } else if (!helperRole && moderatorRole && !administratorRole && !guildMasterRole) {
+                return 3;
+            } else if (!helperRole && !moderatorRole && administratorRole && !guildMasterRole) {
+                return 4;
+            } else if (!helperRole && !moderatorRole && administratorRole && guildMasterRole) {
+                return 5;
+            }
 
         }
 

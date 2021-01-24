@@ -1,6 +1,7 @@
 module.exports = {
     name: 'nickname',
-    description: 'Set a user\'s nickname!',
+    description: 'Set a user\'s nickname! (Moderator+)',
+    category: 'Staff',
     execute(client, message, args) {
 
         if(permissionLevel(message.member) < 3) return message.channel.send("**Error:** You don't have permission to do this!");

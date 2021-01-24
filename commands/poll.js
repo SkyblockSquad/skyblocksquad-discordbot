@@ -1,6 +1,7 @@
 module.exports = {
     name: 'poll',
-    description: 'poll',
+    description: 'Create a poll! (Admin+)',
+    category: 'Staff',
     execute(client, message, args) {
 
         const discord = require("discord.js");
@@ -9,7 +10,7 @@ module.exports = {
         var embedColor = botConfig.embedColor;
         var embedFooter = botConfig.embedFooter;
 
-        if (!(message.member.hasPermission("ADMINISTRATOR"))) return message.channel.send("**Error:** You don't have permission!");
+        if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission!");
 
         var content = message.content;
 
@@ -74,6 +75,27 @@ module.exports = {
         sendPoll();
 
         message.delete();
+
+        function permissionLevel(member) {
+
+            var helperRole = member.roles.cache.has("683206050048114728");
+            var moderatorRole = member.roles.cache.has("683205888034603042");
+            var administratorRole = member.roles.cache.has("683205637001183365");
+            var guildMasterRole = member.roles.cache.has("683205412488478809");
+
+            if (!helperRole && !moderatorRole && !administratorRole && !guildMasterRole) {
+                return 1;
+            } else if (helperRole && !moderatorRole && !administratorRole && !guildMasterRole) {
+                return 2;
+            } else if (!helperRole && moderatorRole && !administratorRole && !guildMasterRole) {
+                return 3;
+            } else if (!helperRole && !moderatorRole && administratorRole && !guildMasterRole) {
+                return 4;
+            } else if (!helperRole && !moderatorRole && administratorRole && guildMasterRole) {
+                return 5;
+            }
+
+        }
 
     },
 };

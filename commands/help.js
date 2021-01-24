@@ -63,8 +63,6 @@ module.exports = {
 
             commandList.push(constructor);
 
-
-
         });
 
         var informationAmount = 0;
