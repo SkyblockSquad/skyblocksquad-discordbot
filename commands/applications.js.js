@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'apps',
+    name: 'applications',
     description: 'Open or close staff applications. (Admin+)',
     category: 'Staff',
-    aliases: ['applications'],
+    aliases: ['app'],
     execute(client, message, args) {
 
         const discord = require("discord.js");
