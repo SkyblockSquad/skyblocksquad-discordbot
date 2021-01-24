@@ -8,6 +8,7 @@ module.exports = {
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
 
+        var prefix = botConfig.prefix;
         var embedFooter = botConfig.embedFooter;
         var embedColor = botConfig.embedColor;
 
