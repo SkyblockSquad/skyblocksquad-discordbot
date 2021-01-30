@@ -2,25 +2,47 @@ module.exports = {
     name: 'Skyblock Updates',
     execute(client, message, args) {
 
-        if (message.channel.type === "dm") return true;
+        const fs = require("fs");
+        const dataFile = require("../data/skyblockUpdates.json");
 
-        if (!(message.channel.id === "757218179113156669")) return true;
+        if (message.channel.type === "dm") return true;
 
         if (!(message.webhookID)) return true;
 
-        setTimeout(function() {
+        if (!(message.channel.id === "757218179113156669")) return true;
 
-            if(message.content.includes("@SkyBlock News")) {
-                message.channel.send("[<@&717993991773356145>]");
-            } else if(message.content.includes("@SkyBlock Content Change")) {
-                message.channel.send("[<@&770715385657950218>]");
-            } else if(message.content.includes("@SkyBlock Leaks")) {
-                message.channel.send("[<@&770715385657950218>]");
+        if (message.content.includes("@SkyBlock Scoop") || message.content.includes("@SkyBlock News")) {
+            var pingType = "updates";
+        } else if (message.content.includes("@SkyBlock Leaks")) {
+            var pingType = "leaks";
+        } else {
+            var pingType = "none";
+        }
+
+        dataFile[pingType].amount += 1;
+
+        fs.writeFile("../data/skyblockUpdates.json", JSON.stringify(dataFile), err => {
+
+        });
+
+        setTimeout(function () {
+
+            dataFile[pingType].amount -= 1;
+
+            fs.writeFile("../data/skyblockUpdates.json", JSON.stringify(dataFile), err => {
+
+            });
+
+            if (dataFile[pingType].amount === 0) {
+
+                if (pingType === "updates") var pingRole = "717993991773356145";
+                if (pingType === "leaks") var pingRole = "770715385657950218";
+
+                if(pingType !== "none") message.channel.send(`[<@&${pingRole}>]`);
+
             }
 
-        }, 1500);
-
-        return true;
+        }, 30000);
 
     },
 };

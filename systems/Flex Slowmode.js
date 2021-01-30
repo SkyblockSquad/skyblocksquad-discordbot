@@ -1,6 +1,5 @@
 module.exports = {
     name: 'Flex Slowmode',
-    description: '',
     execute(client, message, args) {
 
         const fs = require("fs");
