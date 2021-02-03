@@ -25,16 +25,16 @@ module.exports = {
 
         });
 
+        if (dataFile[pingType].amount === 1) {
+
+            if (pingType === "updates") var pingRole = "717993991773356145";
+            if (pingType === "leaks") var pingRole = "770715385657950218";
+
+            if (pingType !== "none") message.channel.send(`[<@&${pingRole}>]`);
+
+        }
+
         setTimeout(function () {
-
-            if (dataFile[pingType].amount === 1) {
-
-                if (pingType === "updates") var pingRole = "717993991773356145";
-                if (pingType === "leaks") var pingRole = "770715385657950218";
-
-                if (pingType !== "none") message.channel.send(`[<@&${pingRole}>]`);
-
-            }
 
             dataFile[pingType].amount -= 1;
 
@@ -42,7 +42,7 @@ module.exports = {
 
             });
 
-        }, 60000);
+        }, 180000);
 
     },
 };
