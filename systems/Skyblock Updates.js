@@ -19,6 +19,12 @@ module.exports = {
             var pingType = "none";
         }
 
+        if (!(dataFile[pingType])) {
+            dataFile[pingType] = {
+                amount: 0
+            }
+        }
+
         dataFile[pingType].amount += 1;
 
         fs.writeFile("../data/skyblockUpdates.json", JSON.stringify(dataFile), err => {
