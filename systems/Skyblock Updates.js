@@ -7,9 +7,9 @@ module.exports = {
 
         if (message.channel.type === "dm") return true;
 
-        // if (!(message.webhookID)) return true;
+        if (!(message.webhookID)) return true;
 
-        // if (!(message.channel.id === "757218179113156669")) return true;
+        if (!(message.channel.id === "757218179113156669")) return true;
 
         if (message.content.includes("@SkyBlock Scoop") || message.content.includes("@SkyBlock News")) {
             var pingType = "updates";
