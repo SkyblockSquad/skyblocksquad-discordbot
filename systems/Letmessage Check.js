@@ -13,6 +13,8 @@ module.exports = {
 
         if (dataFile[userID].usedAmount >= dataFile[userID].totalAmount) {
 
+            console.log("DEBUG");
+
             message.channel.updateOverwrite(userID, {
 
             });
