@@ -10,17 +10,17 @@ module.exports = {
 
         if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
 
-        if (args.length > 3 || args.length < 3) return message.channel.send("**Error:** Invalid syntax! Please use **,lm [user] [channel] [amount]**!");
+        if (args.length > 3 || args.length < 3) return message.channel.send("**Error:** Invalid syntax! Please use **,lm [target] [channel] [amount]**!");
 
-        var user = message.mentions.users.first();
+        var target = message.mentions.users.first();
         var channel = message.mentions.channels.first();
         var amount = parseInt(args[2]);
 
-        if (!(user)) return message.channel.send("**Error:** Please provide a valid user!");
+        if (!(target)) return message.channel.send("**Error:** Please provide a valid target!");
         if (!(channel)) return message.channel.send("**Error:** Please provide a valid channel!");
         if (!(Number.isInteger(amount))) return message.channel.send("**Error:** Please provide a valid amount!");
 
-        var userID = user.id;
+        var userID = target.id;
 
         channel.updateOverwrite(userID, {
             SEND_MESSAGES: true,
@@ -38,7 +38,7 @@ module.exports = {
 
         });
 
-        message.channel.send(`**${user.user.username}** can now send **${amount}** in ${channel}!`);
+        message.channel.send(`**${target.user.username}** can now send **${amount}** in ${channel}!`);
 
         function permissionLevel(member) {
 
