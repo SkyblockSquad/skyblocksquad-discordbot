@@ -5,6 +5,9 @@ module.exports = {
     aliases: ['lm'],
     execute(client, message, args) {
 
+        const fs = require("fs");
+        const dataFile = require("../data/letmessageData.json");
+
         if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
 
         if (args.length > 3 || args.length < 3) return message.channel.send("**Error:** Invalid syntax! Please use **,lm [user] [channel] [amount]**!");
@@ -17,7 +20,25 @@ module.exports = {
         if (!(channel)) return message.channel.send("**Error:** Please provide a valid channel!");
         if (!(Number.isInteger(amount))) return message.channel.send("**Error:** Please provide a valid amount!");
 
-        channel.send("**DEBUG:** Channel found!");
+        var userID = user.id;
+
+        channel.updateOverwrite(userID, {
+            SEND_MESSAGES: true,
+            ATTACH_FILES: true
+        });
+
+        if (!(dataFile[userID])) {
+            dataFile[userID] = {
+                usedAmount: 0,
+                totalAmount: amount
+            }
+        }
+
+        fs.writeFile("../data/letmessageData.json", JSON.stringify(dataFile), err => {
+
+        });
+
+
 
         function permissionLevel(member) {
 
