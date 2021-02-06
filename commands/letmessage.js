@@ -38,7 +38,7 @@ module.exports = {
 
         });
 
-
+        message.channel.send(`**${user.user.name}** can now send **${amount}** in ${channel}!`);
 
         function permissionLevel(member) {
 
