@@ -20,12 +20,12 @@ module.exports = {
 
             if (swearCheck.includes(swearWords["swearWords"][i])) {
 
-                var allowed = False;
+                var allowed = false;
                 var allowedCheck = message.content.toLowerCase();
 
                 for (let o = 0; o < allowedWords["allowedWords"].length; o++) {
                     if (allowedCheck.includes(allowedWords["allowedWords"][i])) {
-                        allowed = True;
+                        allowed = true;
                     }
                 }
 
