@@ -12,6 +12,7 @@ module.exports = {
         if (message.author.bot) return true;
 
         var swearWords = require("../data/swearWords.json");
+        var allowedWords = require("../data/allowedWords.json");
 
         var swearCheck = message.content.toLowerCase();
 
@@ -19,30 +20,41 @@ module.exports = {
 
             if (swearCheck.includes(swearWords["swearWords"][i])) {
 
-                message.delete();
+                var allowed = False;
+                var allowedCheck = message.content.toLowerCase();
 
-                var logsChannel = message.guild.channels.cache.find(ch => ch.name === "bot-logs");
-
-                if (!(logsChannel)) {
-                    console.log("Oops! Couldn't find a channel named \"bot-logs\"!");
-                    return true;
+                for (let o = 0; o < allowedWords["allowedWords"].length; o++) {
+                    if (allowedCheck.includes(allowedWords["allowedWords"][i])) {
+                        allowed = True;
+                    }
                 }
 
-                var swearEmbed = new discord.MessageEmbed()
-                    .setTitle("SWEAR FILTER")
-                    .setDescription(`${message.author} attempted to swear!`)
-                    .setColor("#FF0000")
-                    .setFooter(embedFooter)
-                    .setTimestamp()
-                    .addFields(
-                        { name: "Message", value: message.content },
-                        { name: "Channel", value: message.channel },
-                        { name: "Warn Command", value: `You can warn them using:\n**eli warn ${message.author.id} Swearing (Rule IV)**` }
-                    )
+                if (!(allowed)) {
+                    message.delete();
 
-                logsChannel.send(swearEmbed);
+                    message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 }));
 
-                message.channel.send(`${message.author}: **Please don't use that kind of language!**`).then(msg => msg.delete({ timeout: 5000 })); // This might need to be moved above the if (!(logsChannel)) { to make sure it is always sent
+                    var logsChannel = message.guild.channels.cache.find(ch => ch.name === "bot-logs");
+
+                    if (!(logsChannel)) {
+                        console.log("Oops! Couldn't find a channel named \"bot-logs\"!");
+                        return true;
+                    }
+
+                    var swearEmbed = new discord.MessageEmbed()
+                        .setTitle("SWEAR FILTER")
+                        .setDescription(`${message.author} attempted to swear!`)
+                        .setColor("#FF0000")
+                        .setFooter(embedFooter)
+                        .setTimestamp()
+                        .addFields(
+                            { name: "Message", value: message.content },
+                            { name: "Channel", value: message.channel },
+                            { name: "Warn Command", value: `You can warn them using:\n**eli warn ${message.author.id} Swearing (Rule IV)**` }
+                        )
+
+                    logsChannel.send(swearEmbed);
+                }
 
                 return false;
 
