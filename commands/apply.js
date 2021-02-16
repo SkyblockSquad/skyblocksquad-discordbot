@@ -46,7 +46,7 @@ module.exports = {
         var adminRole = message.member.roles.cache.find(role => role.id === "683205637001183365");
         var gmRole = message.member.roles.cache.find(role => role.id === "683205412488478809");
 
-        if (!proRole && !adminRole && !gmRole) return message.channel.send("**Error:** You need to be Pro to use this command!");
+        // if (!proRole && !adminRole && !gmRole) return message.channel.send("**Error:** You need to be Pro to use this command!");
 
         var bannedRole = message.member.roles.cache.find(role => role.id === "779011412411547669");
 
