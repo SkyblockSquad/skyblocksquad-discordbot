@@ -170,7 +170,7 @@ module.exports = {
                 message.channel.bulkDelete(1);
 
                 message.channel.updateOverwrite(ticketUser, {
-                    SEND_MESSAGES: false,
+                    SEND_MESSAGES: true,
                     READ_MESSAGES: true,
                     ATTACH_FILES: true,
                     ADD_REACTIONS: false,
