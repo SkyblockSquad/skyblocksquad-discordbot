@@ -29,6 +29,8 @@ module.exports = {
 
         var ticketUser = getTicketOwner(message.channel);
 
+        console.log(ticketUser);
+
         var choiceEmbed = new discord.MessageEmbed()
             .setTitle("MANAGE APPLICATION")
             .setColor("00BFFF")
