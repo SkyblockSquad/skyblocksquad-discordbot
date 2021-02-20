@@ -254,6 +254,8 @@ module.exports = {
 
                                                                 settedParent.send(authorEmbed);
 
+                                                                settedParent.send("[@&683205637001183365]");
+
                                                             }, 7500);
                                                         })
                                                     })
