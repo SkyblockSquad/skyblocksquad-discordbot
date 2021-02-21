@@ -254,13 +254,20 @@ module.exports = {
 
                                                                 settedParent.send(authorEmbed);
 
-                                                                settedParent.send("[<@&683205637001183365>]");
+                                                                async function adminPing() {
+                                                                    var pingMessage = await settedParent.send("[<@&683205637001183365>]");
+
+                                                                    return pingMessage;
+
+                                                                }
+
+                                                                var messageInChannel = adminPing();
 
                                                                 var cmdArgs = ["Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
 
                                                                 var pollCmd = client.commands.get("poll");
 
-                                                                pollCmd.execute(client, finish, cmdArgs, false);
+                                                                pollCmd.execute(client, messageInChannel, cmdArgs, false);
 
                                                             }, 7500);
                                                         })
