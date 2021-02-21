@@ -256,7 +256,9 @@ module.exports = {
 
                                                                 async function adminPing() {
                                                                     
-                                                                    var pingMessage = await settedParent.send("[<@&683205637001183365>]");
+                                                                    var pingMessage = await settedParent.send("**DEBUG!** Poll created!");
+
+                                                                    // [<@&683205637001183365>]
 
                                                                     return pingMessage;
 
@@ -264,7 +266,7 @@ module.exports = {
 
                                                                 var messageInChannel = adminPing();
 
-                                                                var cmdArgs = ["Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
+                                                                var cmdArgs = ["x", "Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
 
                                                                 var pollCmd = client.commands.get("poll");
 
