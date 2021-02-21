@@ -59,7 +59,9 @@ module.exports = {
             .setTimestamp()
             .addField("Question", `The question is: **${question}**`)
 
-        if (anonymous === "False") botEmbed.setDescription(`This poll was started by: <@${message.author.id}>`);
+        if (isCommand && anonymous === "False") botEmbed.setDescription(`This poll was started by: <@${message.author.id}>`);
+        if (!(isCommand) && anonymous === "False") botEmbed.setDescription(`This poll was started by: <@715568351052693622>`);
+
         if (ping === "True") message.channel.send("<@&772859858688802818>");
 
         for (let i = 0; i < options.length; i++) {
