@@ -2,7 +2,7 @@ module.exports = {
     name: 'poll',
     description: 'Create a poll! (Admin+)',
     category: 'Staff',
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
@@ -83,7 +83,7 @@ module.exports = {
 
         sendPoll();
 
-        message.delete();
+        if(isCommand) message.delete();
 
         function permissionLevel(member) {
 

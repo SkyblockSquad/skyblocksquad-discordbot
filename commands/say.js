@@ -2,7 +2,7 @@ module.exports = {
     name: 'say',
     description: 'Make the bot say a message! (Admin+)',
     category: 'Staff',
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         if (permissionLevel(message.member) < 4) return;
         if (args.length == 0) return;

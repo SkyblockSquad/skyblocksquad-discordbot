@@ -2,7 +2,7 @@ module.exports = {
     name: 'is',
     description: 'Ask all your questions to the bot! He knows everything!',
     category: 'Fun & Games',
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         if (args.length < 2) return message.channel.send("**Error:** You need to provide atleast 2 arguments!");
 

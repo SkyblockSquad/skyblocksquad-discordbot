@@ -2,7 +2,7 @@ module.exports = {
     name: 'apply',
     description: 'Apply for Helper! (Level 5)+',
     category: 'Miscellaneous',
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
@@ -255,6 +255,12 @@ module.exports = {
                                                                 settedParent.send(authorEmbed);
 
                                                                 settedParent.send("[<@&683205637001183365>]");
+
+                                                                var cmdArgs = ["Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
+
+                                                                var pollCmd = client.commands.get("poll");
+
+                                                                pollCmd.execute(client, message, cmdArgs, false);
 
                                                             }, 7500);
                                                         })

@@ -3,7 +3,7 @@ module.exports = {
     description: 'Let players send a certain amount of messages in a channel! (Admin+)',
     category: 'Staff',
     aliases: ['lm'],
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         const fs = require("fs");
         const dataFile = require("../data/letmessageData.json");

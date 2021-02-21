@@ -3,7 +3,7 @@ module.exports = {
     description: 'See a list of all staff commands! (Staff Only)',
     category: 'Information',
     aliases: ['scmds'],
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");

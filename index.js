@@ -90,7 +90,7 @@ client.on("message", async message => {
     if (!(message.content.startsWith(prefix))) return;
 
     var commands = client.commands.get(command.slice(prefix.length)) || client.commands.get(client.aliases.get(command.slice(prefix.length)));
-    if (commands) commands.execute(client, message, args);
+    if (commands) commands.execute(client, message, args, true);
 
 });
 

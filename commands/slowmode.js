@@ -3,7 +3,7 @@ module.exports = {
     description: 'Change a channel\'s slowmode (Admin+)!',
     category: 'Staff',
     aliases: ['sm'],
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission! **(MANAGE_CHANNELS)**");
 

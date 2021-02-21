@@ -2,7 +2,7 @@ module.exports = {
     name: 'profile',
     description: 'See information about your Skyblock profile!',
     category: 'Hypixel',
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
         const fetch = require("node-fetch");
 

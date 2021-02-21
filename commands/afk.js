@@ -2,9 +2,9 @@ module.exports = {
     name: 'afk',
     description: 'Toggle afk mode! (Level 15+)',
     category: 'Miscellaneous',
-    execute(client, message, args) {
+    execute(client, message, args, isCommand) {
 
-        if(args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
+        if (args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
 
         var level15role = message.member.roles.cache.find(role => role.id === "773453879689740288");
         var level20role = message.member.roles.cache.find(role => role.id === "773454008974704650");
@@ -21,11 +21,11 @@ module.exports = {
 
         var afkRole = message.member.guild.roles.cache.get('779718452075954197');
 
-        if(!afkRole) message.channel.send("**Error:** Couldn't find the AFK role! Please message a bot developer!");
+        if (!afkRole) message.channel.send("**Error:** Couldn't find the AFK role! Please message a bot developer!");
 
         var isAFK = message.member.roles.cache.find(role => role.id === "779718452075954197");
 
-        if(!isAFK) {
+        if (!isAFK) {
 
             message.member.roles.add(afkRole);
             message.channel.send("AFK mode is now **enabled**!");
