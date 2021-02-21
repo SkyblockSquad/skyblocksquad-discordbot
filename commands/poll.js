@@ -2,7 +2,7 @@ module.exports = {
     name: 'poll',
     description: 'Create a poll! (Admin+)',
     category: 'Staff',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
@@ -10,7 +10,9 @@ module.exports = {
         var embedColor = botConfig.embedColor;
         var embedFooter = botConfig.embedFooter;
 
-        if (isCommand) if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission!");
+        var cmdChannel = channel;
+
+        if (isCommand) if (permissionLevel(message.member) < 4) return cmdChannel.send("**Error:** You don't have permission!");
 
         var content = args.join(" ");
 
@@ -46,7 +48,7 @@ module.exports = {
         if (!(booleanPoll)) var reactions = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"];
         if (booleanPoll) var reactions = ["✅", "❌"];
 
-        if (options.length < 3 || options.length > 11) return message.channel.send("**Error:** Invalid syntax! Please use **,poll [question] / [option 1] / [option 2] / {option 3}... {-a} {-p}**\n*Minimum 2 options - Maximum 10 options*\n*Add -a to create an anonymous poll*\n*Add -p to ping*");
+        if (options.length < 3 || options.length > 11) return cmdChannel.send("**Error:** Invalid syntax! Please use **,poll [question] / [option 1] / [option 2] / {option 3}... {-a} {-p}**\n*Minimum 2 options - Maximum 10 options*\n*Add -a to create an anonymous poll*\n*Add -p to ping*");
 
         var question = options[0];
         question = question.slice(6, question.length);
@@ -62,7 +64,7 @@ module.exports = {
         if (isCommand && anonymous === "False") botEmbed.setDescription(`This poll was started by: <@${message.author.id}>`);
         if (!(isCommand) && anonymous === "False") botEmbed.setDescription(`This poll was started by: <@715568351052693622>`);
 
-        if (ping === "True") message.channel.send("<@&772859858688802818>");
+        if (ping === "True") cmdChannel.send("<@&772859858688802818>");
 
         for (let i = 0; i < options.length; i++) {
 
@@ -73,7 +75,7 @@ module.exports = {
 
         async function sendPoll() {
 
-            const poll = await message.channel.send(botEmbed);
+            const poll = await cmdChannel.send(botEmbed);
 
             for (let i = 0; i < options.length; i++) {
 
