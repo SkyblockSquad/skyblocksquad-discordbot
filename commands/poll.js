@@ -35,7 +35,16 @@ module.exports = {
 
         var options = content;
 
-        var reactions = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"];
+        var booleanPoll = false;
+
+        if (options.length === 3) {
+            if (options[1].toLowerCase() === "yes" && options[2].toLowerCase() === "no") {
+                booleanPoll = true;
+            }
+        }
+
+        if (!(booleanPoll)) var reactions = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"];
+        if (booleanPoll) var reactions = ["✅", "❌"];
 
         if (options.length < 3 || options.length > 11) return message.channel.send("**Error:** Invalid syntax! Please use **,poll [question] / [option 1] / [option 2] / {option 3}... {-a} {-p}**\n*Minimum 2 options - Maximum 10 options*\n*Add -a to create an anonymous poll*\n*Add -p to ping*");
 
