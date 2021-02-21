@@ -256,9 +256,7 @@ module.exports = {
 
                                                                 async function adminPing() {
                                                                     
-                                                                    var pingMessage = await settedParent.send("**DEBUG!** Poll created!");
-
-                                                                    // [<@&683205637001183365>]
+                                                                    var pingMessage = await settedParent.send("[<@&683205637001183365>]");
 
                                                                     return pingMessage;
 
