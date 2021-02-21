@@ -260,7 +260,7 @@ module.exports = {
 
                                                                 var pollCmd = client.commands.get("poll");
 
-                                                                pollCmd.execute(client, message, cmdArgs, false);
+                                                                pollCmd.execute(client, finish, cmdArgs, false);
 
                                                             }, 7500);
                                                         })
