@@ -256,7 +256,7 @@ module.exports = {
 
                                                                 async function adminPing() {
                                                                     
-                                                                    var pingMessage = await settedParent.send("[<@&683205637001183365>]");
+                                                                    var pingMessage = await settedParent.send("Creating poll...");
 
                                                                     return pingMessage;
 
@@ -269,6 +269,10 @@ module.exports = {
                                                                 var pollCmd = client.commands.get("poll");
 
                                                                 pollCmd.execute(client, messageInChannel, cmdArgs, false, settedParent);
+
+                                                                messageInChannel.delete();
+
+                                                                message.channel.send("[<@&683205637001183365>]");
 
                                                             }, 7500);
                                                         })
