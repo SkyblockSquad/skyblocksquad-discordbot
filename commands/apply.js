@@ -266,7 +266,7 @@ module.exports = {
 
                                                                 var messageInChannel = adminPing();
 
-                                                                var cmdArgs = ["x", "Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
+                                                                var cmdArgs = ["Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
 
                                                                 var pollCmd = client.commands.get("poll");
 

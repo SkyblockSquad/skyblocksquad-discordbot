@@ -51,7 +51,6 @@ module.exports = {
         if (options.length < 3 || options.length > 11) return cmdChannel.send("**Error:** Invalid syntax! Please use **,poll [question] / [option 1] / [option 2] / {option 3}... {-a} {-p}**\n*Minimum 2 options - Maximum 10 options*\n*Add -a to create an anonymous poll*\n*Add -p to ping*");
 
         var question = options[0];
-        question = question.slice(6, question.length);
         options.shift();
 
         var botEmbed = new discord.MessageEmbed()
