@@ -10,7 +10,7 @@ module.exports = {
         var embedColor = botConfig.embedColor;
         var embedFooter = botConfig.embedFooter;
 
-        if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission!");
+        if (isCommand) if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission!");
 
         var content = message.content;
 
@@ -83,7 +83,7 @@ module.exports = {
 
         sendPoll();
 
-        if(isCommand) message.delete();
+        if (isCommand) message.delete();
 
         function permissionLevel(member) {
 

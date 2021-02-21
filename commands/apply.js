@@ -255,6 +255,7 @@ module.exports = {
                                                                 settedParent.send(authorEmbed);
 
                                                                 async function adminPing() {
+                                                                    
                                                                     var pingMessage = await settedParent.send("[<@&683205637001183365>]");
 
                                                                     return pingMessage;
