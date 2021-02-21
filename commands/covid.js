@@ -3,7 +3,7 @@ module.exports = {
     description: 'See live covid-19 statistics! Confirmed cases, recovered people and deaths.',
     category: 'Covid-19',
     aliases: ['corona'],
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
         const fetch = require("node-fetch");

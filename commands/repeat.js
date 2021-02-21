@@ -2,7 +2,7 @@ module.exports = {
     name: 'repeat',
     description: 'Make the bot repeat whatever you say!',
     category: 'Fun & Games',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         if(args.length < 1) return message.channel.send("**Error:** Invalid syntax! Please use **,repeat [message]**!")
 

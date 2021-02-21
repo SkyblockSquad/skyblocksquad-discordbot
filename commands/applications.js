@@ -3,7 +3,7 @@ module.exports = {
     description: 'Open or close staff applications. (Admin+)',
     category: 'Staff',
     aliases: ['apps'],
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");

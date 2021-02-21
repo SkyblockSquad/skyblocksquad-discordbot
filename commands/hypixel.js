@@ -2,7 +2,7 @@ module.exports = {
     name: 'hypixel',
     description: 'See your and other people\'s Hypixel stats!',
     category: 'Hypixel',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
         const fetch = require("node-fetch");

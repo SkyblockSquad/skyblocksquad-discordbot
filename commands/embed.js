@@ -2,7 +2,7 @@ module.exports = {
     name: 'embed',
     description: 'Create a nice looking embed!',
     category: 'Miscellaneous',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
 

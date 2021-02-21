@@ -2,7 +2,7 @@ module.exports = {
     name: 'eventscore',
     description: 'See your score in the Christmas Event!',
     category: 'Miscellaneous',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         if (args.length > 0) return message.channel.send("**Error:** No arguments need to be provided!");
 

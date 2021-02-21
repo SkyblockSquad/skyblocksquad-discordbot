@@ -2,7 +2,7 @@ module.exports = {
     name: 'ping',
     description: 'Get information about latency and API ping!',
     category: 'Information',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         if (args.length >= 1) return message.channel.send("**Error:** No arguments need to be provided!");
 

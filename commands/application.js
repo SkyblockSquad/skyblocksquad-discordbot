@@ -2,7 +2,7 @@ module.exports = {
     name: 'application',
     description: 'Manage applications. (Admin+)',
     category: 'Staff',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
 

@@ -2,7 +2,7 @@ module.exports = {
     name: 'info',
     description: 'See information about the bot!',
     category: 'Information',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");

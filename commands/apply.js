@@ -2,7 +2,7 @@ module.exports = {
     name: 'apply',
     description: 'Apply for Helper! (Level 5)+',
     category: 'Miscellaneous',
-    execute(client, message, args, isCommand) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
