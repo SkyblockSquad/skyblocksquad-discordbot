@@ -12,7 +12,7 @@ module.exports = {
 
         if (isCommand) if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission!");
 
-        var content = message.content;
+        var content = args.join(" ");
 
         if (content.endsWith("-a")) {
             var anonymous = "True";
