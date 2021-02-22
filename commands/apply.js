@@ -254,25 +254,25 @@ module.exports = {
 
                                                                 settedParent.send(authorEmbed);
 
-                                                                async function adminPing() {
-                                                                    
-                                                                    var pingMessage = await settedParent.send("Creating poll...");
+                                                                setTimeout(function () {
 
-                                                                    return pingMessage;
+                                                                    async function pollMessage() {
 
-                                                                }
+                                                                        var pollMessage = await settedParent.send("Creating a poll...");
 
-                                                                var messageInChannel = adminPing();
+                                                                        return pollMessage;
 
-                                                                var cmdArgs = ["Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
+                                                                    }
 
-                                                                var pollCmd = client.commands.get("poll");
+                                                                    var messageInChannel = pollMessage();
 
-                                                                pollCmd.execute(client, messageInChannel, cmdArgs, false, settedParent);
+                                                                    var cmdArgs = ["Should", "this", "person", "be", "accepted?", "/", "Yes", "/", "No"];
 
-                                                                messageInChannel.delete();
+                                                                    var pollCmd = client.commands.get("poll");
 
-                                                                message.channel.send("[<@&683205637001183365>]");
+                                                                    pollCmd.execute(client, messageInChannel, cmdArgs, false, settedParent);
+
+                                                                }, 3000)
 
                                                             }, 7500);
                                                         })
