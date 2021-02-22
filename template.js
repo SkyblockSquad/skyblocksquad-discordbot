@@ -3,7 +3,7 @@ module.exports = {
     description: '',
     category: '',
     aliases: [],
-    execute(client, message, args) {
+    execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
 
