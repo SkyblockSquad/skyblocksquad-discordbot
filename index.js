@@ -96,7 +96,7 @@ client.on("message", async message => {
 
 function setRandomActivity() {
 
-    var activities = ["skyblock", "music", "youtube", "bedwars", "server stats"];
+    var activities = ["skyblock", "music", "youtube", "bedwars", "server stats", "minecraft"];
 
     var activity = activities[Math.floor(Math.random() * activities.length)];
 
@@ -107,6 +107,7 @@ function setRandomActivity() {
     if (activity === "youtube") client.user.setActivity("memes on Youtube", { type: "WATCHING" });
     if (activity === "bedwars") client.user.setActivity("bedwars", { type: "COMPETING" });
     if (activity === "server stats") client.user.setActivity(`SkyblockSquad Discord stats: ${guild.memberCount} members!`, { type: "WATCHING" });
+    if (activity === "minecraft") client.user.setActivity("Minecraft", { type: "PLAYING" });
 
 }
 
