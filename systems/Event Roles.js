@@ -53,9 +53,6 @@ module.exports = {
         var isLucky1 = randomChance(nextTierChance1);
         var isLucky2 = randomChance(nextTierChance2);
 
-        console.log(isLucky1);
-        console.log(isLucky2);
-
         // If the player is lucky, level them up
         if (isLucky1 && isLucky2) {
 
