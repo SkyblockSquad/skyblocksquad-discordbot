@@ -49,8 +49,8 @@ module.exports = {
         var nextTierChance1 = eventRoles[`tier${currentTier.toString()}`][1];
         var nextTierChance2 = eventRoles[`tier${currentTier.toString()}`][2];
 
-        console.log(nextTierChance1);
-        console.log(nextTierChance2);
+        console.log(isLucky1);
+        console.log(isLucky2);
 
         // Check if the player is lucky
         var isLucky1 = randomChance(nextTierChance1);
