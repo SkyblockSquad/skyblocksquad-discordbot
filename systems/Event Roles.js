@@ -12,6 +12,8 @@ module.exports = {
         if (message.channel.type === "dm") return true;
         if (message.author.bot) return true;
 
+        if (!(message.channel.parentID === "683205203465601104")) return true;
+
         // Get all the tier roles
         var hasT1Role = message.member.roles.cache.get(eventRoles["tier1"][0]);
         var hasT2Role = message.member.roles.cache.get(eventRoles["tier2"][0]);
