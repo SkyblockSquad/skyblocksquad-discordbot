@@ -13,11 +13,11 @@ module.exports = {
         if (message.author.bot) return true;
 
         // Get all the tier roles
-        var tier1Role = message.member.roles.cache.find(eventRoles["tier1"][0]);
-        var tier2Role = message.member.roles.cache.find(eventRoles["tier2"][0]);
-        var tier3Role = message.member.roles.cache.find(eventRoles["tier3"][0]);
-        var tier4Role = message.member.roles.cache.find(eventRoles["tier4"][0]);
-        var tier5Role = message.member.roles.cache.find(eventRoles["tier5"][0]);
+        var tier1Role = message.member.roles.cache.get(eventRoles["tier1"][0]);
+        var tier2Role = message.member.roles.cache.get(eventRoles["tier2"][0]);
+        var tier3Role = message.member.roles.cache.get(eventRoles["tier3"][0]);
+        var tier4Role = message.member.roles.cache.get(eventRoles["tier4"][0]);
+        var tier5Role = message.member.roles.cache.get(eventRoles["tier5"][0]);
 
         // Get the player's current tier
         var currentTier = 0
