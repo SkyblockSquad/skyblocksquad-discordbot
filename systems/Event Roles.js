@@ -13,24 +13,30 @@ module.exports = {
         if (message.author.bot) return true;
 
         // Get all the tier roles
-        var tier1Role = message.member.roles.cache.get(eventRoles["tier1"][0]);
-        var tier2Role = message.member.roles.cache.get(eventRoles["tier2"][0]);
-        var tier3Role = message.member.roles.cache.get(eventRoles["tier3"][0]);
-        var tier4Role = message.member.roles.cache.get(eventRoles["tier4"][0]);
-        var tier5Role = message.member.roles.cache.get(eventRoles["tier5"][0]);
+        var hasT1Role = message.member.roles.cache.get(eventRoles["tier1"][0]);
+        var hasT2Role = message.member.roles.cache.get(eventRoles["tier2"][0]);
+        var hasT3Role = message.member.roles.cache.get(eventRoles["tier3"][0]);
+        var hasT4Role = message.member.roles.cache.get(eventRoles["tier4"][0]);
+        var hasT5Role = message.member.roles.cache.get(eventRoles["tier5"][0]);
+
+        var T1Role = message.guild.roles.cache.get(eventRoles["tier1"][0]);
+        var T2Role = message.guild.roles.cache.get(eventRoles["tier2"][0]);
+        var T3Role = message.guild.roles.cache.get(eventRoles["tier3"][0]);
+        var T4Role = message.guild.roles.cache.get(eventRoles["tier4"][0]);
+        var T5Role = message.guild.roles.cache.get(eventRoles["tier5"][0]);
 
         // Get the player's current tier
         var currentTier = 0
 
-        if (tier1Role) currentTier = 1;
-        if (tier2Role) currentTier = 2;
-        if (tier3Role) currentTier = 3;
-        if (tier4Role) currentTier = 4;
-        if (tier5Role) currentTier = 5;
+        if (hasT1Role) currentTier = 1;
+        if (hasT2Role) currentTier = 2;
+        if (hasT3Role) currentTier = 3;
+        if (hasT4Role) currentTier = 4;
+        if (hasT5Role) currentTier = 5;
 
         // If the player is tier 0, make them tier 1
         if (currentTier === 0) {
-            message.member.roles.add(tier1Role);
+            message.member.roles.add(T1Role);
             currentTier = 1;
         }
 
@@ -49,23 +55,23 @@ module.exports = {
         if (isLucky1 && isLucky2) {
 
             if (currentTier === 1) {
-                message.member.roles.remove(tier1Role);
-                message.member.roles.add(tier2Role);
+                message.member.roles.remove(T1Role);
+                message.member.roles.add(T2Role);
             }
 
             if (currentTier === 2) {
-                message.member.roles.remove(tier2Role);
-                message.member.roles.add(tier3Role);
+                message.member.roles.remove(T2Role);
+                message.member.roles.add(T3Role);
             }
 
             if (currentTier === 3) {
-                message.member.roles.remove(tier3Role);
-                message.member.roles.add(tier4Role);
+                message.member.roles.remove(T3Role);
+                message.member.roles.add(T4Role);
             }
 
             if (currentTier === 4) {
-                message.member.roles.remove(tier4Role);
-                message.member.roles.add(tier5Role);
+                message.member.roles.remove(T4Role);
+                message.member.roles.add(T5Role);
             }
 
             var nextTierEmbed = new discord.MessageEmbed()
