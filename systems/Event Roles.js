@@ -82,7 +82,9 @@ module.exports = {
                 .setColor(embedColor)
                 .setFooter(embedFooter)
 
+            message.channel.send(`<@${message.author.id}>`);
             message.channel.send(nextTierEmbed);
+            
         }
 
         function randomInteger(minimum, maximum) {
