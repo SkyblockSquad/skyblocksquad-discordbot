@@ -20,12 +20,14 @@ module.exports = {
         var hasT3Role = message.member.roles.cache.get(eventRoles["tier3"][0]);
         var hasT4Role = message.member.roles.cache.get(eventRoles["tier4"][0]);
         var hasT5Role = message.member.roles.cache.get(eventRoles["tier5"][0]);
+        var hasT6Role = message.member.roles.cache.get(eventRoles["tier6"][0]);
 
         var T1Role = message.guild.roles.cache.get(eventRoles["tier1"][0]);
         var T2Role = message.guild.roles.cache.get(eventRoles["tier2"][0]);
         var T3Role = message.guild.roles.cache.get(eventRoles["tier3"][0]);
         var T4Role = message.guild.roles.cache.get(eventRoles["tier4"][0]);
         var T5Role = message.guild.roles.cache.get(eventRoles["tier5"][0]);
+        var T6Role = message.guild.roles.cache.get(eventRoles["tier6"][0]);
 
         // Get the player's current tier
         var currentTier = 0
@@ -35,6 +37,7 @@ module.exports = {
         if (hasT3Role) currentTier = 3;
         if (hasT4Role) currentTier = 4;
         if (hasT5Role) currentTier = 5;
+        if (hasT6Role) currentTier = 6;
 
         // If the player is tier 0, make them tier 1
         if (currentTier === 0) {
@@ -76,6 +79,11 @@ module.exports = {
                 message.member.roles.add(T5Role);
             }
 
+            if (currentTier === 5) {
+                message.member.roles.remove(T5Role);
+                message.member.roles.add(T6Role)
+            }
+
             var nextTierEmbed = new discord.MessageEmbed()
                 .setTitle("TIER LEVEL UP!")
                 .setDescription(`Congratulations! You are now **tier ${nextTier}**!\n\n**Note:** This is an event! All roles from this event will\nbe removed once the event ends. You might win rewards depending on your tier!`)
@@ -84,7 +92,7 @@ module.exports = {
 
             message.channel.send(`<@${message.author.id}>`);
             message.channel.send(nextTierEmbed);
-            
+
         }
 
         function randomInteger(minimum, maximum) {
