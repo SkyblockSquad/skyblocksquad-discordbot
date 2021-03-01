@@ -14,6 +14,8 @@ module.exports = {
 
         if (message.channel.id === "703168301634945097") return true;
 
+        if (message.channel.id === "815982460637806652") return true;
+
         if (!(message.content.startsWith(prefix))) return true;
 
         message.delete();
