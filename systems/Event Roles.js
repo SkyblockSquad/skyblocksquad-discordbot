@@ -1,10 +1,14 @@
+const FlexSlowmode = require("./Flex Slowmode");
+
 module.exports = {
     name: 'Event Roles',
     execute(client, message, args) {
 
         const discord = require("discord.js");
+        const fs = require("fs");
         const botConfig = require("../data/botconfig.json")
         const eventRoles = require("../data/eventRoles.json");
+        const dataFile = require("../data/eventData.json");
 
         var embedFooter = botConfig.embedFooter;
         var embedColor = botConfig.embedColor
@@ -13,6 +17,20 @@ module.exports = {
         if (message.author.bot) return true;
 
         if (!(message.channel.parentID === "683205203465601104")) return true;
+
+        var userID = message.author.id;
+
+        if (!(dataFile[userID])) {
+            dataFile[userID] = {
+                canTierUp: 1
+            }
+        }
+
+        fs.writeFile("../data/eventData.json", JSON.stringify(dataFile), err => {
+
+        });
+
+        if (dataFile[userID].canTierUp === 0) return true;
 
         // Get all the tier roles
         var hasT1Role = message.member.roles.cache.get(eventRoles["tier1"][0]);
@@ -94,6 +112,22 @@ module.exports = {
 
             message.channel.send(`<@${message.author.id}>`);
             message.channel.send(nextTierEmbed);
+
+            dataFile[userID].canTierUp = 0;
+
+            fs.writeFile("../data/eventData.json", JSON.stringify(dataFile), err => {
+
+            });
+
+            setTimeout(function() {
+                
+                dataFile[userID].canTierUp = 1;
+
+                fs.writeFile("../data/eventData.json", JSON.stringify(dataFile), err => {
+
+                });
+
+            }, 30000)
 
         }
 
