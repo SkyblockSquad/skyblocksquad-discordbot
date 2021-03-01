@@ -51,13 +51,15 @@ module.exports = {
         // Get the player's levelup chances
         var nextTierChance1 = eventRoles[`tier${currentTier.toString()}`][1];
         var nextTierChance2 = eventRoles[`tier${currentTier.toString()}`][2];
+        var nextTierChance3 = eventRoles[`tier${currentTier.toString()}`][3];
 
         // Check if the player is lucky
         var isLucky1 = randomChance(nextTierChance1);
         var isLucky2 = randomChance(nextTierChance2);
+        var isLucky3 = randomChance(nextTierChance3);
 
         // If the player is lucky, level them up
-        if (isLucky1 && isLucky2) {
+        if (isLucky1 && isLucky2 && isLucky3) {
 
             if (currentTier === 1) {
                 message.member.roles.remove(T1Role);
