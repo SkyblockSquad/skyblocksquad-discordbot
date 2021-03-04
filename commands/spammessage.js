@@ -5,6 +5,9 @@ module.exports = {
     aliases: [],
     execute(client, message, args, isCommand, channel) {
 
+        var run = false;
+        if (!(run)) return message.channel.send("**Error:** This command is currently disabled!");
+
         if (args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,spammessage [amount] [message]**!");
 
         var amount = parseInt(args[0]);
