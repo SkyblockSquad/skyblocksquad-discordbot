@@ -14,7 +14,7 @@ module.exports = {
 
         let countries = args.join(" ");
 
-        if (args.length >= 2 || !(args[0])) return message.channel.type("**Error:** Invalid syntax! Please use **,covid (all | [country])");
+        if (args.length >= 2 || !(args[0])) return message.channel.send("**Error:** Invalid syntax! Please use **,covid (all | [country])");
 
         if (args[0] === "all") {
 
