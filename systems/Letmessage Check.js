@@ -2,7 +2,6 @@ module.exports = {
     name: 'Letmessage Check',
     execute(client, message, args) {
 
-        const fs = require("fs");
         const dataFile = require("../data/letmessageData.json");
 
         var userID = message.author.id;
@@ -14,7 +13,10 @@ module.exports = {
         dataFile[userID].usedAmount += 1;
 
         if (dataFile[userID].usedAmount >= dataFile[userID].totalAmount) {
+
+            var channel = dataFile[userID].channelID;
             channel.permissionOverwrites.get(message.author.id).delete();
+            
         }
 
     },
