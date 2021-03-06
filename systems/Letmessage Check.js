@@ -14,9 +14,9 @@ module.exports = {
 
         if (dataFile[userID].usedAmount >= dataFile[userID].totalAmount) {
 
-            var channel = dataFile[userID].channelID;
+            var channel = message.guild.channels.cache.get(dataFile[userID].channelID);
             channel.permissionOverwrites.get(message.author.id).delete();
-            
+
         }
 
     },
