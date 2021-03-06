@@ -31,7 +31,7 @@ module.exports = {
             dataFile[userID] = {
                 usedAmount: 0,
                 totalAmount: amount,
-                channelID: channel
+                channelID: channel.id
             }
         }
 
