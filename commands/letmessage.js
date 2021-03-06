@@ -8,9 +8,6 @@ module.exports = {
         const fs = require("fs");
         const dataFile = require("../data/letmessageData.json");
 
-        var run = false;
-        if (!(run)) return message.channel.send("**Error:** This command is currently disabled!");
-
         if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
 
         if (args.length > 3 || args.length < 3) return message.channel.send("**Error:** Invalid syntax! Please use **,lm [target] [channel] [amount]**!");
@@ -33,7 +30,8 @@ module.exports = {
         if (!(dataFile[userID])) {
             dataFile[userID] = {
                 usedAmount: 0,
-                totalAmount: amount
+                totalAmount: amount,
+                channelID: message.channel
             }
         }
 

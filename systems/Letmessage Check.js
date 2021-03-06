@@ -9,15 +9,12 @@ module.exports = {
 
         if (!(dataFile[userID])) return true;
 
+        if (dataFile[userID].channelID !== message.channel.id) return true;
+
         dataFile[userID].usedAmount += 1;
 
         if (dataFile[userID].usedAmount >= dataFile[userID].totalAmount) {
-
-            message.channel.updateOverwrite(userID, {
-                SEND_MESSAGES: false,
-                ATTACH_FILES: false
-            });
-
+            channel.permissionOverwrites.get(message.author.id).delete();
         }
 
     },
