@@ -70,9 +70,9 @@ module.exports = {
 
             var result = 0;
 
-            for (let y = 0; y < rolesList.length; y++) {
+            console.log("DEBUG! Function working!");
 
-                console.log(`DEBUG! Loop working!`);
+            for (let y = 0; y < rolesList.length; y++) {
 
                 yIterationCounter += 1;
 
