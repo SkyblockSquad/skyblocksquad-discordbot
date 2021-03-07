@@ -1,0 +1,12 @@
+{
+    "eventActive": true,
+    "eventType": "roles: tiers",
+    "roleCooldown": 5,
+    "allowMultiple": false,
+    "sendEmbed": false,
+
+    "eventCategories": [
+        "683205203465601104",
+        "787844842096951296"
+    ]
+}

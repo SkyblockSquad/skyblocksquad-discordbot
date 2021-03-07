@@ -13,6 +13,8 @@ module.exports = {
 
         if (!(Number.isInteger(amount))) return message.channel.send("**Error:** Please provide a valid amount!");
 
+        if (amount < 1) return message.channel.send("**Error:** Please provide an amount higher than 0!");
+        
         message.delete();
 
         args.shift();
