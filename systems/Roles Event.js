@@ -72,13 +72,13 @@ module.exports = {
 
             for (let y = 0; y < rolesList.length; y++) {
 
+                console.log(`DEBUG! Loop working!`);
+
                 yIterationCounter += 1;
 
                 if (yIterationCounter === 1) {
 
                     currentTier += 1;
-
-                    console.log(`Current checking tier: ${currentTier}`);
 
                     var roleID = rolesList[y];
                     var memberRole = message.member.roles.cache.get(roleID);
