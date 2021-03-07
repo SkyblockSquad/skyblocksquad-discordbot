@@ -31,7 +31,7 @@ module.exports = {
             }
         }
 
-        fs.writeFile("../data/eventData.json", JSON.stringify(dataFile), err => {
+        fs.writeFile("../data/eventData.json", JSON.stringify(eventData), err => {
 
         });
 
