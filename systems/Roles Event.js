@@ -63,10 +63,6 @@ module.exports = {
 
         }
 
-        console.log(rolesList);
-
-        console.log(`Player's tier: ${eventTier(message, rolesList)}`);
-
         function eventTier(message, rolesList) {
 
             var yIterationCounter = 0;
