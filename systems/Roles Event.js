@@ -78,6 +78,8 @@ module.exports = {
 
                     currentTier += 1;
 
+                    console.log(`Current checking tier: ${currentTier}`);
+
                     var roleID = rolesList[y];
                     var memberRole = message.member.roles.cache.get(roleID);
 
