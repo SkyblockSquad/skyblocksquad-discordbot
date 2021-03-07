@@ -42,9 +42,13 @@ module.exports = {
 
         for (let o = 0; o < eventRoles["eventRoles"]; o++) {
 
+            console.log("DEBUG! Check 1 passed!");
+
             oIterationCounter += 1;
 
             if (oIterationCounter === 1) {
+
+                console.log("DEBUG! Check 2 passed!");
 
                 var roleID = eventRoles["eventRoles"][o + 1];
                 var roleChance1 = eventRoles["eventRoles"][o + 2];
