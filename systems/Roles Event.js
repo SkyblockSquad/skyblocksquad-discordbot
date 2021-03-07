@@ -70,7 +70,11 @@ module.exports = {
 
             var result = 0;
 
+            console.log(rolesList);
+
             for (let y = 0; y < rolesList.length; y++) {
+
+                console.log("DEBUG! Loop working!");
 
                 yIterationCounter += 1;
 
