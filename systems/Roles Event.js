@@ -40,6 +40,8 @@ module.exports = {
         var rolesList = [];
         var oIterationCounter = 0;
 
+        console.log(eventRoles["eventRoles"]);
+
         for (let o = 0; o < eventRoles["eventRoles"]; o++) {
 
             console.log("DEBUG! Check 1 passed!");
