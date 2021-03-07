@@ -61,16 +61,14 @@ module.exports = {
 
         }
 
-        console.log(`Player's tier: ${eventTier(message)}`);
+        console.log(`Player's tier: ${eventTier(message, rolesList)}`);
 
-        function eventTier(message) {
+        function eventTier(message, rolesList) {
 
             var yIterationCounter = 0;
             var currentTier = 0;
 
             var result = 0;
-
-            console.log(rolesList);
 
             for (let y = 0; y < rolesList.length; y++) {
 
