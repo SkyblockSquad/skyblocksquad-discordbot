@@ -70,7 +70,7 @@ module.exports = {
 
             var result = 0;
 
-            console.log("DEBUG! Function working!");
+            console.log(rolesList);
 
             for (let y = 0; y < rolesList.length; y++) {
 
