@@ -63,6 +63,8 @@ module.exports = {
 
         }
 
+
+
         function eventTier(message, rolesList) {
 
             var yIterationCounter = 0;
@@ -91,6 +93,14 @@ module.exports = {
             }
 
             return result;
+
+        }
+
+        function tierUpChances(message, rolesList) {
+
+            // ID1, chance1.1, chance 1.2, chance 1.3, ID2, chance 2.1, chance 2.2, chance 2.3...
+            //
+            // WIP
 
         }
 
