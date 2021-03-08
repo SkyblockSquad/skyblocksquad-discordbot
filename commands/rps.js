@@ -12,6 +12,8 @@ module.exports = {
 
         var playerOption = args[0];
 
+        if (!(playerOption)) playerOption = "None";
+
         if (!(playerOption.toUpperCase() === "ROCK")) {
             if (!(playerOption.toUpperCase() === "PAPER")) {
                 if (!(playerOption.toUpperCase() === "SCISSORS")) {
