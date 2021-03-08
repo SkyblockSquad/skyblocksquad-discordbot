@@ -10,7 +10,7 @@ module.exports = {
         var options = ["rock", "paper", "scissors"];
         var result = options[Math.floor(Math.random() * options.length)];
 
-        var playerOption = playerOption;
+        var playerOption = args[0];
 
         if (!(playerOption.toUpperCase() === "ROCK")) {
             if (!(playerOption.toUpperCase() === "PAPER")) {
