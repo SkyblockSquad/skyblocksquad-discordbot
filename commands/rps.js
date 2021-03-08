@@ -29,17 +29,17 @@ module.exports = {
                         var emoji = await promptMessage(msg, message.author, 60, ["🗿", "🗒️", "✂️"])
 
                         if (emoji === "🗿") {
-                            playerOption = ["rock"];
+                            playerOption = "rock";
 
                             playRockPaperScissors(message, playerOption, result);
 
                         } else if (emoji === "🗒️") {
-                            playerOption = ["paper"];
+                            playerOption = "paper";
 
                             playRockPaperScissors(message, playerOption, result);
 
                         } else if (emoji === "✂️") {
-                            playerOption = ["scissors"];
+                            playerOption = "scissors";
 
                             playRockPaperScissors(message, playerOption, result);
 
