@@ -4,7 +4,10 @@ module.exports = {
     category: 'Fun & Games',
     execute(client, message, args, isCommand, channel) {
 
-        if (!args[0]) return message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");
+        const discord = require("discord.js");
+        const botConfig = require("../data/botconfig.json");
+
+        if (!args[0]) return message.channel.send("**Error:** Invalid syntax! Please use: **,rps {(rock|paper|scissors)}**");
 
         var options = ["rock", "paper", "scissors"];
         var result = options[Math.floor(Math.random() * options.length)];
@@ -13,7 +16,25 @@ module.exports = {
             if (!(args[0].toUpperCase() === "PAPER")) {
                 if (!(args[0].toUpperCase() === "SCISSORS")) {
 
-                    return message.channel.send("**Error:** Invalid syntax! Please use: **,rps (rock|paper|scissors)**");
+                    var embed = new discord.MessageEmbed()
+                        .setTitle("ROCK PAPER SCISSORS")
+                        .setDescription("React with an emoji below to pick an option!\n\n:moyai: Rock\n:notepad_spiral: Paper\n:scissors: Scissors")
+                        .setColor(botConfig.embedColor)
+                        .setFooter(botConfig.embedFooter)
+
+                    message.channel.send(embed).then(async msg => {
+
+                        var emoji = await promptMessage(msg, message.author, 60, ["🗿", "🗒️", "✂️"])
+
+                        if (emoji === "🗿") {
+                            args = ["rock"];
+                        } else if (emoji === "🗒️") {
+                            args = ["paper"];
+                        } else if (emoji === "✂️") {
+                            args = ["scissors"];
+                        }
+
+                    })
 
                 }
             }
@@ -90,6 +111,20 @@ module.exports = {
                 return message.channel.send(`**I win!** ${winMessage}`);
 
             }
+        }
+
+        async function promptMessage(message, author, time, reactions) {
+
+            time *= 1000;
+
+            for (const reaction of reactions) {
+                await message.react(reaction);
+            }
+
+            const filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
+
+            return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
+
         }
 
     },
