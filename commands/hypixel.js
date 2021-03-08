@@ -67,6 +67,7 @@ module.exports = {
             if (plusColor === "&5") plusColor = "Dark Purple";
             if (plusColor === "&7") plusColor = "Grey";
             if (plusColor === "&0") plusColor = "Black";
+            if (plusColor === "&1") plusColor = "Dark Blue";
 
             var botEmbed = new discord.MessageEmbed()
                 .setTitle(`HYPIXEL STATS (${args[0].toUpperCase()})`)
@@ -79,8 +80,8 @@ module.exports = {
                     { name: "Rank", value: rankDisplay, inline: true },
                     { name: "Rank Plus Color", value: plusColor, inline: true },
                     { name: "Online", value: onlineDisplay, inline: true },
-                    { name: "Karma", value: karma, inline: true },
-                    { name: "Achievement Points", value: achievement_points, inline: true },
+                    { name: "Karma", value: karma.toLocaleString(), inline: true },
+                    { name: "Achievement Points", value: achievement_points.toLocaleString(), inline: true },
                     { name: "Linked Discord", value: linkedDiscord, inline: true },
                     { name: "First Login", value: `${moment(first_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true },
                     { name: "Last Login", value: `${moment(last_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true }
