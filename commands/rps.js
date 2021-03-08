@@ -7,8 +7,6 @@ module.exports = {
         const discord = require("discord.js");
         const botConfig = require("../data/botconfig.json");
 
-        if (!args[0]) return message.channel.send("**Error:** Invalid syntax! Please use: **,rps {(rock|paper|scissors)}**");
-
         var options = ["rock", "paper", "scissors"];
         var result = options[Math.floor(Math.random() * options.length)];
 
