@@ -10,9 +10,11 @@ module.exports = {
         var options = ["rock", "paper", "scissors"];
         var result = options[Math.floor(Math.random() * options.length)];
 
-        if (!(args[0].toUpperCase() === "ROCK")) {
-            if (!(args[0].toUpperCase() === "PAPER")) {
-                if (!(args[0].toUpperCase() === "SCISSORS")) {
+        var playerOption = playerOption;
+
+        if (!(playerOption.toUpperCase() === "ROCK")) {
+            if (!(playerOption.toUpperCase() === "PAPER")) {
+                if (!(playerOption.toUpperCase() === "SCISSORS")) {
 
                     var embed = new discord.MessageEmbed()
                         .setTitle("ROCK PAPER SCISSORS")
@@ -25,11 +27,11 @@ module.exports = {
                         var emoji = await promptMessage(msg, message.author, 60, ["🗿", "🗒️", "✂️"])
 
                         if (emoji === "🗿") {
-                            args = ["rock"];
+                            playerOption = ["rock"];
                         } else if (emoji === "🗒️") {
-                            args = ["paper"];
+                            playerOption = ["paper"];
                         } else if (emoji === "✂️") {
-                            args = ["scissors"];
+                            playerOption = ["scissors"];
                         }
 
                     })
@@ -38,18 +40,18 @@ module.exports = {
             }
         }
 
-        var winMessageOptions = ["*you noob*", "*get destroyed*", "*jeez, you really are bad*", "*get clowned on*", "*It's obvious I'm too good for you*", "*lol*"]
+        var winMessageOptions = ["*you noob*", "*get destroyed*", "*jeez, you're really bad*", "*NOOB*", "*TRASH*", "*lol*"]
         var winMessage = winMessageOptions[Math.floor(Math.random() * winMessageOptions.length)];
 
         var loseMessageOptions = ["*I'm sure you cheated*", "*HOW IS THIS POSSIBLE*", "*That was a nice game!*", "*GG*", "*It's obvious that you cheated lol*",
-            "*You are now BANNED*"]
+            "*You are now BANNED for: 'Cheating'*"]
 
         var loseMessage = loseMessageOptions[Math.floor(Math.random() * loseMessageOptions.length)];
 
-        var tieMessageOptions = ["*I'm sure that next time I'll win*", "*GG*", "*Next time you'll get destroyed*", "*Well, that was a fun game!*", "nice one!"]
+        var tieMessageOptions = ["*I'm sure that next time I'll win*", "*Next time you'll get destroyed*", "*Well, that was a fun game!*", "Nice one!"]
         var tieMessage = tieMessageOptions[Math.floor(Math.random() * tieMessageOptions.length)];
 
-        if (args[0].toUpperCase() == "ROCK") {
+        if (playerOption.toUpperCase() == "ROCK") {
 
             if (result == "paper") {
 
@@ -70,7 +72,7 @@ module.exports = {
 
         }
 
-        else if (args[0].toUpperCase() == "PAPER") {
+        else if (playerOption.toUpperCase() == "PAPER") {
 
             if (result == "paper") {
 
@@ -91,7 +93,7 @@ module.exports = {
 
         }
 
-        else if (args[0].toUpperCase() == "SCISSORS") {
+        else if (playerOption.toUpperCase() == "SCISSORS") {
 
             if (result == "paper") {
 
