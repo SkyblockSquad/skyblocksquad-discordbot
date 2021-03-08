@@ -83,8 +83,8 @@ module.exports = {
                     { name: "Karma", value: karma.toLocaleString(), inline: true },
                     { name: "Achievement Points", value: achievement_points.toLocaleString(), inline: true },
                     { name: "Linked Discord", value: linkedDiscord, inline: true },
-                    { name: "First Login", value: `${moment(first_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true },
-                    { name: "Last Login", value: `${moment(last_login).format("MMMM Do YYYY, h:mm:ss a")}`, inline: true }
+                    { name: "First Login", value: `${moment(first_login).format("MMMM Do YYYY")}`, inline: true },
+                    { name: "Last Login", value: `${moment(last_login).format("MMMM Do YYYY")}`, inline: true }
                 );
 
             return message.channel.send(botEmbed);
