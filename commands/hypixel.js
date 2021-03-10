@@ -12,7 +12,7 @@ module.exports = {
         var embedColor = botConfig.embedColor;
         var embedFooter = botConfig.embedFooter;
 
-        if (args.length >= 2 || args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,hypixel {username}**!");
+        if (args.length >= 2 || args.length == 0) return message.channel.send("**Error:** Invalid syntax! Please use **,hypixel [username]**!");
 
         async function getData() {
 
