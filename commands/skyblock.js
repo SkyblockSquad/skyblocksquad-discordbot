@@ -12,11 +12,11 @@ module.exports = {
         var embedColor = botConfig.embedColor;
         var embedFooter = botConfig.embedFooter;
 
-        if (!(args.length === 1)) return message.channel.send("**Error:** Invalid syntax! Please use **,skyblock [username]**!");
+        if (!(args.length === 2)) return message.channel.send("**Error:** Invalid syntax! Please use **,skyblock [(stats)] [username]**!");
 
         async function getData() {
 
-            const responseUUID = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
+            const responseUUID = await fetch(`https://api.slothpixel.me/api/players/${args[1]}`);
             const dataUUID = await responseUUID.json().catch(error => {
                 message.channel.send("**Error:** An error occurred!");
             });
@@ -34,11 +34,32 @@ module.exports = {
 
             var member = members[playerUUID];
 
-            var attributes = member["attributes"];
+            if (args[0].toLowerCase() === "stats") {
 
-            var health = attributes["health"];
+                var attributes = member["attributes"];
 
-            message.channel.send(`**DEBUG!** ${health.toLocaleString()}`);
+                var health = attributes["health"];
+                var defense = attributes["defense"];
+                var strength = attributes["strength"];
+
+                var embed = new discord.MessageEmbed()
+                    .setTitle(`SKYBLOCK (STATS) `)
+                    .setColor(embedColor)
+                    .setFooter(embedFooter)
+                    .setTimestamp()
+                    .addFields(
+                        { name: "Health", value: health, inline: true },
+                        { name: "Defense", value: defense, inline: true },
+                        { name: "Strength", value: strength, inline: true }   
+                    );
+
+                message.channel.send(embed);
+
+            } else {
+                message.channel.send("**Error:** Unknown category! Please use one of the following: **stats**");
+            }
+
+
 
         }
 
