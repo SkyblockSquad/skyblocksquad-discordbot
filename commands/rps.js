@@ -12,138 +12,94 @@ module.exports = {
 
         var playerOption = args[0];
 
+        if (!(args.length === 1)) return message.channel.send("**Error:** Invalid syntax! Please use **,rps [(rock, paper, scissors)]**!");
+
         if (!(playerOption)) playerOption = "None";
 
         if (!(playerOption.toUpperCase() === "ROCK")) {
             if (!(playerOption.toUpperCase() === "PAPER")) {
                 if (!(playerOption.toUpperCase() === "SCISSORS")) {
 
-                    var embed = new discord.MessageEmbed()
-                        .setTitle("ROCK PAPER SCISSORS")
-                        .setDescription("React with an emoji below to pick an option!\n\n:moyai: Rock\n:notepad_spiral: Paper\n:scissors: Scissors")
-                        .setColor(botConfig.embedColor)
-                        .setFooter(botConfig.embedFooter)
-
-                    message.channel.send(embed).then(async msg => {
-
-                        var emoji = await promptMessage(msg, message.author, 60, ["🗿", "🗒️", "✂️"])
-
-                        if (emoji === "🗿") {
-                            playerOption = "rock";
-
-                            playRockPaperScissors(message, playerOption, result);
-
-                        } else if (emoji === "🗒️") {
-                            playerOption = "paper";
-
-                            playRockPaperScissors(message, playerOption, result);
-
-                        } else if (emoji === "✂️") {
-                            playerOption = "scissors";
-
-                            playRockPaperScissors(message, playerOption, result);
-
-                        }
-
-                    })
+                    return message.channel.send("**Error:** Invalid syntax! Please use **,rps [(rock, paper, scissors)]**!");
 
                 }
             }
         }
 
-        playRockPaperScissors(message, playerOption, result);
 
-        function playRockPaperScissors(message, playerOption, result) {
 
-            var winMessageOptions = ["*you noob*", "*get destroyed*", "*jeez, you're really bad*", "*NOOB*", "*TRASH*", "*lol*"]
-            var winMessage = winMessageOptions[Math.floor(Math.random() * winMessageOptions.length)];
 
-            var loseMessageOptions = ["*I'm sure you cheated*", "*HOW IS THIS POSSIBLE*", "*That was a nice game!*", "*GG*", "*It's obvious that you cheated lol*",
-                "*You are now BANNED for: 'Cheating'*"]
+        var winMessageOptions = ["*you noob*", "*get destroyed*", "*jeez, you're really bad*", "*NOOB*", "*TRASH*", "*lol*"]
+        var winMessage = winMessageOptions[Math.floor(Math.random() * winMessageOptions.length)];
 
-            var loseMessage = loseMessageOptions[Math.floor(Math.random() * loseMessageOptions.length)];
+        var loseMessageOptions = ["*I'm sure you cheated*", "*HOW IS THIS POSSIBLE*", "*That was a nice game!*", "*GG*", "*It's obvious that you cheated lol*",
+            "*You are now BANNED for: 'Cheating'*"]
 
-            var tieMessageOptions = ["*I'm sure that next time I'll win*", "*Next time you'll get destroyed*", "*Well, that was a fun game!*", "Nice one!"]
-            var tieMessage = tieMessageOptions[Math.floor(Math.random() * tieMessageOptions.length)];
+        var loseMessage = loseMessageOptions[Math.floor(Math.random() * loseMessageOptions.length)];
 
-            if (playerOption.toUpperCase() == "ROCK") {
+        var tieMessageOptions = ["*I'm sure that next time I'll win*", "*Next time you'll get destroyed*", "*Well, that was a fun game!*", "Nice one!"]
+        var tieMessage = tieMessageOptions[Math.floor(Math.random() * tieMessageOptions.length)];
 
-                if (result == "paper") {
+        if (playerOption.toUpperCase() == "ROCK") {
 
-                    message.channel.send(`I choose: **Paper** :notepad_spiral:`);
-                    return message.channel.send(`**I win!** ${winMessage}`);
+            if (result == "paper") {
 
-                } else if (result == "scissors") {
+                message.channel.send(`I choose: **Paper** :notepad_spiral:`);
+                return message.channel.send(`**I win!** ${winMessage}`);
 
-                    message.channel.send(`I choose: **Scissors** :scissors:`);
-                    return message.channel.send(`**You win...** ${loseMessage}`);
+            } else if (result == "scissors") {
 
-                } else if (result == "rock") {
+                message.channel.send(`I choose: **Scissors** :scissors:`);
+                return message.channel.send(`**You win...** ${loseMessage}`);
 
-                    message.channel.send(`I choose: **Rock** :moyai:`);
-                    return message.channel.send(`**It's a tie!** ${tieMessage}`);
+            } else if (result == "rock") {
 
-                }
+                message.channel.send(`I choose: **Rock** :moyai:`);
+                return message.channel.send(`**It's a tie!** ${tieMessage}`);
 
-            }
-
-            else if (playerOption.toUpperCase() == "PAPER") {
-
-                if (result == "paper") {
-
-                    message.channel.send(`I choose: **Paper** :notepad_spiral:`);
-                    return message.channel.send(`**It's a tie!** ${tieMessage}`);
-
-                } else if (result == "scissors") {
-
-                    message.channel.send(`I choose: **Scissors** :scissors:`);
-                    return message.channel.send(`**I win!** ${winMessage}`);
-
-                } else if (result == "rock") {
-
-                    message.channel.send(`I choose: **Rock** :moyai:`);
-                    return message.channel.send(`**You win...** ${loseMessage}`);
-
-                }
-
-            }
-
-            else if (playerOption.toUpperCase() == "SCISSORS") {
-
-                if (result == "paper") {
-
-                    message.channel.send(`I choose: **Paper** :notepad_spiral:`);
-                    return message.channel.send(`**You win...** ${loseMessage}`);
-
-                } else if (result == "scissors") {
-
-                    message.channel.send(`I choose: **Scissors** :scissors:`);
-                    return message.channel.send(`**It's a tie!** ${tieMessage}`);
-
-                } else if (result == "rock") {
-
-                    message.channel.send(`I choose: **Rock** :moyai:`);
-                    return message.channel.send(`**I win!** ${winMessage}`);
-
-                }
             }
 
         }
 
+        else if (playerOption.toUpperCase() == "PAPER") {
 
+            if (result == "paper") {
 
-        async function promptMessage(message, author, time, reactions) {
+                message.channel.send(`I choose: **Paper** :notepad_spiral:`);
+                return message.channel.send(`**It's a tie!** ${tieMessage}`);
 
-            time *= 1000;
+            } else if (result == "scissors") {
 
-            for (const reaction of reactions) {
-                await message.react(reaction);
+                message.channel.send(`I choose: **Scissors** :scissors:`);
+                return message.channel.send(`**I win!** ${winMessage}`);
+
+            } else if (result == "rock") {
+
+                message.channel.send(`I choose: **Rock** :moyai:`);
+                return message.channel.send(`**You win...** ${loseMessage}`);
+
             }
 
-            const filter = (reaction, user) => reactions.includes(reaction.emoji.name) && user.id === author.id;
+        }
 
-            return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
+        else if (playerOption.toUpperCase() == "SCISSORS") {
 
+            if (result == "paper") {
+
+                message.channel.send(`I choose: **Paper** :notepad_spiral:`);
+                return message.channel.send(`**You win...** ${loseMessage}`);
+
+            } else if (result == "scissors") {
+
+                message.channel.send(`I choose: **Scissors** :scissors:`);
+                return message.channel.send(`**It's a tie!** ${tieMessage}`);
+
+            } else if (result == "rock") {
+
+                message.channel.send(`I choose: **Rock** :moyai:`);
+                return message.channel.send(`**I win!** ${winMessage}`);
+
+            }
         }
 
     },
