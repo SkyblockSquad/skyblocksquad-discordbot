@@ -30,6 +30,8 @@ module.exports = {
                 message.channel.send("**Error:** An error occurred!");
             });
 
+            if (!(playerUUID)) return message.channel.send("**Error:** An error occurred!");
+
             const { members } = data;
 
             var member = members[playerUUID];
@@ -43,14 +45,14 @@ module.exports = {
                 var strength = attributes["strength"];
 
                 var embed = new discord.MessageEmbed()
-                    .setTitle(`SKYBLOCK (STATS) `)
+                    .setTitle(`SKYBLOCK (STATS) ${args[1].toUpperCase()}`)
                     .setColor(embedColor)
                     .setFooter(embedFooter)
                     .setTimestamp()
                     .addFields(
                         { name: "Health", value: health, inline: true },
                         { name: "Defense", value: defense, inline: true },
-                        { name: "Strength", value: strength, inline: true }   
+                        { name: "Strength", value: strength, inline: true }
                     );
 
                 message.channel.send(embed);
