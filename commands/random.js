@@ -4,7 +4,7 @@ module.exports = {
     category: 'Fun & Games',
     execute(client, message, args, isCommand, channel) {
 
-        if (args.length > 2 || args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,random [minimum] [maximum]**");
+        if (args.length > 2 || args.length < 2) return message.channel.send("**Error:** Invalid syntax! Please use **,random [minimum] [maximum]**!");
 
         var minimum = args[0];
         var maximum = args[1];

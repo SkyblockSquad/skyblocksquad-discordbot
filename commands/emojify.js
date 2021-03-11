@@ -8,7 +8,7 @@ module.exports = {
 
         var emojification = args.join(" ");
 
-        if (emojification.length > 50) return message.channel.send("**Error:** I can't emojify a text that is longer then 50 characters!");
+        if (emojification.length > 50) return message.channel.send("**Error:** I can't emojify a text that is longer than 50 characters!");
 
         var chars = emojification.split("");
 
