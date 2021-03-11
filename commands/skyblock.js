@@ -12,16 +12,18 @@ module.exports = {
         var embedColor = botConfig.embedColor;
         var embedFooter = botConfig.embedFooter;
 
-        if (!(args.length === 2)) return message.channel.send("**Error:** Invalid syntax! Please use **,skyblock [(stats)] [username]**!");
+        if (!(args.length === 2)) return message.channel.send("**Error:** Invalid syntax! Please use **,skyblock [username] [category]**!");
 
         async function getData() {
 
-            const responseUUID = await fetch(`https://api.slothpixel.me/api/players/${args[1]}`);
+            const responseUUID = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const dataUUID = await responseUUID.json().catch(error => {
                 message.channel.send("**Error:** An error occurred!");
             });
 
             const { uuid } = dataUUID;
+
+            if (!(uuid)) return message.channel.send("**Error:** An error occurred!");
 
             var playerUUID = uuid;
 
@@ -30,13 +32,13 @@ module.exports = {
                 message.channel.send("**Error:** An error occurred!");
             });
 
-            if (!(playerUUID)) return message.channel.send("**Error:** An error occurred!");
-
             const { members } = data;
 
             var member = members[playerUUID];
 
-            if (args[0].toLowerCase() === "stats") {
+            if (args[1].toLowerCase() === "stats") {
+
+                message.channel.send("Loading...");
 
                 var attributes = member["attributes"];
 
@@ -60,7 +62,7 @@ module.exports = {
                 var foragingFortune = attributes["foraging_fortune"];
 
                 var embed = new discord.MessageEmbed()
-                    .setTitle(`SKYBLOCK (STATS) ${args[1].toUpperCase()}`)
+                    .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (STATS)`)
                     .setColor(embedColor)
                     .setFooter(embedFooter)
                     .setTimestamp()
@@ -90,8 +92,6 @@ module.exports = {
             } else {
                 message.channel.send("**Error:** Unknown category! Please use one of the following: **stats**");
             }
-
-
 
         }
 
