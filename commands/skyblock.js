@@ -43,6 +43,21 @@ module.exports = {
                 var health = attributes["health"];
                 var defense = attributes["defense"];
                 var strength = attributes["strength"];
+                var speed = attributes["speed"];
+                var critChance = attributes["crit_chance"];
+                var critDamage = attributes["crit_damage"];
+                var attackSpeed = attributes["bonus_attack_speed"];
+                var intelligence = attributes["intelligence"];
+                var seaCreatureChance = attributes["sea_creature_chance"];
+                var magicFind = attributes["magic_find"];
+                var petLuck = attributes["pet_luck"];
+                var trueDefense = attributes["true_defense"];
+                var ferocity = attributes["ferocity"];
+                var abilityDamage = attributes["ability_damage"];
+                var miningSpeed = attributes["mining_speed"];
+                var miningFortune = attributes["mining_fortune"];
+                var farmingFortune = attributes["farming_fortune"];
+                var foragingFortune = attributes["foraging_fortune"];
 
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (STATS) ${args[1].toUpperCase()}`)
@@ -52,7 +67,22 @@ module.exports = {
                     .addFields(
                         { name: "Health", value: health, inline: true },
                         { name: "Defense", value: defense, inline: true },
-                        { name: "Strength", value: strength, inline: true }
+                        { name: "Strength", value: strength, inline: true },
+                        { name: "Speed", value: speed, inline: true },
+                        { name: "Crit Chance", value: critChance, inline: true },
+                        { name: "Crit Damage", value: critDamage, inline: true },
+                        { name: "Attack Speed", value: attackSpeed, inline: true },
+                        { name: "Intelligence", value: intelligence, inline: true },
+                        { name: "Sea Creature Chance", value: seaCreatureChance, inline: true },
+                        { name: "Magic Find", value: magicFind, inline: true },
+                        { name: "Pet Luck", value: petLuck, inline: true },
+                        { name: "True Defense", value: trueDefense, inline: true },
+                        { name: "Ferocity", value: ferocity, inline: true },
+                        { name: "Ability Damage", value: abilityDamage, inline: true },
+                        { name: "Mining Speed", value: miningSpeed, inline: true },
+                        { name: "Mining Fortune", value: miningFortune, inline: true },
+                        { name: "Farming Fortune", value: farmingFortune, inline: true },
+                        { name: "Foraging Fortune", value: foragingFortune, inline: true }
                     );
 
                 message.channel.send(embed);
