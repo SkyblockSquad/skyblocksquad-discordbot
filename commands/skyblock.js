@@ -34,6 +34,8 @@ module.exports = {
 
             const { members } = data;
 
+            if (!(members)) return message.channel.send("**Error:** An error occurred!");
+
             var member = members[playerUUID];
 
             if (args[1].toLowerCase() === "stats") {
