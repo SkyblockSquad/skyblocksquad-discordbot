@@ -69,24 +69,24 @@ module.exports = {
                     .setFooter(embedFooter)
                     .setTimestamp()
                     .addFields(
-                        { name: "Health", value: health, inline: true },
-                        { name: "Defense", value: defense, inline: true },
-                        { name: "Strength", value: strength, inline: true },
-                        { name: "Speed", value: speed, inline: true },
-                        { name: "Crit Chance", value: critChance, inline: true },
-                        { name: "Crit Damage", value: critDamage, inline: true },
-                        { name: "Attack Speed", value: attackSpeed, inline: true },
-                        { name: "Intelligence", value: intelligence, inline: true },
-                        { name: "Sea Creature Chance", value: seaCreatureChance, inline: true },
-                        { name: "Magic Find", value: magicFind, inline: true },
-                        { name: "Pet Luck", value: petLuck, inline: true },
-                        { name: "True Defense", value: trueDefense, inline: true },
-                        { name: "Ferocity", value: ferocity, inline: true },
-                        { name: "Ability Damage", value: abilityDamage, inline: true },
-                        { name: "Mining Speed", value: miningSpeed, inline: true },
-                        { name: "Mining Fortune", value: miningFortune, inline: true },
-                        { name: "Farming Fortune", value: farmingFortune, inline: true },
-                        { name: "Foraging Fortune", value: foragingFortune, inline: true }
+                        { name: "Health", value: health.toLocaleString(), inline: true },
+                        { name: "Defense", value: defense.toLocaleString(), inline: true },
+                        { name: "Strength", value: strength.toLocaleString(), inline: true },
+                        { name: "Speed", value: speed.toLocaleString(), inline: true },
+                        { name: "Crit Chance", value: critChance.toLocaleString(), inline: true },
+                        { name: "Crit Damage", value: critDamage.toLocaleString(), inline: true },
+                        { name: "Attack Speed", value: attackSpeed.toLocaleString(), inline: true },
+                        { name: "Intelligence", value: intelligence.toLocaleString(), inline: true },
+                        { name: "Sea Creature Chance", value: seaCreatureChance.toLocaleString(), inline: true },
+                        { name: "Magic Find", value: magicFind.toLocaleString(), inline: true },
+                        { name: "Pet Luck", value: petLuck.toLocaleString(), inline: true },
+                        { name: "True Defense", value: trueDefense.toLocaleString(), inline: true },
+                        { name: "Ferocity", value: ferocity.toLocaleString(), inline: true },
+                        { name: "Ability Damage", value: abilityDamage.toLocaleString(), inline: true },
+                        { name: "Mining Speed", value: miningSpeed.toLocaleString(), inline: true },
+                        { name: "Mining Fortune", value: miningFortune.toLocaleString(), inline: true },
+                        { name: "Farming Fortune", value: farmingFortune.toLocaleString(), inline: true },
+                        { name: "Foraging Fortune", value: foragingFortune.toLocaleString(), inline: true }
                     );
 
                 message.channel.send(embed);
@@ -106,9 +106,9 @@ module.exports = {
                     .setFooter(embedFooter)
                     .setTimestamp()
                     .addFields(
-                        { name: "Fishing Treasure Caught", value: treasureCaught },
-                        { name: "Death Count", value: deathCount },
-                        { name: "Total Kills", value: kills }
+                        { name: "Fishing Treasure Caught", value: treasureCaught.toLocaleString() },
+                        { name: "Death Count", value: deathCount.toLocaleString() },
+                        { name: "Total Kills", value: kills.toLocaleString() }
                     );
 
                 message.channel.send(embed);
