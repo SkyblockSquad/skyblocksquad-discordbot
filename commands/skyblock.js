@@ -16,6 +16,8 @@ module.exports = {
 
         async function getData() {
 
+            message.channel.send("Loading...");
+
             const responseUUID = await fetch(`https://api.slothpixel.me/api/players/${args[0]}`);
             const dataUUID = await responseUUID.json().catch(error => {
                 message.channel.send("**Error:** An error occurred!");
@@ -39,8 +41,6 @@ module.exports = {
             var member = members[playerUUID];
 
             if (args[1].toLowerCase() === "stats") {
-
-                message.channel.send("Loading...");
 
                 var attributes = member["attributes"];
 
@@ -91,8 +91,30 @@ module.exports = {
 
                 message.channel.send(embed);
 
+            } else if (args[1].toLowerCase() === "misc") {
+
+                var treasureCaught = member["fishing_treasure_caught"];
+                var deathCount = member["death_count"];
+
+                var stats = member["stats"];
+
+                var kills = stats["total_kills"];
+
+                var embed = new discord.MessageEmbed()
+                    .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (MISCELLANEOUS)`)
+                    .setColor(embedColor)
+                    .setFooter(embedFooter)
+                    .setTimestamp()
+                    .addFields(
+                        { name: "Fishing Treasure Caught", value: treasureCaught },
+                        { name: "Death Count", value: deathCount },
+                        { name: "Total Kills", value: kills }
+                    );
+
+                message.channel.send(embed);
+
             } else {
-                message.channel.send("**Error:** Unknown category! Please use one of the following: **stats**");
+                message.channel.send("**Error:** Unknown category! Please use one of the following: **stats, misc**");
             }
 
         }
