@@ -126,6 +126,8 @@ module.exports = {
 
                 var balance = banking["balance"];
 
+                if (!(balance)) balance = "Banking API disabled!";  
+
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (COINS)`)
                     .setColor(embedColor)
