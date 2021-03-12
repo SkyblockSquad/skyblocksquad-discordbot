@@ -100,6 +100,9 @@ module.exports = {
 
                 var kills = stats["total_kills"];
 
+                var highestCritDamage = stats["highest_critical_damage"];
+                var endCrystalsDestroyed = stats["ender_crystals_destroyed"];
+
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (MISCELLANEOUS)`)
                     .setColor(embedColor)
@@ -108,13 +111,52 @@ module.exports = {
                     .addFields(
                         { name: "Fishing Treasure Caught", value: treasureCaught.toLocaleString() },
                         { name: "Death Count", value: deathCount.toLocaleString() },
-                        { name: "Total Kills", value: kills.toLocaleString() }
+                        { name: "Total Kills", value: kills.toLocaleString() },
+                        { name: "Highest Critical Damage", value: highestCritDamage.toLocaleString() },
+                        { name: "End Crystals Destroyed", value: endCrystalsDestroyed.toLocaleString() }
                     );
 
                 message.channel.send(embed);
 
+            } else if (args[1].toLowerCase() === "coins") {
+
+                var purse = member["coin_purse"];
+
+                const { banking } = data;
+
+                var balance = banking["balance"];
+
+                var embed = new discord.MessageEmbed()
+                    .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (COINS)`)
+                    .setColor(embedColor)
+                    .setFooter(embedFooter)
+                    .setTimestamp()
+                    .addFields(
+                        { name: "Purse", value: purse.toLocaleString() },
+                        { name: "Bank", value: balance.toLocaleString() }
+                    );
+
+                message.channel.send(embed);
+
+            } else if (args[1].toLowerCase() === "skills") {
+
+                var skills = member["skills"];
+
+                var combat = skills["combat"];
+                var combatLVL = combat["level"];
+
+                var embed = new discord.MessageEmbed()
+                    .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (SKILLS)`)
+                    .setColor(embedColor)
+                    .setFooter(embedFooter)
+                    .setTimestamp()
+                    .addFields(
+                        { name: "Combat", value: combatLVL.toLocaleString() }                    );
+
+                message.channel.send(embed);
+
             } else {
-                message.channel.send("**Error:** Unknown category! Please use one of the following: **stats, misc**");
+                message.channel.send("**Error:** Unknown category! Please use one of the following: **stats, misc, coins, skills**");
             }
 
         }
