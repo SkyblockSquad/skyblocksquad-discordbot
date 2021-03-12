@@ -191,8 +191,34 @@ module.exports = {
                     );
                 message.channel.send(embed);
 
+            } else if (args[1].toLowerCase() === "slayer") {
+
+                var slayer = member["slayer"];
+
+                var zombie = slayer["zombie"];
+                var zombieLVL = zombie["claimed_levels"];
+
+                var spider = slayer["spider"];
+                var spiderLVL = spider["claimed_levels"];
+
+                var wolf = slayer["wolf"];
+                var wolfLVL = wolf["claimed_levels"];
+
+                var embed = new discord.MessageEmbed()
+                    .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (SLAYER)`)
+                    .setColor(embedColor)
+                    .setFooter(embedFooter)
+                    .setTimestamp()
+                    .addFields(
+                        { name: "Zombie Level", value: zombieLVL },
+                        { name: "Spider Level", value: spiderLVL },
+                        { name: "Wolf Level", value: wolfLVL }
+                    );
+
+                message.channel.send(embed);
+
             } else {
-                message.channel.send("**Error:** Unknown category! Please use one of the following: **stats, misc, coins, skills**");
+                message.channel.send("**Error:** Unknown category! Please use one of the following: **stats, misc, coins, skills, slayer**");
             }
 
         }
