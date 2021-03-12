@@ -144,6 +144,35 @@ module.exports = {
 
                 var combat = skills["combat"];
                 var combatLVL = combat["level"];
+                var combatMAX = combat["maxLevel"];
+
+                var farming = skills["farming"];
+                var farmingLVL = farming["level"];
+                var farmingMAX = farming["maxLevel"];
+
+                var mining = skills["mining"];
+                var miningLVL = mining["level"];
+                var miningMAX = mining["maxLevel"];
+
+                var foraging = skills["foraging"];
+                var foragingLVL = foraging["level"];
+                var foragingMAX = foraging["maxLevel"];
+
+                var fishing = skills["fishing"];
+                var fishingLVL = fishing["level"];
+                var fishingMAX = fishing["maxLevel"];
+
+                var enchanting = skills["enchanting"];
+                var enchantingLVL = enchanting["level"];
+                var enchantingMAX = enchanting["maxLevel"];
+
+                var alchemy = skills["alchemy"];
+                var alchemyLVL = alchemy["level"];
+                var alchemyMAX = alchemy["maxLevel"];
+
+                var taming = skills["taming"];
+                var tamingLVL = taming["level"];
+                var tamingMAX = taming["maxLevel"];
 
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (SKILLS)`)
@@ -151,8 +180,15 @@ module.exports = {
                     .setFooter(embedFooter)
                     .setTimestamp()
                     .addFields(
-                        { name: "Combat", value: combatLVL.toLocaleString() }                    );
-
+                        { name: "Combat", value: `${combatLVL}/${combatMAX}` },
+                        { name: "Farming", value: `${farmingLVL}/${farmingMAX}` },
+                        { name: "Mining", value: `${miningLVL}/${miningMAX}` },
+                        { name: "Foraging", value: `${foragingLVL}/${foragingMAX}` },
+                        { name: "Fishing", value: `${fishingLVL}/${fishingMAX}` },
+                        { name: "Enchanting", value: `${enchantingLVL}/${enchantingMAX}` },
+                        { name: "Alchemy", value: `${alchemyLVL}/${alchemyMAX}` },
+                        { name: "Taming", value: `${tamingLVL}/${tamingMAX}` },
+                    );
                 message.channel.send(embed);
 
             } else {
