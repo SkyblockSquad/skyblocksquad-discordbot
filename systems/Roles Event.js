@@ -76,12 +76,14 @@ module.exports = {
         var isLucky2 = randomChance(chances[1]);
         var isLucky3 = randomChance(chances[2]);
 
+        console.log(isLucky1)
+        console.log(isLucky2)
+        console.log(isLucky3)
+
         if (isLucky1 && isLucky2 && isLucky3) {
 
             var eIterationCounter = 0;
             var currentTier = 0;
-
-            // ID1, chance 1.1, chance 1.2, chance 1.3, ID2, chance 2.1, chance 2.2, chance 2.3, ...
 
             for (let e = 0; e < rolesList.length; e++) {
 
