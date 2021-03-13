@@ -63,10 +63,10 @@ module.exports = {
 
         }
 
-        console.log(`DEBUG! Tier: ${eventTier(message, rolesList)}`);
-        console.log(`DEBUG! Chances: ${roleChances(message, rolesList)}`);
-
         var eventActive = eventConfig.eventActive;
+
+        console.log(eventActive);
+        console.log(canContinue);
 
         if (!(eventActive) || !(canContinue)) return true;
 
