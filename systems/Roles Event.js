@@ -65,9 +65,6 @@ module.exports = {
 
         var eventActive = eventConfig.eventActive;
 
-        console.log(eventActive);
-        console.log(canContinue);
-
         if (!(eventActive) || !(canContinue)) return true;
 
         var chances = roleChances(message, rolesList);
