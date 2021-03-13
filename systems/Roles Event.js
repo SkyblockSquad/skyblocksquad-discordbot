@@ -110,7 +110,7 @@ module.exports = {
 
                     currentTier += 1;
 
-                    if (currentTier === eventTier(message, rolesList)) {
+                    if (currentTier + 1 === eventTier(message, rolesList)) {
 
                         var chance1 = rolesList[h + 1];
                         var chance2 = rolesList[h + 2];
