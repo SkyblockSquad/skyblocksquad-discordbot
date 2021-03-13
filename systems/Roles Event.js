@@ -53,7 +53,7 @@ module.exports = {
 
                 var roleDataList = [roleID, roleChance1, roleChance2, roleChance3];
 
-                for(let p = 0; p < roleDataList.length; p++) {
+                for (let p = 0; p < roleDataList.length; p++) {
                     rolesList.push(roleDataList[p]);
                 }
 
@@ -63,7 +63,8 @@ module.exports = {
 
         }
 
-
+        console.log(`DEBUG! Tier: ${eventTier(message, rolesList)}`);
+        console.log(`DEBUG! Chances: ${roleChances(message, rolesList)}`);
 
         function eventTier(message, rolesList) {
 
@@ -96,11 +97,34 @@ module.exports = {
 
         }
 
-        function tierUpChances(message, rolesList) {
+        function roleChances(message, rolesList) {
 
-            // ID1, chance1.1, chance 1.2, chance 1.3, ID2, chance 2.1, chance 2.2, chance 2.3...
-            //
-            // WIP
+            var hIterationCounter = 0;
+            var currentTier = 0;
+
+            for (let h = 0; h < rolesList.length; h++) {
+
+                hIterationCounter += 1;
+
+                if (hIterationCounter === 1) {
+
+                    currentTier += 1;
+
+                    if (currentTier === eventTier(message, rolesList)) {
+
+                        var chance1 = rolesList[h + 1];
+                        var chance2 = rolesList[h + 2];
+                        var chance3 = rolesList[h + 3];
+
+                        var roleChances = [chance1, chance2, chance3];
+
+                    }
+
+                } else if (hIterationCounter > 3)
+                    hIterationCounter = 0;
+            }
+
+            return roleChances;
 
         }
 
