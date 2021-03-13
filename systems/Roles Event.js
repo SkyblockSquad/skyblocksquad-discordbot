@@ -23,6 +23,8 @@ module.exports = {
 
         }
 
+        if (!(canContinue)) return true;
+
         var userID = message.author.id;
 
         if (!(eventData[userID])) {
@@ -66,9 +68,8 @@ module.exports = {
         var eventActive = eventConfig.eventActive;
 
         console.log(eventActive);
-        console.log(canContinue);
 
-        if (!(eventActive) || !(canContinue)) return true;
+        if (!(eventActive)) return true;
 
         var chances = roleChances(message, rolesList);
 
