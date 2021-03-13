@@ -13,6 +13,9 @@ module.exports = {
         var embedFooter = botConfig.embedFooter;
         var embedColor = botConfig.embedColor
 
+        var run = false;
+        if (!(run)) return true;
+
         if (message.channel.type === "dm") return true;
         if (message.author.bot) return true;
 
@@ -119,8 +122,8 @@ module.exports = {
 
             });
 
-            setTimeout(function() {
-                
+            setTimeout(function () {
+
                 dataFile[userID].canTierUp = 1;
 
                 fs.writeFile("../data/eventData.json", JSON.stringify(dataFile), err => {

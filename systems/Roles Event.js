@@ -66,6 +66,84 @@ module.exports = {
         console.log(`DEBUG! Tier: ${eventTier(message, rolesList)}`);
         console.log(`DEBUG! Chances: ${roleChances(message, rolesList)}`);
 
+        var eventActive = eventConfig.eventActive;
+
+        if (!(eventActive) || !(canContinue)) return true;
+
+        var chances = roleChances(message, rolesList);
+
+        var isLucky1 = randomChance(chances[0]);
+        var isLucky2 = randomChance(chances[1]);
+        var isLucky3 = randomChance(chances[2]);
+
+        if (isLucky1 && isLucky2 && isLucky3) {
+
+            var eIterationCounter = 0;
+            var currentTier = 0;
+
+            // ID1, chance 1.1, chance 1.2, chance 1.3, ID2, chance 2.1, chance 2.2, chance 2.3, ...
+
+            for (let e = 0; e < rolesList.length; e++) {
+
+                eIterationCounter += 1;
+
+                if (eIterationCounter === 1) {
+
+                    currentTier += 1;
+
+                    if (currentTier === eventTier(message, rolesList)) {
+
+                        var currentID = rolesList[e];
+
+                    } else if (currentTier === eventTier(message, rolesList) + 1) {
+
+                        var nextID = rolesList[e];
+
+                    }
+
+                } else if (eIterationCounter > 3) {
+                    eIterationCounter = 0;
+                }
+
+            }
+
+            var oldTierRole = message.guild.roles.cache.get(currentID);
+            var newTierRole = message.guild.roles.cache.get(nextID);
+
+            message.member.roles.remove(oldTierRole);
+            message.member.roles.add(newTierRole);
+
+            var embed = new discord.MessageEmbed()
+                .setTitle("TIER LEVEL UP!")
+                .setDescription(`Congratulations! You are now **tier ${nextTier}**!\n\n**Note:** This is an event! All roles from this event will\nbe removed once the event ends. You might win rewards depending on your tier!`)
+                .setColor(botConfig.embedColor)
+                .setFooter(botConfig.embedFooter)
+
+            if (eventConfig.sendEmbed) {
+                message.channel.send(`<@${message.author.id}>`);
+                message.channel.send(embed);
+            }
+
+            var cooldown = eventConfig.roleCooldown;
+
+            eventData[userID].cooldownActive = 1;
+
+            fs.writeFile("../data/eventData.json", JSON.stringify(eventData), err => {
+
+            });
+
+            setTimeout(function () {
+
+                eventData[userID].cooldownActive = 0;
+
+                fs.writeFile("../data/eventData.json", JSON.stringify(eventData), err => {
+
+                });
+
+            }, cooldown * 1000);
+
+        }
+
         function eventTier(message, rolesList) {
 
             var yIterationCounter = 0;
@@ -125,6 +203,36 @@ module.exports = {
             }
 
             return roleChances;
+
+        }
+
+        function randomInteger(minimum, maximum) {
+
+            var random = Math.floor(Math.random() * maximum + 1);
+
+            for (let i = 0; true; i++) {
+                if (random < minimum) {
+                    random = Math.floor(Math.random() * maximum + 1);
+                } else {
+                    break;
+                }
+            }
+
+            return random;
+
+        }
+
+        function randomChance(percentage) {
+
+            var calc = 100 / percentage;
+
+            var random = randomInteger(1, Math.round(calc));
+
+            if (random == 1) {
+                return true;
+            } else {
+                return false;
+            }
 
         }
 
