@@ -13,6 +13,12 @@ module.exports = {
         if (message.channel.type === "dm") return true;
         if (message.author.bot) return true;
 
+        var eventActive = eventConfig.eventActive;
+
+        console.log(eventActive);
+
+        if (!(eventActive)) return true;
+
         var allowedCategories = eventConfig.eventCategories;
         var canContinue = false;
 
@@ -22,6 +28,8 @@ module.exports = {
             if (message.channel.id === element) canContinue = true;
 
         }
+
+        console.log(canContinue);
 
         if (!(canContinue)) return true;
 
@@ -64,12 +72,6 @@ module.exports = {
             }
 
         }
-
-        var eventActive = eventConfig.eventActive;
-
-        console.log(eventActive);
-
-        if (!(eventActive)) return true;
 
         var chances = roleChances(message, rolesList);
 
