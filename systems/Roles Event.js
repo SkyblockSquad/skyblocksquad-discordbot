@@ -15,8 +15,6 @@ module.exports = {
 
         var eventActive = eventConfig.eventActive;
 
-        console.log(eventActive);
-
         if (!(eventActive)) return true;
 
         var allowedCategories = eventConfig.eventCategories;
@@ -28,8 +26,6 @@ module.exports = {
             if (message.channel.id === element) canContinue = true;
 
         }
-
-        console.log(canContinue);
 
         if (!(canContinue)) return true;
 
