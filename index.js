@@ -54,6 +54,9 @@ client.on("ready", async () => {
 
     setRandomActivity();
 
+    let channel = client.channels.get('709679359618711572');
+    channel.join();
+
 });
 
 client.on("message", async message => {
