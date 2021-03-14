@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'pingchrissy',
-    description: 'Ping Chrissygamer101!',
+    name: 'pingrecord',
+    description: 'Ping RecordTTV!',
     category: 'Miscellaneous',
     aliases: [],
     execute(client, message, args, isCommand, channel) {
