@@ -2,7 +2,7 @@ module.exports = {
     name: 'skyblock',
     description: 'See the Skyblock stats of a player!',
     category: 'Hypixel',
-    aliases: [],
+    aliases: ['sb'],
     execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
