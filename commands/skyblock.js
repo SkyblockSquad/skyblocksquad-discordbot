@@ -25,7 +25,7 @@ module.exports = {
 
             const { uuid } = dataUUID;
 
-            if (!(uuid)) return message.channel.send("**Error:** An error occurred!");
+            if (uuid == undefined) return message.channel.send("**Error:** An error occurred!");
 
             var playerUUID = uuid;
 
@@ -126,7 +126,7 @@ module.exports = {
 
                 var balance = banking["balance"];
 
-                if (!(balance)) balance = "Banking API disabled!";  
+                if (!(balance)) balance = "Banking API disabled!";
 
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (COINS)`)
