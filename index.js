@@ -78,7 +78,7 @@ client.on("message", async message => {
 
     if (message.channel.type === "dm") return;
 
-    if (message.author.bot) return;
+    // if (message.author.bot) return;
 
     var chance = randomChance(10);
     if (chance) setRandomActivity();
