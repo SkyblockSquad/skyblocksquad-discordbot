@@ -2,6 +2,7 @@ module.exports = {
     name: 'poll',
     description: 'Create a poll! (Admin+)',
     category: 'Staff',
+    aliases: ['hellotherecanyoupleasemakeapollformethankyouverymuch'],
     execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
