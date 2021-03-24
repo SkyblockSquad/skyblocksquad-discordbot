@@ -23,7 +23,7 @@ module.exports = {
 
 
         if (!(command.aliases == undefined)) {
-            var aliases = command.aliases.join(" ");
+            var aliases = command.aliases.join(", ");
         } else {
             var aliases = "None";
         }
