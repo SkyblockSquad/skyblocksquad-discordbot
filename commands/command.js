@@ -20,7 +20,13 @@ module.exports = {
         var name = command.name;
         var description = command.description;
         var category = command.category;
-        var aliases = command.aliases.join(" ");
+
+
+        if (!(command.aliases == undefined)) {
+            var aliases = command.aliases.join(" ");
+        } else {
+            var alises = "None";
+        }
 
         var embed = new discord.MessageEmbed()
             .setTitle(`COMMAND INFORMATION (${args[0].toLowerCase()})`)
