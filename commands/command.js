@@ -25,7 +25,7 @@ module.exports = {
         if (!(command.aliases == undefined)) {
             var aliases = command.aliases.join(" ");
         } else {
-            var alises = "None";
+            var aliases = "None";
         }
 
         var embed = new discord.MessageEmbed()
