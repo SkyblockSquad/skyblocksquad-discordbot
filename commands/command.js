@@ -33,7 +33,7 @@ module.exports = {
             .setColor(embedColor)
             .setFooter(embedFooter)
             .setTimestamp()
-            .addFiels(
+            .addFields(
                 { name: "Command Name", value: name, inline: true },
                 { name: "Command Category", value: category, inline: true },
                 { name: "Command Description", value: description },
