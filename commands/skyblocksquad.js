@@ -2,7 +2,7 @@ module.exports = {
     name: 'skyblocksquad',
     description: 'Get stats about the SkyblockSquad guild!',
     category: 'Hypixel',
-    aliases: ['sbs'],
+    aliases: ['sbs', 'helloiwouldliketoseeskyblocksquadguildstats'],
     execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
