@@ -145,7 +145,8 @@ module.exports = {
                 var skills = member["skills"];
                 var skillsAmount = 8;
 
-                var skillAverage = (combatLVL + farmingLVL + miningLVL + foragingLVL + fishingLVL + enchantingLVL + alchemyLVL + tamingLVL) / skillsAmount;
+
+                var skillAverage = (parseInt(combatLVL) + parseInt(farmingLVL) + parseInt(miningLVL) + parseInt(foragingLVL) + parseInt(fishingLVL) + parseInt(enchantingLVL) + parseInt(alchemyLVL) + parseInt(tamingLVL)) / skillsAmount;
 
                 var combat = skills["combat"];
                 var combatLVL = combat["level"];
@@ -193,7 +194,7 @@ module.exports = {
                         { name: "Enchanting", value: `${enchantingLVL}/${enchantingMAX}` },
                         { name: "Alchemy", value: `${alchemyLVL}/${alchemyMAX}` },
                         { name: "Taming", value: `${tamingLVL}/${tamingMAX}` },
-                        {name: "Skill Average", value: `${skillAverage}`}
+                        { name: "Skill Average", value: `${skillAverage}` }
                     );
                 message.channel.send(embed);
 
@@ -210,6 +211,9 @@ module.exports = {
                 var wolf = slayer["wolf"];
                 var wolfLVL = wolf["claimed_levels"];
 
+                var enderman = slayer["enderman"];
+                var endermanLVL = enderman["claimed_levels"];
+
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (SLAYER)`)
                     .setColor(embedColor)
@@ -218,7 +222,8 @@ module.exports = {
                     .addFields(
                         { name: "Zombie Level", value: zombieLVL },
                         { name: "Spider Level", value: spiderLVL },
-                        { name: "Wolf Level", value: wolfLVL }
+                        { name: "Wolf Level", value: wolfLVL },
+                        { name: "Enderman Level", value: endermanLVL }
                     );
 
                 message.channel.send(embed);
