@@ -145,8 +145,7 @@ module.exports = {
                 var skills = member["skills"];
                 var skillsAmount = 8;
 
-                var skillAverage  = combatLVL + farmingLVL + miningLVL + foragingLVL + fishingLVL + enchantingLVL + alchemyLVL + tamingLVL;
-                skillAverage = skillAverage / skillsAmount;
+                var skillAverage = (combatLVL + farmingLVL + miningLVL + foragingLVL + fishingLVL + enchantingLVL + alchemyLVL + tamingLVL) / skillsAmount;
 
                 var combat = skills["combat"];
                 var combatLVL = combat["level"];
