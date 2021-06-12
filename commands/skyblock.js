@@ -145,9 +145,6 @@ module.exports = {
                 var skills = member["skills"];
                 var skillsAmount = 8;
 
-
-                var skillAverage = (parseInt(combatLVL) + parseInt(farmingLVL) + parseInt(miningLVL) + parseInt(foragingLVL) + parseInt(fishingLVL) + parseInt(enchantingLVL) + parseInt(alchemyLVL) + parseInt(tamingLVL)) / skillsAmount;
-
                 var combat = skills["combat"];
                 var combatLVL = combat["level"];
                 var combatMAX = combat["maxLevel"];
@@ -180,6 +177,8 @@ module.exports = {
                 var tamingLVL = taming["level"];
                 var tamingMAX = taming["maxLevel"];
 
+                var skillAverage = (parseInt(combatLVL) + parseInt(farmingLVL) + parseInt(miningLVL) + parseInt(foragingLVL) + parseInt(fishingLVL) + parseInt(enchantingLVL) + parseInt(alchemyLVL) + parseInt(tamingLVL)) / skillsAmount;
+
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (SKILLS)`)
                     .setColor(embedColor)
@@ -211,9 +210,6 @@ module.exports = {
                 var wolf = slayer["wolf"];
                 var wolfLVL = wolf["claimed_levels"];
 
-                var enderman = slayer["enderman"];
-                var endermanLVL = enderman["claimed_levels"];
-
                 var embed = new discord.MessageEmbed()
                     .setTitle(`SKYBLOCK (${args[0].toUpperCase()}) (SLAYER)`)
                     .setColor(embedColor)
@@ -222,8 +218,7 @@ module.exports = {
                     .addFields(
                         { name: "Zombie Level", value: zombieLVL },
                         { name: "Spider Level", value: spiderLVL },
-                        { name: "Wolf Level", value: wolfLVL },
-                        { name: "Enderman Level", value: endermanLVL }
+                        { name: "Wolf Level", value: wolfLVL }
                     );
 
                 message.channel.send(embed);
