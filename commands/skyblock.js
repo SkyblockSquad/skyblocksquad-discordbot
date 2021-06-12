@@ -143,6 +143,10 @@ module.exports = {
             } else if (args[1].toLowerCase() === "skills") {
 
                 var skills = member["skills"];
+                var skillsAmount = 8;
+
+                var skillAverage  = combatLVL + farmingLVL + miningLVL + foragingLVL + fishingLVL + enchantingLVL + alchemyLVL + tamingLVL;
+                skillAverage = skillAverage / skillsAmount;
 
                 var combat = skills["combat"];
                 var combatLVL = combat["level"];
@@ -190,6 +194,7 @@ module.exports = {
                         { name: "Enchanting", value: `${enchantingLVL}/${enchantingMAX}` },
                         { name: "Alchemy", value: `${alchemyLVL}/${alchemyMAX}` },
                         { name: "Taming", value: `${tamingLVL}/${tamingMAX}` },
+                        {name: "Skill Average", value: `${skillAverage}`}
                     );
                 message.channel.send(embed);
 
