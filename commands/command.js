@@ -2,7 +2,7 @@ module.exports = {
     name: 'command',
     description: 'View information about a command!',
     category: 'Information',
-    aliases: ['cmd'],
+    aliases: ['cmd', 'commandinformation', 'cmdinfo'],
     execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");

@@ -2,7 +2,7 @@ module.exports = {
     name: 'covid',
     description: 'See live covid-19 statistics! Confirmed cases, recovered people and deaths.',
     category: 'Covid-19',
-    aliases: ['corona'],
+    aliases: ['corona', 'covid-19'],
     execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
