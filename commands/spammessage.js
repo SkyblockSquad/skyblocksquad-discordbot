@@ -2,7 +2,7 @@ module.exports = {
     name: 'spammessage',
     description: 'Spam a message a certain amount of times! (Admin+)',
     category: 'Staff',
-    aliases: [],
+    aliases: ['smsg'],
     execute(client, message, args, isCommand, channel) {
 
         if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");

@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'poll',
-    description: 'Create a poll! (Admin+)',
+    name: 'qotd',
+    description: 'Create a new question of the day! (Admin+)',
     category: 'Staff',
-    aliases: ['createpoll'],
+    aliases: ['questionoftheday'],
     execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");
@@ -11,28 +11,11 @@ module.exports = {
         var embedColor = botConfig.embedColor;
         var embedFooter = botConfig.embedFooter;
 
-        var cmdChannel = channel;
+        var cmdChannel = message.channel;
 
-        if (isCommand) if (permissionLevel(message.member) < 4) return cmdChannel.send("**Error:** You don't have permission!");
+        if (permissionLevel(message.member) < 4) return cmdChannel.send("**Error:** You don't have permission!");
 
         var content = args.join(" ");
-
-        if (content.endsWith("-a")) {
-            var anonymous = "True";
-            content = content.slice(0, content.length - 3);
-        } else var anonymous = "False";
-
-        if (content.endsWith("-p")) {
-            var ping = "True";
-            content = content.slice(0, content.length - 3);
-        } else var ping = "False";
-
-        if (anonymous === "False") {
-            if (content.endsWith("-a")) {
-                var anonymous = "True";
-                content = content.slice(0, content.length - 3)
-            } else var anonymous = "False";
-        }
 
         content = content.split(" / ");
 
@@ -49,22 +32,19 @@ module.exports = {
         if (!(booleanPoll)) var reactions = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"];
         if (booleanPoll) var reactions = ["✅", "❌"];
 
-        if (options.length < 3 || options.length > 11) return cmdChannel.send("**Error:** Invalid syntax! Please use **,poll [question] / [option 1] / [option 2] / {option 3}... {-a} {-p}**\n*Minimum 2 options - Maximum 10 options*\n*Add -a to create an anonymous poll*\n*Add -p to ping*");
+        if (options.length < 3 || options.length > 11) return cmdChannel.send("**Error:** Invalid syntax! Please use **,qotd [question] / [option 1] / [option 2] / {option 3}... **\n*Minimum 2 options - Maximum 10 options*");
 
         var question = options[0];
         options.shift();
 
         var botEmbed = new discord.MessageEmbed()
-            .setTitle("POLL")
+            .setTitle("QUESTION OF THE DAY")
             .setColor(embedColor)
             .setFooter(embedFooter)
             .setTimestamp()
             .addField("Question", `The question is: **${question}**`)
 
-        if (isCommand && anonymous === "False") botEmbed.setDescription(`This poll was started by: <@${message.author.id}>`);
-        if (!(isCommand) && anonymous === "False") botEmbed.setDescription(`This poll was started by: <@715568351052693622>`);
-
-        if (ping === "True") cmdChannel.send("<@&772859858688802818>");
+        message.channel.send("ping here") 
 
         for (let i = 0; i < options.length; i++) {
 

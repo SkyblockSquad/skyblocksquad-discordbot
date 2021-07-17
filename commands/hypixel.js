@@ -2,6 +2,7 @@ module.exports = {
     name: 'hypixel',
     description: 'See your and other people\'s Hypixel stats!',
     category: 'Hypixel',
+    aliases: ['hy'],
     execute(client, message, args, isCommand, channel) {
 
         const discord = require("discord.js");

@@ -2,6 +2,7 @@ module.exports = {
     name: 'afk',
     description: 'Toggle afk mode! (Level 15+)',
     category: 'Miscellaneous',
+    aliases: ['iamafk', 'toggleafk'],
     execute(client, message, args, isCommand, channel) {
 
         if (args.length > 0) return message.channel.send("**Error:** You don't need to provide arguments!");
