@@ -93,7 +93,7 @@ module.exports = {
                             .setTitle("WELCOME TO YOUR TICKET!")
                             .setDescription("This is your ticket. Before answering the questions, make sure that you agree with everything in the #applications channel!")
                             .setColor("00BFFF")
-                            .addField("Note", "If the bot doesn't respond in about a minute,\nit's probally because the bot restarted\nor crashed during your application. Please\nmessage an Administrator if this happens.");
+                            .addField("Note", "If the bot doesn't respond in about a minute,\nit's probably because the bot restarted\nor crashed during your application. Please\nmessage an Administrator if this happens.");
 
                         var question_txt1 = applicationData.question1;
                         var question_txt2 = applicationData.question2;
