@@ -14,20 +14,20 @@ module.exports = {
 
         if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
 
-        async function getTicketOwner(channel) {
+        function getTicketOwner(channel) {
 
             var topic = channel.topic;
 
             var ticketArgs = topic.split(" ");
             var ticketID = ticketArgs[1];
 
-            var ticketOwner = await client.users.fetch(ticketID);
-
-            return ticketOwner;
+            var ticketOwner = client.users.fetch(ticketID).then(user => {
+                return ticketOwner;
+            });
 
         }
 
-        var ticketUser = await getTicketOwner(message.channel);
+        var ticketUser = getTicketOwner(message.channel);
 
         var choiceEmbed = new discord.MessageEmbed()
             .setTitle("MANAGE APPLICATION")
