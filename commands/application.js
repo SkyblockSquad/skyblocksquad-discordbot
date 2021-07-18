@@ -59,58 +59,63 @@ module.exports = {
 
             var emoji = await promptMessage(msg, message.author, 120, ["☑️", "❌", "🎟️", "🎫", "📥"]);
 
+            msg.delete();
+
             if (emoji === "☑️") {
 
-                message.channel.send(reasonEmbed);
+                message.channel.send(reasonEmbed).then(reasonMsg => {
 
-                message.channel.awaitMessages(filter, { max: 1, time: 300000 }).then(collected => {
+                    message.channel.awaitMessages(filter, { max: 1, time: 300000 }).then(collected => {
 
-                    var reason = collected.first();
+                        reasonMsg.delete();
 
-                    if (reason == undefined) reason = "No reason supplied!";
+                        var reason = collected.first();
+    
+                        if (reason == undefined) reason = "No reason supplied!";
+    
+                        reason = reason.toString();
+    
+                        if (reason.length > 1024) {
+                            var plainMessage = "true";
+                        } else {
+                            var plainMessage = "false";
+                        }
+    
+                        var result = new discord.MessageEmbed()
+                            .setTitle("ACCEPTED")
+                            .setColor("00BFFF")
+                            .addField("User:", `${ticketUser}`, false)
+    
+                        if (plainMessage === "false") {
+                            result.addField("Reason:", `${reason}`, false)
+                        }
+    
+                        result.addField("Accepted by:", `<@${message.author.id}>`, false)
+    
+                        message.channel.send(result);
+    
+                        var dm = new discord.MessageEmbed()
+                            .setTitle("ACCEPTED")
+                            .setColor("00BFFF")
+                            .setDescription("Your Helper application has been accepted!")
+                            .addField("Accepted by:", `<@${message.author.id}>`, false)
+    
+                        if (plainMessage === "false") {
+                            dm.addField("Reason:", `${reason}`, false)
+                        }
+    
+                        ticketUser.send(dm).then(() => {
+    
+                            if (plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
+    
+                            message.channel.send(dmEnabled);
+                        }).catch(() => {
+                            message.channel.send(dmDisabled);
+                        })
+    
+                    });
 
-                    reason = reason.toString();
-
-                    if (reason.length > 1024) {
-                        var plainMessage = "true";
-                    } else {
-                        var plainMessage = "false";
-                    }
-
-                    var result = new discord.MessageEmbed()
-                        .setTitle("ACCEPTED")
-                        .setColor("00BFFF")
-                        .addField("User:", `${ticketUser}`, false)
-
-                    if (plainMessage === "false") {
-                        result.addField("Reason:", `${reason}`, false)
-                    }
-
-                    result.addField("Accepted by:", `<@${message.author.id}>`, false)
-
-                    message.channel.bulkDelete(3);
-                    message.channel.send(result);
-
-                    var dm = new discord.MessageEmbed()
-                        .setTitle("ACCEPTED")
-                        .setColor("00BFFF")
-                        .setDescription("Your Helper application has been accepted!")
-                        .addField("Accepted by:", `<@${message.author.id}>`, false)
-
-                    if (plainMessage === "false") {
-                        dm.addField("Reason:", `${reason}`, false)
-                    }
-
-                    ticketUser.send(dm).then(() => {
-
-                        if (plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
-
-                        message.channel.send(dmEnabled);
-                    }).catch(() => {
-                        message.channel.send(dmDisabled);
-                    })
-
-                })
+                });
 
             } else if (emoji === "❌") {
 

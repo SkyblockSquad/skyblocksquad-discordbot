@@ -44,7 +44,7 @@ module.exports = {
             .setTimestamp()
             .addField("Question", `The question is: **${question}**`)
 
-        message.channel.send("ping here") 
+        message.channel.send("<@865886965471903754>");
 
         for (let i = 0; i < options.length; i++) {
 
