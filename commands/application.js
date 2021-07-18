@@ -121,60 +121,64 @@ module.exports = {
 
             } else if (emoji === "❌") {
 
-                message.channel.send(reasonEmbed);
+                message.channel.send(reasonEmbed).then(reasonMsg => {
 
-                message.channel.awaitMessages(filter, { max: 1, time: 120000 }).then(collected => {
+                    message.channel.awaitMessages(filter, { max: 1, time: 120000 }).then(collected => {
 
-                    var reason = collected.first();
+                        reasonMsg.delete();
 
-                    if (reason == undefined) reason = "No reason supplied!";
+                        var reason = collected.first();
+    
+                        if (reason == undefined) reason = "No reason supplied!";
+    
+                        reason = reason.toString();
+    
+                        if (reason.length > 1024) {
+                            var plainMessage = "true";
+                        } else {
+                            var plainMessage = "false";
+                        }
+    
+                        var result = new discord.MessageEmbed()
+                            .setTitle("REJECTED")
+                            .setColor("00BFFF")
+                            .addField("User:", `${ticketUser}`, false)
+    
+                        if (plainMessage === "false") {
+                            result.addField("Reason:", `${reason}`, false)
+                        }
+    
+                        result.addField("Rejected by:", `<@${message.author.id}>`, false)
+    
+                        message.channel.bulkDelete(3);
+                        message.channel.send(result);
+    
+                        var dm = new discord.MessageEmbed()
+                            .setTitle("REJECTED")
+                            .setColor("00BFFF")
+                            .setDescription("Your Helper application has been rejected!")
+                            .addField("Rejected by:", `<@${message.author.id}>`, false)
+    
+                        if (plainMessage === "false") {
+                            dm.addField("Reason:", `${reason}`, false)
+                        }
+    
+                        ticketUser.send(dm).then(() => {
+    
+                            if (plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
+    
+                            message.channel.send(dmEnabled)
+                        }).catch(() => {
+                            message.channel.send(dmDisabled);
+                        });
 
-                    reason = reason.toString();
+                        collected.first().delete();
+    
+                    });
 
-                    if (reason.length > 1024) {
-                        var plainMessage = "true";
-                    } else {
-                        var plainMessage = "false";
-                    }
-
-                    var result = new discord.MessageEmbed()
-                        .setTitle("REJECTED")
-                        .setColor("00BFFF")
-                        .addField("User:", `${ticketUser}`, false)
-
-                    if (plainMessage === "false") {
-                        result.addField("Reason:", `${reason}`, false)
-                    }
-
-                    result.addField("Rejected by:", `<@${message.author.id}>`, false)
-
-                    message.channel.bulkDelete(3);
-                    message.channel.send(result);
-
-                    var dm = new discord.MessageEmbed()
-                        .setTitle("REJECTED")
-                        .setColor("00BFFF")
-                        .setDescription("Your Helper application has been rejected!")
-                        .addField("Rejected by:", `<@${message.author.id}>`, false)
-
-                    if (plainMessage === "false") {
-                        dm.addField("Reason:", `${reason}`, false)
-                    }
-
-                    ticketUser.send(dm).then(() => {
-
-                        if (plainMessage === "true") ticketUser.send(`**Reason:** ${reason}`);
-
-                        message.channel.send(dmEnabled)
-                    }).catch(() => {
-                        message.channel.send(dmDisabled);
-                    })
-
-                })
+                });
 
             } else if (emoji === "🎟️") {
-
-                message.channel.bulkDelete(1);
 
                 message.channel.updateOverwrite(ticketUser, {
                     SEND_MESSAGES: true,
@@ -193,8 +197,6 @@ module.exports = {
                 message.channel.send(embed);
 
             } else if (emoji === "🎫") {
-
-                message.channel.bulkDelete(1);
 
                 message.channel.updateOverwrite(ticketUser, {
                     SEND_MESSAGES: false,
@@ -217,8 +219,6 @@ module.exports = {
                 var archivedCategory = "775289725710893056";
 
                 message.channel.setParent(archivedCategory);
-
-                message.channel.bulkDelete(1);
 
                 var channelName = message.channel.name;
 
