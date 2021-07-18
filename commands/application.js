@@ -21,9 +21,9 @@ module.exports = {
             var ticketArgs = topic.split(" ");
             var ticketID = ticketArgs[1];
 
-            var ticketOwner = client.users.fetch(ticketID).then(user => {
-                return ticketOwner;
-            });
+            var ticketOwner = message.guild.members.cache.get(ticketID);
+
+            return ticketOwner;
 
         }
 
