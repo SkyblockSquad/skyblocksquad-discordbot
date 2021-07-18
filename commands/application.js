@@ -150,7 +150,6 @@ module.exports = {
     
                         result.addField("Rejected by:", `<@${message.author.id}>`, false)
     
-                        message.channel.bulkDelete(3);
                         message.channel.send(result);
     
                         var dm = new discord.MessageEmbed()
