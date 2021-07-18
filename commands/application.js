@@ -21,9 +21,7 @@ module.exports = {
             var ticketArgs = topic.split(" ");
             var ticketID = ticketArgs[1];
 
-            channel.send(`<@${ticketID}>`);
-
-            var ticketOwner = message.guild.members.cache.get(ticketID);
+            var ticketOwner = await client.users.fetch(ticketID);
 
             return ticketOwner;
 
