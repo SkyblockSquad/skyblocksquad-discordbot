@@ -14,7 +14,7 @@ module.exports = {
 
         if (permissionLevel(message.member) < 4) return message.channel.send("**Error:** You don't have permission to do this!");
 
-        function getTicketOwner(channel) {
+        async function getTicketOwner(channel) {
 
             var topic = channel.topic;
 
@@ -27,7 +27,7 @@ module.exports = {
 
         }
 
-        var ticketUser = getTicketOwner(message.channel);
+        var ticketUser = await getTicketOwner(message.channel);
 
         var choiceEmbed = new discord.MessageEmbed()
             .setTitle("MANAGE APPLICATION")
