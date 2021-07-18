@@ -21,9 +21,9 @@ module.exports = {
             var ticketArgs = topic.split(" ");
             var ticketID = ticketArgs[1];
 
-            var ticketOwner = await client.users.fetch(ticketID);
-
-            return ticketOwner;
+            var ticketOwner = client.users.fetch(ticketID).then(user => {
+                return ticketOwner;
+            });
 
         }
 
