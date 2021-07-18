@@ -21,7 +21,7 @@ module.exports = {
             var ticketArgs = topic.split(" ");
             var ticketID = ticketArgs[1];
 
-            message.guild.members.fetch(ticketID);
+            message.guild.members.fetch();
 
             var ticketOwner = message.guild.members.cache.get(ticketID);
 
