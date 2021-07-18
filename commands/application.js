@@ -111,7 +111,9 @@ module.exports = {
                             message.channel.send(dmEnabled);
                         }).catch(() => {
                             message.channel.send(dmDisabled);
-                        })
+                        });
+
+                        collected.first().delete();
     
                     });
 
