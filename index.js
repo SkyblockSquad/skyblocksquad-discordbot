@@ -72,7 +72,7 @@ client.on("message", async message => {
 
     returnStatements.forEach(statement => {
         if (statement == false) canContinue = false;
-    })
+    });
 
     if (canContinue == false) return;
 
