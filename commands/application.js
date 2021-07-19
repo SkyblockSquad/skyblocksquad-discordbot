@@ -21,6 +21,8 @@ module.exports = {
             var ticketArgs = topic.split(" ");
             var ticketID = ticketArgs[1];
 
+            message.guild.members.fetch(ticketID);
+
             var ticketOwner = message.guild.members.cache.get(ticketID);
 
             return ticketOwner;
@@ -32,9 +34,9 @@ module.exports = {
         if (ticketUser == undefined) {
 
             var fetchErrorEmbed = new discord.MessageEmbed()
-            .setTitle("ERROR!")
-            .setColor("FF0000")
-            .setDescription("Couldn't find who created this ticket!\nTo fix this issue, please ping the user\nthat created this ticket.")
+                .setTitle("ERROR!")
+                .setColor("FF0000")
+                .setDescription("Couldn't find who created this ticket!\nTo fix this issue, please ping the user\nthat created this ticket.")
 
             return message.channel.send(fetchErrorEmbed);
 
