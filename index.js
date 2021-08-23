@@ -94,6 +94,12 @@ client.on("message", async message => {
 
 });
 
+client.on("messageReactionRemove", async (reaction, user) => {
+
+    console.log(`eyyy whatup so uhm ${user.username} removed a reaction :/`);
+
+});
+
 function setRandomActivity() {
 
     var activities = ["skyblock", "music", "youtube", "bedwars", "server stats", "minecraft"];
