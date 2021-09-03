@@ -38,9 +38,9 @@ module.exports = {
         var level45role = message.member.roles.cache.find(role => role.id === "773454622190600222");
         var level50role = message.member.roles.cache.find(role => role.id === "773454761503490098");
 
-        if (!level5role && !level10role && !level15role && !level20role && !level25role && !level30role && !level35role && !level40role && !level45role && !level50role) {
-            return message.channel.send("**Error:** You must be atleast **level 5** or higher to do this!");
-        }
+        //if (!level5role && !level10role && !level15role && !level20role && !level25role && !level30role && !level35role && !level40role && !level45role && !level50role) {
+        //    return message.channel.send("**Error:** You must be atleast **level 5** or higher to do this!");
+        //}
 
         var proRole = message.member.roles.cache.find(role => role.id === "683206276586668053");
         var adminRole = message.member.roles.cache.find(role => role.id === "683205637001183365");
